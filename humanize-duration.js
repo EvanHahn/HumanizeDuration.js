@@ -1,3 +1,13 @@
+/*
+
+HumanizeDuration.js
+
+Lovingly made by Evan Hahn.
+
+MIT licensed.
+
+*/
+
 ;(function(global, undefined) {
 
 	// Start by defining the units and how many ms is in each.
