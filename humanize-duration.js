@@ -2,9 +2,7 @@
 
 HumanizeDuration.js
 
-Lovingly made by Evan Hahn.
-
-MIT licensed.
+Lovingly made by Evan Hahn. Unlicensed.
 
 */
 
