@@ -20,6 +20,6 @@ In the Node (after installing [the package](https://npmjs.org/package/humanize-d
     var humanizeDuration = require("humanize-duration");
     humanizeDuration(12000);
 
-English only for now.
+English only for now. Submit a pull request!
 
 Lovingly made by Evan Hahn. Enjoy!
