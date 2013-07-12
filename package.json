@@ -22,5 +22,9 @@
     "years",
     "months"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/EvanHahn/HumanizeDuration.js.git"
+  },
   "license": "MIT"
 }
