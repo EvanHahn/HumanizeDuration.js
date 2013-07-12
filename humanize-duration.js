@@ -64,7 +64,7 @@
 	};
 
 	// Export this baby.
-	if (module && module.exports)
+	if ((typeof module !== "undefined") && (module.exports))
 		module.exports = humanizeDuration;
 	else
 		global.humanizeDuration = humanizeDuration;
