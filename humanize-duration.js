@@ -21,13 +21,10 @@ Lovingly made by Evan Hahn. Unlicensed.
 	];
 
 	// A utility function for creating the strings.
-	// pluralize(1, "minute") == "1 minute"
-	// pluralize(12, "hours") == "12 hours"
-	var pluralize = function(count, word) {
-		if (count === 1)
-			return count + " " + word;
-		else
-			return count + " " + word + "s";
+	// render(1, "minute") == "1 minute"
+	// render(12, "hours") == "12 hours"
+	var render = function(count, word) {
+		return count + " " + humanizeDuration.lang()[word](count);
 	};
 
 	// The moment (ha) you've all been waiting for: the main function.
@@ -51,7 +48,7 @@ Lovingly made by Evan Hahn. Unlicensed.
 			if (result.length === 0) {
 				mightBeHalfUnit = (ms / unit.milliseconds) * 2;
 				if (mightBeHalfUnit === Math.floor(mightBeHalfUnit))
-					return pluralize(mightBeHalfUnit / 2, unit.name);
+					return render(mightBeHalfUnit / 2, unit.name);
 			}
 
 			// What's the number of full units we can fit?
@@ -59,7 +56,7 @@ Lovingly made by Evan Hahn. Unlicensed.
 
 			// Add the string.
 			if (unitCount)
-				result.push(pluralize(unitCount, unit.name));
+				result.push(render(unitCount, unit.name));
 
 			// Remove what we just figured out.
 			ms -= unitCount * unit.milliseconds;
@@ -70,6 +67,30 @@ Lovingly made by Evan Hahn. Unlicensed.
 		return result.join(", ");
 
 	};
+
+	humanizeDuration.prototype._languages = {
+		"en": {
+			year: function (c) { return "year" + ((c !== 1) ? 's' :'');},
+			month: function (c) { return "month" + ((c !== 1) ? 's' :'');},
+			week: function (c) { return "week" + ((c !== 1) ? 's' :'');},
+			day: function (c) { return "day" + ((c !== 1) ? 's' :'');},
+			hour: function (c) { return "hour" + ((c !== 1) ? 's' :'');},
+			minute: function (c) { return "minute" + ((c !== 1) ? 's' :'');},
+			second: function (c) { return "second" + ((c !== 1) ? 's' :'');},
+			millisecond: function (c) { return "millisecond" + ((c !== 1) ? 's' :'');},
+		}
+	}
+
+	humanizeDuration.prototype._lang = humanizeDuration.prototype._languages["en"]
+
+	humanizeDuration.lang = function (key, values) {
+		if (!key) return humanizeDuration.prototype._lang;
+
+		if (typeof values !== "undefined")
+			humanizeDuration.prototype._languages[key] = values
+		else
+			humanizeDuration.prototype._lang = humanizeDuration.prototype._languages[key]
+	}
 
 	// Export this baby.
 	if ((typeof module !== "undefined") && (module.exports))
