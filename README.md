@@ -31,4 +31,4 @@ Currently supported languages:
 * French (fr)
 * Catalan (ca)
 
-Lovingly made by [Evan Hahn](http://evanhahn.com/) with language support by [Martin Prins](http://thingsofgeek.com/). Enjoy!
+Lovingly made by [Evan Hahn](http://evanhahn.com/) with language support by [Martin Prins](https://github.com/magarcia). Enjoy!
