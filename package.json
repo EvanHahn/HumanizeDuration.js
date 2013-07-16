@@ -1,8 +1,8 @@
 {
   "name": "humanize-duration",
   "author": "Evan Hahn",
-  "version": "0.1.0",
-  "description": "Convert millisecond durations to English.",
+  "version": "0.2.0",
+  "description": "Convert millisecond durations to English (or a few other languages).",
   "main": "humanize-duration.js",
   "scripts": {
     "test": "mocha"
