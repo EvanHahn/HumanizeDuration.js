@@ -7,7 +7,7 @@ I have the time in milliseconds and I want it to become "30 minutes" or "3 days,
     humanizeDuration(3000);        // "3 seconds"
     humanizeDuration(2012);        // "2 seconds, 12 milliseconds"
     humanizeDuration(97320000);    // "1 day, 3 hours, 2 minutes"
-    humanizeDuration(3000, "es");  // "3 seconds"
+    humanizeDuration(3000, "es");  // "3 segundos"
 
     humanizeDuration.language = "fr";  // change default language to French
     humanizeDuration(3000);            // "3 secondes"
