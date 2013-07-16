@@ -73,44 +73,44 @@ Lovingly made by Evan Hahn. Unlicensed.
 	// What are the languages?
 	humanizeDuration.languages = {
 		en: {
-			year: function (c) { return "year" + ((c !== 1) ? 's' :'');},
-			month: function (c) { return "month" + ((c !== 1) ? 's' :'');},
-			week: function (c) { return "week" + ((c !== 1) ? 's' :'');},
-			day: function (c) { return "day" + ((c !== 1) ? 's' :'');},
-			hour: function (c) { return "hour" + ((c !== 1) ? 's' :'');},
-			minute: function (c) { return "minute" + ((c !== 1) ? 's' :'');},
-			second: function (c) { return "second" + ((c !== 1) ? 's' :'');},
-			millisecond: function (c) { return "millisecond" + ((c !== 1) ? 's' :'');}
+			year: function(c) { return "year" + ((c !== 1) ? "s" : ""); },
+			month: function(c) { return "month" + ((c !== 1) ? "s" : ""); },
+			week: function(c) { return "week" + ((c !== 1) ? "s" : ""); },
+			day: function(c) { return "day" + ((c !== 1) ? "s" : ""); },
+			hour: function(c) { return "hour" + ((c !== 1) ? "s" : ""); },
+			minute: function(c) { return "minute" + ((c !== 1) ? "s" : ""); },
+			second: function(c) { return "second" + ((c !== 1) ? "s" : ""); },
+			millisecond: function(c) { return "millisecond" + ((c !== 1) ? "s" : ""); }
 		},
 		ca: {
-			year: function (c) { return "any" + ((c !== 1) ? 's' :'');},
-			month: function (c) { return "mes" + ((c !== 1) ? 'os' :'');},
-			week: function (c) { return "setman" + ((c !== 1) ? 'es' :'a');},
-			day: function (c) { return "di" + ((c !== 1) ? 'es' :'a');},
-			hour: function (c) { return "hor" + ((c !== 1) ? 'es' :'a');},
-			minute: function (c) { return "minut" + ((c !== 1) ? 's' :'');},
-			second: function (c) { return "segon" + ((c !== 1) ? 's' :'');},
-			millisecond: function (c) { return "milisegon" + ((c !== 1) ? 's' :'');}
+			year: function(c) { return "any" + ((c !== 1) ? "s" : ""); },
+			month: function(c) { return "mes" + ((c !== 1) ? "os" : ""); },
+			week: function(c) { return "setman" + ((c !== 1) ? "es" :"a"); },
+			day: function(c) { return "di" + ((c !== 1) ? "es" :"a"); },
+			hour: function(c) { return "hor" + ((c !== 1) ? "es" :"a"); },
+			minute: function(c) { return "minut" + ((c !== 1) ? "s" : ""); },
+			second: function(c) { return "segon" + ((c !== 1) ? "s" : ""); },
+			millisecond: function(c) { return "milisegon" + ((c !== 1) ? "s" : "" ); }
 		},
 		es: {
-			year: function (c) { return "año" + ((c !== 1) ? 's' :'');},
-			month: function (c) { return "mes" + ((c !== 1) ? 'es' :'');},
-			week: function (c) { return "semana" + ((c !== 1) ? 's' :'');},
-			day: function (c) { return "día" + ((c !== 1) ? 's' :'');},
-			hour: function (c) { return "hora" + ((c !== 1) ? 's' :'');},
-			minute: function (c) { return "minuto" + ((c !== 1) ? 's' :'');},
-			second: function (c) { return "segundo" + ((c !== 1) ? 's' :'');},
-			millisecond: function (c) { return "milisegundo" + ((c !== 1) ? 's' :'');}
+			year: function(c) { return "año" + ((c !== 1) ? "s" : ""); },
+			month: function(c) { return "mes" + ((c !== 1) ? "es" : ""); },
+			week: function(c) { return "semana" + ((c !== 1) ? "s" : ""); },
+			day: function(c) { return "día" + ((c !== 1) ? "s" : ""); },
+			hour: function(c) { return "hora" + ((c !== 1) ? "s" : ""); },
+			minute: function(c) { return "minuto" + ((c !== 1) ? "s" : ""); },
+			second: function(c) { return "segundo" + ((c !== 1) ? "s" : ""); },
+			millisecond: function(c) { return "milisegundo" + ((c !== 1) ? "s" : "" ); }
 		},
 		fr: {
-			year: function (c) { return "an" + ((c !== 1) ? 's' :'');},
-			month: function (c) { return "mois";},
-			week: function (c) { return "semaine" + ((c !== 1) ? 's' :'');},
-			day: function (c) { return "jour" + ((c !== 1) ? 's' :'');},
-			hour: function (c) { return "heure" + ((c !== 1) ? 's' :'');},
-			minute: function (c) { return "minute" + ((c !== 1) ? 's' :'');},
-			second: function (c) { return "seconde" + ((c !== 1) ? 's' :'');},
-			millisecond: function (c) { return "milliseconde" + ((c !== 1) ? 's' :'');}
+			year: function(c) { return "an" + ((c !== 1) ? "s" : ""); },
+			month: function(c) { return "mois"; },
+			week: function(c) { return "semaine" + ((c !== 1) ? "s" : ""); },
+			day: function(c) { return "jour" + ((c !== 1) ? "s" : ""); },
+			hour: function(c) { return "heure" + ((c !== 1) ? "s" : ""); },
+			minute: function(c) { return "minute" + ((c !== 1) ? "s" : ""); },
+			second: function(c) { return "seconde" + ((c !== 1) ? "s" : ""); },
+			millisecond: function(c) { return "milliseconde" + ((c !== 1) ? "s" : ""); }
 		}
 	}
 	humanizeDuration.language = "en";
