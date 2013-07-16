@@ -1,8 +1,9 @@
 /*
 
 HumanizeDuration.js
+http://git.io/j0HgmQ
 
-Lovingly made by Evan Hahn. Unlicensed.
+Lovingly made by Evan Hahn with language support by Martin Prins. Unlicensed.
 
 */
 
