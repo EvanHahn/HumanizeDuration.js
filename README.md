@@ -30,5 +30,6 @@ Currently supported languages:
 * Spanish (es)
 * French (fr)
 * Catalan (ca)
+* Portuguese (pt)
 
 Lovingly made by [Evan Hahn](http://evanhahn.com/) with language support by [Martin Prins](https://github.com/magarcia). Enjoy!

@@ -113,6 +113,16 @@ Lovingly made by Evan Hahn with language support by Martin Prins. Unlicensed.
 			second: function(c) { return "seconde" + ((c !== 1) ? "s" : ""); },
 			millisecond: function(c) { return "milliseconde" + ((c !== 1) ? "s" : ""); }
 		}
+		pt: {
+			year: function(c) { return "ano" + ((c !== 1) ? "s" : ""); },
+			month: function(c) { return "mês"((c !== 1) ? "es" : ""); },
+			week: function(c) { return "semana" + ((c !== 1) ? "s" : ""); },
+			day: function(c) { return "dia" + ((c !== 1) ? "s" : ""); },
+			hour: function(c) { return "hora" + ((c !== 1) ? "s" : ""); },
+			minute: function(c) { return "minuto" + ((c !== 1) ? "s" : ""); },
+			second: function(c) { return "segundo" + ((c !== 1) ? "s" : ""); },
+			millisecond: function(c) { return "milesegundo" + ((c !== 1) ? "s" : ""); }
+		}
 	}
 	humanizeDuration.language = "en";
 
