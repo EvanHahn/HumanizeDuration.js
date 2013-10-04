@@ -112,7 +112,7 @@ Lovingly made by Evan Hahn with language support by Martin Prins. Unlicensed.
 			minute: function(c) { return "minute" + ((c !== 1) ? "s" : ""); },
 			second: function(c) { return "seconde" + ((c !== 1) ? "s" : ""); },
 			millisecond: function(c) { return "milliseconde" + ((c !== 1) ? "s" : ""); }
-		}
+		},
 		pt: {
 			year: function(c) { return "ano" + ((c !== 1) ? "s" : ""); },
 			month: function(c) { return "mês"((c !== 1) ? "es" : ""); },
