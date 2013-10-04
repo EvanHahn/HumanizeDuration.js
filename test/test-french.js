@@ -9,7 +9,7 @@ chai.should();
 describe("French humanization of duration", function() {
 
 	beforeEach(function() {
-		humanizing.language = "fr";
+		humanizing.language = "en";
 	});
 
 	it("humanizes 0ms", function() {
