@@ -9,28 +9,7 @@ Lovingly made by Evan Hahn with language support by Martin Prins. Unlicensed.
 
 ;(function(global) {
 
-	// Start by defining the units and how many ms is in each.
-	var UNITS = [
-		{ name: "year", milliseconds: 31557600000 },
-		{ name: "month", milliseconds: 2629800000 },
-		{ name: "week", milliseconds: 604800000 },
-		{ name: "day", milliseconds: 86400000 },
-		{ name: "hour", milliseconds: 3600000 },
-		{ name: "minute", milliseconds: 60000 },
-		{ name: "second", milliseconds: 1000 },
-		{ name: "millisecond", milliseconds: 1 }
-	];
-
-	// A utility function for creating the strings.
-	// render(1, "minute") == "1 minute"
-	// render(12, "hours") == "12 hours"
-	// render(2, "hour", "es") == "2 horas"
-	var render = function(count, word, language) {
-		var dictionary = humanizeDuration.LANGUAGES[language || humanizeDuration.language];
-		return count + " " + dictionary[word](count);
-	};
-
-	// The moment (ha) you've all been waiting for: the main function.
+	// The main function.
 	var humanizeDuration = function(ms, language) {
 
 		// Humanizing zero, I see.
@@ -69,6 +48,27 @@ Lovingly made by Evan Hahn with language support by Martin Prins. Unlicensed.
 		// All done! Turn the array into a string.
 		return result.join(", ");
 
+	};
+
+	// Start by defining the units and how many ms is in each.
+	var UNITS = [
+		{ name: "year", milliseconds: 31557600000 },
+		{ name: "month", milliseconds: 2629800000 },
+		{ name: "week", milliseconds: 604800000 },
+		{ name: "day", milliseconds: 86400000 },
+		{ name: "hour", milliseconds: 3600000 },
+		{ name: "minute", milliseconds: 60000 },
+		{ name: "second", milliseconds: 1000 },
+		{ name: "millisecond", milliseconds: 1 }
+	];
+
+	// A utility function for creating the strings.
+	// render(1, "minute") == "1 minute"
+	// render(12, "hour") == "12 hours"
+	// render(2, "hour", "es") == "2 horas"
+	var render = function(count, word, language) {
+		var dictionary = humanizeDuration.LANGUAGES[language || humanizeDuration.language];
+		return count + " " + dictionary[word](count);
 	};
 
 	// What are the languages?
