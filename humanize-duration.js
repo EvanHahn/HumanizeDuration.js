@@ -7,7 +7,7 @@ Lovingly made by Evan Hahn with language support by Martin Prins. Unlicensed.
 
 */
 
-;(function(global, undefined) {
+;(function(global) {
 
 	// Start by defining the units and how many ms is in each.
 	var UNITS = [
