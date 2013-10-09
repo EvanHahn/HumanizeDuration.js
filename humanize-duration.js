@@ -122,6 +122,16 @@ Lovingly made by Evan Hahn with language support by Martin Prins. Unlicensed.
 			minute: function(c) { return "minuto" + ((c !== 1) ? "s" : ""); },
 			second: function(c) { return "segundo" + ((c !== 1) ? "s" : ""); },
 			millisecond: function(c) { return "milesegundo" + ((c !== 1) ? "s" : ""); }
+		},
+		ko: {
+			year: function(c) { return "년"; },
+			month: function(c) { return "개월"; },
+			week: function(c) { return "주일"; },
+			day: function(c) { return "일"; },
+			hour: function(c) { return "시간"; },
+			minute: function(c) { return "분"; },
+			second: function(c) { return "초"; },
+			millisecond: function(c) { return "밀리 초"; }
 		}
 	}
 	humanizeDuration.language = "en";

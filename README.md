@@ -11,6 +11,7 @@ I have the time in milliseconds and I want it to become "30 minutes" or "3 days,
 
     humanizeDuration.language = "fr";  // change default language to French
     humanizeDuration(3000);            // "3 secondes"
+    humanizeDuration(5000, "ko");      // "5 초"
 
 In the browser:
 
@@ -31,5 +32,6 @@ Currently supported languages:
 * French (fr)
 * Catalan (ca)
 * Portuguese (pt)
+* Korean (ko)
 
 Lovingly made by [Evan Hahn](http://evanhahn.com/) with language support by [Martin Prins](https://github.com/magarcia). Enjoy!
