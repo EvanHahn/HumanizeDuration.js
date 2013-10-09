@@ -7,6 +7,7 @@ I have the time in milliseconds and I want it to become "30 minutes" or "3 days,
     humanizeDuration(3000);        // "3 seconds"
     humanizeDuration(2012);        // "2 seconds, 12 milliseconds"
     humanizeDuration(97320000);    // "1 day, 3 hours, 2 minutes"
+
     humanizeDuration(3000, "es");  // "3 segundos"
 
     humanizeDuration.language = "fr";  // change default language to French
@@ -25,7 +26,7 @@ In the Node (after installing [the package](https://npmjs.org/package/humanize-d
     var humanizeDuration = require("humanize-duration");
     humanizeDuration(12000);
 
-Currently supported languages:
+Supported languages:
 
 * English (en)
 * Spanish (es)
@@ -34,4 +35,6 @@ Currently supported languages:
 * Portuguese (pt)
 * Korean (ko)
 
-Lovingly made by [Evan Hahn](http://evanhahn.com/) with language support by [Martin Prins](https://github.com/magarcia). Enjoy!
+Lovingly made by [Evan Hahn](http://evanhahn.com/) with language support by [Martin Prins](https://github.com/magarcia). Thanks to [Filipi Siqueira](https://github.com/filipi777) for Portuguese support.
+
+Enjoy!
