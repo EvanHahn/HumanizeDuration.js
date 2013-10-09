@@ -26,7 +26,7 @@ Lovingly made by Evan Hahn with language support by Martin Prins. Unlicensed.
 	// render(12, "hours") == "12 hours"
 	// render(2, "hour", "es") == "2 horas"
 	var render = function(count, word, language) {
-		var dictionary = humanizeDuration.languages[language || humanizeDuration.language];
+		var dictionary = humanizeDuration.LANGUAGES[language || humanizeDuration.language];
 		return count + " " + dictionary[word](count);
 	};
 
@@ -72,7 +72,7 @@ Lovingly made by Evan Hahn with language support by Martin Prins. Unlicensed.
 	};
 
 	// What are the languages?
-	humanizeDuration.languages = {
+	humanizeDuration.LANGUAGES = {
 		en: {
 			year: function(c) { return "year" + ((c !== 1) ? "s" : ""); },
 			month: function(c) { return "month" + ((c !== 1) ? "s" : ""); },
@@ -133,7 +133,9 @@ Lovingly made by Evan Hahn with language support by Martin Prins. Unlicensed.
 			second: function(c) { return "초"; },
 			millisecond: function(c) { return "밀리 초"; }
 		}
-	}
+	};
+
+	// What's the default language?
 	humanizeDuration.language = "en";
 
 	// Export this baby.
