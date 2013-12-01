@@ -21,7 +21,7 @@ In the browser:
     humanizeDuration(12000);
     </script>
 
-In the Node (after installing [the package](https://npmjs.org/package/humanize-duration)):
+In Node or Browserify (after installing [the package](https://npmjs.org/package/humanize-duration)):
 
     var humanizeDuration = require("humanize-duration");
     humanizeDuration(12000);
