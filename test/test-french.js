@@ -1,8 +1,5 @@
-var chai = require("chai");
 var humanizing = require("../humanize-duration");
-require("sugar");
-
-chai.should();
+require("chai").should();
 
 describe("French humanization of duration", function() {
 

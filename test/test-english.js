@@ -2,11 +2,8 @@
    which JSHint shouldn't complain about. */
 /* jshint -W053 */
 
-var chai = require("chai");
 var humanizing = require("../humanize-duration");
-require("sugar");
-
-chai.should();
+require("chai").should();
 
 describe("English humanization of duration", function() {
 
