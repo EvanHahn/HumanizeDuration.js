@@ -134,6 +134,11 @@ describe("English humanization of duration", function() {
 		humanizing((3.0).years()).should.equal("3 years");
 	});
 
+	it("works with Number objects", function() {
+		var duration = new Number(61000);
+		humanizing(duration).should.equal("1 minute, 1 second");
+	});
+
 	it("keeps Number objects intact", function() {
 		var duration = new Number(2012);
 		humanizing(duration);
