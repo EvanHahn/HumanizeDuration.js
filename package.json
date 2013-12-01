@@ -5,11 +5,12 @@
   "description": "Convert millisecond durations to English (or a few other languages).",
   "main": "humanize-duration.js",
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "devDependencies": {
-    "chai": "*",
-    "sugar": "*"
+    "mocha": "1.14.x",
+    "chai": "1.8.x",
+    "sugar": "1.4.x"
   },
   "keywords": [
     "humanize",
