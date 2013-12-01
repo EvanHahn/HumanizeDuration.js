@@ -1,7 +1,7 @@
 {
   "name": "humanize-duration",
   "author": "Evan Hahn",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Convert millisecond durations to English (or a few other languages).",
   "main": "humanize-duration.js",
   "scripts": {
@@ -23,6 +23,31 @@
     "years",
     "months"
   ],
+  "jshintConfig": {
+    "bitwise": true,
+    "camelcase": true,
+    "curly": false,
+    "eqeqeq": false,
+    "es3": true,
+    "freeze": true,
+    "immed": true,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "noempty": true,
+    "nonew": true,
+    "plusplus": false,
+    "quotmark": true,
+    "undef": true,
+    "unused": true,
+    "strict": false,
+    "trailing": true,
+    "predef": [
+      "module",
+      "require",
+      "describe", "it", "beforeEach"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/EvanHahn/HumanizeDuration.js.git"

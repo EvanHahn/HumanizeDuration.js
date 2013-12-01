@@ -12,8 +12,12 @@ Lovingly made by Evan Hahn with language support by Martin Prins. Unlicensed.
 	// The main function.
 	var humanizeDuration = function(ms, language) {
 
+		// Turn Number objects into primitives.
+		if (ms instanceof Number)
+			ms = ms.valueOf();
+
 		// Humanizing zero, I see.
-		if (ms == 0)
+		if (ms === 0)
 			return "0";
 
 		// We'll put everything in an array and turn that into a string at the end.
@@ -105,7 +109,7 @@ Lovingly made by Evan Hahn with language support by Martin Prins. Unlicensed.
 		},
 		fr: {
 			year: function(c) { return "an" + ((c !== 1) ? "s" : ""); },
-			month: function(c) { return "mois"; },
+			month: function() { return "mois"; },
 			week: function(c) { return "semaine" + ((c !== 1) ? "s" : ""); },
 			day: function(c) { return "jour" + ((c !== 1) ? "s" : ""); },
 			hour: function(c) { return "heure" + ((c !== 1) ? "s" : ""); },
@@ -115,7 +119,7 @@ Lovingly made by Evan Hahn with language support by Martin Prins. Unlicensed.
 		},
 		pt: {
 			year: function(c) { return "ano" + ((c !== 1) ? "s" : ""); },
-			month: function(c) { return "mês"((c !== 1) ? "es" : ""); },
+			month: function(c) { return "mês" + ((c !== 1) ? "es" : ""); },
 			week: function(c) { return "semana" + ((c !== 1) ? "s" : ""); },
 			day: function(c) { return "dia" + ((c !== 1) ? "s" : ""); },
 			hour: function(c) { return "hora" + ((c !== 1) ? "s" : ""); },
@@ -124,14 +128,14 @@ Lovingly made by Evan Hahn with language support by Martin Prins. Unlicensed.
 			millisecond: function(c) { return "milesegundo" + ((c !== 1) ? "s" : ""); }
 		},
 		ko: {
-			year: function(c) { return "년"; },
-			month: function(c) { return "개월"; },
-			week: function(c) { return "주일"; },
-			day: function(c) { return "일"; },
-			hour: function(c) { return "시간"; },
-			minute: function(c) { return "분"; },
-			second: function(c) { return "초"; },
-			millisecond: function(c) { return "밀리 초"; }
+			year: function() { return "년"; },
+			month: function() { return "개월"; },
+			week: function() { return "주일"; },
+			day: function() { return "일"; },
+			hour: function() { return "시간"; },
+			minute: function() { return "분"; },
+			second: function() { return "초"; },
+			millisecond: function() { return "밀리 초"; }
 		}
 	};
 

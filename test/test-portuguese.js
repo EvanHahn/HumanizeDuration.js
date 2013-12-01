@@ -1,5 +1,3 @@
-"use strict";
-
 var chai = require("chai");
 var humanizing = require("../humanize-duration");
 require("sugar");
@@ -7,6 +5,8 @@ require("sugar");
 chai.should();
 
 describe("French humanization of duration", function() {
+
+	"use strict";
 
 	beforeEach(function() {
 		humanizing.language = "en";

@@ -1,4 +1,6 @@
-"use strict";
+/* We'll test things with the Number object,
+   which JSHint shouldn't complain about. */
+/* jshint -W053 */
 
 var chai = require("chai");
 var humanizing = require("../humanize-duration");
@@ -7,6 +9,8 @@ require("sugar");
 chai.should();
 
 describe("English humanization of duration", function() {
+
+	"use strict";
 
 	beforeEach(function() {
 		humanizing.language = "en";
@@ -134,7 +138,12 @@ describe("English humanization of duration", function() {
 		humanizing((3.0).years()).should.equal("3 years");
 	});
 
-	it("works with Number objects", function() {
+	it("works with Number objects with a value of 0", function() {
+		var duration = new Number(0);
+		humanizing(duration).should.equal("0");
+	});
+
+	it("works with non-zero Number objects", function() {
 		var duration = new Number(61000);
 		humanizing(duration).should.equal("1 minute, 1 second");
 	});
