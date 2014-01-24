@@ -136,6 +136,16 @@ Lovingly made by Evan Hahn with language support by Martin Prins. Unlicensed.
 			minute: function() { return "분"; },
 			second: function() { return "초"; },
 			millisecond: function() { return "밀리 초"; }
+		},
+		en: {
+			year: function(c) { return "år" + ((c !== 1) ? "" : ""); },
+			month: function(c) { return "måned" + ((c !== 1) ? "er" : ""); },
+			week: function(c) { return "uke" + ((c !== 1) ? "r" : ""); },
+			day: function(c) { return "dag" + ((c !== 1) ? "er" : ""); },
+			hour: function(c) { return "time" + ((c !== 1) ? "r" : ""); },
+			minute: function(c) { return "minutt" + ((c !== 1) ? "er" : ""); },
+			second: function(c) { return "sekund" + ((c !== 1) ? "er" : ""); },
+			millisecond: function(c) { return "millisekund" + ((c !== 1) ? "er" : ""); }
 		}
 	};
 
