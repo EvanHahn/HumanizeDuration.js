@@ -8,7 +8,7 @@
     "test": "./node_modules/mocha/bin/mocha"
   },
   "devDependencies": {
-    "mocha": "1.14.x",
+    "mocha": "1.17.x",
     "chai": "1.8.x",
     "sugar": "1.4.x"
   },
