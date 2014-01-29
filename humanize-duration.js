@@ -136,7 +136,7 @@ http://git.io/j0HgmQ
 			millisecond: function() { return "밀리 초"; }
 		},
 		nob: {
-			year: function(c) { return "år" + ((c !== 1) ? "" : ""); },
+			year: function() { return "år"; },
 			month: function(c) { return "måned" + ((c !== 1) ? "er" : ""); },
 			week: function(c) { return "uke" + ((c !== 1) ? "r" : ""); },
 			day: function(c) { return "dag" + ((c !== 1) ? "er" : ""); },
