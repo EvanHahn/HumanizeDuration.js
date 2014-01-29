@@ -34,6 +34,7 @@ Supported languages:
 * Catalan (ca)
 * Portuguese (pt)
 * Korean (ko)
+* Norwegian (nb)
 
 Lovingly made by [Evan Hahn](http://evanhahn.com/) with language support by [Martin Prins](https://github.com/magarcia). Thanks to [Filipi Siqueira](https://github.com/filipi777) for Portuguese support.
 
