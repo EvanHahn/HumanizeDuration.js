@@ -137,7 +137,7 @@ Lovingly made by Evan Hahn with language support by Martin Prins. Unlicensed.
 			second: function() { return "초"; },
 			millisecond: function() { return "밀리 초"; }
 		},
-		en: {
+		nob: {
 			year: function(c) { return "år" + ((c !== 1) ? "" : ""); },
 			month: function(c) { return "måned" + ((c !== 1) ? "er" : ""); },
 			week: function(c) { return "uke" + ((c !== 1) ? "r" : ""); },
