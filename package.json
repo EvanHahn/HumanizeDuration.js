@@ -13,15 +13,10 @@
     "sugar": "1.4.x"
   },
   "keywords": [
-    "humanize",
-    "duration",
-    "time",
-    "hours",
-    "minutes",
-    "seconds",
-    "days",
-    "years",
-    "months"
+    "humanize", "duration",
+    "time", "hours", "minutes", "seconds", "days", "years", "months",
+    "english", "spanish", "french", "catalan", "portuguese", "korean",
+    "norwegian", "german"
   ],
   "jshintConfig": {
     "bitwise": true,
