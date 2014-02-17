@@ -8,7 +8,7 @@ http://git.io/j0HgmQ
 ;(function(global) {
 
 	// The main function.
-	var humanizeDuration = function(ms, language) {
+	function humanizeDuration(ms, language) {
 
 		// Turn Number objects into primitives.
 		if (ms instanceof Number)
@@ -50,7 +50,7 @@ http://git.io/j0HgmQ
 		// All done! Turn the array into a string.
 		return result.join(", ");
 
-	};
+	}
 
 	// Start by defining the units and how many ms is in each.
 	var UNITS = [
