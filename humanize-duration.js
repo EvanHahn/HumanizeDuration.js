@@ -5,7 +5,7 @@ http://git.io/j0HgmQ
 
 */
 
-;(function(global) {
+;(function() {
 
 	// The main function.
 	function humanizeDuration(ms, language) {
@@ -164,6 +164,6 @@ http://git.io/j0HgmQ
 	if ((typeof module !== "undefined") && (module.exports))
 		module.exports = humanizeDuration;
 	else
-		global.humanizeDuration = humanizeDuration;
+		this.humanizeDuration = humanizeDuration;
 
-})(this);
+})();
