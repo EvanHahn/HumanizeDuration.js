@@ -28,14 +28,14 @@ In Node or Browserify (after installing [the package](https://npmjs.org/package/
 
 Supported languages:
 
-* English (en)
-* Spanish (es)
-* French (fr)
 * Catalan (ca)
-* Portuguese (pt)
+* English (en)
+* French (fr)
+* German (de)
 * Korean (ko)
 * Norwegian (nob)
-* German (de)
+* Portuguese (pt)
+* Spanish (es)
 
 Lovingly made by [Evan Hahn](http://evanhahn.com/) with language support by [Martin Prins](https://github.com/magarcia). Thanks to [Filipi Siqueira](https://github.com/filipi777) for Portuguese support and to [Peter Rekdal Sunde](Peter Rekdal Sunde) for Norwegian support.
 
