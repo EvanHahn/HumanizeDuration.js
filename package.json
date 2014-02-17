@@ -1,7 +1,7 @@
 {
   "name": "humanize-duration",
   "author": "Evan Hahn",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Convert millisecond durations to English or many other languages.",
   "main": "humanize-duration.js",
   "scripts": {
