@@ -8,7 +8,7 @@ http://git.io/j0HgmQ
 ;(function(global) {
 
 	// The main function.
-	var humanizeDuration = function(ms, language) {
+	var humanizeDuration = function(ms, language, timeFormat) {
 
 		// Turn Number objects into primitives.
 		if (ms instanceof Number)
@@ -20,6 +20,12 @@ http://git.io/j0HgmQ
 
 		// We'll put everything in an array and turn that into a string at the end.
 		var result = [];
+		//remove whitespaces and split by comma
+		if(timeFormat === undefined) {
+			timeFormat = "Y,Mo,W,D,H,M,S,Ms"
+		}
+		var formatUnits = timeFormat.replace(/\s+/g, '').split(",");
+		
 
 		// Start at the top and keep removing units, bit by bit.
 		var unit, unitCount, mightBeHalfUnit;
@@ -27,6 +33,8 @@ http://git.io/j0HgmQ
 
 			// Store the current unit.
 			unit = UNITS[i];
+			if(formatUnits.indexOf(unit.abbreviation) === -1)
+				continue;
 
 			// If it's a half-unit interval, we're done.
 			if (result.length === 0) {
@@ -54,14 +62,14 @@ http://git.io/j0HgmQ
 
 	// Start by defining the units and how many ms is in each.
 	var UNITS = [
-		{ name: "year", milliseconds: 31557600000 },
-		{ name: "month", milliseconds: 2629800000 },
-		{ name: "week", milliseconds: 604800000 },
-		{ name: "day", milliseconds: 86400000 },
-		{ name: "hour", milliseconds: 3600000 },
-		{ name: "minute", milliseconds: 60000 },
-		{ name: "second", milliseconds: 1000 },
-		{ name: "millisecond", milliseconds: 1 }
+		{ name: "year", milliseconds: 31557600000, abbreviation: 'Y' },
+		{ name: "month", milliseconds: 2629800000, abbreviation: 'Mo' },
+		{ name: "week", milliseconds: 604800000, abbreviation: 'W' },
+		{ name: "day", milliseconds: 86400000, abbreviation: 'D' },
+		{ name: "hour", milliseconds: 3600000, abbreviation: 'H' },
+		{ name: "minute", milliseconds: 60000, abbreviation: 'M' },
+		{ name: "second", milliseconds: 1000, abbreviation: 'S' },
+		{ name: "millisecond", milliseconds: 1, abbreviation: 'Ms' }
 	];
 
 	// A utility function for creating the strings.
