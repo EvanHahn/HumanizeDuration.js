@@ -72,6 +72,19 @@ http://git.io/j0HgmQ
 		var dictionary = humanizeDuration.LANGUAGES[language || humanizeDuration.language];
 		return count + " " + dictionary[word](count);
 	};
+	
+	// Helper function for Polish language
+	var getPolishForm = function(c) {
+		if (c === 1) {
+			return 0;
+		} else if (Math.floor(c) !== c) {
+			return 1;
+		} else if (2 <= c % 10 && c % 10 <= 4 && !(10 < c % 100 && c % 100 < 20)) {
+			return 2;
+		} else {
+			return 3;
+		}
+	};	
 
 	// What are the languages?
 	humanizeDuration.LANGUAGES = {
@@ -154,6 +167,16 @@ http://git.io/j0HgmQ
 			minute: function(c) { return "minute" + ((c !== 1) ? "n" : ""); },
 			second: function(c) { return "sekunde" + ((c !== 1) ? "n" : ""); },
 			millisecond: function(c) { return "millisekunde" + ((c !== 1) ? "n" : ""); }
+		},		
+		pl: {			
+			year: function(c) { return ["rok", "roku", "lata", "lat"][getPolishForm(c)]; },
+			month: function(c) { return ["miesiąc", "miesiąca", "miesiące", "miesięcy"][getPolishForm(c)]; },
+			week: function(c) { return ["tydzień", "tygodnia", "tygodnie", "tygodni"][getPolishForm(c)]; },
+			day: function(c) { return ["dzień", "dnia", "dni", "dni"][getPolishForm(c)]; },
+			hour: function(c) { return ["godzina", "godziny", "godziny", "godzin"][getPolishForm(c)]; },
+			minute: function(c) { return ["minuta", "minuty", "minuty", "minut"][getPolishForm(c)]; },
+			second: function(c) { return ["sekunda", "sekundy", "sekundy", "sekund"][getPolishForm(c)]; },
+			millisecond: function(c) { return ["milisekunda", "milisekundy", "milisekundy", "milisekund"][getPolishForm(c)]; }
 		}
 	};
 
