@@ -8,6 +8,7 @@ http://git.io/j0HgmQ
 ;(function() {
 
 	// The main function.
+	// maxUnits - max number of units not to get too detailed 
 	function humanizeDuration(ms, language) {
 
 		// Turn Number objects into primitives.
@@ -25,6 +26,10 @@ http://git.io/j0HgmQ
 		var unit, unitCount, mightBeHalfUnit;
 		for (var i = 0, len = UNITS.length; (i < len) && (ms); i ++) {
 
+			// If result is detalied enough 
+			if (result.length >= (humanizeDuration.maxUnits)) 
+				break;
+				
 			// Store the current unit.
 			unit = UNITS[i];
 
@@ -182,6 +187,7 @@ http://git.io/j0HgmQ
 
 	// What's the default language?
 	humanizeDuration.language = "en";
+	humanizeDuration.maxUnits = UNITS.length;
 
 	// Export this baby.
 	if ((typeof module !== "undefined") && (module.exports))
