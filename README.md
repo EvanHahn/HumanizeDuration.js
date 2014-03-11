@@ -34,6 +34,7 @@ Supported languages:
 * German (de)
 * Korean (ko)
 * Norwegian (nob)
+* Polish (pl)
 * Portuguese (pt)
 * Spanish (es)
 
