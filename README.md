@@ -21,6 +21,11 @@ Sometimes may get quite long results
 	humanizeDuration.maxUnits = 3             // set default max length in units
 	humanizeDuration(465472000000)            // "14 years, 8 months, 4 weeks"
 
+You may do not like weeks so you can also
+	
+	humanizeDuration(9531000000)			// "3 months, 2 weeks, 5 days"
+	humanizeDuration.useWeeks = false;
+	humanizeDuration(9531000000)			// "3 months, 19 days"
 	
 	
 	

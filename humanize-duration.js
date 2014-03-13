@@ -8,7 +8,6 @@ http://git.io/j0HgmQ
 ;(function() {
 
 	// The main function.
-	// maxUnits - max number of units not to get too detailed 
 	function humanizeDuration(ms, language) {
 
 		// Turn Number objects into primitives.
@@ -32,6 +31,10 @@ http://git.io/j0HgmQ
 				
 			// Store the current unit.
 			unit = UNITS[i];
+			
+			// If we should skip weeks
+			if (unit.name == "week" && ! humanizeDuration.useWeeks) 
+				continue;
 
 			// If it's a half-unit interval, we're done.
 			if (result.length === 0) {
@@ -187,7 +190,10 @@ http://git.io/j0HgmQ
 
 	// What's the default language?
 	humanizeDuration.language = "en";
+	// What's the default max length in units?
 	humanizeDuration.maxUnits = UNITS.length;
+	// We use weeks by default
+	humanizeDuration.useWeeks = true;
 
 	// Export this baby.
 	if ((typeof module !== "undefined") && (module.exports))
