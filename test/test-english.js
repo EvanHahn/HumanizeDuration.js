@@ -147,13 +147,16 @@ describe("English humanization of duration", function() {
 	
 	it("keeps maximal length in units", function() {
 		var duration = new Number(465472457557);
+		var maxUnits = humanizing.maxUnits;
 		humanizing.maxUnits = 3;
 		humanizing(duration).should.equal("14 years, 8 months, 4 weeks");
+		humanizing.maxUnits = maxUnits;
 	});
 	
 	it("skips weeks if configured so", function() {
 		humanizing.useWeeks = false;
 		humanizing(9531000000).should.equal("3 months, 19 days");
+		humanizing.useWeeks = true;
 	});
 
 	it("keeps Number objects intact", function() {
