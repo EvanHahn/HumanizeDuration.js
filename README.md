@@ -19,7 +19,7 @@ Sometimes may get quite long results
 	humanizeDuration(465472457557)            // "14 years, 8 months, 4 weeks, 2 days, 9 hours, 54 minutes, 17 seconds, 557 milliseconds"
 	
 	humanizeDuration.maxUnits = 3             // set default max length in units
-	humanizeDuration(465472000000)            // "14 years, 8 months, 4 weeks"
+	humanizeDuration(465472457557)            // "14 years, 8 months, 4 weeks"
 
 You may do not like weeks so you can also
 	
