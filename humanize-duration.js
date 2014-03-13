@@ -73,8 +73,8 @@ http://git.io/j0HgmQ
 		return count + " " + dictionary[word](count);
 	};
 
-	// Helper function for Polish language
-	var getPolishForm = function(c) {
+	// Helper function for Polish language.
+	function getPolishForm(c) {
 		if (c === 1) {
 			return 0;
 		} else if (Math.floor(c) !== c) {
