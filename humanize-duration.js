@@ -72,7 +72,7 @@ http://git.io/j0HgmQ
 		var dictionary = humanizeDuration.LANGUAGES[language || humanizeDuration.language];
 		return count + " " + dictionary[word](count);
 	};
-	
+
 	// Helper function for Polish language
 	var getPolishForm = function(c) {
 		if (c === 1) {
@@ -84,7 +84,7 @@ http://git.io/j0HgmQ
 		} else {
 			return 3;
 		}
-	};	
+	};
 
 	// What are the languages?
 	humanizeDuration.LANGUAGES = {
@@ -167,8 +167,8 @@ http://git.io/j0HgmQ
 			minute: function(c) { return "minute" + ((c !== 1) ? "n" : ""); },
 			second: function(c) { return "sekunde" + ((c !== 1) ? "n" : ""); },
 			millisecond: function(c) { return "millisekunde" + ((c !== 1) ? "n" : ""); }
-		},		
-		pl: {			
+		},
+		pl: {
 			year: function(c) { return ["rok", "roku", "lata", "lat"][getPolishForm(c)]; },
 			month: function(c) { return ["miesiąc", "miesiąca", "miesiące", "miesięcy"][getPolishForm(c)]; },
 			week: function(c) { return ["tydzień", "tygodnia", "tygodnie", "tygodni"][getPolishForm(c)]; },
