@@ -38,6 +38,6 @@ Supported languages:
 * Portuguese (pt)
 * Spanish (es)
 
-Lovingly made by [Evan Hahn](http://evanhahn.com/) with language support by [Martin Prins](https://github.com/magarcia). Thanks to [Filipi Siqueira](https://github.com/filipi777) for Portuguese support and to [Peter Rekdal Sunde](Peter Rekdal Sunde) for Norwegian support.
+Lovingly made by [Evan Hahn](http://evanhahn.com/) with language support by [Martin Prins](https://github.com/magarcia). Thanks to [Filipi Siqueira](https://github.com/filipi777) for Portuguese support and to [Peter Rekdal Sunde](https://github.com/peters) for Norwegian support.
 
 Enjoy!
