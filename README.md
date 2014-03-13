@@ -14,6 +14,22 @@ I have the time in milliseconds and I want it to become "30 minutes" or "3 days,
     humanizeDuration(3000)            // "3 secondes"
     humanizeDuration(5000, "ko")      // "5 초"
 
+Sometimes may get quite long results
+
+	humanizeDuration(465472457557)            // "14 years, 8 months, 4 weeks, 2 days, 9 hours, 54 minutes, 17 seconds, 557 milliseconds"
+	
+	humanizeDuration.maxUnits = 3             // set default max length in units
+	humanizeDuration(465472457557)            // "14 years, 8 months, 4 weeks"
+
+You may do not like weeks so you can also
+	
+	humanizeDuration(9531000000)			// "3 months, 2 weeks, 5 days"
+	humanizeDuration.useWeeks = false;
+	humanizeDuration(9531000000)			// "3 months, 19 days"
+	
+	
+	
+
 In the browser:
 
     <script src="humanize-duration.js"></script>
@@ -34,6 +50,7 @@ Supported languages:
 * German (de)
 * Korean (ko)
 * Norwegian (nob)
+* Polish (pl)
 * Portuguese (pt)
 * Spanish (es)
 
