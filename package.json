@@ -16,13 +16,27 @@
   "devDependencies": {
     "mocha": "1.17.x",
     "chai": "1.8.x",
-    "sugar": "1.4.x"
+    "sugar": "1.4.x",
+    "coffee-script": "1.7.x"
   },
   "keywords": [
-    "humanize", "duration",
-    "time", "hours", "minutes", "seconds", "days", "years", "months",
-    "english", "spanish", "french", "catalan", "portuguese", "korean",
-    "norwegian", "german"
+    "humanize",
+    "duration",
+    "time",
+    "hours",
+    "minutes",
+    "seconds",
+    "days",
+    "years",
+    "months",
+    "english",
+    "spanish",
+    "french",
+    "catalan",
+    "portuguese",
+    "korean",
+    "norwegian",
+    "german"
   ],
   "jshintConfig": {
     "bitwise": true,
@@ -46,7 +60,9 @@
     "predef": [
       "module",
       "require",
-      "describe", "it", "beforeEach"
+      "describe",
+      "it",
+      "beforeEach"
     ]
   },
   "repository": {
