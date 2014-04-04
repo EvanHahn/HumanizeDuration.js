@@ -14,8 +14,8 @@
     "test": "./node_modules/mocha/bin/mocha"
   },
   "devDependencies": {
-    "mocha": "1.17.x",
-    "chai": "1.8.x",
+    "mocha": "1.18.x",
+    "chai": "1.9.x",
     "sugar": "1.4.x",
     "coffee-script": "1.7.x"
   },
