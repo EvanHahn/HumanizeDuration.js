@@ -7,117 +7,8 @@ http://git.io/j0HgmQ
 
 ;(function() {
 
-  // A utility function for creating the strings.
-  // render(1, "minute") == "1 minute"
-  // render(12, "hour") == "12 hours"
-  // render(2, "hour", "es") == "2 horas"
-  function render(count, word, language) {
-    var dictionary = humanizeDuration.LANGUAGES[language || humanizeDuration.language];
-    return count + " " + dictionary[word](count);
-  }
-
-  // Grab the components.
-  function componentsOf(total, language) {
-
-    var result = { total: {} };
-    var ms = total;
-
-    var unit, unitName, unitTotal, unitCount;
-    for (var i = 0, len = UNITS.length; i < len; i ++) {
-
-      // Store the current unit.
-      unit = UNITS[i];
-      unitName = unit.name + "s";
-
-      // What's the total?
-      unitTotal = Math.floor(total / unit.milliseconds);
-      result.total[unitName] = render(unitTotal, unit.name, language);
-
-      // What's the rest?
-      unitCount = Math.floor(ms / unit.milliseconds);
-      result[unitName] = render(unitCount, unit.name, language);
-
-      // Lower the number of milliseconds.
-      ms -= unitCount * unit.milliseconds;
-
-    }
-
-    return result;
-
-  }
-
-  // The main function.
-  function humanizeDuration(ms, language) {
-
-    // Turn Number objects into primitives.
-    if (ms instanceof Number)
-      ms = ms.valueOf();
-
-    // Humanizing zero, I see.
-    if (ms === 0)
-      return "0";
-
-    // We'll put everything in an array and turn that into a string at the end.
-    var result = [];
-
-    // Start at the top and keep removing units, bit by bit.
-    var unit, unitCount, mightBeHalfUnit;
-    for (var i = 0, len = UNITS.length; (i < len) && (ms); i ++) {
-
-      // Store the current unit.
-      unit = UNITS[i];
-
-      // If it's a half-unit interval, we're done.
-      if (result.length === 0) {
-        mightBeHalfUnit = (ms / unit.milliseconds) * 2;
-        if (mightBeHalfUnit === Math.floor(mightBeHalfUnit))
-          return render(mightBeHalfUnit / 2, unit.name, language);
-      }
-
-      // What's the number of full units we can fit?
-      unitCount = Math.floor(ms / unit.milliseconds);
-
-      // Add the string.
-      if (unitCount)
-        result.push(render(unitCount, unit.name, language));
-
-      // Remove what we just figured out.
-      ms -= unitCount * unit.milliseconds;
-
-    }
-
-    // All done! Turn the array into a string.
-    return result.join(", ");
-
-  }
-
-  // Start by defining the units and how many ms is in each.
-  var UNITS = [
-    { name: "year", milliseconds: 31557600000 },
-    { name: "month", milliseconds: 2629800000 },
-    { name: "week", milliseconds: 604800000 },
-    { name: "day", milliseconds: 86400000 },
-    { name: "hour", milliseconds: 3600000 },
-    { name: "minute", milliseconds: 60000 },
-    { name: "second", milliseconds: 1000 },
-    { name: "millisecond", milliseconds: 1 }
-  ];
-
-  // Helper function for Polish language.
-  function getPolishForm(c) {
-    if (c === 1) {
-      return 0;
-    } else if (Math.floor(c) !== c) {
-      return 1;
-    } else if (2 <= c % 10 && c % 10 <= 4 && !(10 < c % 100 && c % 100 < 20)) {
-      return 2;
-    } else {
-      return 3;
-    }
-  }
-
   // What are the languages?
-  humanizeDuration.LANGUAGES = {
+  var LANGUAGES = {
     en: {
       year: function(c) { return "year" + ((c !== 1) ? "s" : ""); },
       month: function(c) { return "month" + ((c !== 1) ? "s" : ""); },
@@ -209,6 +100,115 @@ http://git.io/j0HgmQ
       millisecond: function(c) { return ["milisekunda", "milisekundy", "milisekundy", "milisekund"][getPolishForm(c)]; }
     }
   };
+
+  // Start by defining the units and how many ms is in each.
+  var UNITS = [
+    { name: "year", milliseconds: 31557600000 },
+    { name: "month", milliseconds: 2629800000 },
+    { name: "week", milliseconds: 604800000 },
+    { name: "day", milliseconds: 86400000 },
+    { name: "hour", milliseconds: 3600000 },
+    { name: "minute", milliseconds: 60000 },
+    { name: "second", milliseconds: 1000 },
+    { name: "millisecond", milliseconds: 1 }
+  ];
+
+  // A utility function for creating the strings.
+  // render(1, "minute") == "1 minute"
+  // render(12, "hour") == "12 hours"
+  // render(2, "hour", "es") == "2 horas"
+  function render(count, word, language) {
+    var dictionary = LANGUAGES[language || humanizeDuration.language];
+    return count + " " + dictionary[word](count);
+  }
+
+  // Grab the components.
+  function componentsOf(total, language) {
+
+    var result = { total: {} };
+    var ms = total;
+
+    var unit, unitName, unitTotal, unitCount;
+    for (var i = 0, len = UNITS.length; i < len; i ++) {
+
+      // Store the current unit.
+      unit = UNITS[i];
+      unitName = unit.name + "s";
+
+      // What's the total?
+      unitTotal = Math.floor(total / unit.milliseconds);
+      result.total[unitName] = render(unitTotal, unit.name, language);
+
+      // What's the rest?
+      unitCount = Math.floor(ms / unit.milliseconds);
+      result[unitName] = render(unitCount, unit.name, language);
+
+      // Lower the number of milliseconds.
+      ms -= unitCount * unit.milliseconds;
+
+    }
+
+    return result;
+
+  }
+
+  // The main function.
+  function humanizeDuration(ms, language) {
+
+    // Turn Number objects into primitives.
+    if (ms instanceof Number)
+      ms = ms.valueOf();
+
+    // Humanizing zero, I see.
+    if (ms === 0)
+      return "0";
+
+    // We'll put everything in an array and turn that into a string at the end.
+    var result = [];
+
+    // Start at the top and keep removing units, bit by bit.
+    var unit, unitCount, mightBeHalfUnit;
+    for (var i = 0, len = UNITS.length; (i < len) && (ms); i ++) {
+
+      // Store the current unit.
+      unit = UNITS[i];
+
+      // If it's a half-unit interval, we're done.
+      if (result.length === 0) {
+        mightBeHalfUnit = (ms / unit.milliseconds) * 2;
+        if (mightBeHalfUnit === Math.floor(mightBeHalfUnit))
+          return render(mightBeHalfUnit / 2, unit.name, language);
+      }
+
+      // What's the number of full units we can fit?
+      unitCount = Math.floor(ms / unit.milliseconds);
+
+      // Add the string.
+      if (unitCount)
+        result.push(render(unitCount, unit.name, language));
+
+      // Remove what we just figured out.
+      ms -= unitCount * unit.milliseconds;
+
+    }
+
+    // All done! Turn the array into a string.
+    return result.join(", ");
+
+  }
+
+  // Helper function for Polish language.
+  function getPolishForm(c) {
+    if (c === 1) {
+      return 0;
+    } else if (Math.floor(c) !== c) {
+      return 1;
+    } else if (2 <= c % 10 && c % 10 <= 4 && !(10 < c % 100 && c % 100 < 20)) {
+      return 2;
+    } else {
+      return 3;
+    }
+  }
 
   // What's the default language?
   humanizeDuration.language = "en";
