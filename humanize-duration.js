@@ -7,6 +7,15 @@ http://git.io/j0HgmQ
 
 ;(function() {
 
+  // A utility function for creating the strings.
+  // render(1, "minute") == "1 minute"
+  // render(12, "hour") == "12 hours"
+  // render(2, "hour", "es") == "2 horas"
+  function render(count, word, language) {
+    var dictionary = humanizeDuration.LANGUAGES[language || humanizeDuration.language];
+    return count + " " + dictionary[word](count);
+  }
+
   // Grab the components.
   function componentsOf(total, language) {
 
@@ -93,15 +102,6 @@ http://git.io/j0HgmQ
     { name: "second", milliseconds: 1000 },
     { name: "millisecond", milliseconds: 1 }
   ];
-
-  // A utility function for creating the strings.
-  // render(1, "minute") == "1 minute"
-  // render(12, "hour") == "12 hours"
-  // render(2, "hour", "es") == "2 horas"
-  function render(count, word, language) {
-    var dictionary = humanizeDuration.LANGUAGES[language || humanizeDuration.language];
-    return count + " " + dictionary[word](count);
-  }
 
   // Helper function for Polish language.
   function getPolishForm(c) {
