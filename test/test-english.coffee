@@ -142,3 +142,8 @@ describe 'English humanization of duration', ->
     components.total.seconds.should.equal '439564 seconds'
     components.milliseconds.should.equal '20 milliseconds'
     components.total.milliseconds.should.equal '439564020 milliseconds'
+
+  it 'grabs the components and keeps the Number objects intact', ->
+    duration = new Number(420420)
+    componentsOf duration
+    duration.valueOf().should.equal 420420
