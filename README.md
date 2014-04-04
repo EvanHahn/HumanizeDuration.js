@@ -10,9 +10,18 @@ I have the time in milliseconds and I want it to become "30 minutes" or "3 days,
 
     humanizeDuration(3000, "es")  // "3 segundos"
 
-    humanizeDuration.language = "fr"  // change default language to French
+    humanizeDuration.language = "fr"  // change language to French
     humanizeDuration(3000)            // "3 secondes"
     humanizeDuration(5000, "ko")      // "5 초"
+    humanizeDuration.language = "en"  // change language back to English
+
+    var components = humanizeDuration.componentsOf(97320000);
+    // components.days == "1 day"
+    // components.total.days == "1 day"
+    // components.hours == "3 hours"
+    // components.total.hours == "27 hours"
+    // components.seconds == "0 seconds"
+    // components.total.seconds == "97320 seconds"
 
 In the browser:
 
