@@ -7,6 +7,36 @@ http://git.io/j0HgmQ
 
 ;(function() {
 
+  // Grab the components.
+  function componentsOf(total, language) {
+
+    var result = { total: {} };
+    var ms = total;
+
+    var unit, unitName, unitTotal, unitCount;
+    for (var i = 0, len = UNITS.length; i < len; i ++) {
+
+      // Store the current unit.
+      unit = UNITS[i];
+      unitName = unit.name + "s";
+
+      // What's the total?
+      unitTotal = Math.floor(total / unit.milliseconds);
+      result.total[unitName] = render(unitTotal, unit.name, language);
+
+      // What's the rest?
+      unitCount = Math.floor(ms / unit.milliseconds);
+      result[unitName] = render(unitCount, unit.name, language);
+
+      // Lower the number of milliseconds.
+      ms -= unitCount * unit.milliseconds;
+
+    }
+
+    return result;
+
+  }
+
   // The main function.
   function humanizeDuration(ms, language) {
 
@@ -184,6 +214,7 @@ http://git.io/j0HgmQ
   humanizeDuration.language = "en";
 
   // Export this baby.
+  humanizeDuration.componentsOf = componentsOf;
   if ((typeof module !== "undefined") && (module.exports))
     module.exports = humanizeDuration;
   else
