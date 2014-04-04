@@ -98,10 +98,10 @@ http://git.io/j0HgmQ
   // render(1, "minute") == "1 minute"
   // render(12, "hour") == "12 hours"
   // render(2, "hour", "es") == "2 horas"
-  var render = function(count, word, language) {
+  function render(count, word, language) {
     var dictionary = humanizeDuration.LANGUAGES[language || humanizeDuration.language];
     return count + " " + dictionary[word](count);
-  };
+  }
 
   // Helper function for Polish language.
   function getPolishForm(c) {
