@@ -7,7 +7,7 @@
     "Peter Rekdal Sunde (https://github.com/peters)",
     "Michał Janiec (https://github.com/mjjaniec)"
   ],
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Convert millisecond durations to English or many other languages.",
   "main": "humanize-duration.js",
   "scripts": {
