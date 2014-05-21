@@ -119,6 +119,9 @@ http://git.io/j0HgmQ
   // render(2, "hour", "es") == "2 horas"
   function render(count, word, language) {
     var dictionary = LANGUAGES[language || humanizeDuration.language];
+    if (!dictionary) {
+      throw new Error("Language " + language + " not defined");
+    }
     return count + " " + dictionary[word](count);
   }
 
