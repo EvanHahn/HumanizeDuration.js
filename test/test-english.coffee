@@ -76,14 +76,14 @@ describe 'English humanization of duration', ->
     humanizing((3.0).hours()).should.equal '3 hours'
 
   it 'humanizes 1 hour, part minute intervals', ->
-    humanizing((1).hour() + (1).minute()).should.equal '1 hour, 1 minute'
-    humanizing((1).hour() + (15).minutes()).should.equal '1 hour, 15 minutes'
-    humanizing((1).hour() + (45).minutes()).should.equal '1 hour, 45 minutes'
+    humanizing(1.hour() + 1.minute()).should.equal '1 hour, 1 minute'
+    humanizing(1.hour() + 15.minutes()).should.equal '1 hour, 15 minutes'
+    humanizing(1.hour() + 45.minutes()).should.equal '1 hour, 45 minutes'
 
   it 'humanizes 2 hour, part minute intervals', ->
-    humanizing((2).hours() + (1).minute()).should.equal '2 hours, 1 minute'
-    humanizing((2).hours() + (15).minutes()).should.equal '2 hours, 15 minutes'
-    humanizing((2).hours() + (45).minutes()).should.equal '2 hours, 45 minutes'
+    humanizing(2.hours() + 1.minute()).should.equal '2 hours, 1 minute'
+    humanizing(2.hours() + 15.minutes()).should.equal '2 hours, 15 minutes'
+    humanizing(2.hours() + 45.minutes()).should.equal '2 hours, 45 minutes'
 
   it 'humanizes half-day intervals', ->
     humanizing((0.5).days()).should.equal '0.5 days'
