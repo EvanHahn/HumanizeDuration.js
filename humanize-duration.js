@@ -142,6 +142,10 @@ http://git.io/j0HgmQ
   function componentsOf(total, language) {
 
     var result = { total: {} };
+
+    // Make sure we have positive numbers.
+    // Has the nice sideffect of turning Number objects into primitives.
+    total = Math.abs(total);
     var ms = total;
 
     var unit, unitName, unitTotal, unitCount;
@@ -176,9 +180,9 @@ http://git.io/j0HgmQ
   // The main function.
   function humanizeDuration(ms, language) {
 
-    // Turn Number objects into primitives.
-    if (ms instanceof Number)
-      ms = ms.valueOf();
+    // Make sure we have a positive number.
+    // Has the nice sideffect of turning Number objects into primitives.
+    ms = Math.abs(ms);
 
     // Humanizing zero, I see.
     if (ms === 0)

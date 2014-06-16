@@ -19,6 +19,9 @@ describe 'English humanization of duration', ->
     humanizing(12).should.equal '12 milliseconds'
     humanizing(420).should.equal '420 milliseconds'
 
+  it 'humanizes negative milliseconds as positive', ->
+    humanizing(-420).should.equal '420 milliseconds'
+
   it 'humanizes parts of milliseconds', ->
     humanizing(0.12).should.equal '0.12 milliseconds'
     humanizing(1.5).should.equal '1.5 milliseconds'
