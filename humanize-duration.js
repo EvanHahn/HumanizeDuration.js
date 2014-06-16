@@ -138,13 +138,18 @@ http://git.io/j0HgmQ
       unit = UNITS[i];
       unitName = unit.name + "s";
 
-      // What's the total?
-      unitTotal = Math.floor(total / unit.milliseconds);
-      result.total[unitName] = render(unitTotal, unit.name, language);
+      // What are the totals and the rest?
+      if (unit.name === "millisecond") {
+        unitCount = ms / unit.milliseconds;
+        unitTotal = total / unit.milliseconds;
+      } else {
+        unitCount = Math.floor(ms / unit.milliseconds);
+        unitTotal = Math.floor(total / unit.milliseconds);
+      }
 
-      // What's the rest?
-      unitCount = Math.floor(ms / unit.milliseconds);
+      // Put them in the result.
       result[unitName] = render(unitCount, unit.name, language);
+      result.total[unitName] = render(unitTotal, unit.name, language);
 
       // Lower the number of milliseconds.
       ms -= unitCount * unit.milliseconds;
@@ -171,7 +176,7 @@ http://git.io/j0HgmQ
 
     // Start at the top and keep removing units, bit by bit.
     var unit, unitCount, mightBeHalfUnit;
-    for (var i = 0, len = UNITS.length; (i < len) && (ms); i ++) {
+    for (var i = 0, len = UNITS.length; i < len; i ++) {
 
       // Store the current unit.
       unit = UNITS[i];
@@ -184,7 +189,11 @@ http://git.io/j0HgmQ
       }
 
       // What's the number of full units we can fit?
-      unitCount = Math.floor(ms / unit.milliseconds);
+      if (unit.name === "millisecond") {
+        unitCount = ms / unit.milliseconds;
+      } else {
+        unitCount = Math.floor(ms / unit.milliseconds);
+      }
 
       // Add the string.
       if (unitCount)

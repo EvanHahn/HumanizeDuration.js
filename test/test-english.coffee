@@ -19,6 +19,11 @@ describe 'English humanization of duration', ->
     humanizing(12).should.equal '12 milliseconds'
     humanizing(420).should.equal '420 milliseconds'
 
+  it 'humanizes parts of milliseconds', ->
+    humanizing(0.12).should.equal '0.12 milliseconds'
+    humanizing(1.5).should.equal '1.5 milliseconds'
+    humanizing(420.69).should.equal '420.69 milliseconds'
+
   it 'humanizes half-second intervals', ->
     humanizing((0.5).seconds()).should.equal '0.5 seconds'
     humanizing((1.0).seconds()).should.equal '1 second'
@@ -142,6 +147,14 @@ describe 'English humanization of duration', ->
     components.total.seconds.should.equal '439564 seconds'
     components.milliseconds.should.equal '20 milliseconds'
     components.total.milliseconds.should.equal '439564020 milliseconds'
+
+  it 'can grab components of fractioned milliseconds', ->
+    duration = 420.69
+    components = componentsOf duration
+    components.seconds.should.equal '0 seconds'
+    components.total.seconds.should.equal '0 seconds'
+    components.milliseconds.should.equal '420.69 milliseconds'
+    components.total.milliseconds.should.equal '420.69 milliseconds'
 
   it 'grabs the components and keeps the Number objects intact', ->
     duration = new Number(420420)
