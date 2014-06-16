@@ -113,7 +113,7 @@ http://git.io/j0HgmQ
     { name: "millisecond", milliseconds: 1 }
   ];
 
-  // A utility function for creating the strings.
+  // Internal utility function for rendering the strings.
   // render(1, "minute") == "1 minute"
   // render(12, "hour") == "12 hours"
   // render(2, "hour", "es") == "2 horas"
@@ -123,6 +123,19 @@ http://git.io/j0HgmQ
       throw new Error("Language " + language + " not defined");
     }
     return count + " " + dictionary[word](count);
+  }
+
+  // Internal helper function for Polish language.
+  function getPolishForm(c) {
+    if (c === 1) {
+      return 0;
+    } else if (Math.floor(c) !== c) {
+      return 1;
+    } else if (2 <= c % 10 && c % 10 <= 4 && !(10 < c % 100 && c % 100 < 20)) {
+      return 2;
+    } else {
+      return 3;
+    }
   }
 
   // Grab the components.
@@ -207,19 +220,6 @@ http://git.io/j0HgmQ
     // All done! Turn the array into a string.
     return result.join(", ");
 
-  }
-
-  // Helper function for Polish language.
-  function getPolishForm(c) {
-    if (c === 1) {
-      return 0;
-    } else if (Math.floor(c) !== c) {
-      return 1;
-    } else if (2 <= c % 10 && c % 10 <= 4 && !(10 < c % 100 && c % 100 < 20)) {
-      return 2;
-    } else {
-      return 3;
-    }
   }
 
   // What's the default language?
