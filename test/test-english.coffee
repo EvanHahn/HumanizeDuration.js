@@ -48,24 +48,24 @@ describe 'English humanization of duration', ->
     humanizing((3.0).minutes()).should.equal '3 minutes'
 
   it 'humanizes 1 minute, part second intervals', ->
-    humanizing((1).minute() + (1).second()).should.equal '1 minute, 1 second'
-    humanizing((1).minute() + (18).seconds()).should.equal '1 minute, 18 seconds'
+    humanizing(1.minute() + 1.second()).should.equal '1 minute, 1 second'
+    humanizing(1.minute() + 18.seconds()).should.equal '1 minute, 18 seconds'
 
   it 'humanizes 1 minute, part second, part millisecond intervals', ->
-    humanizing((1).minute() + (1).second() + 1).should.equal '1 minute, 1 second, 1 millisecond'
-    humanizing((1).minute() + (1).second() + 5).should.equal '1 minute, 1 second, 5 milliseconds'
-    humanizing((1).minute() + (18).seconds() + 1).should.equal '1 minute, 18 seconds, 1 millisecond'
-    humanizing((1).minute() + (18).seconds() + 12).should.equal '1 minute, 18 seconds, 12 milliseconds'
+    humanizing(1.minute() + 1.second() + 1).should.equal '1 minute, 1 second, 1 millisecond'
+    humanizing(1.minute() + 1.second() + 5).should.equal '1 minute, 1 second, 5 milliseconds'
+    humanizing(1.minute() + 18.seconds() + 1).should.equal '1 minute, 18 seconds, 1 millisecond'
+    humanizing(1.minute() + 18.seconds() + 12).should.equal '1 minute, 18 seconds, 12 milliseconds'
 
   it 'humanizes 2 minute, part second intervals', ->
-    humanizing((2).minutes() + (1).second()).should.equal '2 minutes, 1 second'
-    humanizing((2).minutes() + (18).seconds()).should.equal '2 minutes, 18 seconds'
+    humanizing(2.minutes() + 1.second()).should.equal '2 minutes, 1 second'
+    humanizing(2.minutes() + 18.seconds()).should.equal '2 minutes, 18 seconds'
 
   it 'humanizes 2 minute, part second, part millisecond intervals', ->
-    humanizing((2).minutes() + (1).second() + 1).should.equal '2 minutes, 1 second, 1 millisecond'
-    humanizing((2).minutes() + (1).second() + 5).should.equal '2 minutes, 1 second, 5 milliseconds'
-    humanizing((2).minutes() + (18).seconds() + 1).should.equal '2 minutes, 18 seconds, 1 millisecond'
-    humanizing((2).minutes() + (18).seconds() + 12).should.equal '2 minutes, 18 seconds, 12 milliseconds'
+    humanizing(2.minutes() + 1.second() + 1).should.equal '2 minutes, 1 second, 1 millisecond'
+    humanizing(2.minutes() + 1.second() + 5).should.equal '2 minutes, 1 second, 5 milliseconds'
+    humanizing(2.minutes() + 18.seconds() + 1).should.equal '2 minutes, 18 seconds, 1 millisecond'
+    humanizing(2.minutes() + 18.seconds() + 12).should.equal '2 minutes, 18 seconds, 12 milliseconds'
 
   it 'humanizes half-hour intervals', ->
     humanizing((0.5).hours()).should.equal '0.5 hours'
@@ -132,7 +132,7 @@ describe 'English humanization of duration', ->
 
   it 'can grab the components', ->
     duration = 5.days() + 126.minutes() + 4.seconds() + 20.milliseconds()
-    components = componentsOf(duration)
+    components = componentsOf duration
     components.years.should.equal '0 years'
     components.total.years.should.equal '0 years'
     components.months.should.equal '0 months'
