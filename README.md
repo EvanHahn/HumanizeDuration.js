@@ -57,6 +57,7 @@ Supported languages
 Humanize Duration supports the following languages:
 
 * Catalan (ca)
+* Danish (da)
 * English (en)
 * French (fr)
 * German (de)
