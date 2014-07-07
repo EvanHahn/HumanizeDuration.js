@@ -60,11 +60,7 @@
     "strict": false,
     "trailing": true,
     "predef": [
-      "module",
-      "require",
-      "describe",
-      "it",
-      "beforeEach"
+      "module"
     ]
   },
   "repository": {
