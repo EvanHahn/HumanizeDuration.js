@@ -11,13 +11,15 @@
   "description": "Convert millisecond durations to English or many other languages.",
   "main": "humanize-duration.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "mocha && jshint humanize-duration.js",
+    "hint": "jshint humanize-duration.js"
   },
   "devDependencies": {
-    "mocha": "1.19.x",
     "chai": "1.9.x",
-    "sugar": "1.4.x",
-    "coffee-script": "1.7.x"
+    "coffee-script": "1.7.x",
+    "jshint": "2.5.x",
+    "mocha": "1.19.x",
+    "sugar": "1.4.x"
   },
   "keywords": [
     "humanize",
