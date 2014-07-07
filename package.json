@@ -18,7 +18,7 @@
     "chai": "1.9.x",
     "coffee-script": "1.7.x",
     "jshint": "2.5.x",
-    "mocha": "1.19.x",
+    "mocha": "1.20.x",
     "sugar": "1.4.x"
   },
   "keywords": [
