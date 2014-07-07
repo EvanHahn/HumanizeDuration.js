@@ -38,7 +38,8 @@
     "portuguese",
     "korean",
     "norwegian",
-    "german"
+    "german",
+    "danish"
   ],
   "jshintConfig": {
     "bitwise": true,
