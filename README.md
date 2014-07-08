@@ -1,6 +1,8 @@
 Humanize Duration
 =================
 
+[![npm version](https://badge.fury.io/js/humanize-duration.svg)](https://npmjs.org/package/humanize-duration)
+
 I have the time in milliseconds and I want it to become "30 minutes" or "3 days, 1 hour". Enter Humanize Duration!
 
 Usage
