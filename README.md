@@ -21,6 +21,8 @@ To use in Node or Browserify (after installing [the package](https://npmjs.org/p
     var humanizeDuration = require("humanize-duration");
     humanizeDuration(12000);
 
+Also available for Bower as *humanize-duration*.
+
 Here's some basic usage:
 
     humanizeDuration(1)         // "1 millisecond"
