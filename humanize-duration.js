@@ -7,8 +7,20 @@ http://git.io/j0HgmQ
 
 ;(function() {
 
-  // What are the languages?
-  var LANGUAGES = {
+  // Start by defining the units and how many ms is in each.
+  var UNITS = [
+    { name: "year", milliseconds: 31557600000 },
+    { name: "month", milliseconds: 2629800000 },
+    { name: "week", milliseconds: 604800000 },
+    { name: "day", milliseconds: 86400000 },
+    { name: "hour", milliseconds: 3600000 },
+    { name: "minute", milliseconds: 60000 },
+    { name: "second", milliseconds: 1000 },
+    { name: "millisecond", milliseconds: 1 }
+  ];
+
+  // Let's also define the default languages.
+  var languages = {
     en: {
       year: function(c) { return "year" + ((c !== 1) ? "s" : ""); },
       month: function(c) { return "month" + ((c !== 1) ? "s" : ""); },
@@ -111,24 +123,12 @@ http://git.io/j0HgmQ
     }
   };
 
-  // Start by defining the units and how many ms is in each.
-  var UNITS = [
-    { name: "year", milliseconds: 31557600000 },
-    { name: "month", milliseconds: 2629800000 },
-    { name: "week", milliseconds: 604800000 },
-    { name: "day", milliseconds: 86400000 },
-    { name: "hour", milliseconds: 3600000 },
-    { name: "minute", milliseconds: 60000 },
-    { name: "second", milliseconds: 1000 },
-    { name: "millisecond", milliseconds: 1 }
-  ];
-
   // Internal utility function for rendering the strings.
   // render(1, "minute") == "1 minute"
   // render(12, "hour") == "12 hours"
   // render(2, "hour", "es") == "2 horas"
   function render(count, word, language) {
-    var dictionary = LANGUAGES[language || humanizeDuration.language];
+    var dictionary = languages[language || humanizeDuration.language];
     if (!dictionary) {
       throw new Error("Language " + language + " not defined");
     }
@@ -166,7 +166,7 @@ http://git.io/j0HgmQ
       unitName = unit.name + "s";
 
       // What are the totals and the rest?
-      if (unit.name === "millisecond") {
+      if (unitName === "milliseconds") {
         unitCount = ms / unit.milliseconds;
         unitTotal = total / unit.milliseconds;
       } else {
@@ -235,6 +235,15 @@ http://git.io/j0HgmQ
     return result.join(", ");
 
   }
+
+  // How do you add a new language?
+  humanizeDuration.addLanguage = function addLanguage(name, definition) {
+    if (languages[name]) {
+      throw Error("Language " + name + " already defined. If you think this " +
+                  "is an error, please submit a patch!");
+    }
+    languages[name] = definition;
+  };
 
   // What's the default language?
   humanizeDuration.language = "en";
