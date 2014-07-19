@@ -264,7 +264,7 @@ http://git.io/j0HgmQ
   // How do you add a new language?
   humanizeDuration.addLanguage = function addLanguage(name, definition) {
     if (languages[name]) {
-      throw Error("Language " + name + " already defined. If you think this " +
+      throw new Error("Language " + name + " already defined. If you think this " +
                   "is an error, please submit a patch!");
     }
     languages[name] = definition;
