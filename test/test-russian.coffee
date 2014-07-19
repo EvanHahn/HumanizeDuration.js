@@ -17,6 +17,7 @@ describe 'Russian humanization of duration', ->
     humanizing(2).should.equal '2 миллисекунды'
     humanizing(5).should.equal '5 миллисекунд'
     humanizing(12).should.equal '12 миллисекунд'
+    humanizing(31).should.equal '31 миллисекунда'
     humanizing(420).should.equal '420 миллисекунд'
 
   it 'humanizes negative milliseconds as positive', ->
