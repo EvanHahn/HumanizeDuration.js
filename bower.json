@@ -29,7 +29,8 @@
     "korean",
     "norwegian",
     "german",
-    "danish"
+    "danish",
+    "russian"
   ],
   "license": "WTFPL",
   "ignore": [
