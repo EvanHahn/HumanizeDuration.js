@@ -21,15 +21,35 @@ http://git.io/j0HgmQ
 
   // Let's also define the default languages.
   var languages = {
-    ru: {
-      year: function(c) { return ["лет", "год", "года"][getRussianForm(c)]; },
-      month: function(c) { return ["месяцев", "месяц", "месяца"][getRussianForm(c)]; },
-      week: function(c) { return ["недель", "неделя", "недели"][getRussianForm(c)]; },
-      day: function(c) { return ["дней", "день", "дня"][getRussianForm(c)]; },
-      hour: function(c) { return ["часов", "час", "часа"][getRussianForm(c)]; },
-      minute: function(c) { return ["минут", "минута", "минуты"][getRussianForm(c)]; },
-      second: function(c) { return ["секунд", "секунда", "секунды"][getRussianForm(c)]; },
-      millisecond: function(c) { return ["миллисекунд", "миллисекунда", "миллисекунды"][getRussianForm(c)]; }
+    ca: {
+      year: function(c) { return "any" + ((c !== 1) ? "s" : ""); },
+      month: function(c) { return "mes" + ((c !== 1) ? "os" : ""); },
+      week: function(c) { return "setman" + ((c !== 1) ? "es" :"a"); },
+      day: function(c) { return "di" + ((c !== 1) ? "es" :"a"); },
+      hour: function(c) { return "hor" + ((c !== 1) ? "es" :"a"); },
+      minute: function(c) { return "minut" + ((c !== 1) ? "s" : ""); },
+      second: function(c) { return "segon" + ((c !== 1) ? "s" : ""); },
+      millisecond: function(c) { return "milisegon" + ((c !== 1) ? "s" : "" ); }
+    },
+    da: {
+      year: function() { return "år"; },
+      month: function(c) { return "måned" + ((c !== 1) ? "er" : ""); },
+      week: function(c) { return "uge" + ((c !== 1) ? "r" : ""); },
+      day: function(c) { return "dag" + ((c !== 1) ? "e" : ""); },
+      hour: function(c) { return "time" + ((c !== 1) ? "r" : ""); },
+      minute: function(c) { return "minut" + ((c !== 1) ? "ter" : ""); },
+      second: function(c) { return "sekund" + ((c !== 1) ? "er" : ""); },
+      millisecond: function(c) { return "millisekund" + ((c !== 1) ? "er" : ""); }
+    },
+    de: {
+      year: function(c) { return "jahr" + ((c !== 1) ? "e" : ""); },
+      month: function(c) { return "monat" + ((c !== 1) ? "e" : ""); },
+      week: function(c) { return "woche" + ((c !== 1) ? "n" : ""); },
+      day: function(c) { return "tag" + ((c !== 1) ? "e" : ""); },
+      hour: function(c) { return "stunde" + ((c !== 1) ? "n" : ""); },
+      minute: function(c) { return "minute" + ((c !== 1) ? "n" : ""); },
+      second: function(c) { return "sekunde" + ((c !== 1) ? "n" : ""); },
+      millisecond: function(c) { return "millisekunde" + ((c !== 1) ? "n" : ""); }
     },
     en: {
       year: function(c) { return "year" + ((c !== 1) ? "s" : ""); },
@@ -40,16 +60,6 @@ http://git.io/j0HgmQ
       minute: function(c) { return "minute" + ((c !== 1) ? "s" : ""); },
       second: function(c) { return "second" + ((c !== 1) ? "s" : ""); },
       millisecond: function(c) { return "millisecond" + ((c !== 1) ? "s" : ""); }
-    },
-    ca: {
-      year: function(c) { return "any" + ((c !== 1) ? "s" : ""); },
-      month: function(c) { return "mes" + ((c !== 1) ? "os" : ""); },
-      week: function(c) { return "setman" + ((c !== 1) ? "es" :"a"); },
-      day: function(c) { return "di" + ((c !== 1) ? "es" :"a"); },
-      hour: function(c) { return "hor" + ((c !== 1) ? "es" :"a"); },
-      minute: function(c) { return "minut" + ((c !== 1) ? "s" : ""); },
-      second: function(c) { return "segon" + ((c !== 1) ? "s" : ""); },
-      millisecond: function(c) { return "milisegon" + ((c !== 1) ? "s" : "" ); }
     },
     es: {
       year: function(c) { return "año" + ((c !== 1) ? "s" : ""); },
@@ -71,16 +81,6 @@ http://git.io/j0HgmQ
       second: function(c) { return "seconde" + ((c !== 1) ? "s" : ""); },
       millisecond: function(c) { return "milliseconde" + ((c !== 1) ? "s" : ""); }
     },
-    pt: {
-      year: function(c) { return "ano" + ((c !== 1) ? "s" : ""); },
-      month: function(c) { return (c !== 1) ? "meses" : "mês"; },
-      week: function(c) { return "semana" + ((c !== 1) ? "s" : ""); },
-      day: function(c) { return "dia" + ((c !== 1) ? "s" : ""); },
-      hour: function(c) { return "hora" + ((c !== 1) ? "s" : ""); },
-      minute: function(c) { return "minuto" + ((c !== 1) ? "s" : ""); },
-      second: function(c) { return "segundo" + ((c !== 1) ? "s" : ""); },
-      millisecond: function(c) { return "milissegundo" + ((c !== 1) ? "s" : ""); }
-    },
     ko: {
       year: function() { return "년"; },
       month: function() { return "개월"; },
@@ -101,16 +101,6 @@ http://git.io/j0HgmQ
       second: function(c) { return "sekund" + ((c !== 1) ? "er" : ""); },
       millisecond: function(c) { return "millisekund" + ((c !== 1) ? "er" : ""); }
     },
-    de: {
-      year: function(c) { return "jahr" + ((c !== 1) ? "e" : ""); },
-      month: function(c) { return "monat" + ((c !== 1) ? "e" : ""); },
-      week: function(c) { return "woche" + ((c !== 1) ? "n" : ""); },
-      day: function(c) { return "tag" + ((c !== 1) ? "e" : ""); },
-      hour: function(c) { return "stunde" + ((c !== 1) ? "n" : ""); },
-      minute: function(c) { return "minute" + ((c !== 1) ? "n" : ""); },
-      second: function(c) { return "sekunde" + ((c !== 1) ? "n" : ""); },
-      millisecond: function(c) { return "millisekunde" + ((c !== 1) ? "n" : ""); }
-    },
     pl: {
       year: function(c) { return ["rok", "roku", "lata", "lat"][getPolishForm(c)]; },
       month: function(c) { return ["miesiąc", "miesiąca", "miesiące", "miesięcy"][getPolishForm(c)]; },
@@ -121,15 +111,25 @@ http://git.io/j0HgmQ
       second: function(c) { return ["sekunda", "sekundy", "sekundy", "sekund"][getPolishForm(c)]; },
       millisecond: function(c) { return ["milisekunda", "milisekundy", "milisekundy", "milisekund"][getPolishForm(c)]; }
     },
-    da: {
-      year: function() { return "år"; },
-      month: function(c) { return "måned" + ((c !== 1) ? "er" : ""); },
-      week: function(c) { return "uge" + ((c !== 1) ? "r" : ""); },
-      day: function(c) { return "dag" + ((c !== 1) ? "e" : ""); },
-      hour: function(c) { return "time" + ((c !== 1) ? "r" : ""); },
-      minute: function(c) { return "minut" + ((c !== 1) ? "ter" : ""); },
-      second: function(c) { return "sekund" + ((c !== 1) ? "er" : ""); },
-      millisecond: function(c) { return "millisekund" + ((c !== 1) ? "er" : ""); }
+    pt: {
+      year: function(c) { return "ano" + ((c !== 1) ? "s" : ""); },
+      month: function(c) { return (c !== 1) ? "meses" : "mês"; },
+      week: function(c) { return "semana" + ((c !== 1) ? "s" : ""); },
+      day: function(c) { return "dia" + ((c !== 1) ? "s" : ""); },
+      hour: function(c) { return "hora" + ((c !== 1) ? "s" : ""); },
+      minute: function(c) { return "minuto" + ((c !== 1) ? "s" : ""); },
+      second: function(c) { return "segundo" + ((c !== 1) ? "s" : ""); },
+      millisecond: function(c) { return "milissegundo" + ((c !== 1) ? "s" : ""); }
+    },
+    ru: {
+      year: function(c) { return ["лет", "год", "года"][getRussianForm(c)]; },
+      month: function(c) { return ["месяцев", "месяц", "месяца"][getRussianForm(c)]; },
+      week: function(c) { return ["недель", "неделя", "недели"][getRussianForm(c)]; },
+      day: function(c) { return ["дней", "день", "дня"][getRussianForm(c)]; },
+      hour: function(c) { return ["часов", "час", "часа"][getRussianForm(c)]; },
+      minute: function(c) { return ["минут", "минута", "минуты"][getRussianForm(c)]; },
+      second: function(c) { return ["секунд", "секунда", "секунды"][getRussianForm(c)]; },
+      millisecond: function(c) { return ["миллисекунд", "миллисекунда", "миллисекунды"][getRussianForm(c)]; }
     }
   };
 
