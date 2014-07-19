@@ -9,14 +9,14 @@ http://git.io/j0HgmQ
 
   // Start by defining the units and how many ms is in each.
   var UNITS = [
-    { name: "year", milliseconds: 31557600000 },
-    { name: "month", milliseconds: 2629800000 },
-    { name: "week", milliseconds: 604800000 },
-    { name: "day", milliseconds: 86400000 },
-    { name: "hour", milliseconds: 3600000 },
-    { name: "minute", milliseconds: 60000 },
-    { name: "second", milliseconds: 1000 },
-    { name: "millisecond", milliseconds: 1 }
+    { name: "year", ms: 31557600000 },
+    { name: "month", ms: 2629800000 },
+    { name: "week", ms: 604800000 },
+    { name: "day", ms: 86400000 },
+    { name: "hour", ms: 3600000 },
+    { name: "minute", ms: 60000 },
+    { name: "second", ms: 1000 },
+    { name: "millisecond", ms: 1 }
   ];
 
   // Let's also define the default languages.
@@ -133,16 +133,17 @@ http://git.io/j0HgmQ
     }
   };
 
-  // Internal utility function for rendering the strings.
-  // render(1, "minute") == "1 minute"
-  // render(12, "hour") == "12 hours"
-  // render(2, "hour", "es") == "2 horas"
-  function render(count, word, language) {
-    var dictionary = languages[language || humanizeDuration.language];
-    if (!dictionary) {
-      throw new Error("Language " + language + " not defined");
+  // Internal helper function for Polish language.
+  function getPolishForm(c) {
+    if (c === 1) {
+      return 0;
+    } else if (Math.floor(c) !== c) {
+      return 1;
+    } else if (2 <= c % 10 && c % 10 <= 4 && !(10 < c % 100 && c % 100 < 20)) {
+      return 2;
+    } else {
+      return 3;
     }
-    return count + " " + dictionary[word](count);
   }
 
 	// Internal helper function for Russian language.
@@ -160,17 +161,16 @@ http://git.io/j0HgmQ
 		}
 	}
 
-  // Internal helper function for Polish language.
-  function getPolishForm(c) {
-    if (c === 1) {
-      return 0;
-    } else if (Math.floor(c) !== c) {
-      return 1;
-    } else if (2 <= c % 10 && c % 10 <= 4 && !(10 < c % 100 && c % 100 < 20)) {
-      return 2;
-    } else {
-      return 3;
+  // Internal utility function for rendering the strings.
+  // render(1, "minute") == "1 minute"
+  // render(12, "hour") == "12 hours"
+  // render(2, "hour", "es") == "2 horas"
+  function render(count, word, language) {
+    var dictionary = languages[language || humanizeDuration.language];
+    if (!dictionary) {
+      throw new Error("Language " + language + " not defined");
     }
+    return count + " " + dictionary[word](count);
   }
 
   // Grab the components.
@@ -192,11 +192,11 @@ http://git.io/j0HgmQ
 
       // What are the totals and the rest?
       if (unitName === "milliseconds") {
-        unitCount = ms / unit.milliseconds;
-        unitTotal = total / unit.milliseconds;
+        unitCount = ms / unit.ms;
+        unitTotal = total / unit.ms;
       } else {
-        unitCount = Math.floor(ms / unit.milliseconds);
-        unitTotal = Math.floor(total / unit.milliseconds);
+        unitCount = Math.floor(ms / unit.ms);
+        unitTotal = Math.floor(total / unit.ms);
       }
 
       // Put them in the result.
@@ -204,7 +204,7 @@ http://git.io/j0HgmQ
       result.total[unitName] = render(unitTotal, unit.name, language);
 
       // Lower the number of milliseconds.
-      ms -= unitCount * unit.milliseconds;
+      ms -= unitCount * unit.ms;
 
     }
 
@@ -235,16 +235,16 @@ http://git.io/j0HgmQ
 
       // If it's a half-unit interval, we're done.
       if (result.length === 0) {
-        mightBeHalfUnit = (ms / unit.milliseconds) * 2;
+        mightBeHalfUnit = (ms / unit.ms) * 2;
         if (mightBeHalfUnit === Math.floor(mightBeHalfUnit))
           return render(mightBeHalfUnit / 2, unit.name, language);
       }
 
       // What's the number of full units we can fit?
       if (unit.name === "millisecond") {
-        unitCount = ms / unit.milliseconds;
+        unitCount = ms / unit.ms;
       } else {
-        unitCount = Math.floor(ms / unit.milliseconds);
+        unitCount = Math.floor(ms / unit.ms);
       }
 
       // Add the string.
@@ -252,7 +252,7 @@ http://git.io/j0HgmQ
         result.push(render(unitCount, unit.name, language));
 
       // Remove what we just figured out.
-      ms -= unitCount * unit.milliseconds;
+      ms -= unitCount * unit.ms;
 
     }
 
