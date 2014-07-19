@@ -160,8 +160,3 @@ describe 'Russian humanization of duration', ->
     components.total.seconds.should.equal '0 секунд'
     components.milliseconds.should.equal '420.69 миллисекунды'
     components.total.milliseconds.should.equal '420.69 миллисекунды'
-
-  it 'grabs the components and keeps the Number objects intact', ->
-    duration = new Number(420420)
-    componentsOf duration
-    duration.valueOf().should.equal 420420
