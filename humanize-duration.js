@@ -21,6 +21,16 @@ http://git.io/j0HgmQ
 
   // Let's also define the default languages.
   var languages = {
+    ru: {
+      year: function(c) { return ["лет", "год", "года"][getRussianForm(c)]; },
+      month: function(c) { return ["месяцев", "месяц", "месяца"][getRussianForm(c)]; },
+      week: function(c) { return ["недель", "неделя", "недели"][getRussianForm(c)]; },
+      day: function(c) { return ["дней", "день", "дня"][getRussianForm(c)]; },
+      hour: function(c) { return ["часов", "час", "часа"][getRussianForm(c)]; },
+      minute: function(c) { return ["минут", "минута", "минуты"][getRussianForm(c)]; },
+      second: function(c) { return ["секунд", "секунда", "секунды"][getRussianForm(c)]; },
+      millisecond: function(c) { return ["миллисекунд", "миллисекунда", "миллисекунды"][getRussianForm(c)]; }
+    },
     en: {
       year: function(c) { return "year" + ((c !== 1) ? "s" : ""); },
       month: function(c) { return "month" + ((c !== 1) ? "s" : ""); },
@@ -134,6 +144,21 @@ http://git.io/j0HgmQ
     }
     return count + " " + dictionary[word](count);
   }
+
+	// Internal helper function for Russian language.
+	function getRussianForm(c) {
+		if (Math.floor(c) !== c) {
+			return 2;
+		} else if (c === 0 || (c >= 5 && c <= 20) || (c % 10 >= 5 && c % 10 <= 9) || (c % 10 === 0) ) {
+			return 0;
+		} else if (c === 1 || c % 10 === 1) {
+			return 1;
+		} else if (c > 1) {
+			return 2;
+		} else {
+			return 0;
+		}
+	}
 
   // Internal helper function for Polish language.
   function getPolishForm(c) {
