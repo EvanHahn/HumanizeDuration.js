@@ -13,7 +13,7 @@ http://git.io/j0HgmQ
 
     var options = {};
     extend(options, humanizeDuration.defaults, passedOptions || {});
-    
+
     if (humanizeDuration.language) {
       warn("Setting the .language property is deprecated. Please use .defaults.language.");
       options.language = humanizeDuration.language;
