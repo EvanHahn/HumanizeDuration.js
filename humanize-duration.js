@@ -12,8 +12,7 @@ http://git.io/j0HgmQ
   function humanizeDuration(ms, passedOptions) {
 
     var options = {};
-    extend(options, humanizeDuration.defaults, passedOptions || {});
-
+    extend(options, humanizeDuration.defaults);
     if (humanizeDuration.language) {
       warn("Setting the .language property is deprecated. Please use .defaults.language.");
       options.language = humanizeDuration.language;
@@ -21,6 +20,8 @@ http://git.io/j0HgmQ
     if (isString(passedOptions)) {
       warn("Setting the language as the second argument is deprecated. Please use { language: 'foo' }.");
       options.language = passedOptions;
+    } else if (passedOptions) {
+      extend(options, passedOptions);
     }
 
     var dictionary = languages[options.language];
@@ -200,6 +201,16 @@ http://git.io/j0HgmQ
       second: function(c) { return "sekunde" + ((c !== 1) ? "n" : ""); },
       millisecond: function(c) { return "millisekunde" + ((c !== 1) ? "n" : ""); }
     },
+    ch: {
+      year: function() { return "年"; },
+      month: function() { return "个月"; },
+      week: function() { return "周"; },
+      day: function() { return "天"; },
+      hour: function() { return "小时"; },
+      minute: function() { return "分钟"; },
+      second: function() { return "秒"; },
+      millisecond: function() { return "毫秒"; }
+    },
     en: {
       year: function(c) { return "year" + ((c !== 1) ? "s" : ""); },
       month: function(c) { return "month" + ((c !== 1) ? "s" : ""); },
@@ -295,19 +306,19 @@ http://git.io/j0HgmQ
     }
   }
 
-  // Internal helper function for Russian language.
-  function getRussianForm(c) {
-    if (Math.floor(c) !== c) {
-      return 2;
-    } else if (c === 0 || (c >= 5 && c <= 20) || (c % 10 >= 5 && c % 10 <= 9) || (c % 10 === 0) ) {
-      return 0;
-    } else if (c === 1 || c % 10 === 1) {
-      return 1;
-    } else if (c > 1) {
-      return 2;
-    } else {
-      return 0;
+    // Internal helper function for Russian language.
+    function getRussianForm(c) {
+        if (Math.floor(c) !== c) {
+            return 2;
+        } else if (c === 0 || (c >= 5 && c <= 20) || (c % 10 >= 5 && c % 10 <= 9) || (c % 10 === 0) ) {
+            return 0;
+        } else if (c === 1 || c % 10 === 1) {
+            return 1;
+        } else if (c > 1) {
+            return 2;
+        } else {
+            return 0;
+        }
     }
-  }
 
 })();
