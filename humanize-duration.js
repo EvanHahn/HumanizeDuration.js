@@ -200,7 +200,7 @@ http://git.io/j0HgmQ
       second: function(c) { return "sekunde" + ((c !== 1) ? "n" : ""); },
       millisecond: function(c) { return "millisekunde" + ((c !== 1) ? "n" : ""); }
     },
-    zhCN: {
+    "zh-CN": {
       year: function() { return "年"; },
       month: function() { return "个月"; },
       week: function() { return "周"; },
@@ -210,7 +210,7 @@ http://git.io/j0HgmQ
       second: function() { return "秒"; },
       millisecond: function() { return "毫秒"; }
     },
-    zhTW: {
+    "zh-TW": {
       year: function() { return "年"; },
       month: function() { return "個月"; },
       week: function() { return "周"; },
