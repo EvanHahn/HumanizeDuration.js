@@ -147,6 +147,16 @@ describe 'English humanization of duration', ->
     result = humanizing(2.minutes() + 18.seconds() + 1, { delimiter: '+' })
     result.should.equal '2 minutes+18 seconds+1 millisecond'
 
+  it 'allows you to change the delimiter by changing defaults', ->
+    oldDelimiter = humanizing.defaults.delimiter
+    humanizing.defaults.delimiter = '+'
+    humanizing(2.minutes()).should.equal '2 minutes'
+    humanizing(2.minutes() + 18.seconds() + 1)
+      .should.equal '2 minutes+18 seconds+1 millisecond'
+    humanizing(2.minutes() + 18.seconds() + 1, { delimiter: 'X' })
+      .should.equal '2 minutesX18 secondsX1 millisecond'
+    humanizing.defaults.delimiter = oldDelimiter
+
   it 'grabs the components and keeps the Number objects intact', ->
     duration = new Number(420420)
     componentsOf duration
