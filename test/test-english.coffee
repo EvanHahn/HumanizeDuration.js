@@ -5,7 +5,7 @@ require('chai').should()
 describe 'English humanization of duration', ->
 
   beforeEach ->
-    humanizing.language = 'en'
+    humanizing.defaults.language = 'en'
 
   it 'humanizes 0ms', ->
     humanizing(0).should.equal '0'

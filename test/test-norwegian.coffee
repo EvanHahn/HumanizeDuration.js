@@ -4,7 +4,7 @@ require('chai').should()
 describe 'Norwegian humanization of duration', ->
 
   beforeEach ->
-    humanizing.language = 'nob'
+    humanizing.defaults.language = 'nob'
 
   it 'humanizes 0ms', ->
     humanizing(0).should.equal '0'

@@ -5,7 +5,7 @@ require('chai').should()
 describe 'Russian humanization of duration', ->
 
   beforeEach ->
-    humanizing.language = 'ru'
+    humanizing.defaults.language = 'ru'
 
   it 'humanizes 0ms', ->
     humanizing(0).should.equal '0'

@@ -13,11 +13,11 @@ describe 'bad humanization of duration', ->
 
   it 'throws errors when humanizing after a bad default language', ->
     humanizing = -> humanizeDuration(69)
-    humanizeDuration.language = 'bad language'
+    humanizeDuration.defaults.language = 'bad language'
     humanizing.should.throw Error
-    humanizeDuration.language = 420
+    humanizeDuration.defaults.language = 420
     humanizing.should.throw Error
-    humanizeDuration.language = {}
+    humanizeDuration.defaults.language = {}
     humanizing.should.throw Error
-    humanizeDuration.language = []
+    humanizeDuration.defaults.language = []
     humanizing.should.throw Error

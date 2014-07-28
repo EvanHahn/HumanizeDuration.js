@@ -5,6 +5,8 @@ http://git.io/j0HgmQ
 
 */
 
+/* global console */
+
 ;(function() {
 
   // Start by defining the units and how many ms is in each.
@@ -161,12 +163,20 @@ http://git.io/j0HgmQ
 		}
 	}
 
+  // Internal utility function for warning on console.warn (if defined).
+  function warn() {
+    if (typeof console !== "undefined" && console.warn) {
+      console.warn.apply(console, arguments);
+    }
+  }
+
   // Internal utility function for rendering the strings.
   // render(1, "minute") == "1 minute"
   // render(12, "hour") == "12 hours"
   // render(2, "hour", "es") == "2 horas"
   function render(count, word, language) {
-    var dictionary = languages[language || humanizeDuration.language];
+    var chosenLanguage = language || humanizeDuration.language || humanizeDuration.defaults.language;
+    var dictionary = languages[chosenLanguage];
     if (!dictionary) {
       throw new Error("Language " + language + " not defined");
     }
@@ -214,6 +224,11 @@ http://git.io/j0HgmQ
 
   // The main function.
   function humanizeDuration(ms, language) {
+
+    // Deprecation warning.
+    if (humanizeDuration.language) {
+      warn("Setting the .language property is deprecated. Please use .defaults.language.");
+    }
 
     // Make sure we have a positive number.
     // Has the nice sideffect of turning Number objects into primitives.
@@ -264,14 +279,16 @@ http://git.io/j0HgmQ
   // How do you add a new language?
   humanizeDuration.addLanguage = function addLanguage(name, definition) {
     if (languages[name]) {
-      throw new Error("Language " + name + " already defined. If you think this " +
-                  "is an error, please submit a patch!");
+      throw new Error("Language " + name + " already defined. If you think" +
+                      "there is an error, please submit a patch!");
     }
     languages[name] = definition;
   };
 
-  // What's the default language?
-  humanizeDuration.language = "en";
+  // Set the defaults.
+  humanizeDuration.defaults = {
+    language: "en"
+  };
 
   // Export this baby.
   humanizeDuration.componentsOf = componentsOf;

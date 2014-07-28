@@ -15,7 +15,7 @@ describe 'adding a new language', ->
     millisecond: (n) -> if n is 1 then 'ms' else 'MS'
 
   beforeEach ->
-    humanizing.language = 'new language'
+    humanizing.defaults.language = 'new language'
 
   it 'humanizes 0ms', ->
     humanizing(0).should.equal '0'
@@ -43,7 +43,7 @@ describe 'adding a new language', ->
   it 'keeps old languages intact', ->
     humanizing(2.minutes(), 'en').should.equal '2 minutes'
     humanizing(2.minutes(), 'es').should.equal '2 minutos'
-    humanizing.language = 'ko'
+    humanizing.defaults.language = 'ko'
     humanizing(2.days()).should.equal '2 일'
     humanizing(2.days(), 'new language').should.equal '2 D'
 

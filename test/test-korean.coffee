@@ -4,7 +4,7 @@ require('chai').should()
 describe 'Korean humanization of duration', ->
 
   beforeEach ->
-    humanizing.language = 'ko'
+    humanizing.defaults.language = 'ko'
 
   it 'humanizes 0ms', ->
     humanizing(0).should.equal '0'
