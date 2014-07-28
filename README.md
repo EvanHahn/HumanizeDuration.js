@@ -53,7 +53,6 @@ Some edge cases:
 
     humanizeDuration(12.34) // "12.34 milliseconds"
     humanizeDuration(-567)  // "567 milliseconds", ignores negative numbers
-
     humanizeDuration(new Number(8910)) // works as normal
 
 Supported languages
