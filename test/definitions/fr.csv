@@ -1,0 +1,17 @@
+0,0
+1,1 milliseconde
+2,2 millisecondes
+1000,1 seconde
+2000,2 secondes
+60000,1 minute
+120000,2 minutes
+3600000,1 heure
+7200000,2 heures
+86400000,1 jour
+172800000,2 jours
+604800000,1 semaine
+1209600000,2 semaines
+2629800000,1 mois
+5259600000,2 mois
+31557600000,1 an
+63115200000,2 ans
