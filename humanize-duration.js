@@ -201,13 +201,23 @@ http://git.io/j0HgmQ
       second: function(c) { return "sekunde" + ((c !== 1) ? "n" : ""); },
       millisecond: function(c) { return "millisekunde" + ((c !== 1) ? "n" : ""); }
     },
-    ch: {
+    zhCN: {
       year: function() { return "年"; },
       month: function() { return "个月"; },
       week: function() { return "周"; },
       day: function() { return "天"; },
       hour: function() { return "小时"; },
       minute: function() { return "分钟"; },
+      second: function() { return "秒"; },
+      millisecond: function() { return "毫秒"; }
+    },
+    zhTW: {
+      year: function() { return "年"; },
+      month: function() { return "個月"; },
+      week: function() { return "周"; },
+      day: function() { return "天"; },
+      hour: function() { return "小時"; },
+      minute: function() { return "分鐘"; },
       second: function() { return "秒"; },
       millisecond: function() { return "毫秒"; }
     },
