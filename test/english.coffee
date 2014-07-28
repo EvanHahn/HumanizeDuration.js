@@ -1,4 +1,5 @@
 humanizing = require '..'
+componentsOf = humanizing.componentsOf
 require('chai').should()
 
 describe 'English humanization of duration', ->
@@ -155,3 +156,36 @@ describe 'English humanization of duration', ->
     humanizing(2.minutes() + 18.seconds() + 1, { delimiter: 'X' })
       .should.equal '2 minutesX18 secondsX1 millisecond'
     humanizing.defaults.delimiter = oldDelimiter
+
+  describe 'componentsOf', ->
+
+    it 'can grab the components', ->
+      duration = 5.days() + 126.minutes() + 4.seconds() + 20.milliseconds()
+      components = componentsOf duration
+      components.years.should.equal '0 years'
+      components.total.years.should.equal '0 years'
+      components.months.should.equal '0 months'
+      components.total.months.should.equal '0 months'
+      components.days.should.equal '5 days'
+      components.total.days.should.equal '5 days'
+      components.hours.should.equal '2 hours'
+      components.total.hours.should.equal '122 hours'
+      components.minutes.should.equal '6 minutes'
+      components.total.minutes.should.equal '7326 minutes'
+      components.seconds.should.equal '4 seconds'
+      components.total.seconds.should.equal '439564 seconds'
+      components.milliseconds.should.equal '20 milliseconds'
+      components.total.milliseconds.should.equal '439564020 milliseconds'
+
+    it 'can grab components of fractioned milliseconds', ->
+      duration = 420.69
+      components = componentsOf duration
+      components.seconds.should.equal '0 seconds'
+      components.total.seconds.should.equal '0 seconds'
+      components.milliseconds.should.equal '420.69 milliseconds'
+      components.total.milliseconds.should.equal '420.69 milliseconds'
+
+    it 'grabs the components and keeps the Number objects intact', ->
+      duration = new Number(420420)
+      componentsOf duration
+      duration.valueOf().should.equal 420420
