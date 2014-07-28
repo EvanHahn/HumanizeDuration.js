@@ -1,4 +1,4 @@
-humanizing = require('../humanize-duration')
+humanizing = require '..'
 require('chai').should()
 
 describe 'Korean humanization of duration', ->

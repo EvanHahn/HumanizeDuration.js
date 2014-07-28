@@ -1,4 +1,4 @@
-humanizing = require('../humanize-duration')
+humanizing = require '..'
 componentsOf = humanizing.componentsOf
 require('chai').should()
 

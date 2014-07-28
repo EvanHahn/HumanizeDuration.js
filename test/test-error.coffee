@@ -1,4 +1,4 @@
-humanizeDuration = require('../humanize-duration')
+humanizeDuration = require '..'
 require('chai').should()
 
 describe 'bad humanization of duration', ->
