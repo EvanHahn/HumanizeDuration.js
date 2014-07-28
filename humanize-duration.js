@@ -9,10 +9,24 @@ http://git.io/j0HgmQ
 
 ;(function() {
 
-  function humanizeDuration(ms, language) {
+  function humanizeDuration(ms, passedOptions) {
 
+    var options = {};
+    extend(options, humanizeDuration.defaults);
     if (humanizeDuration.language) {
       warn("Setting the .language property is deprecated. Please use .defaults.language.");
+      options.language = humanizeDuration.language;
+    }
+    if (isString(passedOptions)) {
+      warn("Setting the language as the second argument is deprecated. Please use { language: 'foo' }.");
+      options.language = passedOptions;
+    } else if (passedOptions) {
+      extend(options, passedOptions);
+    }
+
+    var dictionary = languages[options.language];
+    if (!dictionary) {
+      throw new Error("No language " + options.language + ".");
     }
 
     // Make sure we have a positive number.
@@ -34,7 +48,7 @@ http://git.io/j0HgmQ
       if (result.length === 0) {
         mightBeHalfUnit = (ms / unit.ms) * 2;
         if (mightBeHalfUnit === Math.floor(mightBeHalfUnit))
-          return render(mightBeHalfUnit / 2, unit.name, language);
+          return render(mightBeHalfUnit / 2, unit.name, dictionary);
       }
 
       // What's the number of full units we can fit?
@@ -46,18 +60,26 @@ http://git.io/j0HgmQ
 
       // Add the string.
       if (unitCount)
-        result.push(render(unitCount, unit.name, language));
+        result.push(render(unitCount, unit.name, dictionary));
 
       // Remove what we just figured out.
       ms -= unitCount * unit.ms;
 
     }
 
-    return result.join(", ");
+    return result.join(options.delimiter);
 
   }
 
   humanizeDuration.componentsOf = function componentsOf(total, language) {
+
+    warn("componentsOf is deprecated and will soon be removed.");
+    language = language || humanizeDuration.language || humanizeDuration.defaults.language;
+
+    var dictionary = languages[language];
+    if (!dictionary) {
+      throw new Error("No language named " + language + ".");
+    }
 
     var result = { total: {} };
 
@@ -82,8 +104,8 @@ http://git.io/j0HgmQ
       }
 
       // Put them in the result.
-      result[unitName] = render(unitCount, unit.name, language);
-      result.total[unitName] = render(unitTotal, unit.name, language);
+      result[unitName] = render(unitCount, unit.name, dictionary);
+      result.total[unitName] = render(unitTotal, unit.name, dictionary);
 
       // Lower the number of milliseconds.
       ms -= unitCount * unit.ms;
@@ -103,7 +125,8 @@ http://git.io/j0HgmQ
   };
 
   humanizeDuration.defaults = {
-    language: "en"
+    language: "en",
+    delimiter: ", "
   };
 
   if ((typeof module !== "undefined") && (module.exports))
@@ -118,17 +141,22 @@ http://git.io/j0HgmQ
     }
   }
 
-  // Internal utility function for rendering the strings.
-  // render(1, "minute") == "1 minute"
-  // render(12, "hour") == "12 hours"
-  // render(2, "hour", "es") == "2 horas"
-  function render(count, word, language) {
-    var chosenLanguage = language || humanizeDuration.language || humanizeDuration.defaults.language;
-    var dictionary = languages[chosenLanguage];
-    if (!dictionary) {
-      throw new Error("Language " + language + " not defined");
-    }
+  function render(count, word, dictionary) {
     return count + " " + dictionary[word](count);
+  }
+
+  function isString(thing) {
+    return Object.prototype.toString.call(thing) === "[object String]";
+  }
+
+  function extend(destination) {
+    var source;
+    for (var i = 1; i < arguments.length; i ++) {
+      source = arguments[i];
+      for (var prop in source) {
+        destination[prop] = source[prop];
+      }
+    }
   }
 
   var UNITS = [

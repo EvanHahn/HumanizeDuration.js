@@ -41,11 +41,11 @@ describe 'adding a new language', ->
     humanizing(2.years()).should.equal '2 Y'
 
   it 'keeps old languages intact', ->
-    humanizing(2.minutes(), 'en').should.equal '2 minutes'
-    humanizing(2.minutes(), 'es').should.equal '2 minutos'
+    humanizing(2.minutes(), { language: 'en' }).should.equal '2 minutes'
+    humanizing(2.minutes(), { language: 'es' }).should.equal '2 minutos'
     humanizing.defaults.language = 'ko'
     humanizing(2.days()).should.equal '2 일'
-    humanizing(2.days(), 'new language').should.equal '2 D'
+    humanizing(2.days(), { language: 'new language' }).should.equal '2 D'
 
   it 'throws an error when overwriting a language', ->
     addingANewLanguage = ->

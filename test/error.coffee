@@ -7,9 +7,7 @@ describe 'bad humanization of duration', ->
     humanizingWith = (language) ->
       return -> humanizeDuration(69, language)
     humanizingWith('bad language').should.throw Error
-    humanizingWith(420).should.throw Error
-    humanizingWith({}).should.throw Error
-    humanizingWith([]).should.throw Error
+    humanizingWith({ language: 'bad language' }).should.throw Error
 
   it 'throws errors when humanizing after a bad default language', ->
     humanizing = -> humanizeDuration(69)
