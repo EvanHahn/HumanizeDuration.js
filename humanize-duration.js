@@ -12,7 +12,7 @@ http://git.io/j0HgmQ
   function humanizeDuration(ms, passedOptions) {
 
     var options = {};
-    extend(options, humanizeDuration.defaults);
+    extend(options, humanizeDuration.defaults, passedOptions || {});
     if (humanizeDuration.language) {
       warn("Setting the .language property is deprecated. Please use .defaults.language.");
       options.language = humanizeDuration.language;
@@ -20,8 +20,6 @@ http://git.io/j0HgmQ
     if (isString(passedOptions)) {
       warn("Setting the language as the second argument is deprecated. Please use { language: 'foo' }.");
       options.language = passedOptions;
-    } else if (passedOptions) {
-      extend(options, passedOptions);
     }
 
     var dictionary = languages[options.language];
