@@ -55,20 +55,28 @@ describe 'English humanization of duration', ->
     humanizing(1.minute() + 18.seconds()).should.equal '1 minute, 18 seconds'
 
   it 'humanizes 1 minute, part second, part millisecond intervals', ->
-    humanizing(1.minute() + 1.second() + 1).should.equal '1 minute, 1 second, 1 millisecond'
-    humanizing(1.minute() + 1.second() + 5).should.equal '1 minute, 1 second, 5 milliseconds'
-    humanizing(1.minute() + 18.seconds() + 1).should.equal '1 minute, 18 seconds, 1 millisecond'
-    humanizing(1.minute() + 18.seconds() + 12).should.equal '1 minute, 18 seconds, 12 milliseconds'
+    humanizing(1.minute() + 1.second() + 1)
+      .should.equal '1 minute, 1 second, 1 millisecond'
+    humanizing(1.minute() + 1.second() + 5)
+      .should.equal '1 minute, 1 second, 5 milliseconds'
+    humanizing(1.minute() + 18.seconds() + 1)
+      .should.equal '1 minute, 18 seconds, 1 millisecond'
+    humanizing(1.minute() + 18.seconds() + 12)
+      .should.equal '1 minute, 18 seconds, 12 milliseconds'
 
   it 'humanizes 2 minute, part second intervals', ->
     humanizing(2.minutes() + 1.second()).should.equal '2 minutes, 1 second'
     humanizing(2.minutes() + 18.seconds()).should.equal '2 minutes, 18 seconds'
 
   it 'humanizes 2 minute, part second, part millisecond intervals', ->
-    humanizing(2.minutes() + 1.second() + 1).should.equal '2 minutes, 1 second, 1 millisecond'
-    humanizing(2.minutes() + 1.second() + 5).should.equal '2 minutes, 1 second, 5 milliseconds'
-    humanizing(2.minutes() + 18.seconds() + 1).should.equal '2 minutes, 18 seconds, 1 millisecond'
-    humanizing(2.minutes() + 18.seconds() + 12).should.equal '2 minutes, 18 seconds, 12 milliseconds'
+    humanizing(2.minutes() + 1.second() + 1)
+      .should.equal '2 minutes, 1 second, 1 millisecond'
+    humanizing(2.minutes() + 1.second() + 5)
+      .should.equal '2 minutes, 1 second, 5 milliseconds'
+    humanizing(2.minutes() + 18.seconds() + 1)
+      .should.equal '2 minutes, 18 seconds, 1 millisecond'
+    humanizing(2.minutes() + 18.seconds() + 12)
+      .should.equal '2 minutes, 18 seconds, 12 milliseconds'
 
   it 'humanizes half-hour intervals', ->
     humanizing((0.5).hours()).should.equal '0.5 hours'
@@ -133,7 +141,7 @@ describe 'English humanization of duration', ->
     humanizing duration
     duration.valueOf().should.equal 2012
 
-  it 'allows you to change the delimiter', ->
+  it 'allows you to change the delimiter with an argument', ->
     result = humanizing(2.minutes(), { delimiter: '+' })
     result.should.equal '2 minutes'
     result = humanizing(2.minutes() + 18.seconds() + 1, { delimiter: '+' })
