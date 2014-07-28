@@ -6,7 +6,7 @@ path = require "path"
 options = (language) ->
   return {
     language: language
-    delimiter: "-"
+    delimiter: "+"
     units: [
       "year"
       "month"
