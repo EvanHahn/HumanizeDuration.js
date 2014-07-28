@@ -1,5 +1,4 @@
 humanizing = require '..'
-componentsOf = humanizing.componentsOf
 require('chai').should()
 
 describe 'English humanization of duration', ->
@@ -156,8 +155,3 @@ describe 'English humanization of duration', ->
     humanizing(2.minutes() + 18.seconds() + 1, { delimiter: 'X' })
       .should.equal '2 minutesX18 secondsX1 millisecond'
     humanizing.defaults.delimiter = oldDelimiter
-
-  it 'grabs the components and keeps the Number objects intact', ->
-    duration = new Number(420420)
-    componentsOf duration
-    duration.valueOf().should.equal 420420
