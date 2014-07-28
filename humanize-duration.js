@@ -9,7 +9,128 @@ http://git.io/j0HgmQ
 
 ;(function() {
 
-  // Start by defining the units and how many ms is in each.
+  function humanizeDuration(ms, language) {
+
+    if (humanizeDuration.language) {
+      warn("Setting the .language property is deprecated. Please use .defaults.language.");
+    }
+
+    // Make sure we have a positive number.
+    // Has the nice sideffect of turning Number objects into primitives.
+    ms = Math.abs(ms);
+
+    if (ms === 0)
+      return "0";
+
+    var result = [];
+
+    // Start at the top and keep removing units, bit by bit.
+    var unit, unitCount, mightBeHalfUnit;
+    for (var i = 0, len = UNITS.length; i < len; i ++) {
+
+      unit = UNITS[i];
+
+      // If it's a half-unit interval, we're done.
+      if (result.length === 0) {
+        mightBeHalfUnit = (ms / unit.ms) * 2;
+        if (mightBeHalfUnit === Math.floor(mightBeHalfUnit))
+          return render(mightBeHalfUnit / 2, unit.name, language);
+      }
+
+      // What's the number of full units we can fit?
+      if (unit.name === "millisecond") {
+        unitCount = ms / unit.ms;
+      } else {
+        unitCount = Math.floor(ms / unit.ms);
+      }
+
+      // Add the string.
+      if (unitCount)
+        result.push(render(unitCount, unit.name, language));
+
+      // Remove what we just figured out.
+      ms -= unitCount * unit.ms;
+
+    }
+
+    return result.join(", ");
+
+  }
+
+  humanizeDuration.componentsOf = function componentsOf(total, language) {
+
+    var result = { total: {} };
+
+    // Make sure we have positive numbers.
+    // Has the nice sideffect of turning Number objects into primitives.
+    total = Math.abs(total);
+    var ms = total;
+
+    var unit, unitName, unitTotal, unitCount;
+    for (var i = 0, len = UNITS.length; i < len; i ++) {
+
+      unit = UNITS[i];
+      unitName = unit.name + "s";
+
+      // What are the totals and the rest?
+      if (unitName === "milliseconds") {
+        unitCount = ms / unit.ms;
+        unitTotal = total / unit.ms;
+      } else {
+        unitCount = Math.floor(ms / unit.ms);
+        unitTotal = Math.floor(total / unit.ms);
+      }
+
+      // Put them in the result.
+      result[unitName] = render(unitCount, unit.name, language);
+      result.total[unitName] = render(unitTotal, unit.name, language);
+
+      // Lower the number of milliseconds.
+      ms -= unitCount * unit.ms;
+
+    }
+
+    return result;
+
+  };
+
+  humanizeDuration.addLanguage = function addLanguage(name, definition) {
+    if (languages[name]) {
+      throw new Error("Language " + name + " already defined. If you think" +
+                      "there is an error, please submit a patch!");
+    }
+    languages[name] = definition;
+  };
+
+  humanizeDuration.defaults = {
+    language: "en"
+  };
+
+  if ((typeof module !== "undefined") && (module.exports))
+    module.exports = humanizeDuration;
+  else
+    this.humanizeDuration = humanizeDuration;
+
+  // Internal utility function for warning on console.warn (if defined).
+  function warn() {
+    if (typeof console !== "undefined" && console.warn) {
+      console.warn.apply(console, arguments);
+    }
+  }
+
+  // Internal utility function for rendering the strings.
+  // render(1, "minute") == "1 minute"
+  // render(12, "hour") == "12 hours"
+  // render(2, "hour", "es") == "2 horas"
+  function render(count, word, language) {
+    var chosenLanguage = language || humanizeDuration.language || humanizeDuration.defaults.language;
+    var dictionary = languages[chosenLanguage];
+    if (!dictionary) {
+      throw new Error("Language " + language + " not defined");
+    }
+    return count + " " + dictionary[word](count);
+  }
+
   var UNITS = [
     { name: "year", ms: 31557600000 },
     { name: "month", ms: 2629800000 },
@@ -21,7 +142,6 @@ http://git.io/j0HgmQ
     { name: "millisecond", ms: 1 }
   ];
 
-  // Let's also define the default languages.
   var languages = {
     ca: {
       year: function(c) { return "any" + ((c !== 1) ? "s" : ""); },
@@ -162,139 +282,5 @@ http://git.io/j0HgmQ
 			return 0;
 		}
 	}
-
-  // Internal utility function for warning on console.warn (if defined).
-  function warn() {
-    if (typeof console !== "undefined" && console.warn) {
-      console.warn.apply(console, arguments);
-    }
-  }
-
-  // Internal utility function for rendering the strings.
-  // render(1, "minute") == "1 minute"
-  // render(12, "hour") == "12 hours"
-  // render(2, "hour", "es") == "2 horas"
-  function render(count, word, language) {
-    var chosenLanguage = language || humanizeDuration.language || humanizeDuration.defaults.language;
-    var dictionary = languages[chosenLanguage];
-    if (!dictionary) {
-      throw new Error("Language " + language + " not defined");
-    }
-    return count + " " + dictionary[word](count);
-  }
-
-  // Grab the components.
-  function componentsOf(total, language) {
-
-    var result = { total: {} };
-
-    // Make sure we have positive numbers.
-    // Has the nice sideffect of turning Number objects into primitives.
-    total = Math.abs(total);
-    var ms = total;
-
-    var unit, unitName, unitTotal, unitCount;
-    for (var i = 0, len = UNITS.length; i < len; i ++) {
-
-      // Store the current unit.
-      unit = UNITS[i];
-      unitName = unit.name + "s";
-
-      // What are the totals and the rest?
-      if (unitName === "milliseconds") {
-        unitCount = ms / unit.ms;
-        unitTotal = total / unit.ms;
-      } else {
-        unitCount = Math.floor(ms / unit.ms);
-        unitTotal = Math.floor(total / unit.ms);
-      }
-
-      // Put them in the result.
-      result[unitName] = render(unitCount, unit.name, language);
-      result.total[unitName] = render(unitTotal, unit.name, language);
-
-      // Lower the number of milliseconds.
-      ms -= unitCount * unit.ms;
-
-    }
-
-    return result;
-
-  }
-
-  // The main function.
-  function humanizeDuration(ms, language) {
-
-    // Deprecation warning.
-    if (humanizeDuration.language) {
-      warn("Setting the .language property is deprecated. Please use .defaults.language.");
-    }
-
-    // Make sure we have a positive number.
-    // Has the nice sideffect of turning Number objects into primitives.
-    ms = Math.abs(ms);
-
-    // Humanizing zero, I see.
-    if (ms === 0)
-      return "0";
-
-    // We'll put everything in an array and turn that into a string at the end.
-    var result = [];
-
-    // Start at the top and keep removing units, bit by bit.
-    var unit, unitCount, mightBeHalfUnit;
-    for (var i = 0, len = UNITS.length; i < len; i ++) {
-
-      // Store the current unit.
-      unit = UNITS[i];
-
-      // If it's a half-unit interval, we're done.
-      if (result.length === 0) {
-        mightBeHalfUnit = (ms / unit.ms) * 2;
-        if (mightBeHalfUnit === Math.floor(mightBeHalfUnit))
-          return render(mightBeHalfUnit / 2, unit.name, language);
-      }
-
-      // What's the number of full units we can fit?
-      if (unit.name === "millisecond") {
-        unitCount = ms / unit.ms;
-      } else {
-        unitCount = Math.floor(ms / unit.ms);
-      }
-
-      // Add the string.
-      if (unitCount)
-        result.push(render(unitCount, unit.name, language));
-
-      // Remove what we just figured out.
-      ms -= unitCount * unit.ms;
-
-    }
-
-    // All done! Turn the array into a string.
-    return result.join(", ");
-
-  }
-
-  // How do you add a new language?
-  humanizeDuration.addLanguage = function addLanguage(name, definition) {
-    if (languages[name]) {
-      throw new Error("Language " + name + " already defined. If you think" +
-                      "there is an error, please submit a patch!");
-    }
-    languages[name] = definition;
-  };
-
-  // Set the defaults.
-  humanizeDuration.defaults = {
-    language: "en"
-  };
-
-  // Export this baby.
-  humanizeDuration.componentsOf = componentsOf;
-  if ((typeof module !== "undefined") && (module.exports))
-    module.exports = humanizeDuration;
-  else
-    this.humanizeDuration = humanizeDuration;
 
 })();
