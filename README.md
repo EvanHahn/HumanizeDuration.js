@@ -25,34 +25,35 @@ Also available for Bower as *humanize-duration*.
 
 Here's some basic usage:
 
-    humanizeDuration(1)         // "1 millisecond"
     humanizeDuration(3000)      // "3 seconds"
-    humanizeDuration(2012)      // "2 seconds, 12 milliseconds"
+    humanizeDuration(2015)      // "2.25 seconds"
     humanizeDuration(97320000)  // "1 day, 3 hours, 2 minutes"
 
-You can also change the language:
+You can also change the settings:
 
-    humanizeDuration(3000, "es")  // "3 segundos"
+    humanizeDuration(3000, { language: "es" })  // "3 segundos"
+    humanizeDuration(5000, { language: "ko" })  // "5 초"
 
-    humanizeDuration.language = "fr"  // change language to French
-    humanizeDuration(3000)            // "3 secondes"
-    humanizeDuration(5000, "ko")      // "5 초"
-    humanizeDuration.language = "en"  // change language back to English
+    humanizeDuration(22140000, { delimiter: " and " })  // "6 hours and 9 minutes"
+    humanizeDuration(22140000, { delimiter: " " })      // "6 hours 9 minutes"
 
-You can also get the components of the humanizization, using `componentsOf`:
+    humanizeDuration(3600000, { units: ["hours"] })          // 1 hour
+    humanizeDuration(3600000, { units: ["days", "hours"] })  // 1 hour
+    humanizeDuration(3600000, { units: ["minutes"] })        // 60 minutes
 
-    var components = humanizeDuration.componentsOf(97320000);
-    // components.days == "1 day"
-    // components.total.days == "1 day"
-    // components.hours == "3 hours"
-    // components.total.hours == "27 hours"
-    // components.seconds == "0 seconds"
-    // components.total.seconds == "97320 seconds"
+If you find yourself setting same options over and over again, you can create a humanizer that changes the defaults, which you can still override later.
+
+    var humanizer = humanizeDuration.humanizer({
+      language: "es",
+      units: ["years", "months", "days"]
+    });
+
+    humanizer(71177400000)  // "2 años, 3 meses, 2 días"
+    humanizer(71177400000, { units: ["days", "hours"] })  // "823 días, 19.5 horas"
 
 Some edge cases:
 
-    humanizeDuration(12.34) // "12.34 milliseconds"
-    humanizeDuration(-567)  // "567 milliseconds", ignores negative numbers
+    humanizeDuration(-5000)            // "5000 seconds", ignores negative numbers
     humanizeDuration(new Number(8910)) // works as normal
 
 Supported languages
