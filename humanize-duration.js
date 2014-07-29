@@ -5,169 +5,18 @@ http://git.io/j0HgmQ
 
 */
 
-/* global console */
-
 ;(function() {
 
-  function humanizeDuration(ms, passedOptions) {
-
-    var options = {};
-    extend(options, humanizeDuration.defaults, passedOptions || {});
-
-    if (humanizeDuration.language) {
-      warn("Setting the .language property is deprecated. Please use .defaults.language.");
-      options.language = humanizeDuration.language;
-    }
-    if (isString(passedOptions)) {
-      warn("Setting the language as the second argument is deprecated. Please use { language: 'foo' }.");
-      options.language = passedOptions;
-    }
-
-    var dictionary = languages[options.language];
-    if (!dictionary) {
-      throw new Error("No language " + options.language + ".");
-    }
-
-    // Make sure we have a positive number.
-    // Has the nice sideffect of turning Number objects into primitives.
-    ms = Math.abs(ms);
-
-    if (ms === 0)
-      return "0";
-
-    var result = [];
-
-    // Start at the top and keep removing units, bit by bit.
-    var unit, unitCount, mightBeHalfUnit;
-    for (var i = 0, len = UNITS.length; i < len; i ++) {
-
-      unit = UNITS[i];
-
-      // If it's a half-unit interval, we're done.
-      if (result.length === 0) {
-        mightBeHalfUnit = (ms / unit.ms) * 2;
-        if (mightBeHalfUnit === Math.floor(mightBeHalfUnit))
-          return render(mightBeHalfUnit / 2, unit.name, dictionary);
-      }
-
-      // What's the number of full units we can fit?
-      if (unit.name === "millisecond") {
-        unitCount = ms / unit.ms;
-      } else {
-        unitCount = Math.floor(ms / unit.ms);
-      }
-
-      // Add the string.
-      if (unitCount)
-        result.push(render(unitCount, unit.name, dictionary));
-
-      // Remove what we just figured out.
-      ms -= unitCount * unit.ms;
-
-    }
-
-    return result.join(options.delimiter);
-
-  }
-
-  humanizeDuration.componentsOf = function componentsOf(total, language) {
-
-    warn("componentsOf is deprecated and will soon be removed.");
-    language = language || humanizeDuration.language || humanizeDuration.defaults.language;
-
-    var dictionary = languages[language];
-    if (!dictionary) {
-      throw new Error("No language named " + language + ".");
-    }
-
-    var result = { total: {} };
-
-    // Make sure we have positive numbers.
-    // Has the nice sideffect of turning Number objects into primitives.
-    total = Math.abs(total);
-    var ms = total;
-
-    var unit, unitName, unitTotal, unitCount;
-    for (var i = 0, len = UNITS.length; i < len; i ++) {
-
-      unit = UNITS[i];
-      unitName = unit.name + "s";
-
-      // What are the totals and the rest?
-      if (unitName === "milliseconds") {
-        unitCount = ms / unit.ms;
-        unitTotal = total / unit.ms;
-      } else {
-        unitCount = Math.floor(ms / unit.ms);
-        unitTotal = Math.floor(total / unit.ms);
-      }
-
-      // Put them in the result.
-      result[unitName] = render(unitCount, unit.name, dictionary);
-      result.total[unitName] = render(unitTotal, unit.name, dictionary);
-
-      // Lower the number of milliseconds.
-      ms -= unitCount * unit.ms;
-
-    }
-
-    return result;
-
+  var UNITS = {
+    year: 31557600000,
+    month: 2629800000,
+    week: 604800000,
+    day: 86400000,
+    hour: 3600000,
+    minute: 60000,
+    second: 1000,
+    millisecond: 1
   };
-
-  humanizeDuration.addLanguage = function addLanguage(name, definition) {
-    if (languages[name]) {
-      throw new Error("Language " + name + " already defined. If you think" +
-                      "there is an error, please submit a patch!");
-    }
-    languages[name] = definition;
-  };
-
-  humanizeDuration.defaults = {
-    language: "en",
-    delimiter: ", "
-  };
-
-  if ((typeof module !== "undefined") && (module.exports))
-    module.exports = humanizeDuration;
-  else
-    this.humanizeDuration = humanizeDuration;
-
-  // Internal utility function for warning on console.warn (if defined).
-  function warn() {
-    if (typeof console !== "undefined" && console.warn) {
-      console.warn.apply(console, arguments);
-    }
-  }
-
-  function render(count, word, dictionary) {
-    return count + " " + dictionary[word](count);
-  }
-
-  function isString(thing) {
-    return Object.prototype.toString.call(thing) === "[object String]";
-  }
-
-  function extend(destination) {
-    var source;
-    for (var i = 1; i < arguments.length; i ++) {
-      source = arguments[i];
-      for (var prop in source) {
-        destination[prop] = source[prop];
-      }
-    }
-  }
-
-  var UNITS = [
-    { name: "year", ms: 31557600000 },
-    { name: "month", ms: 2629800000 },
-    { name: "week", ms: 604800000 },
-    { name: "day", ms: 86400000 },
-    { name: "hour", ms: 3600000 },
-    { name: "minute", ms: 60000 },
-    { name: "second", ms: 1000 },
-    { name: "millisecond", ms: 1 }
-  ];
 
   var languages = {
     ca: {
@@ -301,6 +150,119 @@ http://git.io/j0HgmQ
       millisecond: function(c) { return ["миллисекунд", "миллисекунда", "миллисекунды"][getRussianForm(c)]; }
     }
   };
+
+  // You can create a humanizer, which returns a function with defaults
+  // parameters.
+  function humanizer(passedOptions) {
+
+    var defaultOptions = extend({
+      language: "en",
+      delimiter: ", ",
+      units: [
+        "year",
+        "month",
+        "week",
+        "day",
+        "hour",
+        "minute",
+        "second"
+      ],
+      languages: extend({}, languages)
+    }, passedOptions);
+
+    return function(ms, passedOptions) {
+      var options = extend({}, defaultOptions, passedOptions || {});
+      return doHumanization(ms, options);
+    };
+
+  }
+
+  // The main function is just a wrapper around a default humanizer.
+  var defaultHumanizer = humanizer({});
+  function humanizeDuration(ms, passedOptions) {
+    if (isString(passedOptions)) {
+      throw new Error("Setting the language as the second argument is deprecated. Please use { language: 'foo' }.");
+    }
+    return defaultHumanizer(ms, passedOptions);
+  }
+
+  // doHumanization does the bulk of the work.
+  function doHumanization(ms, options) {
+
+    // Make sure we have a positive number.
+    // Has the nice sideffect of turning Number objects into primitives.
+    ms = Math.abs(ms);
+
+    if (ms === 0)
+      return "0";
+
+    var dictionary = options.languages[options.language];
+    if (!dictionary) {
+      throw new Error("No language " + dictionary + ".");
+    }
+
+    var result = [];
+
+    // Start at the top and keep removing units, bit by bit.
+    var unitName, unitMS, unitCount, mightBeHalfUnit;
+    for (var i = 0, len = options.units.length; i < len; i ++) {
+
+      unitName = options.units[i];
+      if (unitName[unitName.length - 1] === "s") { // strip plurals
+        unitName = unitName.substring(0, unitName.length - 1);
+      }
+      unitMS = UNITS[unitName];
+
+      // If it's a half-unit interval, we're done.
+      if (result.length === 0) {
+        mightBeHalfUnit = (ms / unitMS) * 2;
+        if (mightBeHalfUnit === Math.floor(mightBeHalfUnit))
+          return render(mightBeHalfUnit / 2, unitName, dictionary);
+      }
+
+      // What's the number of full units we can fit?
+      if ((i + 1) === len) {
+        unitCount = ms / unitMS;
+      } else {
+        unitCount = Math.floor(ms / unitMS);
+      }
+
+      // Add the string.
+      if (unitCount)
+        result.push(render(unitCount, unitName, dictionary));
+
+      // Remove what we just figured out.
+      ms -= unitCount * unitMS;
+
+    }
+
+    return result.join(options.delimiter);
+
+  }
+
+  if ((typeof module !== "undefined") && (module.exports))
+    module.exports = humanizeDuration;
+  else
+    this.humanizeDuration = humanizeDuration;
+
+  function isString(thing) {
+    return Object.prototype.toString.call(thing) === "[object String]";
+  }
+
+  function render(count, word, dictionary) {
+    return count + " " + dictionary[word](count);
+  }
+
+  function extend(destination) {
+    var source;
+    for (var i = 1; i < arguments.length; i ++) {
+      source = arguments[i];
+      for (var prop in source) {
+        destination[prop] = source[prop];
+      }
+    }
+    return destination;
+  }
 
   // Internal helper function for Polish language.
   function getPolishForm(c) {

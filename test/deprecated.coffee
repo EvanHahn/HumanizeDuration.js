@@ -1,31 +1,24 @@
 humanize = require '..'
 require('chai').should()
 sinon = require 'sinon'
+assert = require 'assert'
 
 describe 'deprecated behavior', ->
 
-  beforeEach ->
-    sinon.spy(console, 'warn')
-    humanize.defaults.language = 'en'
-    delete humanize.language
-
-  afterEach ->
-    console.warn.restore()
-    delete humanize.language
-
-  it 'can change the default language but warns you', ->
+  it 'does nothing when changing the language like before', ->
     humanize(1000).should.equal '1 second'
-    console.warn.called.should.equal false
     humanize.language = 'es'
-    humanize(1000).should.equal '1 segundo'
-    console.warn.called.should.equal true
+    humanize(1000).should.equal '1 second'
+    delete humanize.language
 
-  it 'warns you when setting the language as the 2nd argument', ->
-    humanize(1000, { language: 'es' }).should.equal '1 segundo'
-    console.warn.called.should.equal false
-    humanize(1000, 'es').should.equal '1 segundo'
-    console.warn.called.should.equal true
+  it 'errors when 2nd argument is a string', ->
+    (->
+      humanize(1000, 'en')
+      humanize(1000, 'es')
+    ).should.throw Error
 
-  it 'warns you when using componentsOf', ->
-    humanize.componentsOf(1000)
-    console.warn.called.should.equal true
+  it 'removes old methods', ->
+    assert.equal(humanize.componentsOf, undefined)
+    assert.equal(humanize.addLanguage, undefined)
+    assert.equal(humanize.defaults, undefined)
+    assert.equal(humanize.language, undefined)

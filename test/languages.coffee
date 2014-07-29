@@ -40,7 +40,7 @@ describe "localized humanization", ->
       csvLines = csvData.lines()
       for line, i in csvLines
         [ms, expected] = line.split(",", 2)
-        result.push [ms.toNumber(), expected]
+        result.push [parseFloat(ms), expected]
 
       languagesToTest[languageName] = result
 
