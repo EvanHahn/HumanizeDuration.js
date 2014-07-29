@@ -37,6 +37,9 @@ You can also change the settings:
     humanizeDuration(22140000, { delimiter: " and " })  // "6 hours and 9 minutes"
     humanizeDuration(22140000, { delimiter: " " })      // "6 hours 9 minutes"
 
+    humanizeDuration(22140000, { suffix: "" })  // "6hours 9minutes"
+    humanizeDuration(22140000, { suffix: "-" }) // "6-hours 9-minutes"
+
     humanizeDuration(3600000, { units: ["hours"] })          // 1 hour
     humanizeDuration(3600000, { units: ["days", "hours"] })  // 1 hour
     humanizeDuration(3600000, { units: ["minutes"] })        // 60 minutes
