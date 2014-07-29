@@ -240,6 +240,7 @@ http://git.io/j0HgmQ
 
   }
 
+  humanizeDuration.humanizer = humanizer;
   if ((typeof module !== "undefined") && (module.exports))
     module.exports = humanizeDuration;
   else
