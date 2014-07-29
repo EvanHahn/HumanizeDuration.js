@@ -18,6 +18,12 @@ describe "humanizer", ->
     h(1000).should.equal "1 second"
     h(363000).should.equal "6 minutes+3 seconds"
 
+  it "can change the units", ->
+    h = humanizer(units: ["days"])
+    h(0).should.equal "0"
+    h(6.hours()).should.equal "0.25 days"
+    h(7.days()).should.equal "7 days"
+
   it "has properties which can be modified", ->
     h = humanizer()
     h(363000).should.equal "6 minutes, 3 seconds"
