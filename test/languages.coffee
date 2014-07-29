@@ -54,7 +54,7 @@ describe "localized humanization", ->
           result = humanizeDuration(pair[0], options(language))
           result.should.equal pair[1]
 
-      xit "humanizes with a humanizer", ->
+      it "humanizes with a humanizer", ->
         h = humanizeDuration.humanizer(options(language))
         for pair in pairs
           h(pair[0]).should.equal pair[1]
