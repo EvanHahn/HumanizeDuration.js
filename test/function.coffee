@@ -2,7 +2,7 @@ humanizing = require '..'
 componentsOf = humanizing.componentsOf
 require('chai').should()
 
-describe 'English humanization of duration', ->
+describe 'base humanization function', ->
 
   it 'humanizes English by default', ->
     humanizing(8000).should.equal '8 seconds'
@@ -21,6 +21,8 @@ describe 'English humanization of duration', ->
     duration.valueOf().should.equal 2012
 
   it 'allows you to change the delimiter', ->
+    result = humanizing(0, { delimiter: '+' })
+    result.should.equal '0'
     result = humanizing(2.minutes(), { delimiter: '+' })
     result.should.equal '2 minutes'
     result = humanizing(2.minutes() + 18.seconds(), { delimiter: '+' })
@@ -35,11 +37,15 @@ describe 'English humanization of duration', ->
     result.should.equal '60 minutes'
 
   it 'makes a decimal of the smallest unit', ->
-    result = humanizing(2.minutes() + 15.seconds(), { units: ['minute', 'second'] })
+    result = humanizing 2.minutes() + 15.seconds()
+      units: ['minute', 'second']
     result.should.equal '2 minutes, 15 seconds'
-    result = humanizing(2.minutes() + 15.seconds(), { units: ['minute'] })
+    result = humanizing 2.minutes() + 15.seconds(),
+      units: ['minute']
     result.should.equal '2.25 minutes'
-    result = humanizing(2.minutes() + 15.seconds(), { units: ['hour', 'minute'] })
+    result = humanizing 2.minutes() + 15.seconds(),
+      units: ['hour', 'minute']
     result.should.equal '2.25 minutes'
-    result = humanizing(2.minutes() + 15.seconds(), { units: ['hour'] })
+    result = humanizing 2.minutes() + 15.seconds(),
+      units: ['hour']
     result.should.equal '0.0375 hours'
