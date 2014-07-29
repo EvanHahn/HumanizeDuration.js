@@ -155,7 +155,12 @@ http://git.io/j0HgmQ
   // parameters.
   function humanizer(passedOptions) {
 
-    var defaultOptions = extend({
+    var result = function humanizer(ms, passedOptions) {
+      var options = extend({}, result, passedOptions || {});
+      return doHumanization(ms, options);
+    };
+
+    extend(result, {
       language: "en",
       delimiter: ", ",
       units: [
@@ -170,10 +175,7 @@ http://git.io/j0HgmQ
       languages: extend({}, languages)
     }, passedOptions);
 
-    return function(ms, passedOptions) {
-      var options = extend({}, defaultOptions, passedOptions || {});
-      return doHumanization(ms, options);
-    };
+    return result;
 
   }
 
