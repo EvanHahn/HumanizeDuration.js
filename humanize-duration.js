@@ -172,7 +172,7 @@ http://git.io/j0HgmQ
         "minute",
         "second"
       ],
-      languages: extend({}, languages)
+      languages: {}
     }, passedOptions);
 
     return result;
@@ -198,7 +198,7 @@ http://git.io/j0HgmQ
     if (ms === 0)
       return "0";
 
-    var dictionary = options.languages[options.language];
+    var dictionary = options.languages[options.language] || languages[options.language];
     if (!dictionary) {
       throw new Error("No language " + dictionary + ".");
     }
