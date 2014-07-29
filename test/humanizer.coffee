@@ -30,3 +30,34 @@ describe "humanizer", ->
 
   it "is a named function", ->
     humanizer().name.should.equal "humanizer"
+
+  it "can add a new language", ->
+    h = humanizer(language: "cool language")
+    h.languages["cool language"] =
+      year: -> "y"
+      month: -> "mo"
+      week: -> "w"
+      day: -> "d"
+      hour: -> "h"
+      minute: -> "mi"
+      second: -> "s"
+      millisecond: -> "ms"
+    h(1000).should.equal "1 s"
+    anotherH = humanizer(language: "cool language")
+    (-> h(1000)).should.throw Error
+
+  it "can overwrite an existing language", ->
+    h = humanizer(language: "en")
+    h(1000).should.equal "1 second"
+    h.languages["en"] =
+      year: -> "y"
+      month: -> "mo"
+      week: -> "w"
+      day: -> "d"
+      hour: -> "h"
+      minute: -> "mi"
+      second: -> "s"
+      millisecond: -> "ms"
+    h(1000).should.equal "1 s"
+    anotherH = humanizer(language: "en")
+    h(1000).should.equal "1 second"
