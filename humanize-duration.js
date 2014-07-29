@@ -163,6 +163,7 @@ http://git.io/j0HgmQ
     extend(result, {
       language: "en",
       delimiter: ", ",
+      suffix: " ",
       units: [
         "year",
         "month",
@@ -191,6 +192,10 @@ http://git.io/j0HgmQ
   // doHumanization does the bulk of the work.
   function doHumanization(ms, options) {
 
+      function render(count, word, dictionary) {
+        return count + options.suffix + dictionary[word](count);
+      }
+
     // Make sure we have a positive number.
     // Has the nice sideffect of turning Number objects into primitives.
     ms = Math.abs(ms);
@@ -198,7 +203,7 @@ http://git.io/j0HgmQ
     if (ms === 0)
       return "0";
 
-    var dictionary = options.languages[options.language];
+    var dictionary = typeof options.language === "object" ? options.language : options.languages[options.language];
     if (!dictionary) {
       throw new Error("No language " + dictionary + ".");
     }
@@ -250,10 +255,6 @@ http://git.io/j0HgmQ
 
   function isString(thing) {
     return Object.prototype.toString.call(thing) === "[object String]";
-  }
-
-  function render(count, word, dictionary) {
-    return count + " " + dictionary[word](count);
   }
 
   function extend(destination) {
