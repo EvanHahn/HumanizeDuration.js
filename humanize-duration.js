@@ -201,7 +201,7 @@ http://git.io/j0HgmQ
     if (ms === 0)
       return "0";
 
-    var dictionary = options.languages[options.language];
+    var dictionary = typeof options.language === "object" ? options.language : options.languages[options.language];
     if (!dictionary) {
       throw new Error("No language " + dictionary + ".");
     }

@@ -33,6 +33,19 @@ You can also change the settings:
 
     humanizeDuration(3000, { language: "es" })  // "3 segundos"
     humanizeDuration(5000, { language: "ko" })  // "5 초"
+    humanizeDuration(22140000, { 
+        suffix: "",
+        language: {
+          year: function(c) { return "y";},
+          month: function(c) { return "m"; },
+          week: function(c) { return "w"; },
+          day: function(c) { return "d"; },
+          hour: function(c) { return "h"; },
+          minute: function(c) { return "m"; },
+          second: function(c) { return "s"; },
+          millisecond: function(c) { return "ms"; }
+        }
+    }); //"6h 9m"
 
     humanizeDuration(22140000, { delimiter: " and " })  // "6 hours and 9 minutes"
     humanizeDuration(22140000, { delimiter: " " })      // "6 hours 9 minutes"
