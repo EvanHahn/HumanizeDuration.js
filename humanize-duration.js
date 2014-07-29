@@ -195,8 +195,9 @@ http://git.io/j0HgmQ
     // Has the nice sideffect of turning Number objects into primitives.
     ms = Math.abs(ms);
 
-    if (ms === 0)
+    if (ms === 0) {
       return "0";
+    }
 
     var dictionary = options.languages[options.language] || languages[options.language];
     if (!dictionary) {
@@ -218,8 +219,9 @@ http://git.io/j0HgmQ
       // If it's a half-unit interval, we're done.
       if (result.length === 0) {
         mightBeHalfUnit = (ms / unitMS) * 2;
-        if (mightBeHalfUnit === Math.floor(mightBeHalfUnit))
+        if (mightBeHalfUnit === Math.floor(mightBeHalfUnit)) {
           return render(mightBeHalfUnit / 2, unitName, dictionary);
+        }
       }
 
       // What's the number of full units we can fit?
@@ -230,8 +232,9 @@ http://git.io/j0HgmQ
       }
 
       // Add the string.
-      if (unitCount)
+      if (unitCount) {
         result.push(render(unitCount, unitName, dictionary));
+      }
 
       // Remove what we just figured out.
       ms -= unitCount * unitMS;
@@ -243,10 +246,11 @@ http://git.io/j0HgmQ
   }
 
   humanizeDuration.humanizer = humanizer;
-  if ((typeof module !== "undefined") && (module.exports))
+  if ((typeof module !== "undefined") && (module.exports)) {
     module.exports = humanizeDuration;
-  else
+  } else {
     this.humanizeDuration = humanizeDuration;
+  }
 
   function isString(thing) {
     return Object.prototype.toString.call(thing) === "[object String]";
@@ -261,7 +265,9 @@ http://git.io/j0HgmQ
     for (var i = 1; i < arguments.length; i ++) {
       source = arguments[i];
       for (var prop in source) {
-        destination[prop] = source[prop];
+        if (source.hasOwnProperty(source)) {
+          destination[prop] = source[prop];
+        }
       }
     }
     return destination;

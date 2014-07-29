@@ -47,25 +47,28 @@
   "jshintConfig": {
     "bitwise": true,
     "camelcase": true,
-    "curly": false,
-    "eqeqeq": false,
-    "es3": true,
+    "curly": true,
+    "eqeqeq": true,
+    "eqnull": true,
+    "es3": false,
+    "forin": true,
     "freeze": true,
     "immed": true,
+    "indent": 2,
     "latedef": true,
+    "maxdepth": 6,
+    "maxparams": 5,
     "newcap": true,
     "noarg": true,
+    "node": true,
     "noempty": true,
+    "nonbsp": true,
     "nonew": true,
     "plusplus": false,
-    "quotmark": true,
-    "undef": true,
-    "unused": true,
+    "quotmark": "double",
     "strict": false,
-    "trailing": true,
-    "predef": [
-      "module"
-    ]
+    "undef": true,
+    "unused": true
   },
   "repository": {
     "type": "git",
