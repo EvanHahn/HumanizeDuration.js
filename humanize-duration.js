@@ -158,6 +158,7 @@ http://git.io/j0HgmQ
     var defaultOptions = extend({
       language: "en",
       delimiter: ", ",
+      suffix: " ",
       units: [
         "year",
         "month",
@@ -188,6 +189,10 @@ http://git.io/j0HgmQ
 
   // doHumanization does the bulk of the work.
   function doHumanization(ms, options) {
+
+      function render(count, word, dictionary) {
+        return count + options.suffix + dictionary[word](count);
+      }
 
     // Make sure we have a positive number.
     // Has the nice sideffect of turning Number objects into primitives.
@@ -248,10 +253,6 @@ http://git.io/j0HgmQ
 
   function isString(thing) {
     return Object.prototype.toString.call(thing) === "[object String]";
-  }
-
-  function render(count, word, dictionary) {
-    return count + " " + dictionary[word](count);
   }
 
   function extend(destination) {
