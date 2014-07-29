@@ -49,26 +49,6 @@ http://git.io/j0HgmQ
       second: function(c) { return "sekunde" + ((c !== 1) ? "n" : ""); },
       millisecond: function(c) { return "millisekunde" + ((c !== 1) ? "n" : ""); }
     },
-    "zh-CN": {
-      year: function() { return "年"; },
-      month: function() { return "个月"; },
-      week: function() { return "周"; },
-      day: function() { return "天"; },
-      hour: function() { return "小时"; },
-      minute: function() { return "分钟"; },
-      second: function() { return "秒"; },
-      millisecond: function() { return "毫秒"; }
-    },
-    "zh-TW": {
-      year: function() { return "年"; },
-      month: function() { return "個月"; },
-      week: function() { return "周"; },
-      day: function() { return "天"; },
-      hour: function() { return "小時"; },
-      minute: function() { return "分鐘"; },
-      second: function() { return "秒"; },
-      millisecond: function() { return "毫秒"; }
-    },
     en: {
       year: function(c) { return "year" + ((c !== 1) ? "s" : ""); },
       month: function(c) { return "month" + ((c !== 1) ? "s" : ""); },
@@ -148,6 +128,26 @@ http://git.io/j0HgmQ
       minute: function(c) { return ["минут", "минута", "минуты"][getRussianForm(c)]; },
       second: function(c) { return ["секунд", "секунда", "секунды"][getRussianForm(c)]; },
       millisecond: function(c) { return ["миллисекунд", "миллисекунда", "миллисекунды"][getRussianForm(c)]; }
+    },
+    "zh-CN": {
+      year: function() { return "年"; },
+      month: function() { return "个月"; },
+      week: function() { return "周"; },
+      day: function() { return "天"; },
+      hour: function() { return "小时"; },
+      minute: function() { return "分钟"; },
+      second: function() { return "秒"; },
+      millisecond: function() { return "毫秒"; }
+    },
+    "zh-TW": {
+      year: function() { return "年"; },
+      month: function() { return "個月"; },
+      week: function() { return "周"; },
+      day: function() { return "天"; },
+      hour: function() { return "小時"; },
+      minute: function() { return "分鐘"; },
+      second: function() { return "秒"; },
+      millisecond: function() { return "毫秒"; }
     }
   };
 
