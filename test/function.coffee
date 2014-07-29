@@ -37,7 +37,7 @@ describe 'base humanization function', ->
     result.should.equal '60 minutes'
 
   it 'makes a decimal of the smallest unit', ->
-    result = humanizing 2.minutes() + 15.seconds()
+    result = humanizing 2.minutes() + 15.seconds(),
       units: ['minute', 'second']
     result.should.equal '2 minutes, 15 seconds'
     result = humanizing 2.minutes() + 15.seconds(),
