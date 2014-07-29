@@ -51,7 +51,7 @@
     "eqeqeq": true,
     "eqnull": true,
     "es3": false,
-    "forin": true,
+    "forin": false,
     "freeze": true,
     "immed": true,
     "indent": 2,
@@ -60,7 +60,6 @@
     "maxparams": 5,
     "newcap": true,
     "noarg": true,
-    "node": true,
     "noempty": true,
     "nonbsp": true,
     "nonew": true,
@@ -68,7 +67,10 @@
     "quotmark": "double",
     "strict": false,
     "undef": true,
-    "unused": true
+    "unused": true,
+    "predef": [
+      "module"
+    ]
   },
   "repository": {
     "type": "git",

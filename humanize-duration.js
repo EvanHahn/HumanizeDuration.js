@@ -265,9 +265,7 @@ http://git.io/j0HgmQ
     for (var i = 1; i < arguments.length; i ++) {
       source = arguments[i];
       for (var prop in source) {
-        if (source.hasOwnProperty(source)) {
-          destination[prop] = source[prop];
-        }
+        destination[prop] = source[prop];
       }
     }
     return destination;
