@@ -59,6 +59,16 @@ http://git.io/j0HgmQ
       second: function(c) { return "second" + ((c !== 1) ? "s" : ""); },
       millisecond: function(c) { return "millisecond" + ((c !== 1) ? "s" : ""); }
     },
+    nl: {
+      year: function() { return "jaar"; },
+      month: function(c) { return (c === 1) ? "maand" : "maanden"; },
+      week: function(c) { return (c === 1) ? "week" : "weken"; },
+      day: function(c) { return (c === 1) ? "dag" : "dagen"; },
+      hour: function() { return "uur"; },
+      minute: function(c) { return (c === 1) ? "minuut" : "minuten"; },
+      second: function(c) { return (c === 1) ? "seconde" : "seconden"; },
+      millisecond: function(c) { return (c === 1) ? "milliseconde" : "milliseconden"; },
+    },
     es: {
       year: function(c) { return "año" + ((c !== 1) ? "s" : ""); },
       month: function(c) { return "mes" + ((c !== 1) ? "es" : ""); },
