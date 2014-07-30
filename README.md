@@ -83,6 +83,7 @@ Humanize Duration supports the following languages:
 * Chinese, simplified (zh-CN)
 * Chinese, traditional (zh-TW)
 * Danish (da)
+* Dutch (nl)
 * English (en)
 * French (fr)
 * German (de)
