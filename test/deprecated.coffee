@@ -1,6 +1,5 @@
 humanize = require '..'
 require('chai').should()
-sinon = require 'sinon'
 assert = require 'assert'
 
 describe 'deprecated behavior', ->
@@ -10,12 +9,6 @@ describe 'deprecated behavior', ->
     humanize.language = 'es'
     humanize(1000).should.equal '1 second'
     delete humanize.language
-
-  it 'errors when 2nd argument is a string', ->
-    (->
-      humanize(1000, 'en')
-      humanize(1000, 'es')
-    ).should.throw Error
 
   it 'removes old methods', ->
     assert.equal(humanize.componentsOf, undefined)

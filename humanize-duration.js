@@ -5,7 +5,7 @@ http://git.io/j0HgmQ
 
 */
 
-;(function() {
+(function() {
 
   var UNITS = {
     year: 31557600000,
@@ -192,9 +192,6 @@ http://git.io/j0HgmQ
   // The main function is just a wrapper around a default humanizer.
   var defaultHumanizer = humanizer({});
   function humanizeDuration(ms, passedOptions) {
-    if (isString(passedOptions)) {
-      throw new Error("Setting the language as the second argument is deprecated. Please use { language: 'foo' }.");
-    }
     return defaultHumanizer(ms, passedOptions);
   }
 
@@ -260,10 +257,6 @@ http://git.io/j0HgmQ
     module.exports = humanizeDuration;
   } else {
     this.humanizeDuration = humanizeDuration;
-  }
-
-  function isString(thing) {
-    return Object.prototype.toString.call(thing) === "[object String]";
   }
 
   function render(count, word, dictionary) {
