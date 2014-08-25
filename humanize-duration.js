@@ -67,7 +67,7 @@ http://git.io/j0HgmQ
       hour: function() { return "uur"; },
       minute: function(c) { return (c === 1) ? "minuut" : "minuten"; },
       second: function(c) { return (c === 1) ? "seconde" : "seconden"; },
-      millisecond: function(c) { return (c === 1) ? "milliseconde" : "milliseconden"; },
+      millisecond: function(c) { return (c === 1) ? "milliseconde" : "milliseconden"; }
     },
     es: {
       year: function(c) { return "año" + ((c !== 1) ? "s" : ""); },
