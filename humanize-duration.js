@@ -167,7 +167,7 @@ http://git.io/j0HgmQ
       hour: function() { return "時間"; },
       minute: function() { return "分"; },
       second: function() { return "秒"; },
-      millisecond: function() { return "ms"; }
+      millisecond: function() { return "ミリ秒"; }
     }
   };
 
