@@ -158,6 +158,16 @@ http://git.io/j0HgmQ
       minute: function() { return "分鐘"; },
       second: function() { return "秒"; },
       millisecond: function() { return "毫秒"; }
+    },
+    ja: {
+      year: function() { return "年"; },
+      month: function() { return "月"; },
+      week: function() { return "週"; },
+      day: function() { return "日"; },
+      hour: function() { return "時間"; },
+      minute: function() { return "分"; },
+      second: function() { return "秒"; },
+      millisecond: function() { return "ミリ秒"; }
     }
   };
 
