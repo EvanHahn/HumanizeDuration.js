@@ -140,14 +140,14 @@ http://git.io/j0HgmQ
       millisecond: function(c) { return ["миллисекунд", "миллисекунда", "миллисекунды"][getRussianForm(c)]; }
     },
     tr: {
-      year: function(c) { return "yıl"; },
-      month: function(c) { return "ay"; },
-      week: function(c) { return "hafta"; },
-      day: function(c) { return "gün"; },
-      hour: function(c) { return "saat"; },
-      minute: function(c) { return "dakika"; },
-      second: function(c) { return "saniye"; },
-      millisecond: function(c) { return "milisaniye"; }
+      year: function() { return "yıl"; },
+      month: function() { return "ay"; },
+      week: function() { return "hafta"; },
+      day: function() { return "gün"; },
+      hour: function() { return "saat"; },
+      minute: function() { return "dakika"; },
+      second: function() { return "saniye"; },
+      millisecond: function() { return "milisaniye"; }
     },
     "zh-CN": {
       year: function() { return "年"; },
