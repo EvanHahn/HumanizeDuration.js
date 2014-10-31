@@ -17,12 +17,12 @@
     "hint": "jshint humanize-duration.js"
   },
   "devDependencies": {
-    "chai": "^1.9.x",
-    "coffee-script": "^1.7.x",
-    "jshint": "^2.5.x",
-    "mocha": "^1.21.x",
-    "sinon": "^1.10.3",
-    "sugar": "^1.4.x"
+    "chai": "^1.9.2",
+    "coffee-script": "^1.8.0",
+    "jshint": "^2.5.8",
+    "mocha": "^2.0.1",
+    "sinon": "^1.11.1",
+    "sugar": "^1.4.1"
   },
   "keywords": [
     "humanize",
