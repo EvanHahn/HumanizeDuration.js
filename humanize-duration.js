@@ -139,7 +139,7 @@ http://git.io/j0HgmQ
       second: function(c) { return ["секунд", "секунда", "секунды"][getRussianForm(c)]; },
       millisecond: function(c) { return ["миллисекунд", "миллисекунда", "миллисекунды"][getRussianForm(c)]; }
     },
-    en: {
+    tr: {
       year: function(c) { return "yıl"; },
       month: function(c) { return "ay"; },
       week: function(c) { return "hafta"; },
