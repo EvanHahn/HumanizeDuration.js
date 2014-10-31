@@ -139,6 +139,16 @@ http://git.io/j0HgmQ
       second: function(c) { return ["секунд", "секунда", "секунды"][getRussianForm(c)]; },
       millisecond: function(c) { return ["миллисекунд", "миллисекунда", "миллисекунды"][getRussianForm(c)]; }
     },
+    tr: {
+      year: function() { return "yıl"; },
+      month: function() { return "ay"; },
+      week: function() { return "hafta"; },
+      day: function() { return "gün"; },
+      hour: function() { return "saat"; },
+      minute: function() { return "dakika"; },
+      second: function() { return "saniye"; },
+      millisecond: function() { return "milisaniye"; }
+    },
     "zh-CN": {
       year: function() { return "年"; },
       month: function() { return "个月"; },
