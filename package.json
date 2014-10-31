@@ -51,7 +51,7 @@
     "curly": true,
     "eqeqeq": true,
     "eqnull": true,
-    "es3": false,
+    "es3": true,
     "forin": false,
     "freeze": true,
     "immed": true,
