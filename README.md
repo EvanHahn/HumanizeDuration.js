@@ -93,6 +93,7 @@ Humanize Duration supports the following languages:
 * Portuguese (pt)
 * Russian (ru)
 * Spanish (es)
+* Turkish (tr)
 
 Credits
 -------
