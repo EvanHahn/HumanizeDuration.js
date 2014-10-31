@@ -30,7 +30,7 @@ http://git.io/j0HgmQ
       millisecond: function(c) { return "milisegon" + ((c !== 1) ? "s" : "" ); }
     },
     da: {
-      year: function() { return "år"; },
+      year: "år",
       month: function(c) { return "måned" + ((c !== 1) ? "er" : ""); },
       week: function(c) { return "uge" + ((c !== 1) ? "r" : ""); },
       day: function(c) { return "dag" + ((c !== 1) ? "e" : ""); },
@@ -60,11 +60,11 @@ http://git.io/j0HgmQ
       millisecond: function(c) { return "millisecond" + ((c !== 1) ? "s" : ""); }
     },
     nl: {
-      year: function() { return "jaar"; },
+      year: "jaar",
       month: function(c) { return (c === 1) ? "maand" : "maanden"; },
       week: function(c) { return (c === 1) ? "week" : "weken"; },
       day: function(c) { return (c === 1) ? "dag" : "dagen"; },
-      hour: function() { return "uur"; },
+      hour: "uur",
       minute: function(c) { return (c === 1) ? "minuut" : "minuten"; },
       second: function(c) { return (c === 1) ? "seconde" : "seconden"; },
       millisecond: function(c) { return (c === 1) ? "milliseconde" : "milliseconden"; }
@@ -81,7 +81,7 @@ http://git.io/j0HgmQ
     },
     fr: {
       year: function(c) { return "an" + ((c !== 1) ? "s" : ""); },
-      month: function() { return "mois"; },
+      month: "mois",
       week: function(c) { return "semaine" + ((c !== 1) ? "s" : ""); },
       day: function(c) { return "jour" + ((c !== 1) ? "s" : ""); },
       hour: function(c) { return "heure" + ((c !== 1) ? "s" : ""); },
@@ -90,17 +90,17 @@ http://git.io/j0HgmQ
       millisecond: function(c) { return "milliseconde" + ((c !== 1) ? "s" : ""); }
     },
     ko: {
-      year: function() { return "년"; },
-      month: function() { return "개월"; },
-      week: function() { return "주일"; },
-      day: function() { return "일"; },
-      hour: function() { return "시간"; },
-      minute: function() { return "분"; },
-      second: function() { return "초"; },
-      millisecond: function() { return "밀리 초"; }
+      year: "년",
+      month: "개월",
+      week: "주일",
+      day: "일",
+      hour: "시간",
+      minute: "분",
+      second: "초",
+      millisecond: "밀리 초"
     },
     nob: {
-      year: function() { return "år"; },
+      year: "år",
       month: function(c) { return "måned" + ((c !== 1) ? "er" : ""); },
       week: function(c) { return "uke" + ((c !== 1) ? "r" : ""); },
       day: function(c) { return "dag" + ((c !== 1) ? "er" : ""); },
@@ -140,44 +140,44 @@ http://git.io/j0HgmQ
       millisecond: function(c) { return ["миллисекунд", "миллисекунда", "миллисекунды"][getRussianForm(c)]; }
     },
     tr: {
-      year: function() { return "yıl"; },
-      month: function() { return "ay"; },
-      week: function() { return "hafta"; },
-      day: function() { return "gün"; },
-      hour: function() { return "saat"; },
-      minute: function() { return "dakika"; },
-      second: function() { return "saniye"; },
-      millisecond: function() { return "milisaniye"; }
+      year: "yıl",
+      month: "ay",
+      week: "hafta",
+      day: "gün",
+      hour: "saat",
+      minute: "dakika",
+      second: "saniye",
+      millisecond: "milisaniye"
     },
     "zh-CN": {
-      year: function() { return "年"; },
-      month: function() { return "个月"; },
-      week: function() { return "周"; },
-      day: function() { return "天"; },
-      hour: function() { return "小时"; },
-      minute: function() { return "分钟"; },
-      second: function() { return "秒"; },
-      millisecond: function() { return "毫秒"; }
+      year: "年",
+      month: "个月",
+      week: "周",
+      day: "天",
+      hour: "小时",
+      minute: "分钟",
+      second: "秒",
+      millisecond: "毫秒"
     },
     "zh-TW": {
-      year: function() { return "年"; },
-      month: function() { return "個月"; },
-      week: function() { return "周"; },
-      day: function() { return "天"; },
-      hour: function() { return "小時"; },
-      minute: function() { return "分鐘"; },
-      second: function() { return "秒"; },
-      millisecond: function() { return "毫秒"; }
+      year: "年",
+      month: "個月",
+      week: "周",
+      day: "天",
+      hour: "小時",
+      minute: "分鐘",
+      second: "秒",
+      millisecond: "毫秒"
     },
     ja: {
-      year: function() { return "年"; },
-      month: function() { return "月"; },
-      week: function() { return "週"; },
-      day: function() { return "日"; },
-      hour: function() { return "時間"; },
-      minute: function() { return "分"; },
-      second: function() { return "秒"; },
-      millisecond: function() { return "ミリ秒"; }
+      year: "年",
+      month: "月",
+      week: "週",
+      day: "日",
+      hour: "時間",
+      minute: "分",
+      second: "秒",
+      millisecond: "ミリ秒"
     }
   };
 
@@ -279,8 +279,15 @@ http://git.io/j0HgmQ
     this.humanizeDuration = humanizeDuration;
   }
 
-  function render(count, word, dictionary) {
-    return count + " " + dictionary[word](count);
+  function render(count, type, dictionary) {
+    var dictionaryValue = dictionary[type];
+    var word;
+    if (typeof dictionaryValue === "function") {
+      word = dictionaryValue(count);
+    } else {
+      word = dictionaryValue;
+    }
+    return count + " " + word;
   }
 
   function extend(destination) {
