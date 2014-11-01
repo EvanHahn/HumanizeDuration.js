@@ -16,15 +16,15 @@ In the browser:
 ```html
 <script src="humanize-duration.js"></script>
 <script>
-humanizeDuration(12000);
+humanizeDuration(12000)
 </script>
 ```
 
 In Node (or Browserify or Webpack or anywhere with CommonJS):
 
 ```js
-var humanizeDuration = require("humanize-duration");
-humanizeDuration(12000);
+var humanizeDuration = require("humanize-duration")
+humanizeDuration(12000)
 ```
 
 Usage
@@ -66,7 +66,7 @@ If you find yourself setting same options over and over again, you can create a 
 var spanishHumanizer = humanizeDuration.humanizer({
   language: "es",
   units: ["years", "months", "days"]
-});
+})
 
 spanishHumanizer(71177400000)  // "2 años, 3 meses, 2 días"
 spanishHumanizer(71177400000, { units: ["days", "hours"] })  // "823 días, 19.5 horas"
