@@ -20,7 +20,7 @@ humanizeDuration(12000);
 </script>
 ```
 
-In Node or Browserify:
+In Node (or Browserify or Webpack or anywhere with CommonJS):
 
 ```js
 var humanizeDuration = require("humanize-duration");
