@@ -75,7 +75,7 @@ spanishHumanizer(71177400000, { units: ["days", "hours"] })  // "823 días, 19.5
 Internally, the main `humanizeDuration` function is just a wrapper around a humanizer.
 
 Supported languages
---------------------
+-------------------
 
 Humanize Duration supports the following languages:
 
