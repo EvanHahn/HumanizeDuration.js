@@ -17,11 +17,11 @@
     "hint": "jshint humanize-duration.js"
   },
   "devDependencies": {
-    "chai": "^1.9.2",
+    "chai": "^1.10.0",
     "coffee-script": "^1.8.0",
-    "jshint": "^2.5.8",
+    "jshint": "^2.5.10",
     "mocha": "^2.0.1",
-    "sinon": "^1.11.1",
+    "sinon": "^1.12.1",
     "sugar": "^1.4.1"
   },
   "keywords": [
