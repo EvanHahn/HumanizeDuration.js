@@ -268,7 +268,7 @@
   }
 
   humanizeDuration.humanizer = humanizer;
-  if ((typeof module !== "undefined") && (module.exports)) {
+  if (typeof module !== "undefined") {
     module.exports = humanizeDuration;
   } else {
     this.humanizeDuration = humanizeDuration;
