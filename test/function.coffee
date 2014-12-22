@@ -1,5 +1,4 @@
 humanizing = require '..'
-componentsOf = humanizing.componentsOf
 require('chai').should()
 
 describe 'base humanization function', ->
