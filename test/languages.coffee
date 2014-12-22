@@ -1,4 +1,5 @@
 humanizeDuration = require ".."
+require("chai").should()
 
 fs = require "fs"
 path = require "path"
