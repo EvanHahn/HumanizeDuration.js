@@ -188,15 +188,7 @@
     extend(result, {
       language: "en",
       delimiter: ", ",
-      units: [
-        "year",
-        "month",
-        "week",
-        "day",
-        "hour",
-        "minute",
-        "second"
-      ],
+      units: ["year", "month", "week", "day", "hour", "minute", "second"],
       languages: {}
     }, passedOptions);
 
