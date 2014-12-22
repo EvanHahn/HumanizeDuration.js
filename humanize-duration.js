@@ -1,9 +1,4 @@
-/*
-
-HumanizeDuration.js
-http://git.io/j0HgmQ
-
-*/
+// HumanizeDuration.js - http://git.io/j0HgmQ
 
 (function() {
 
