@@ -1,6 +1,6 @@
 humanizeDuration = require ".."
-require("chai").should()
 
+assert = require "assert"
 fs = require "fs"
 path = require "path"
 
@@ -53,9 +53,9 @@ describe "localized humanization", ->
       it "humanizes with arguments", ->
         for pair in pairs
           result = humanizeDuration(pair[0], options(language))
-          result.should.equal pair[1]
+          assert.equal(result, pair[1])
 
       it "humanizes with a humanizer", ->
         h = humanizeDuration.humanizer(options(language))
         for pair in pairs
-          h(pair[0]).should.equal pair[1]
+          assert.equal(h(pair[0]), pair[1])

@@ -35,7 +35,7 @@ describe "humanizer", ->
     assert.equal h(363000), "6.05 minutos"
 
   it "is a named function", ->
-    humanizer().name.should.equal "humanizer"
+    assert.equal(humanizer().name, "humanizer")
 
   it "can add a new language", ->
     h = humanizer({ language: "cool language" })
