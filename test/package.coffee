@@ -30,3 +30,7 @@ describe 'package.json and bower.json', ->
   it 'are public', ->
     assert not pkg.private
     assert not bower.private
+
+  it 'have no dependencies', ->
+    assert not pkg.dependencies
+    assert not bower.dependencies
