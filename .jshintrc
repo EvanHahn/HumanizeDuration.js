@@ -1,0 +1,28 @@
+{
+  "bitwise": true,
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "eqnull": true,
+  "es3": true,
+  "forin": false,
+  "freeze": true,
+  "immed": true,
+  "indent": 2,
+  "latedef": true,
+  "maxdepth": 6,
+  "maxparams": 5,
+  "newcap": true,
+  "noarg": true,
+  "noempty": true,
+  "nonbsp": true,
+  "nonew": true,
+  "plusplus": false,
+  "quotmark": "double",
+  "strict": false,
+  "undef": true,
+  "unused": true,
+  "predef": [
+    "module"
+  ]
+}
