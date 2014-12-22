@@ -1,2 +1,1 @@
---require sugar
 --compilers coffee:coffee-script/register

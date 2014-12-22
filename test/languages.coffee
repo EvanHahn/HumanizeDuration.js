@@ -3,6 +3,7 @@ humanizeDuration = require ".."
 assert = require "assert"
 fs = require "fs"
 path = require "path"
+parseCSV = require "csv-parse"
 
 options = (language) ->
   return {
@@ -22,33 +23,26 @@ options = (language) ->
 
 describe "localized humanization", ->
 
-  # Build a list of files to test
-  languagesToTest = {}
-  do ->
+  definitionsPath = path.resolve(__dirname, "definitions")
 
-    definitionPath = path.resolve(__dirname, "definitions")
-    definitionFiles = fs.readdirSync(definitionPath)
+  languages = []
+  for file in fs.readdirSync(definitionsPath)
+    if path.extname(file) is ".csv"
+      languages.push path.basename(file, ".csv")
 
-    for file in definitionFiles
-
-      continue if path.extname(file) isnt ".csv"
-      languageName = path.basename(file, ".csv")
-
-      result = []
-
-      filePath = path.resolve(definitionPath, file)
-      csvData = fs.readFileSync(filePath, "utf-8")
-      csvLines = csvData.lines()
-      for line, i in csvLines
-        [ms, expected] = line.split(",", 2)
-        result.push [parseFloat(ms), expected]
-
-      languagesToTest[languageName] = result
-
-  # Test everything
-  Object.each languagesToTest, (language, pairs) ->
+  for language in languages
 
     describe "for #{language}", ->
+
+      pairs = null
+      before (done) ->
+        file = path.resolve(definitionsPath, language + ".csv")
+        fs.readFile file, { encoding: "utf8" }, (err, data) ->
+          return done(err) if err?
+          parseCSV data, (err, rows) ->
+            return done(err) if err?
+            pairs = rows.map (r) -> [parseInt(r[0]), r[1]]
+            done()
 
       it "humanizes with arguments", ->
         for pair in pairs

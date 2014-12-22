@@ -1,5 +1,6 @@
 humanizing = require '..'
 assert = require 'assert'
+ms = require 'ms'
 
 describe 'base humanization function', ->
 
@@ -22,29 +23,26 @@ describe 'base humanization function', ->
   it 'allows you to change the delimiter', ->
     result = humanizing(0, { delimiter: '+' })
     assert.equal result, '0'
-    result = humanizing(2.minutes(), { delimiter: '+' })
+    result = humanizing(ms('2m'), { delimiter: '+' })
     assert.equal result, '2 minutes'
-    result = humanizing(2.minutes() + 18.seconds(), { delimiter: '+' })
+    result = humanizing(ms('2m') + ms('18s'), { delimiter: '+' })
     assert.equal result, '2 minutes+18 seconds'
 
   it 'allows you to change the units without pluralization', ->
-    result = humanizing(1.hour(), { units: ['minute'] })
+    result = humanizing(ms('1h'), { units: ['minute'] })
     assert.equal result, '60 minutes'
 
   it 'allows you to change the units with pluralization', ->
-    result = humanizing(1.hour(), { units: ['minutes'] })
+    result = humanizing(ms('1h'), { units: ['minutes'] })
     assert.equal result, '60 minutes'
 
   it 'makes a decimal of the smallest unit', ->
-    result = humanizing 2.minutes() + 15.seconds(),
-      units: ['minute', 'second']
+    time = ms('2m') + ms('15s')
+    result = humanizing time, units: ['minute', 'second']
     assert.equal result, '2 minutes, 15 seconds'
-    result = humanizing 2.minutes() + 15.seconds(),
-      units: ['minute']
+    result = humanizing time, units: ['minute']
     assert.equal result, '2.25 minutes'
-    result = humanizing 2.minutes() + 15.seconds(),
-      units: ['hour', 'minute']
+    result = humanizing time, units: ['hour', 'minute']
     assert.equal result, '2.25 minutes'
-    result = humanizing 2.minutes() + 15.seconds(),
-      units: ['hour']
+    result = humanizing time, units: ['hour']
     assert.equal result, '0.0375 hours'

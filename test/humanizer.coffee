@@ -1,6 +1,7 @@
 humanizeDuration = require ".."
 humanizer = humanizeDuration.humanizer
 assert = require "assert"
+ms = require "ms"
 
 describe "humanizer", ->
 
@@ -21,8 +22,8 @@ describe "humanizer", ->
   it "can change the units", ->
     h = humanizer(units: ["days"])
     assert.equal h(0), "0"
-    assert.equal h(6.hours()), "0.25 days"
-    assert.equal h(7.days()), "7 days"
+    assert.equal h(ms("6h")), "0.25 days"
+    assert.equal h(ms("7d")), "7 days"
 
   it "has properties which can be modified", ->
     h = humanizer()
