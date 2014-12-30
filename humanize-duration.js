@@ -134,6 +134,16 @@
       second: function(c) { return ["секунд", "секунда", "секунды"][getRussianForm(c)]; },
       millisecond: function(c) { return ["миллисекунд", "миллисекунда", "миллисекунды"][getRussianForm(c)]; }
     },
+    sv: {
+      year: "år",
+      month: function(c) { return "månad" + ((c !== 1) ? "er" : ""); },
+      week: function(c) { return "veck" + ((c !== 1) ? "or" : "a"); },
+      day: function(c) { return "dag" + ((c !== 1) ? "ar" : ""); },
+      hour: function(c) { return "timm" + ((c !== 1) ? "e" : "ar"); },
+      minute: function(c) { return "minut" + ((c !== 1) ? "er" : ""); },
+      second: function(c) { return "sekund" + ((c !== 1) ? "er" : ""); },
+      millisecond: function(c) { return "millisekund" + ((c !== 1) ? "er" : ""); }
+    },
     tr: {
       year: "yıl",
       month: "ay",
