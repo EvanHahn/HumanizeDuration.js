@@ -139,7 +139,7 @@
       month: function(c) { return "månad" + ((c !== 1) ? "er" : ""); },
       week: function(c) { return "veck" + ((c !== 1) ? "or" : "a"); },
       day: function(c) { return "dag" + ((c !== 1) ? "ar" : ""); },
-      hour: function(c) { return "timm" + ((c !== 1) ? "e" : "ar"); },
+      hour: function(c) { return "timm" + ((c !== 1) ? "ar" : "e"); },
       minute: function(c) { return "minut" + ((c !== 1) ? "er" : ""); },
       second: function(c) { return "sekund" + ((c !== 1) ? "er" : ""); },
       millisecond: function(c) { return "millisekund" + ((c !== 1) ? "er" : ""); }
