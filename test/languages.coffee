@@ -30,7 +30,7 @@ describe "localized humanization", ->
     if path.extname(file) is ".csv"
       languages.push path.basename(file, ".csv")
 
-  for language in languages
+  languages.forEach (language) ->
 
     describe "for #{language}", ->
 
@@ -41,7 +41,7 @@ describe "localized humanization", ->
           return done(err) if err?
           parseCSV data, (err, rows) ->
             return done(err) if err?
-            pairs = rows.map (r) -> [parseInt(r[0]), r[1]]
+            pairs = rows.map (r) -> [parseFloat(r[0]), r[1]]
             done()
 
       it "humanizes with arguments", ->
