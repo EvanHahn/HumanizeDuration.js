@@ -84,6 +84,16 @@
       second: function(c) { return "seconde" + ((c !== 1) ? "s" : ""); },
       millisecond: function(c) { return "milliseconde" + ((c !== 1) ? "s" : ""); }
     },
+    ja: {
+      year: "年",
+      month: "月",
+      week: "週",
+      day: "日",
+      hour: "時間",
+      minute: "分",
+      second: "秒",
+      millisecond: "ミリ秒"
+    },
     ko: {
       year: "년",
       month: "개월",
@@ -174,16 +184,6 @@
       second: "秒",
       millisecond: "毫秒"
     },
-    ja: {
-      year: "年",
-      month: "月",
-      week: "週",
-      day: "日",
-      hour: "時間",
-      minute: "分",
-      second: "秒",
-      millisecond: "ミリ秒"
-    }
   };
 
   // You can create a humanizer, which returns a function with defaults
