@@ -87,6 +87,7 @@ Humanize Duration supports the following languages:
 * English (en)
 * French (fr)
 * German (de)
+* Japanese (ja)
 * Korean (ko)
 * Norwegian (nob)
 * Polish (pl)
