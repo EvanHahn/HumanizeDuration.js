@@ -72,6 +72,37 @@ spanishHumanizer(71177400000)  // "2 años, 3 meses, 2 días"
 spanishHumanizer(71177400000, { units: ["days", "hours"] })  // "823 días, 19.5 horas"
 ```
 
+You can also add new languages to humanizers. For example:
+
+```js
+var shortEnglishHumanizer = humanizeDuration.humanizer({
+  language: "shortEn",
+  languages: {
+    shortEn: {
+      year: function(c) { return c + "y"; },
+      month: function(c) { return c + "mo"; },
+      week: function(c) { return c + "w"; },
+      day: function(c) { return c + "d"; },
+      hour: function(c) { return c + "h"; },
+      minute: function(c) { return c + "m"; },
+      second: function(c) { return c + "s"; },
+      millisecond: function(c) { return c + "ms"; },
+    }
+  }
+});
+
+shortEnglishHumanizer(15600000)  // "4 h, 20 m"
+```
+
+You can also add languages after initializing:
+
+```js
+var humanizer = humanizeDuration.humanizer();
+humanizer.languages.shortEn = {
+  year: function(c) { return c + "y"; },
+  // ...
+```
+
 Internally, the main `humanizeDuration` function is just a wrapper around a humanizer.
 
 Supported languages
