@@ -19,6 +19,12 @@ describe "humanizer", ->
     assert.equal h(1000), "1 second"
     assert.equal h(363000), "6 minutes+3 seconds"
 
+  it "can change the spacer", ->
+    h = humanizer(spacer: " whole ")
+    assert.equal h(0), '0'
+    assert.equal h(1000), '1 whole second'
+    assert.equal h(260040000), '3 whole days, 14 whole minutes'
+
   it "can change the units", ->
     h = humanizer(units: ["days"])
     assert.equal h(0), "0"

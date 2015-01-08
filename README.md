@@ -47,6 +47,9 @@ humanizeDuration(5000, { language: "ko" })  // "5 초"
 humanizeDuration(22140000, { delimiter: " and " })  // "6 hours and 9 minutes"
 humanizeDuration(22140000, { delimiter: "--" })     // "6 hours--9 minutes"
 
+humanizeDuration(260040000, { spacer: " whole " })  // "3 whole days, 14 whole minutes"
+humanizeDuration(260040000, { spacer: "" })         // "3days, 14minutes"
+
 humanizeDuration(3600000, { units: ["hours"] })          // 1 hour
 humanizeDuration(3600000, { units: ["days", "hours"] })  // 1 hour
 humanizeDuration(3600000, { units: ["minutes"] })        // 60 minutes

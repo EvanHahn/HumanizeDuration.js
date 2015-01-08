@@ -198,6 +198,7 @@
     extend(result, {
       language: "en",
       delimiter: ", ",
+      spacer: " ",
       units: ["year", "month", "week", "day", "hour", "minute", "second"],
       languages: {}
     }, passedOptions);
@@ -244,7 +245,7 @@
       if (result.length === 0) {
         mightBeHalfUnit = (ms / unitMS) * 2;
         if (mightBeHalfUnit === Math.floor(mightBeHalfUnit)) {
-          return render(mightBeHalfUnit / 2, unitName, dictionary);
+          return render(mightBeHalfUnit / 2, unitName, dictionary, options.spacer);
         }
       }
 
@@ -257,7 +258,7 @@
 
       // Add the string.
       if (unitCount) {
-        result.push(render(unitCount, unitName, dictionary));
+        result.push(render(unitCount, unitName, dictionary, options.spacer));
       }
 
       // Remove what we just figured out.
@@ -276,7 +277,7 @@
     this.humanizeDuration = humanizeDuration;
   }
 
-  function render(count, type, dictionary) {
+  function render(count, type, dictionary, spacer) {
     var dictionaryValue = dictionary[type];
     var word;
     if (typeof dictionaryValue === "function") {
@@ -284,7 +285,7 @@
     } else {
       word = dictionaryValue;
     }
-    return count + " " + word;
+    return count + spacer + word;
   }
 
   function extend(destination) {

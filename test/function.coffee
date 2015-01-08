@@ -28,6 +28,13 @@ describe 'base humanization function', ->
     result = humanizing(ms('2m') + ms('18s'), { delimiter: '+' })
     assert.equal result, '2 minutes+18 seconds'
 
+  it 'allows you to change the spacer', ->
+    spacer = ' whole '
+    assert.equal humanizing(0, { spacer }), '0'
+    assert.equal humanizing(1000, { spacer }), '1 whole second'
+    assert.equal humanizing(260040000, { spacer }),
+      '3 whole days, 14 whole minutes'
+
   it 'allows you to change the units without pluralization', ->
     result = humanizing(ms('1h'), { units: ['minute'] })
     assert.equal result, '60 minutes'
