@@ -63,9 +63,25 @@ describe "humanizer", ->
       week: -> "w"
       day: -> "d"
       hour: -> "h"
-      minute: -> "mi"
+      minute: -> "m"
       second: -> "s"
       millisecond: -> "ms"
     assert.equal h(1000), "1 s"
+    assert.equal h(15600000), "4 h, 20 m"
     anotherH = humanizer(language: "en")
     assert.equal anotherH(1000), "1 second"
+
+  it "can overwrite the languages property in the initializer", ->
+    h = humanizer
+      languages:
+        en:
+          year: -> "y"
+          month: -> "mo"
+          week: -> "w"
+          day: -> "d"
+          hour: -> "h"
+          minute: -> "m"
+          second: -> "s"
+          millisecond: -> "ms"
+    assert.equal h(1000), "1 s"
+    assert.equal h(15600000), "4 h, 20 m"
