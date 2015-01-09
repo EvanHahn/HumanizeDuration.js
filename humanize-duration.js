@@ -195,15 +195,13 @@
       return doHumanization(ms, options);
     };
 
-    extend(result, {
+    return extend(result, {
       language: "en",
       delimiter: ", ",
       spacer: " ",
       units: ["year", "month", "week", "day", "hour", "minute", "second"],
       languages: {}
     }, passedOptions);
-
-    return result;
 
   }
 
