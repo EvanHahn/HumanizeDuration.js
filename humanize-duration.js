@@ -183,7 +183,7 @@
       minute: "分鐘",
       second: "秒",
       millisecond: "毫秒"
-    },
+    }
   };
 
   // You can create a humanizer, which returns a function with defaults
