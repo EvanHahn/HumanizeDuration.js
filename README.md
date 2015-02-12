@@ -82,14 +82,14 @@ var shortEnglishHumanizer = humanizeDuration.humanizer({
   language: "shortEn",
   languages: {
     shortEn: {
-      year: function(c) { return c + "y"; },
-      month: function(c) { return c + "mo"; },
-      week: function(c) { return c + "w"; },
-      day: function(c) { return c + "d"; },
-      hour: function(c) { return c + "h"; },
-      minute: function(c) { return c + "m"; },
-      second: function(c) { return c + "s"; },
-      millisecond: function(c) { return c + "ms"; },
+      year: function() { return "y"; },
+      month: function() { return "mo"; },
+      week: function() { return "w"; },
+      day: function() { return "d"; },
+      hour: function() { return "h"; },
+      minute: function() { return "m"; },
+      second: function() { return "s"; },
+      millisecond: function() { return "ms"; },
     }
   }
 });
