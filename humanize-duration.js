@@ -241,7 +241,7 @@
       unitMS = UNITS[unitName];
 
       // If it's a half-unit interval, we're done.
-      if (result.length === 0 && halfUnit) {
+      if (result.length === 0 && options.halfUnit) {
         mightBeHalfUnit = (ms / unitMS) * 2;
         if (mightBeHalfUnit === Math.floor(mightBeHalfUnit)) {
           return render(mightBeHalfUnit / 2, unitName, dictionary, options.spacer);
