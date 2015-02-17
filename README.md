@@ -54,6 +54,10 @@ humanizeDuration(3600000, { units: ["hours"] })          // 1 hour
 humanizeDuration(3600000, { units: ["days", "hours"] })  // 1 hour
 humanizeDuration(3600000, { units: ["minutes"] })        // 60 minutes
 
+humanizeDuration(150000)                       // 2.5 minutes
+humanizeDuration(150000, { halfUnit: false })  // 2 minutes, 30 seconds
+```
+
 humanizeDuration(3600000, {
   language: "es",
   units: ["minutes"]
@@ -107,13 +111,6 @@ humanizer.languages.shortEn = {
 ```
 
 Internally, the main `humanizeDuration` function is just a wrapper around a humanizer.
-
-You can select half unit display (1.5 hours), default behavior, or full display(1 hour,30 minutes):
-```js
-var normalHumanizer = humanizeDuration.humanizer({
-  halfUnit:false,
-})
-```
 
 Supported languages
 -------------------
