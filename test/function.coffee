@@ -1,4 +1,5 @@
 humanizing = require '..'
+humanizer = humanizing.humanizer
 assert = require 'assert'
 ms = require 'ms'
 
@@ -53,3 +54,12 @@ describe 'base humanization function', ->
     assert.equal result, '2.25 minutes'
     result = humanizing time, units: ['hour']
     assert.equal result, '0.0375 hours'
+
+  it 'makes no decimals of the smallest unit when halfUnit is false', ->
+    time = ms('2m') + ms('30s')
+    result = humanizer units: ['minute', 'second'], halfUnit: false
+    assert.equal result(time), '2 minutes, 30 seconds'
+
+    time = ms('1h') + ms('30m')
+    result = humanizing time, units: ['hour', 'minute'], halfUnit: false
+    assert.equal result, '1 hour, 30 minutes'

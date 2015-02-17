@@ -108,6 +108,13 @@ humanizer.languages.shortEn = {
 
 Internally, the main `humanizeDuration` function is just a wrapper around a humanizer.
 
+You can select half unit display (1.5 hours), default behavior, or full display(1 hour,30 minutes):
+```js
+var normalHumanizer = humanizeDuration.humanizer({
+  halfUnit:false,
+})
+```
+
 Supported languages
 -------------------
 
