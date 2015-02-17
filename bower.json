@@ -8,7 +8,7 @@
     "Michał Janiec (https://github.com/mjjaniec)",
     "Eileen Li (https://github.com/eileen3)"
   ],
-  "version": "2.3.1",
+  "version": "2.4.0",
   "description": "Convert millisecond durations to English and many other languages.",
   "main": "humanize-duration.js",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
