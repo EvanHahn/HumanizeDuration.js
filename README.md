@@ -56,7 +56,6 @@ humanizeDuration(3600000, { units: ["minutes"] })        // 60 minutes
 
 humanizeDuration(150000)                       // 2.5 minutes
 humanizeDuration(150000, { halfUnit: false })  // 2 minutes, 30 seconds
-```
 
 humanizeDuration(3600000, {
   language: "es",
