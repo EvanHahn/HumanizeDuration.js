@@ -84,6 +84,16 @@
       second: function(c) { return "seconde" + ((c !== 1) ? "s" : ""); },
       millisecond: function(c) { return "milliseconde" + ((c !== 1) ? "s" : ""); }
     },
+    hu: {
+      year: "év",
+      month: "hónap",
+      week: "hét",
+      day: "nap",
+      hour: "óra",
+      minute: "perc",
+      second: "másodperc",
+      millisecond: "ezredmásodperc"
+    },
     ja: {
       year: "年",
       month: "月",
