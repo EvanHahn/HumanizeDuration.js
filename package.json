@@ -43,7 +43,8 @@
     "german",
     "danish",
     "russian",
-    "turkish"
+    "turkish",
+    "hungarian"
   ],
   "repository": {
     "type": "git",

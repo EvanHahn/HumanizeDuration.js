@@ -32,7 +32,8 @@
     "german",
     "danish",
     "russian",
-    "turkish"
+    "turkish",
+    "hungarian"
   ],
   "license": "WTFPL",
   "ignore": [
