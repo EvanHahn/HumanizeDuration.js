@@ -200,8 +200,8 @@
   // parameters.
   function humanizer(passedOptions) {
 
-    var result = function humanizer(ms, passedOptions) {
-      var options = extend({}, result, passedOptions || {});
+    var result = function humanizer(ms, humanizerOptions) {
+      var options = extend({}, result, humanizerOptions || {});
       return doHumanization(ms, options);
     };
 
@@ -218,8 +218,8 @@
 
   // The main function is just a wrapper around a default humanizer.
   var defaultHumanizer = humanizer({});
-  function humanizeDuration(ms, passedOptions) {
-    return defaultHumanizer(ms, passedOptions);
+  function humanizeDuration() {
+    return defaultHumanizer.apply(defaultHumanizer, arguments);
   }
 
   // doHumanization does the bulk of the work.
