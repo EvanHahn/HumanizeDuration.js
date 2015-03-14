@@ -211,7 +211,8 @@
       spacer: " ",
       units: ["year", "month", "week", "day", "hour", "minute", "second"],
       languages: {},
-      halfUnit: true
+      halfUnit: true,
+      round: false
     }, passedOptions);
 
   }
@@ -261,6 +262,9 @@
       // What's the number of full units we can fit?
       if ((i + 1) === len) {
         unitCount = ms / unitMS;
+        if (options.round) {
+          unitCount = Math.round(unitCount);
+        }
       } else {
         unitCount = Math.floor(ms / unitMS);
       }

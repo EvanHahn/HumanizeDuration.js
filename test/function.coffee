@@ -63,3 +63,10 @@ describe 'base humanization function', ->
     time = ms('1h') + ms('30m')
     result = humanizing time, units: ['hour', 'minute'], halfUnit: false
     assert.equal result, '1 hour, 30 minutes'
+
+  it 'rounds the smallest unit if configured to do so', ->
+    time = 1205961472
+    result = humanizing time,
+      units: ['year', 'month', 'week', 'day', 'hour', 'minute']
+      round: yes
+    assert.equal result, '1 week, 6 days, 22 hours, 59 minutes'

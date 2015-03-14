@@ -54,6 +54,10 @@ humanizeDuration(3600000, { units: ["hours"] })          // 1 hour
 humanizeDuration(3600000, { units: ["days", "hours"] })  // 1 hour
 humanizeDuration(3600000, { units: ["minutes"] })        // 60 minutes
 
+humanizeDuration(1200)                   // "1.2 seconds"
+humanizeDuration(1200, { round: true })  // "1 second"
+humanizeDuration(1600, { round: true })  // "2 seconds"
+
 humanizeDuration(150000)                       // 2.5 minutes
 humanizeDuration(150000, { halfUnit: false })  // 2 minutes, 30 seconds
 
