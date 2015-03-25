@@ -283,13 +283,6 @@
 
   }
 
-  humanizeDuration.humanizer = humanizer;
-  if (typeof module !== "undefined") {
-    module.exports = humanizeDuration;
-  } else {
-    this.humanizeDuration = humanizeDuration;
-  }
-
   function render(count, type, dictionary, spacer) {
     var dictionaryValue = dictionary[type];
     var word;
@@ -338,6 +331,15 @@
     } else {
       return 0;
     }
+  }
+
+  humanizeDuration.humanizer = humanizer;
+  if (typeof define === "function" && define.amd) {
+    define(humanizeDuration);
+  } else if (typeof module !== "undefined" && module.exports) {
+    module.exports = humanizeDuration;
+  } else {
+    this.humanizeDuration = humanizeDuration;
   }
 
 })();
