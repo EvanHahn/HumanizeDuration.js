@@ -335,7 +335,9 @@
 
   humanizeDuration.humanizer = humanizer;
   if (typeof define === "function" && define.amd) {
-    define(humanizeDuration);
+    define(function() {
+      return humanizeDuration;
+    });
   } else if (typeof module !== "undefined" && module.exports) {
     module.exports = humanizeDuration;
   } else {
