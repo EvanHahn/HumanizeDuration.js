@@ -35,14 +35,14 @@
       millisecond: function(c) { return "millisekund" + ((c !== 1) ? "er" : ""); }
     },
     de: {
-      year: function(c) { return "jahr" + ((c !== 1) ? "e" : ""); },
-      month: function(c) { return "monat" + ((c !== 1) ? "e" : ""); },
-      week: function(c) { return "woche" + ((c !== 1) ? "n" : ""); },
-      day: function(c) { return "tag" + ((c !== 1) ? "e" : ""); },
-      hour: function(c) { return "stunde" + ((c !== 1) ? "n" : ""); },
-      minute: function(c) { return "minute" + ((c !== 1) ? "n" : ""); },
-      second: function(c) { return "sekunde" + ((c !== 1) ? "n" : ""); },
-      millisecond: function(c) { return "millisekunde" + ((c !== 1) ? "n" : ""); }
+      year: function(c) { return "Jahr" + ((c !== 1) ? "e" : ""); },
+      month: function(c) { return "Monat" + ((c !== 1) ? "e" : ""); },
+      week: function(c) { return "Woche" + ((c !== 1) ? "n" : ""); },
+      day: function(c) { return "Tag" + ((c !== 1) ? "e" : ""); },
+      hour: function(c) { return "Stunde" + ((c !== 1) ? "n" : ""); },
+      minute: function(c) { return "Minute" + ((c !== 1) ? "n" : ""); },
+      second: function(c) { return "Sekunde" + ((c !== 1) ? "n" : ""); },
+      millisecond: function(c) { return "Millisekunde" + ((c !== 1) ? "n" : ""); }
     },
     en: {
       year: function(c) { return "year" + ((c !== 1) ? "s" : ""); },
