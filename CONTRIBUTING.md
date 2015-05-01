@@ -1,6 +1,8 @@
 How to contribute
 =================
 
+This assumes you have Node and npm installed.
+
 1. Fork the repo.
 1. Clone the repo.
 1. Run `npm install`.
