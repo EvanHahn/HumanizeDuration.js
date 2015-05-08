@@ -6,7 +6,10 @@
     "Filipi Siqueira (https://github.com/filipi777)",
     "Peter Rekdal Sunde (https://github.com/peters)",
     "Michał Janiec (https://github.com/mjjaniec)",
-    "Eileen Li (https://github.com/eileen3)"
+    "Eileen Li (https://github.com/eileen3)",
+    "Tommy Brunn (https://github.com/Nevon)",
+    "Giovanni Pellerano (https://github.com/evilaliv3)",
+    "Rahma Sghaier (https://twitter.com/sghaierrahma)"
   ],
   "version": "2.6.1",
   "description": "Convert millisecond durations to English and many other languages.",
@@ -21,19 +24,7 @@
     "seconds",
     "days",
     "years",
-    "months",
-    "english",
-    "spanish",
-    "french",
-    "catalan",
-    "portuguese",
-    "korean",
-    "norwegian",
-    "german",
-    "danish",
-    "russian",
-    "turkish",
-    "hungarian"
+    "months"
   ],
   "license": "WTFPL",
   "ignore": [

@@ -35,19 +35,7 @@
     "seconds",
     "days",
     "years",
-    "months",
-    "english",
-    "spanish",
-    "french",
-    "catalan",
-    "portuguese",
-    "korean",
-    "norwegian",
-    "german",
-    "danish",
-    "russian",
-    "turkish",
-    "hungarian"
+    "months"
   ],
   "repository": {
     "type": "git",
