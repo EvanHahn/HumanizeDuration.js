@@ -144,15 +144,15 @@ Humanize Duration supports the following languages:
 Credits
 -------
 
-Lovingly made by [Evan Hahn](http://evanhahn.com/) with support by [Martin Prins](https://github.com/magarcia);
+Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 
-Credits to:
-[Filipi Siqueira](https://github.com/filipi777) for Portuguese support
-[Peter Rekdal Sunde](https://github.com/peters) for Norwegian support
-[Michał Janiec](https://github.com/mjjaniec) for Polish support
-[Eileen Li](https://github.com/eileen3) for Chinese support
-[Tommy Brunn](https://github.com/Nevon) for Swedish support
-[Giovanni Pellerano](https://github.com/evilaliv3) for Italian support
-[Rahma Sghaier](https://twitter.com/sghaierrahma) for Arabic support
+* [Martin Prins](https://github.com/magarcia) for language support
+* [Filipi Siqueira](https://github.com/filipi777) for Portuguese support
+* [Peter Rekdal Sunde](https://github.com/peters) for Norwegian support
+* [Michał Janiec](https://github.com/mjjaniec) for Polish support
+* [Eileen Li](https://github.com/eileen3) for Chinese support
+* [Tommy Brunn](https://github.com/Nevon) for Swedish support
+* [Giovanni Pellerano](https://github.com/evilaliv3) for Italian support
+* [Rahma Sghaier](https://twitter.com/sghaierrahma) for Arabic support
 
 Licensed under the WTFPL, so you can do whatever you want. Enjoy!
