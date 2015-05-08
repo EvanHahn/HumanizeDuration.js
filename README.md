@@ -99,7 +99,7 @@ var shortEnglishHumanizer = humanizeDuration.humanizer({
       millisecond: function() { return "ms"; },
     }
   }
-});
+})
 
 shortEnglishHumanizer(15600000)  // "4 h, 20 m"
 ```
@@ -107,7 +107,8 @@ shortEnglishHumanizer(15600000)  // "4 h, 20 m"
 You can also add languages after initializing:
 
 ```js
-var humanizer = humanizeDuration.humanizer();
+var humanizer = humanizeDuration.humanizer()
+
 humanizer.languages.shortEn = {
   year: function(c) { return c + "y"; },
   // ...
