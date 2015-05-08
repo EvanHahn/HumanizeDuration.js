@@ -114,7 +114,7 @@
       second: "초",
       millisecond: "밀리 초"
     },
-    nob: {
+    no: {
       year: "år",
       month: function(c) { return "måned" + ((c !== 1) ? "er" : ""); },
       week: function(c) { return "uke" + ((c !== 1) ? "r" : ""); },
@@ -174,7 +174,7 @@
       second: "saniye",
       millisecond: "milisaniye"
     },
-    "zh-CN": {
+    zh_CN: {
       year: "年",
       month: "个月",
       week: "周",
@@ -184,7 +184,7 @@
       second: "秒",
       millisecond: "毫秒"
     },
-    "zh-TW": {
+    zh_TW: {
       year: "年",
       month: "個月",
       week: "周",

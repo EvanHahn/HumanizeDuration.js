@@ -121,8 +121,8 @@ Supported languages
 Humanize Duration supports the following languages:
 
 * Catalan (ca)
-* Chinese, simplified (zh-CN)
-* Chinese, traditional (zh-TW)
+* Chinese, simplified (zh_CN)
+* Chinese, traditional (zh_TW)
 * Danish (da)
 * Dutch (nl)
 * English (en)
@@ -131,7 +131,7 @@ Humanize Duration supports the following languages:
 * Hungarian (hu)
 * Japanese (ja)
 * Korean (ko)
-* Norwegian (nob)
+* Norwegian (no)
 * Polish (pl)
 * Portuguese (pt)
 * Russian (ru)
