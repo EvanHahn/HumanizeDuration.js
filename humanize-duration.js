@@ -14,6 +14,16 @@
   };
 
   var languages = {
+    ar: {
+      year: function(c) { return ((c === 1) ? "سنة" : "سنوات"); },
+      month: function(c) { return ((c === 1) ? "شهر" : "أشهر"); },
+      week: function(c) { return ((c === 1) ? "أسبوع" : "أسابيع"); },
+      day: function(c) { return ((c === 1) ? "يوم" : "أيام"); },
+      hour: function(c) { return ((c === 1) ? "ساعة" : "ساعات"); },
+      minute: function(c) { return ((c === 1) ? "دقيقة" : "دقائق"); },
+      second: function(c) { return ((c === 1) ? "ثانية" : "ثواني"); },
+      millisecond: function(c) { return ((c === 1) ? "جزء من الثانية" : "أجزاء من الثانية"); }
+    },
     ca: {
       year: function(c) { return "any" + ((c !== 1) ? "s" : ""); },
       month: function(c) { return "mes" + ((c !== 1) ? "os" : ""); },

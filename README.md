@@ -120,6 +120,7 @@ Supported languages
 
 Humanize Duration supports the following languages:
 
+* Arabic (ar)
 * Catalan (ca)
 * Chinese, simplified (zh-CN)
 * Chinese, traditional (zh-TW)
@@ -152,5 +153,6 @@ Credits to:
 [Eileen Li](https://github.com/eileen3) for Chinese support
 [Tommy Brunn](https://github.com/Nevon) for Swedish support
 [Giovanni Pellerano](https://github.com/evilaliv3) for Italian support
+[Rahma Sghaier](https://twitter.com/sghaierrahma) for Arabic support
 
 Licensed under the WTFPL, so you can do whatever you want. Enjoy!
