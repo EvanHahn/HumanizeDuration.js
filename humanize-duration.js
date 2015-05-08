@@ -299,7 +299,9 @@
     for (var i = 1; i < arguments.length; i ++) {
       source = arguments[i];
       for (var prop in source) {
-        destination[prop] = source[prop];
+        if (source.hasOwnProperty(prop)) {
+          destination[prop] = source[prop];
+        }
       }
     }
     return destination;
