@@ -90,7 +90,7 @@
       week: function(c) { return "settiman" + ((c !== 1) ? "e" : "a"); },
       day: function(c) { return "giorn" + ((c !== 1) ? "i" : "o"); },
       hour: function(c) { return "or" + ((c !== 1) ? "e" : "a"); },
-      minute: function(c) { return "minut" + ((c !== 1) ? "o" : "i"); },
+      minute: function(c) { return "minut" + ((c !== 1) ? "i" : "o"); },
       second: function(c) { return "second" + ((c !== 1) ? "i" : "o"); },
       millisecond: function(c) { return "millisecond" + ((c !== 1) ? "i" : "o" ); }
     },
