@@ -356,7 +356,13 @@
   }
 
   function getSupportedLanguages() {
-    return Object.keys(languages);
+    var result = [];
+    for (var language in languages) {
+      if (languages.hasOwnProperty(language)) {
+        result.push(language);
+      }
+    }
+    return result;
   }
 
   humanizeDuration.humanizer = humanizer;
