@@ -7,11 +7,13 @@ path = require "path"
 
 describe "getLanguageSupport", ->
 
-  definitionsPath = path.resolve(__dirname, "definitions")
+  it "lists all supported languages", ->
 
-  languages = []
-  for file in fs.readdirSync(definitionsPath)
-    if path.extname(file) is ".csv"
-      languages.push path.basename(file, ".csv")
+    definitionsPath = path.resolve(__dirname, "definitions")
 
-  assert.deepEqual(languages, getSupportedLanguages())
+    languages = []
+    for file in fs.readdirSync(definitionsPath)
+      if path.extname(file) is ".csv"
+        languages.push path.basename(file, ".csv")
+
+    assert.deepEqual(languages.sort(), getSupportedLanguages().sort())
