@@ -355,7 +355,13 @@
     }
   }
 
+  function getSupportedLanguages() {
+    return Object.keys(languages);
+  }
+
   humanizeDuration.humanizer = humanizer;
+  humanizeDuration.getSupportedLanguages = getSupportedLanguages;
+
   if (typeof define === "function" && define.amd) {
     define(function() {
       return humanizeDuration;
