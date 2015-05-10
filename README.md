@@ -149,6 +149,8 @@ humanizeDuration.getSupportedLanguages()
 // ["ar", "ca", "da", "de" ...]
 ```
 
+This function won't return any new langauges you define; it will only return the defaults supported by the library.
+
 Credits
 -------
 
