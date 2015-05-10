@@ -142,6 +142,13 @@ Humanize Duration supports the following languages:
 * Swedish (sv)
 * Turkish (tr)
 
+For a list of supported languages, you can use the `getSupportedLanguages` function.
+
+```js
+humanizeDuration.getSupportedLanguages()
+// ["ar", "ca", "da", "de" ...]
+```
+
 Credits
 -------
 
