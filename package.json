@@ -20,11 +20,11 @@
     "hint": "jshint humanize-duration.js"
   },
   "devDependencies": {
-    "coffee-script": "^1.8.0",
-    "csv-parse": "^0.1.0",
+    "coffee-script": "^1.9.2",
+    "csv-parse": "^0.1.1",
     "jshint": "^2.7.0",
     "mocha": "^2.2.4",
-    "ms": "^0.7.0"
+    "ms": "^0.7.1"
   },
   "keywords": [
     "humanize",
