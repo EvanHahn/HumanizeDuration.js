@@ -1,5 +1,4 @@
-humanizeDuration = require ".."
-getSupportedLanguages = humanizeDuration.getSupportedLanguages
+{getSupportedLanguages} = require ".."
 
 assert = require "assert"
 fs = require "fs"
