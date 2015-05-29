@@ -255,7 +255,7 @@
     }
 
     if (ms === 0) {
-      return render(0, options.units[options.units.length - 1], dictionary, options.spacer);
+      return render(0, options.units[options.units.length - 1], dictionary, options);
     }
 
     var result = [];
@@ -279,7 +279,7 @@
 
       // Add the string.
       if (unitCount) {
-        result.push(render(unitCount, unitName, dictionary, options.spacer));
+        result.push(render(unitCount, unitName, dictionary, options));
       }
 
       // Remove what we just figured out.
@@ -291,7 +291,7 @@
 
   }
 
-  function render(count, type, dictionary, spacer) {
+  function render(count, type, dictionary, options) {
     var dictionaryValue = dictionary[type];
     var word;
     if (typeof dictionaryValue === "function") {
@@ -299,7 +299,7 @@
     } else {
       word = dictionaryValue;
     }
-    return count + spacer + word;
+    return count + options.spacer + word;
   }
 
   function extend(destination) {
