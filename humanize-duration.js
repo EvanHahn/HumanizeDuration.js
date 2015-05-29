@@ -134,7 +134,7 @@
       s: function(c) { return (c === 1) ? "seconde" : "seconden"; },
       ms: function(c) { return (c === 1) ? "milliseconde" : "milliseconden"; }
     },
-    nob: {
+    no: {
       y: "år",
       mo: function(c) { return "måned" + ((c !== 1) ? "er" : ""); },
       w: function(c) { return "uke" + ((c !== 1) ? "r" : ""); },
@@ -194,7 +194,7 @@
       s: "saniye",
       ms: "milisaniye"
     },
-    "zh-CN": {
+    zh_CN: {
       y: "年",
       mo: "个月",
       w: "周",
@@ -204,7 +204,7 @@
       s: "秒",
       ms: "毫秒"
     },
-    "zh-TW": {
+    zh_TW: {
       y: "年",
       mo: "個月",
       w: "周",

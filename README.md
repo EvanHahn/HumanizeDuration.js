@@ -1,4 +1,4 @@
-umanize Duration
+Humanize Duration
 =================
 
 [![npm version](https://badge.fury.io/js/humanize-duration.svg)](https://npmjs.org/package/humanize-duration)
@@ -120,8 +120,8 @@ Humanize Duration supports the following languages:
 
 * Arabic (ar)
 * Catalan (ca)
-* Chinese, simplified (zh-CN)
-* Chinese, traditional (zh-TW)
+* Chinese, simplified (zh_CN)
+* Chinese, traditional (zh_TW)
 * Danish (da)
 * Dutch (nl)
 * English (en)
@@ -131,7 +131,7 @@ Humanize Duration supports the following languages:
 * Italian (it)
 * Japanese (ja)
 * Korean (ko)
-* Norwegian (nob)
+* Norwegian (no)
 * Polish (pl)
 * Portuguese (pt)
 * Russian (ru)
