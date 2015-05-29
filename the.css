@@ -1,0 +1,12 @@
+body {
+  margin: 0 auto;
+  width: 95%;
+  max-width: 800px;
+  font-family: Lato, "Segoe UI", Avenir, Ubuntu, Tahoma, Verdana, Helvetica, sans-serif;
+  font-size: 16pt;
+}
+
+pre {
+  background-color: #161721;
+}
+
