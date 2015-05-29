@@ -56,7 +56,8 @@ describe "humanizer", ->
     assert.equal h(540360012), "6 days, 6 hours"
     assert.equal h(540360012), "6 days, 6 hours"
     assert.equal h(540360012, largest: 3), "6 days, 6 hours, 6 minutes"
-    assert.equal h(540360012, largest: 100), "6 days, 6 hours, 6 minutes, 0.012 seconds"
+    assert.equal h(540360012, largest: 100),
+                 "6 days, 6 hours, 6 minutes, 0.012 seconds"
 
   it "has properties which can be modified", ->
     h = humanizer()
