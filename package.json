@@ -16,7 +16,7 @@
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
   "main": "humanize-duration.js",
   "scripts": {
-    "test": "mocha --bail",
+    "test": "mocha",
     "hint": "jshint humanize-duration.js"
   },
   "devDependencies": {
