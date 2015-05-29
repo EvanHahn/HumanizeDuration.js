@@ -300,6 +300,11 @@
         result.push(render(unitCount, unitName, dictionary, options));
       }
 
+      // Do we have enough units?
+      if (options.largest && (options.largest <= result.length)) {
+        break;
+      }
+
       // Remove what we just figured out.
       ms -= unitCount * unitMS;
 
