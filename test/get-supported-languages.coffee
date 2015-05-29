@@ -5,7 +5,7 @@ assert = require "assert"
 fs = require "fs"
 path = require "path"
 
-describe "getLanguageSupport", ->
+describe "getSupportedLanguages", ->
 
   it "lists all supported languages", ->
 
