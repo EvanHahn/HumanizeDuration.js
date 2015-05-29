@@ -58,9 +58,6 @@ humanizeDuration(1200)                   // "1.2 seconds"
 humanizeDuration(1200, { round: true })  // "1 second"
 humanizeDuration(1600, { round: true })  // "2 seconds"
 
-humanizeDuration(150000)                       // "2.5 minutes"
-humanizeDuration(150000, { halfUnit: false })  // "2 minutes, 30 seconds"
-
 humanizeDuration(3600000, {
   language: "es",
   units: ["minutes"]

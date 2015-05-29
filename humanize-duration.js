@@ -231,7 +231,6 @@
       spacer: " ",
       units: ["year", "month", "week", "day", "hour", "minute", "second"],
       languages: {},
-      halfUnit: true,
       round: false
     }, passedOptions);
 
@@ -262,7 +261,7 @@
     var result = [];
 
     // Start at the top and keep removing units, bit by bit.
-    var unitName, unitMS, unitCount, mightBeHalfUnit;
+    var unitName, unitMS, unitCount;
     for (var i = 0, len = options.units.length; i < len; i++) {
 
       unitName = options.units[i];
@@ -270,14 +269,6 @@
         unitName = unitName.substring(0, unitName.length - 1);
       }
       unitMS = UNITS[unitName];
-
-      // If it's a half-unit interval, we're done.
-      if (result.length === 0 && options.halfUnit) {
-        mightBeHalfUnit = (ms / unitMS) * 2;
-        if (mightBeHalfUnit === Math.floor(mightBeHalfUnit)) {
-          return render(mightBeHalfUnit / 2, unitName, dictionary, options.spacer);
-        }
-      }
 
       // What's the number of full units we can fit?
       if ((i + 1) === len) {
