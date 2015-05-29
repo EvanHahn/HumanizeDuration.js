@@ -51,8 +51,8 @@ humanizeDuration(260040000, { spacer: " whole " })  // "3 whole days, 14 whole m
 humanizeDuration(260040000, { spacer: "" })         // "3days, 14minutes"
 
 humanizeDuration(3600000, { units: ["h"] })       // "1 hour"
-humanizeDuration(3600000, { units: ["d", "h"] })  // "1 hour"
 humanizeDuration(3600000, { units: ["m"] })       // "60 minutes"
+humanizeDuration(3600000, { units: ["d", "h"] })  // "1 hour"
 
 humanizeDuration(1200)                   // "1.2 seconds"
 humanizeDuration(1200, { round: true })  // "1 second"
