@@ -272,10 +272,6 @@
       throw new Error("No language " + dictionary + ".");
     }
 
-    if (ms === 0) {
-      return render(0, options.units[options.units.length - 1], dictionary, options);
-    }
-
     var result = [];
 
     // Start at the top and keep removing units, bit by bit.
@@ -310,7 +306,11 @@
 
     }
 
-    return result.join(options.delimiter);
+    if (result.length) {
+      return result.join(options.delimiter);
+    } else {
+      return render(0, options.units[options.units.length - 1], dictionary, options);
+    }
 
   }
 

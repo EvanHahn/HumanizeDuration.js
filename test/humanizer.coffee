@@ -36,6 +36,18 @@ describe "humanizer", ->
     assert.equal h(1234), '1what234 seconds'
     assert.equal h(1234, decimal: '!!'), '1!!234 seconds'
 
+  it "can round", ->
+    h = humanizer(round: true)
+    assert.equal h(0), '0 seconds'
+    assert.equal h(499), '0 seconds'
+    assert.equal h(500), '1 second'
+    assert.equal h(1000), '1 second'
+    assert.equal h(1499), '1 second'
+    assert.equal h(1500), '2 seconds'
+    assert.equal h(1500), '2 seconds'
+    assert.equal h(121499), '2 minutes, 1 second'
+    assert.equal h(121500), '2 minutes, 2 seconds'
+
   it "can ask for the largest units", ->
     h = humanizer(largest: 2)
     assert.equal h(0), "0 seconds"
