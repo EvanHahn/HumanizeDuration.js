@@ -22,7 +22,8 @@
       h: function(c) { return ((c === 1) ? "ساعة" : "ساعات"); },
       m: function(c) { return ((c === 1) ? "دقيقة" : "دقائق"); },
       s: function(c) { return ((c === 1) ? "ثانية" : "ثواني"); },
-      ms: function(c) { return ((c === 1) ? "جزء من الثانية" : "أجزاء من الثانية"); }
+      ms: function(c) { return ((c === 1) ? "جزء من الثانية" : "أجزاء من الثانية"); },
+      decimal: ','
     },
     ca: {
       y: function(c) { return "any" + ((c !== 1) ? "s" : ""); },
@@ -32,7 +33,8 @@
       h: function(c) { return "hor" + ((c !== 1) ? "es" : "a"); },
       m: function(c) { return "minut" + ((c !== 1) ? "s" : ""); },
       s: function(c) { return "segon" + ((c !== 1) ? "s" : ""); },
-      ms: function(c) { return "milisegon" + ((c !== 1) ? "s" : "" ); }
+      ms: function(c) { return "milisegon" + ((c !== 1) ? "s" : "" ); },
+      decimal: ','
     },
     da: {
       y: "år",
@@ -42,7 +44,8 @@
       h: function(c) { return "time" + ((c !== 1) ? "r" : ""); },
       m: function(c) { return "minut" + ((c !== 1) ? "ter" : ""); },
       s: function(c) { return "sekund" + ((c !== 1) ? "er" : ""); },
-      ms: function(c) { return "millisekund" + ((c !== 1) ? "er" : ""); }
+      ms: function(c) { return "millisekund" + ((c !== 1) ? "er" : ""); },
+      decimal: ','
     },
     de: {
       y: function(c) { return "Jahr" + ((c !== 1) ? "e" : ""); },
@@ -52,7 +55,8 @@
       h: function(c) { return "Stunde" + ((c !== 1) ? "n" : ""); },
       m: function(c) { return "Minute" + ((c !== 1) ? "n" : ""); },
       s: function(c) { return "Sekunde" + ((c !== 1) ? "n" : ""); },
-      ms: function(c) { return "Millisekunde" + ((c !== 1) ? "n" : ""); }
+      ms: function(c) { return "Millisekunde" + ((c !== 1) ? "n" : ""); },
+      decimal: ','
     },
     en: {
       y: function(c) { return "year" + ((c !== 1) ? "s" : ""); },
@@ -62,7 +66,8 @@
       h: function(c) { return "hour" + ((c !== 1) ? "s" : ""); },
       m: function(c) { return "minute" + ((c !== 1) ? "s" : ""); },
       s: function(c) { return "second" + ((c !== 1) ? "s" : ""); },
-      ms: function(c) { return "millisecond" + ((c !== 1) ? "s" : ""); }
+      ms: function(c) { return "millisecond" + ((c !== 1) ? "s" : ""); },
+      decimal: '.'
     },
     es: {
       y: function(c) { return "año" + ((c !== 1) ? "s" : ""); },
@@ -72,7 +77,8 @@
       h: function(c) { return "hora" + ((c !== 1) ? "s" : ""); },
       m: function(c) { return "minuto" + ((c !== 1) ? "s" : ""); },
       s: function(c) { return "segundo" + ((c !== 1) ? "s" : ""); },
-      ms: function(c) { return "milisegundo" + ((c !== 1) ? "s" : "" ); }
+      ms: function(c) { return "milisegundo" + ((c !== 1) ? "s" : "" ); },
+      decimal: ','
     },
     fr: {
       y: function(c) { return "an" + ((c !== 1) ? "s" : ""); },
@@ -82,7 +88,8 @@
       h: function(c) { return "heure" + ((c !== 1) ? "s" : ""); },
       m: function(c) { return "minute" + ((c !== 1) ? "s" : ""); },
       s: function(c) { return "seconde" + ((c !== 1) ? "s" : ""); },
-      ms: function(c) { return "milliseconde" + ((c !== 1) ? "s" : ""); }
+      ms: function(c) { return "milliseconde" + ((c !== 1) ? "s" : ""); },
+      decimal: ','
     },
     hu: {
       y: "év",
@@ -92,7 +99,8 @@
       h: "óra",
       m: "perc",
       s: "másodperc",
-      ms: "ezredmásodperc"
+      ms: "ezredmásodperc",
+      decimal: ','
     },
     it: {
       y: function(c) { return "ann" + ((c !== 1) ? "i" : "o"); },
@@ -102,7 +110,8 @@
       h: function(c) { return "or" + ((c !== 1) ? "e" : "a"); },
       m: function(c) { return "minut" + ((c !== 1) ? "i" : "o"); },
       s: function(c) { return "second" + ((c !== 1) ? "i" : "o"); },
-      ms: function(c) { return "millisecond" + ((c !== 1) ? "i" : "o" ); }
+      ms: function(c) { return "millisecond" + ((c !== 1) ? "i" : "o" ); },
+      decimal: ','
     },
     ja: {
       y: "年",
@@ -112,7 +121,8 @@
       h: "時間",
       m: "分",
       s: "秒",
-      ms: "ミリ秒"
+      ms: "ミリ秒",
+      decimal: '.'
     },
     ko: {
       y: "년",
@@ -122,7 +132,8 @@
       h: "시간",
       m: "분",
       s: "초",
-      ms: "밀리 초"
+      ms: "밀리 초",
+      decimal: '.'
     },
     nl: {
       y: "jaar",
@@ -132,7 +143,8 @@
       h: "uur",
       m: function(c) { return (c === 1) ? "minuut" : "minuten"; },
       s: function(c) { return (c === 1) ? "seconde" : "seconden"; },
-      ms: function(c) { return (c === 1) ? "milliseconde" : "milliseconden"; }
+      ms: function(c) { return (c === 1) ? "milliseconde" : "milliseconden"; },
+      decimal: ','
     },
     no: {
       y: "år",
@@ -142,7 +154,8 @@
       h: function(c) { return "time" + ((c !== 1) ? "r" : ""); },
       m: function(c) { return "minutt" + ((c !== 1) ? "er" : ""); },
       s: function(c) { return "sekund" + ((c !== 1) ? "er" : ""); },
-      ms: function(c) { return "millisekund" + ((c !== 1) ? "er" : ""); }
+      ms: function(c) { return "millisekund" + ((c !== 1) ? "er" : ""); },
+      decimal: ','
     },
     pl: {
       y: function(c) { return ["rok", "roku", "lata", "lat"][getPolishForm(c)]; },
@@ -152,7 +165,8 @@
       h: function(c) { return ["godzina", "godziny", "godziny", "godzin"][getPolishForm(c)]; },
       m: function(c) { return ["minuta", "minuty", "minuty", "minut"][getPolishForm(c)]; },
       s: function(c) { return ["sekunda", "sekundy", "sekundy", "sekund"][getPolishForm(c)]; },
-      ms: function(c) { return ["milisekunda", "milisekundy", "milisekundy", "milisekund"][getPolishForm(c)]; }
+      ms: function(c) { return ["milisekunda", "milisekundy", "milisekundy", "milisekund"][getPolishForm(c)]; },
+      decimal: ','
     },
     pt: {
       y: function(c) { return "ano" + ((c !== 1) ? "s" : ""); },
@@ -162,7 +176,8 @@
       h: function(c) { return "hora" + ((c !== 1) ? "s" : ""); },
       m: function(c) { return "minuto" + ((c !== 1) ? "s" : ""); },
       s: function(c) { return "segundo" + ((c !== 1) ? "s" : ""); },
-      ms: function(c) { return "milissegundo" + ((c !== 1) ? "s" : ""); }
+      ms: function(c) { return "milissegundo" + ((c !== 1) ? "s" : ""); },
+      decimal: ','
     },
     ru: {
       y: function(c) { return ["лет", "год", "года"][getRussianForm(c)]; },
@@ -172,7 +187,8 @@
       h: function(c) { return ["часов", "час", "часа"][getRussianForm(c)]; },
       m: function(c) { return ["минут", "минута", "минуты"][getRussianForm(c)]; },
       s: function(c) { return ["секунд", "секунда", "секунды"][getRussianForm(c)]; },
-      ms: function(c) { return ["миллисекунд", "миллисекунда", "миллисекунды"][getRussianForm(c)]; }
+      ms: function(c) { return ["миллисекунд", "миллисекунда", "миллисекунды"][getRussianForm(c)]; },
+      decimal: ','
     },
     sv: {
       y: "år",
@@ -182,7 +198,8 @@
       h: function(c) { return "timm" + ((c !== 1) ? "ar" : "e"); },
       m: function(c) { return "minut" + ((c !== 1) ? "er" : ""); },
       s: function(c) { return "sekund" + ((c !== 1) ? "er" : ""); },
-      ms: function(c) { return "millisekund" + ((c !== 1) ? "er" : ""); }
+      ms: function(c) { return "millisekund" + ((c !== 1) ? "er" : ""); },
+      decimal: ','
     },
     tr: {
       y: "yıl",
@@ -192,7 +209,8 @@
       h: "saat",
       m: "dakika",
       s: "saniye",
-      ms: "milisaniye"
+      ms: "milisaniye",
+      decimal: ','
     },
     zh_CN: {
       y: "年",
@@ -202,7 +220,8 @@
       h: "小时",
       m: "分钟",
       s: "秒",
-      ms: "毫秒"
+      ms: "毫秒",
+      decimal: '.'
     },
     zh_TW: {
       y: "年",
@@ -212,14 +231,14 @@
       h: "小時",
       m: "分鐘",
       s: "秒",
-      ms: "毫秒"
+      ms: "毫秒",
+      decimal: '.'
     }
   };
 
   // You can create a humanizer, which returns a function with defaults
   // parameters.
   function humanizer(passedOptions) {
-
     var result = function humanizer(ms, humanizerOptions) {
       var options = extend({}, result, humanizerOptions || {});
       return doHumanization(ms, options);
@@ -233,7 +252,6 @@
       languages: {},
       round: false
     }, passedOptions);
-
   }
 
   // The main function is just a wrapper around a default humanizer.
@@ -292,6 +310,15 @@
   }
 
   function render(count, type, dictionary, options) {
+    var decimal;
+    if (options.decimal === void 0) {
+      decimal = dictionary.decimal;
+    } else {
+      decimal = options.decimal;
+    }
+
+    var countStr = count.toString().replace(".", decimal);
+
     var dictionaryValue = dictionary[type];
     var word;
     if (typeof dictionaryValue === "function") {
@@ -299,7 +326,8 @@
     } else {
       word = dictionaryValue;
     }
-    return count + options.spacer + word;
+
+    return countStr + options.spacer + word;
   }
 
   function extend(destination) {

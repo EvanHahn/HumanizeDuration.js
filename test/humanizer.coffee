@@ -31,6 +31,18 @@ describe "humanizer", ->
     assert.equal h(ms("6h")), "0.25 days"
     assert.equal h(ms("7d")), "7 days"
 
+  it "can change the decimal", ->
+    h = humanizer(units: ["s"], decimal: 'what')
+    assert.equal h(1234), '1what234 seconds'
+    assert.equal h(1234, decimal: '!!'), '1!!234 seconds'
+
+  it.skip "can ask for the largest units", ->
+    h = humanizer(largest: 2)
+    assert.equal h(0), "0 seconds"
+    assert.equal h(1000), "1 second"
+    assert.equal h(2000), "2 seconds"
+    assert.equal h(540360000), "6 days, 6 hours"
+
   it "has properties which can be modified", ->
     h = humanizer()
     assert.equal h(363000), "6 minutes, 3 seconds"
@@ -39,7 +51,7 @@ describe "humanizer", ->
     h.language = "es"
     assert.equal h(363000), "6 minutos+3 segundos"
     h.units = ["m"]
-    assert.equal h(363000), "6.05 minutos"
+    assert.equal h(363000), "6,05 minutos"
 
   it "is a named function", ->
     assert.equal(humanizer().name, "humanizer")
