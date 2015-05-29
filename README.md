@@ -1,4 +1,4 @@
-Humanize Duration
+umanize Duration
 =================
 
 [![npm version](https://badge.fury.io/js/humanize-duration.svg)](https://npmjs.org/package/humanize-duration)
@@ -50,9 +50,9 @@ humanizeDuration(22140000, { delimiter: "--" })     // "6 hours--9 minutes"
 humanizeDuration(260040000, { spacer: " whole " })  // "3 whole days, 14 whole minutes"
 humanizeDuration(260040000, { spacer: "" })         // "3days, 14minutes"
 
-humanizeDuration(3600000, { units: ["hours"] })          // "1 hour"
-humanizeDuration(3600000, { units: ["days", "hours"] })  // "1 hour"
-humanizeDuration(3600000, { units: ["minutes"] })        // "60 minutes"
+humanizeDuration(3600000, { units: ["h"] })       // "1 hour"
+humanizeDuration(3600000, { units: ["d", "h"] })  // "1 hour"
+humanizeDuration(3600000, { units: ["m"] })       // "60 minutes"
 
 humanizeDuration(1200)                   // "1.2 seconds"
 humanizeDuration(1200, { round: true })  // "1 second"
@@ -60,7 +60,7 @@ humanizeDuration(1600, { round: true })  // "2 seconds"
 
 humanizeDuration(3600000, {
   language: "es",
-  units: ["minutes"]
+  units: ["m"]
 })
 // "60 minutos"
 ```
@@ -72,11 +72,11 @@ If you find yourself setting same options over and over again, you can create a 
 ```js
 var spanishHumanizer = humanizeDuration.humanizer({
   language: "es",
-  units: ["years", "months", "days"]
+  units: ["y", "mo", "d"]
 })
 
 spanishHumanizer(71177400000)  // "2 años, 3 meses, 2 días"
-spanishHumanizer(71177400000, { units: ["days", "hours"] })  // "823 días, 19.5 horas"
+spanishHumanizer(71177400000, { units: ["d", "h"] })  // "823 días, 19.5 horas"
 ```
 
 You can also add new languages to humanizers. For example:
@@ -86,14 +86,14 @@ var shortEnglishHumanizer = humanizeDuration.humanizer({
   language: "shortEn",
   languages: {
     shortEn: {
-      year: function() { return "y"; },
-      month: function() { return "mo"; },
-      week: function() { return "w"; },
-      day: function() { return "d"; },
-      hour: function() { return "h"; },
-      minute: function() { return "m"; },
-      second: function() { return "s"; },
-      millisecond: function() { return "ms"; },
+      y: function() { return "y"; },
+      mo: function() { return "mo"; },
+      w: function() { return "w"; },
+      d: function() { return "d"; },
+      h: function() { return "h"; },
+      m: function() { return "m"; },
+      s: function() { return "s"; },
+      ms: function() { return "ms"; },
     }
   }
 })
@@ -107,7 +107,7 @@ You can also add languages after initializing:
 var humanizer = humanizeDuration.humanizer()
 
 humanizer.languages.shortEn = {
-  year: function(c) { return c + "y"; },
+  y: function(c) { return c + "y"; },
   // ...
 ```
 
