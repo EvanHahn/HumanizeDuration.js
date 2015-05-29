@@ -1,3 +1,17 @@
+3.3.0 / 2015-05-29
+==================
+
+* new: `largest` option to get largest units
+
+* update: languages can change decimal point (which can be overridden)
+* update: fix some unintuitive `round` behavior
+* update: specify units in shorthand rather than longhand
+* update: use the Unlicense
+* update: `nob` is now `no`
+* update: use underscores instead of dashes for Chinese
+
+* remove: half units
+
 2.8.0 / 2015-05-10
 ==================
 

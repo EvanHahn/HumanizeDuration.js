@@ -11,7 +11,7 @@
     "Giovanni Pellerano (https://github.com/evilaliv3)",
     "Rahma Sghaier (https://twitter.com/sghaierrahma)"
   ],
-  "version": "2.8.0",
+  "version": "3.0.0",
   "description": "Convert millisecond durations to English and many other languages.",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
   "main": "humanize-duration.js",
@@ -42,5 +42,5 @@
     "url": "git://github.com/EvanHahn/HumanizeDuration.js.git"
   },
   "bugs": "https://github.com/EvanHahn/HumanizeDuration.js/issues",
-  "license": "WTFPL"
+  "license": "Unlicense"
 }
