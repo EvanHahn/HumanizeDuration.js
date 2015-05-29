@@ -263,7 +263,7 @@
 
     // Start at the top and keep removing units, bit by bit.
     var unitName, unitMS, unitCount, mightBeHalfUnit;
-    for (var i = 0, len = options.units.length; i < len; i ++) {
+    for (var i = 0, len = options.units.length; i < len; i++) {
 
       unitName = options.units[i];
       if (unitName[unitName.length - 1] === "s") { // strip plurals
@@ -316,7 +316,7 @@
 
   function extend(destination) {
     var source;
-    for (var i = 1; i < arguments.length; i ++) {
+    for (var i = 1; i < arguments.length; i++) {
       source = arguments[i];
       for (var prop in source) {
         if (source.hasOwnProperty(prop)) {
