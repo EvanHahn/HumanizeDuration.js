@@ -38,7 +38,7 @@ describe "localized humanization", ->
         file = path.resolve(definitionsPath, language + ".csv")
         fs.readFile file, { encoding: "utf8" }, (err, data) =>
           return done(err) if err?
-          parseCSV data, (err, rows) =>
+          parseCSV data, { delimiter: "$" }, (err, rows) =>
             return done(err) if err?
             @pairs = rows.map (r) -> [parseFloat(r[0]), r[1]]
             done()
