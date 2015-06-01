@@ -324,13 +324,7 @@
 
     var countStr = count.toString().replace(".", decimal);
 
-    var dictionaryValue = dictionary[type];
-    var word;
-    if (typeof dictionaryValue === "function") {
-      word = dictionaryValue(count);
-    } else {
-      word = dictionaryValue;
-    }
+    var word = getLocalizedHumanizerWord(count, type, options.language);
 
     return countStr + options.spacer + word;
   }
@@ -386,8 +380,29 @@
     return result;
   }
 
+    /**
+     *
+     * @param count the number of time for the value you want to return the word
+     * @param type valid values of var UNITS [y, mo, w, d, h, m, s, ms]
+     * @param lang valid values is var languages
+     * @returns {*}
+     */
+  function getLocalizedHumanizerWord(count, type, lang){
+    var dictionary = languages[lang];
+    var dictionaryValue = dictionary[type];
+    var word;
+    if (typeof dictionaryValue === "function") {
+      word = dictionaryValue(count);
+    } else {
+      word = dictionaryValue;
+    }
+
+    return word;
+  }
+
   humanizeDuration.humanizer = humanizer;
   humanizeDuration.getSupportedLanguages = getSupportedLanguages;
+  humanizeDuration.getLocalizedHumanizerWord = getLocalizedHumanizerWord;
 
   if (typeof define === "function" && define.amd) {
     define(function() {
