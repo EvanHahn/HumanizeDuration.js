@@ -324,7 +324,13 @@
 
     var countStr = count.toString().replace(".", decimal);
 
-    var word = getLocalizedHumanizerWord(count, type, options.language);
+    var dictionaryValue = dictionary[type];
+    var word;
+    if (typeof dictionaryValue === "function") {
+      word = dictionaryValue(count);
+    } else {
+      word = dictionaryValue;
+    }
 
     return countStr + options.spacer + word;
   }
