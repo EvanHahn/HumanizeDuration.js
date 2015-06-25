@@ -91,6 +91,17 @@
       ms: function(c) { return "milliseconde" + ((c !== 1) ? "s" : ""); },
       decimal: ","
     },
+    gr: {
+      y: function(c) { return ((c === 1) ? "χρόνος" : "χρόνια"); },
+      mo: function(c) { return ((c === 1) ? "μήνας" : "μήνες"); },
+      w: function(c) { return ((c === 1) ? "εβδομάδα" : "εβδομάδες"); },
+      d: function(c) { return ((c === 1) ? "μέρα" : "μέρες"); },
+      h: function(c) { return ((c === 1) ? "ώρα" : "ώρες"); },
+      m: function(c) { return ((c === 1) ? "λεπτό" : "λεπτά"); },
+      s: function(c) { return ((c === 1) ? "δευτερόλεπτο" : "δευτερόλεπτα"); },
+      ms: function(c) { return ((c === 1) ? "χιλιοστό του δευτερολέπτου" : "χιλιοστά του δευτερολέπτου"); },
+      decimal: ","
+    },
     hu: {
       y: "év",
       mo: "hónap",
