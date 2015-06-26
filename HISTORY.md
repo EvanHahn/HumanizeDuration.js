@@ -3,7 +3,7 @@
 * new : Greek support
 
 
-3.3.0 / 2015-05-29
+3.0.0 / 2015-05-29
 ==================
 
 * new: `largest` option to get largest units
