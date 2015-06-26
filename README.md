@@ -164,5 +164,6 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Tommy Brunn](https://github.com/Nevon) for Swedish support
 * [Giovanni Pellerano](https://github.com/evilaliv3) for Italian support
 * [Rahma Sghaier](https://twitter.com/sghaierrahma) for Arabic support
+* [Evgenios Kastanias](https://github.com/evgenios) for Greek support
 
 Licensed under the WTFPL, so you can do whatever you want. Enjoy!
