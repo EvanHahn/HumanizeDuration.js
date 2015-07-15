@@ -1,7 +1,6 @@
 // HumanizeDuration.js - http://git.io/j0HgmQ
 
-(function() {
-
+(function(global) {
   var UNITS = {
     y: 31557600000,
     mo: 2629800000,
@@ -418,7 +417,7 @@
   } else if (typeof module !== "undefined" && module.exports) {
     module.exports = humanizeDuration;
   } else {
-    this.humanizeDuration = humanizeDuration;
+    global.humanizeDuration = humanizeDuration;
   }
 
-})();
+})(this);

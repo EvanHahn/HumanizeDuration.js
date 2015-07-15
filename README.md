@@ -9,7 +9,7 @@ I have the time in milliseconds and I want it to become "30 minutes" or "3 days,
 Basic usage
 -----------
 
-This package is available as *humanize-duration* in npm and Bower. You can also include the JavaScript in the browser.
+This package is available as *humanize-duration* in [npm](https://www.npmjs.com/package/humanize-duration) and Bower. You can also include the JavaScript in the browser.
 
 In the browser:
 
@@ -121,27 +121,29 @@ Supported languages
 
 Humanize Duration supports the following languages:
 
-* Arabic (ar)
-* Catalan (ca)
-* Chinese, simplified (zh_CN)
-* Chinese, traditional (zh_TW)
-* Danish (da)
-* Dutch (nl)
-* English (en)
-* French (fr)
-* German (de)
-* Hungarian (hu)
-* Italian (it)
-* Japanese (ja)
-* Korean (ko)
-* Norwegian (no)
-* Polish (pl)
-* Portuguese (pt)
-* Russian (ru)
-* Spanish (es)
-* Swedish (sv)
-* Turkish (tr)
-* Ukrainian (uk)
+| Language             | Code |
+|----------------------|------|
+| Arabic               | `ar` |
+| Catalan              | `ca` |
+| Chinese, simplified  | `zh_CN` |
+| Chinese, traditional | `zh_TW` |
+| Danish               | `da` |
+| Dutch                | `nl` |
+| English              | `en` |
+| French               | `fr` |
+| German               | `de` |
+| Hungarian            | `hu` |
+| Italian              | `it` |
+| Japanese             | `ja` |
+| Korean               | `ko` |
+| Norwegian            | `no` |
+| Polish               | `pl` |
+| Portuguese           | `pt` |
+| Russian              | `ru` |
+| Spanish              | `es` |
+| Swedish              | `sv` |
+| Turkish              | `tr` |
+| Ukrainian            | `uk` |
 
 For a list of supported languages, you can use the `getSupportedLanguages` function.
 
