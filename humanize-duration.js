@@ -382,7 +382,7 @@
     }
   }
 
-  // Internal helper function for Russian language.
+  // Internal helper function for Russian and Ukranian languages.
   function getSlavicForm(c) {
     if (Math.floor(c) !== c) {
       return 2;
