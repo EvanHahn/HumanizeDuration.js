@@ -121,26 +121,28 @@ Supported languages
 
 Humanize Duration supports the following languages:
 
-* Arabic (ar)
-* Catalan (ca)
-* Chinese, simplified (zh_CN)
-* Chinese, traditional (zh_TW)
-* Danish (da)
-* Dutch (nl)
-* English (en)
-* French (fr)
-* German (de)
-* Hungarian (hu)
-* Italian (it)
-* Japanese (ja)
-* Korean (ko)
-* Norwegian (no)
-* Polish (pl)
-* Portuguese (pt)
-* Russian (ru)
-* Spanish (es)
-* Swedish (sv)
-* Turkish (tr)
+| Language             | Code |
+|----------------------|------|
+| Arabic               | `ar` |
+| Catalan              | `ca` |
+| Chinese, simplified  | `zh_CN` |
+| Chinese, traditional | `zh_TW` |
+| Danish               | `da` |
+| Dutch                | `nl` |
+| English              | `en` |
+| French               | `fr` |
+| German               | `de` |
+| Hungarian            | `hu` |
+| Italian              | `it` |
+| Japanese             | `ja` |
+| Korean               | `ko` |
+| Norwegian            | `no` |
+| Polish               | `pl` |
+| Portuguese           | `pt` |
+| Russian              | `ru` |
+| Spanish              | `es` |
+| Swedish              | `sv` |
+| Turkish              | `tr` |
 
 For a list of supported languages, you can use the `getSupportedLanguages` function.
 
