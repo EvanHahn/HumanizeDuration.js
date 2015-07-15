@@ -191,14 +191,25 @@
       decimal: ","
     },
     ru: {
-      y: function(c) { return ["лет", "год", "года"][getRussianForm(c)]; },
-      mo: function(c) { return ["месяцев", "месяц", "месяца"][getRussianForm(c)]; },
-      w: function(c) { return ["недель", "неделя", "недели"][getRussianForm(c)]; },
-      d: function(c) { return ["дней", "день", "дня"][getRussianForm(c)]; },
-      h: function(c) { return ["часов", "час", "часа"][getRussianForm(c)]; },
-      m: function(c) { return ["минут", "минута", "минуты"][getRussianForm(c)]; },
-      s: function(c) { return ["секунд", "секунда", "секунды"][getRussianForm(c)]; },
-      ms: function(c) { return ["миллисекунд", "миллисекунда", "миллисекунды"][getRussianForm(c)]; },
+      y: function(c) { return ["лет", "год", "года"][getSlavicForm(c)]; },
+      mo: function(c) { return ["месяцев", "месяц", "месяца"][getSlavicForm(c)]; },
+      w: function(c) { return ["недель", "неделя", "недели"][getSlavicForm(c)]; },
+      d: function(c) { return ["дней", "день", "дня"][getSlavicForm(c)]; },
+      h: function(c) { return ["часов", "час", "часа"][getSlavicForm(c)]; },
+      m: function(c) { return ["минут", "минута", "минуты"][getSlavicForm(c)]; },
+      s: function(c) { return ["секунд", "секунда", "секунды"][getSlavicForm(c)]; },
+      ms: function(c) { return ["миллисекунд", "миллисекунда", "миллисекунды"][getSlavicForm(c)]; },
+      decimal: ","
+    },
+    uk: {
+      y: function(c) { return ["років", "рік", "роки"][getSlavicForm(c)]; },
+      mo: function(c) { return ["місяців", "місяць", "місяці"][getSlavicForm(c)]; },
+      w: function(c) { return ["неділь", "неділя", "неділі"][getSlavicForm(c)]; },
+      d: function(c) { return ["днів", "день", "дні"][getSlavicForm(c)]; },
+      h: function(c) { return ["годин", "година", "години"][getSlavicForm(c)]; },
+      m: function(c) { return ["хвилин", "хвилина", "хвилини"][getSlavicForm(c)]; },
+      s: function(c) { return ["секунд", "секунда", "секунди"][getSlavicForm(c)]; },
+      ms: function(c) { return ["мілісекунд", "мілісекунда", "мілісекунди"][getSlavicForm(c)]; },
       decimal: ","
     },
     sv: {
@@ -373,7 +384,7 @@
   }
 
   // Internal helper function for Russian language.
-  function getRussianForm(c) {
+  function getSlavicForm(c) {
     if (Math.floor(c) !== c) {
       return 2;
     } else if (c === 0 || (c >= 5 && c <= 20) || (c % 10 >= 5 && c % 10 <= 9) || (c % 10 === 0)) {
@@ -386,7 +397,7 @@
       return 0;
     }
   }
-
+  
   function getSupportedLanguages() {
     var result = [];
     for (var language in languages) {

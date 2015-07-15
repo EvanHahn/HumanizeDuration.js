@@ -10,7 +10,8 @@
     "Tommy Brunn (https://github.com/Nevon)",
     "Giovanni Pellerano (https://github.com/evilaliv3)",
     "Rahma Sghaier (https://twitter.com/sghaierrahma)",
-    "Evgenios Kastanias (https://github.com/evgenios)"
+    "Evgenios Kastanias (https://github.com/evgenios)",
+    "Oleksii Mylotskyi (https://github.com/spalax)"
   ],
   "version": "3.1.0",
   "description": "Convert millisecond durations to English and many other languages.",

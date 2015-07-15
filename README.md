@@ -141,6 +141,7 @@ Humanize Duration supports the following languages:
 * Spanish (es)
 * Swedish (sv)
 * Turkish (tr)
+* Ukrainian (uk)
 
 For a list of supported languages, you can use the `getSupportedLanguages` function.
 
@@ -165,5 +166,6 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Giovanni Pellerano](https://github.com/evilaliv3) for Italian support
 * [Rahma Sghaier](https://twitter.com/sghaierrahma) for Arabic support
 * [Evgenios Kastanias](https://github.com/evgenios) for Greek support
+* [Oleksii Mylotskyi](https://github.com/spalax) for Ukrainian support
 
 Licensed under the WTFPL, so you can do whatever you want. Enjoy!
