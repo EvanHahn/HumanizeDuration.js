@@ -1,7 +1,9 @@
-3.2.0 / unreleased
+3.2.0 / 2015-07-15
 ==================
 
 * new: Ukrainian support
+
+* fix: things would break in global strict mode
 
 3.1.0 / 2015-06-25
 ==================
