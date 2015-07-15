@@ -396,7 +396,7 @@
       return 0;
     }
   }
-  
+
   function getSupportedLanguages() {
     var result = [];
     for (var language in languages) {
