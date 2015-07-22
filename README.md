@@ -61,6 +61,9 @@ humanizeDuration(1200)                   // "1.2 seconds"
 humanizeDuration(1200, { round: true })  // "1 second"
 humanizeDuration(1600, { round: true })  // "2 seconds"
 
+humanizeDuration(1000000000000)                       // 31 years, 8 months, 1 week, 19 hours, 46 minutes, 40 seconds
+humanizeDuration(1000000000000, { significance: 2 })  // 31 years, 8 months 
+
 humanizeDuration(1200)                          // "1.2 seconds"
 humanizeDuration(1200, { decimal: ' point ' })  // "1 point 2 seconds"
 
