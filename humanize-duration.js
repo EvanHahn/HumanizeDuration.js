@@ -297,7 +297,9 @@
 
     // Start at the top and keep removing units, bit by bit.
     var unitName, unitMS, unitCount;
-    for (var i = 0, len = options.units.length; i < len; i++) {
+    var len = options.significance || options.units.length;
+
+    for (var i = 0; i < len; i++) {
 
       unitName = options.units[i];
       unitMS = UNITS[unitName];
