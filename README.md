@@ -50,6 +50,9 @@ humanizeDuration(22140000, { delimiter: "--" })     // "6 hours--9 minutes"
 humanizeDuration(260040000, { spacer: " whole " })  // "3 whole days, 14 whole minutes"
 humanizeDuration(260040000, { spacer: "" })         // "3days, 14minutes"
 
+humanizeDuration(1000000000000)                  // 31 years, 8 months, 1 week, 19 hours, 46 minutes, 40 seconds
+humanizeDuration(1000000000000, { largest: 2 })  // 31 years, 8 month
+
 humanizeDuration(3600000, { units: ["h"] })       // "1 hour"
 humanizeDuration(3600000, { units: ["m"] })       // "60 minutes"
 humanizeDuration(3600000, { units: ["d", "h"] })  // "1 hour"
