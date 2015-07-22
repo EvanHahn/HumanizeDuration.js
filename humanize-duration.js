@@ -329,8 +329,6 @@
 
         }
 
-        console.log(result);
-
         if (options.significance) {
             result = result.slice(0, options.significance);
         }
