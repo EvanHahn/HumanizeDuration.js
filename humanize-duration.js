@@ -1,17 +1,6 @@
 // HumanizeDuration.js - http://git.io/j0HgmQ
 
 (function(global) {
-  var UNITS = {
-    y: 31557600000,
-    mo: 2629800000,
-    w: 604800000,
-    d: 86400000,
-    h: 3600000,
-    m: 60000,
-    s: 1000,
-    ms: 1
-  };
-
   var languages = {
     ar: {
       y: function(c) { return ((c === 1) ? "سنة" : "سنوات"); },
@@ -271,7 +260,17 @@
       spacer: " ",
       units: ["y", "mo", "w", "d", "h", "m", "s"],
       languages: {},
-      round: false
+      round: false,
+      unitMeasures: {
+        y: 31557600000,
+        mo: 2629800000,
+        w: 604800000,
+        d: 86400000,
+        h: 3600000,
+        m: 60000,
+        s: 1000,
+        ms: 1
+      }
     }, passedOptions);
   }
 
@@ -300,7 +299,7 @@
     for (var i = 0, len = options.units.length; i < len; i++) {
 
       unitName = options.units[i];
-      unitMS = UNITS[unitName];
+      unitMS = options.unitMeasures[unitName];
 
       // What's the number of full units we can fit?
       if ((i + 1) === len) {
