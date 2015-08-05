@@ -13,7 +13,7 @@
     "Evgenios Kastanias (https://github.com/evgenios)",
     "Oleksii Mylotskyi (https://github.com/spalax)"
   ],
-  "version": "3.2.1",
+  "version": "3.3.0",
   "description": "Convert millisecond durations to English and many other languages.",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
   "main": "humanize-duration.js",
