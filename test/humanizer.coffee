@@ -31,6 +31,22 @@ describe "humanizer", ->
     assert.equal h(ms("6h")), "0.25 days"
     assert.equal h(ms("7d")), "7 days"
 
+  it "can overwrite the unit measures in the initializer", ->
+    h = humanizer
+      unitMeasures:
+        y: 10512000000,
+        mo: 864000000,
+        w: 144000000,
+        d: 28800000
+        h: 3600000
+        m: 60000
+        s: 1000
+        ms: 1
+    assert.equal h(1000), "1 second"
+    assert.equal h(3600000), "1 hour"
+    assert.equal h(28800000), "1 day"
+    assert.equal h(144000000), "1 week"
+
   it "can change the decimal", ->
     h = humanizer(units: ["s"], decimal: 'what')
     assert.equal h(1234), '1what234 seconds'
