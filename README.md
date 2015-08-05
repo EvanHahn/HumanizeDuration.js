@@ -64,6 +64,16 @@ humanizeDuration(1600, { round: true })  // "2 seconds"
 humanizeDuration(1200)                          // "1.2 seconds"
 humanizeDuration(1200, { decimal: ' point ' })  // "1 point 2 seconds"
 
+humanizeDuration(400)    // 0.4 seconds
+humanizeDuration(400, {  // 1 year, 1 month, 5 days
+  unitMeasures: {
+    y: 365,
+    mo: 30,
+    w: 7,
+    d: 1
+  }
+})
+
 humanizeDuration(3600000, {
   language: "es",
   units: ["m"]
