@@ -1,0 +1,26 @@
+
+body {
+  color: #333;
+}
+
+input,
+select {
+  width: 100%;
+}
+
+header {
+  margin: 3rem 0;
+}
+
+.container {
+  max-width: 800px;
+}
+
+h2 {
+  font-size: 3.0rem;
+}
+
+footer {
+  text-align: center;
+  margin-bottom: 5rem;
+}
