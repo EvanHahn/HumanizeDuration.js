@@ -14,9 +14,12 @@
     </header>
     <p>Turn millisecond durations into human-readable strings.</p>
 
-<pre><code class="">humanizeDuration(3000)      // "3 seconds"
-humanizeDuration(2150)      // "2.15 seconds"
-humanizeDuration(97320000)  // "1 day, 3 hours, 2 minutes"</code></pre>
+<pre><code class="">humanizeDuration(3000)        // "3 seconds"
+humanizeDuration(97320000)    // "1 day, 3 hours, 2 minutes"
+humanizeDuration(97320000, {  // "1 día, 3 horas, 2 minutos"
+  language: "es"
+})
+</code></pre>
 
     <div id="demo"></div>
 
