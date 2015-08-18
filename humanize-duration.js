@@ -21,7 +21,7 @@
       h: function(c) { return "hor" + (c !== 1 ? "es" : "a"); },
       m: function(c) { return "minut" + (c !== 1 ? "s" : ""); },
       s: function(c) { return "segon" + (c !== 1 ? "s" : ""); },
-      ms: function(c) { return "milisegon" + (c !== 1 ? "s" : "" ); },
+      ms: function(c) { return "milisegon" + (c !== 1 ? "s" : ""); },
       decimal: ","
     },
     da: {
@@ -65,7 +65,7 @@
       h: function(c) { return "hora" + (c !== 1 ? "s" : ""); },
       m: function(c) { return "minuto" + (c !== 1 ? "s" : ""); },
       s: function(c) { return "segundo" + (c !== 1 ? "s" : ""); },
-      ms: function(c) { return "milisegundo" + (c !== 1 ? "s" : "" ); },
+      ms: function(c) { return "milisegundo" + (c !== 1 ? "s" : ""); },
       decimal: ","
     },
     fr: {
@@ -109,7 +109,7 @@
       h: function(c) { return "or" + (c !== 1 ? "e" : "a"); },
       m: function(c) { return "minut" + (c !== 1 ? "i" : "o"); },
       s: function(c) { return "second" + (c !== 1 ? "i" : "o"); },
-      ms: function(c) { return "millisecond" + (c !== 1 ? "i" : "o" ); },
+      ms: function(c) { return "millisecond" + (c !== 1 ? "i" : "o"); },
       decimal: ","
     },
     ja: {
