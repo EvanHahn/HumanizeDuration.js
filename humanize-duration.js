@@ -3,14 +3,14 @@
 (function(global) {
   var languages = {
     ar: {
-      y: function(c) { return (c === 1 ? "سنة" : "سنوات"); },
-      mo: function(c) { return (c === 1 ? "شهر" : "أشهر"); },
-      w: function(c) { return (c === 1 ? "أسبوع" : "أسابيع"); },
-      d: function(c) { return (c === 1 ? "يوم" : "أيام"); },
-      h: function(c) { return (c === 1 ? "ساعة" : "ساعات"); },
-      m: function(c) { return (c === 1 ? "دقيقة" : "دقائق"); },
-      s: function(c) { return (c === 1 ? "ثانية" : "ثواني"); },
-      ms: function(c) { return (c === 1 ? "جزء من الثانية" : "أجزاء من الثانية"); },
+      y: function(c) { return c === 1 ? "سنة" : "سنوات"; },
+      mo: function(c) { return c === 1 ? "شهر" : "أشهر"; },
+      w: function(c) { return c === 1 ? "أسبوع" : "أسابيع"; },
+      d: function(c) { return c === 1 ? "يوم" : "أيام"; },
+      h: function(c) { return c === 1 ? "ساعة" : "ساعات"; },
+      m: function(c) { return c === 1 ? "دقيقة" : "دقائق"; },
+      s: function(c) { return c === 1 ? "ثانية" : "ثواني"; },
+      ms: function(c) { return c === 1 ? "جزء من الثانية" : "أجزاء من الثانية"; },
       decimal: ","
     },
     ca: {
@@ -80,14 +80,14 @@
       decimal: ","
     },
     gr: {
-      y: function(c) { return (c === 1 ? "χρόνος" : "χρόνια"); },
-      mo: function(c) { return (c === 1 ? "μήνας" : "μήνες"); },
-      w: function(c) { return (c === 1 ? "εβδομάδα" : "εβδομάδες"); },
-      d: function(c) { return (c === 1 ? "μέρα" : "μέρες"); },
-      h: function(c) { return (c === 1 ? "ώρα" : "ώρες"); },
-      m: function(c) { return (c === 1 ? "λεπτό" : "λεπτά"); },
-      s: function(c) { return (c === 1 ? "δευτερόλεπτο" : "δευτερόλεπτα"); },
-      ms: function(c) { return (c === 1 ? "χιλιοστό του δευτερολέπτου" : "χιλιοστά του δευτερολέπτου"); },
+      y: function(c) { return c === 1 ? "χρόνος" : "χρόνια"; },
+      mo: function(c) { return c === 1 ? "μήνας" : "μήνες"; },
+      w: function(c) { return c === 1 ? "εβδομάδα" : "εβδομάδες"; },
+      d: function(c) { return c === 1 ? "μέρα" : "μέρες"; },
+      h: function(c) { return c === 1 ? "ώρα" : "ώρες"; },
+      m: function(c) { return c === 1 ? "λεπτό" : "λεπτά"; },
+      s: function(c) { return c === 1 ? "δευτερόλεπτο" : "δευτερόλεπτα"; },
+      ms: function(c) { return c === 1 ? "χιλιοστό του δευτερολέπτου" : "χιλιοστά του δευτερολέπτου"; },
       decimal: ","
     },
     hu: {
@@ -302,7 +302,7 @@
       unitMS = options.unitMeasures[unitName];
 
       // What's the number of full units we can fit?
-      if ((i + 1) === len) {
+      if (i + 1 === len) {
         unitCount = ms / unitMS;
         if (options.round) {
           unitCount = Math.round(unitCount);
@@ -317,7 +317,7 @@
       }
 
       // Do we have enough units?
-      if (options.largest && (options.largest <= result.length)) {
+      if (options.largest && options.largest <= result.length) {
         break;
       }
 
@@ -385,7 +385,7 @@
   function getSlavicForm(c) {
     if (Math.floor(c) !== c) {
       return 2;
-    } else if (c === 0 || (c >= 5 && c <= 20) || (c % 10 >= 5 && c % 10 <= 9) || (c % 10 === 0)) {
+    } else if (c === 0 || (c >= 5 && c <= 20) || (c % 10 >= 5 && c % 10 <= 9) || c % 10 === 0) {
       return 0;
     } else if (c === 1 || c % 10 === 1) {
       return 1;
