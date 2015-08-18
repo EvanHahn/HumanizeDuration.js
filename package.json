@@ -18,7 +18,7 @@
     "gh-js": "uglifyjs --compress --mangle -- dev/bundle.js > ./bundle.js",
     "gh-css": "cleancss dev/style.css > ./style.css",
     "gh-static": "cp dev/*.html ./",
-    "clean": "rm dev/* & rm ./*.html & rm ./style.css & rm ./bundle.js"
+    "clean": "rm -f dev/* & rm -f ./*.html & rm -f ./style.css & rm -f ./bundle.js"
   },
   "license": "MIT",
   "devDependencies": {

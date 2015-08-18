@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>HumanizeDuration.js</title>
+    <meta name="description" content="Turn millisecond durations into human-readable strings.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="container">
+    <header>
+      <h1>Humanize Duration</h1>
+    </header>
+    <p>Turn millisecond durations into human-readable strings.</p>
+
+<pre><code class="">humanizeDuration(3000)      // "3 seconds"
+humanizeDuration(2015)      // "2.25 seconds"
+humanizeDuration(97320000)  // "1 day, 3 hours, 2 minutes"</code></pre>
+
+    <div id="demo"></div>
+
+    <h2>Basic usage</h2>
+
+    <p>In the browser:</p>
+
+<pre><code>&lt;script src="humanize-duration.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+humanizeDuration(12000)
+&lt;/script&gt;</code></pre>
+
+    <p>In Node (or Browserify or Webpack or anywhere with CommonJS):</p>
+
+<pre><code>var humanizeDuration = require("humanize-duration")
+humanizeDuration(12000)</code></pre>
+
+    <footer>
+      <a href="https://github.com/EvanHahn/HumanizeDuration.js" class="button github-link">View on GitHub</a>
+    </footer>
+
+    <script src="bundle.js"></script>
+  </body>
+</html>
