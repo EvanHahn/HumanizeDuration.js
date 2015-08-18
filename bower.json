@@ -11,7 +11,8 @@
     "Giovanni Pellerano (https://github.com/evilaliv3)",
     "Rahma Sghaier (https://twitter.com/sghaierrahma)",
     "Evgenios Kastanias (https://github.com/evgenios)",
-    "Oleksii Mylotskyi (https://github.com/spalax)"
+    "Oleksii Mylotskyi (https://github.com/spalax)",
+    "Matthew Brandly (https://github.com/brandly)"
   ],
   "version": "3.3.0",
   "description": "Convert millisecond durations to English and many other languages.",
