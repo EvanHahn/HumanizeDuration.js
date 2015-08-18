@@ -1,6 +1,8 @@
 unreleased
 ==========
 
+* update: minor performance improvements
+
 * fix: add Greek to readme
 
 3.3.0 / 2015-08-05
