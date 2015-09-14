@@ -1,6 +1,7 @@
 Humanize Duration
 =================
 
+[![Gitter chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/EvanHahn/HumanizeDuration.js)
 [![npm version](https://badge.fury.io/js/humanize-duration.svg)](https://npmjs.org/package/humanize-duration)
 [![build status](https://travis-ci.org/EvanHahn/HumanizeDuration.js.svg?branch=master)](https://travis-ci.org/EvanHahn/HumanizeDuration.js)
 
