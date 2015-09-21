@@ -2,6 +2,7 @@ unreleased
 ==========
 
 * update: minor performance improvements
+* update: add "related modules" section to readme
 
 * fix: add Greek to readme
 

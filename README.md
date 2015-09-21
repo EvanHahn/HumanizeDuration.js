@@ -186,3 +186,8 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Oleksii Mylotskyi](https://github.com/spalax) for Ukrainian support
 
 Licensed under the WTFPL, so you can do whatever you want. Enjoy!
+
+Related modules
+---------------
+
+* [angularjs-humanize-duration](https://github.com/sebastianhaas/angularjs-humanize-duration)
