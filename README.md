@@ -185,7 +185,7 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Evgenios Kastanias](https://github.com/evgenios) for Greek support
 * [Oleksii Mylotskyi](https://github.com/spalax) for Ukrainian support
 
-Licensed under the WTFPL, so you can do whatever you want. Enjoy!
+Licensed under the permissive [Unlicense](http://unlicense.org/). Enjoy!
 
 Related modules
 ---------------
