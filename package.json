@@ -12,7 +12,8 @@
     "Rahma Sghaier (https://twitter.com/sghaierrahma)",
     "Evgenios Kastanias (https://github.com/evgenios)",
     "Oleksii Mylotskyi (https://github.com/spalax)",
-    "Matthew Brandly (https://github.com/brandly)"
+    "Matthew Brandly (https://github.com/brandly)",
+    "Patrik Simek (https://github.com/patriksimek)"
   ],
   "version": "3.3.0",
   "description": "Convert millisecond durations to English and many other languages.",
