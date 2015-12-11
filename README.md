@@ -141,6 +141,7 @@ Humanize Duration supports the following languages:
 | Catalan              | `ca` |
 | Chinese, simplified  | `zh_CN` |
 | Chinese, traditional | `zh_TW` |
+| Czech                | `cs` |
 | Danish               | `da` |
 | Dutch                | `nl` |
 | English              | `en` |
@@ -184,6 +185,7 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Rahma Sghaier](https://twitter.com/sghaierrahma) for Arabic support
 * [Evgenios Kastanias](https://github.com/evgenios) for Greek support
 * [Oleksii Mylotskyi](https://github.com/spalax) for Ukrainian support
+* [Patrik Simek](https://github.com/patriksimek) for Czech support
 
 Licensed under the permissive [Unlicense](http://unlicense.org/). Enjoy!
 

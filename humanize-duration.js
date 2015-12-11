@@ -24,6 +24,17 @@
       ms: function(c) { return "milisegon" + (c !== 1 ? "s" : ""); },
       decimal: ","
     },
+    cs: {
+      y: function(c) { return ["rok", "roku", "roky", "let"][getCzechForm(c)]; },
+      mo: function(c) { return ["měsíc", "měsíce", "měsíce", "měsíců"][getCzechForm(c)]; },
+      w: function(c) { return ["týden", "týdne", "týdny", "týdnů"][getCzechForm(c)]; },
+      d: function(c) { return ["den", "dne", "dny", "dní"][getCzechForm(c)]; },
+      h: function(c) { return ["hodina", "hodiny", "hodiny", "hodin"][getCzechForm(c)]; },
+      m: function(c) { return ["minuta", "minuty", "minuty", "minut"][getCzechForm(c)]; },
+      s: function(c) { return ["sekunda", "sekundy", "sekundy", "sekund"][getCzechForm(c)]; },
+      ms: function(c) { return ["milisekunda", "milisekundy", "milisekundy", "milisekund"][getCzechForm(c)]; },
+      decimal: ","
+    },
     da: {
       y: "år",
       mo: function(c) { return "måned" + (c !== 1 ? "er" : ""); },
@@ -366,6 +377,19 @@
       }
     }
     return destination;
+  }
+  
+  // Internal helper function for Czech language.
+  function getCzechForm(c) {
+    if (c === 1) {
+      return 0;
+    } else if (Math.floor(c) !== c) {
+      return 1;
+    } else if (c % 10 >= 2 && c % 10 <= 4 && c % 100 < 10) {
+      return 2;
+    } else {
+      return 3;
+    }
   }
 
   // Internal helper function for Polish language.

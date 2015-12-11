@@ -1,6 +1,8 @@
 unreleased
 ==========
 
+* new: Czech support
+
 * update: minor performance improvements
 * update: add "related modules" section to readme
 
