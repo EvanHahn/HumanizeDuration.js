@@ -378,7 +378,7 @@
     }
     return destination;
   }
-  
+
   // Internal helper function for Czech language.
   function getCzechForm(c) {
     if (c === 1) {
@@ -442,5 +442,4 @@
   } else {
     global.humanizeDuration = humanizeDuration;
   }
-
 })(this);
