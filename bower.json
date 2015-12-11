@@ -15,7 +15,7 @@
     "Matthew Brandly (https://github.com/brandly)",
     "Patrik Simek (https://github.com/patriksimek)"
   ],
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Convert millisecond durations to English and many other languages.",
   "main": "humanize-duration.js",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
