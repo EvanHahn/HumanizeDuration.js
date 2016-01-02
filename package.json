@@ -20,15 +20,14 @@
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
   "main": "humanize-duration.js",
   "scripts": {
-    "test": "mocha",
-    "hint": "jshint humanize-duration.js"
+    "test": "standard && mocha"
   },
   "devDependencies": {
     "coffee-script": "^1.9.2",
     "csv-parse": "^0.1.1",
-    "jshint": "^2.7.0",
     "mocha": "^2.2.4",
-    "ms": "^0.7.1"
+    "ms": "^0.7.1",
+    "standard": "^5.4.1"
   },
   "keywords": [
     "humanize",
@@ -46,5 +45,10 @@
     "url": "git://github.com/EvanHahn/HumanizeDuration.js.git"
   },
   "bugs": "https://github.com/EvanHahn/HumanizeDuration.js/issues",
-  "license": "Unlicense"
+  "license": "Unlicense",
+  "standard": {
+    "globals": [
+      "define"
+    ]
+  }
 }
