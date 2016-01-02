@@ -23,7 +23,6 @@
     "test": "standard && mocha"
   },
   "devDependencies": {
-    "coffee-script": "^1.9.2",
     "csv-parse": "^0.1.1",
     "mocha": "^2.2.4",
     "ms": "^0.7.1",
@@ -48,7 +47,10 @@
   "license": "Unlicense",
   "standard": {
     "globals": [
-      "define"
+      "define",
+      "describe",
+      "it",
+      "before"
     ]
   }
 }
