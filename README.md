@@ -145,6 +145,7 @@ Humanize Duration supports the following languages:
 | Danish               | `da`    |
 | Dutch                | `nl`    |
 | English              | `en`    |
+| Finnish              | `fi`    |
 | French               | `fr`    |
 | German               | `de`    |
 | Greek                | `gr`    |
@@ -168,7 +169,7 @@ humanizeDuration.getSupportedLanguages()
 // ["ar", "ca", "da", "de" ...]
 ```
 
-This function won't return any new langauges you define; it will only return the defaults supported by the library.
+This function won't return any new languages you define; it will only return the defaults supported by the library.
 
 Credits
 -------
@@ -186,6 +187,7 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Evgenios Kastanias](https://github.com/evgenios) for Greek support
 * [Oleksii Mylotskyi](https://github.com/spalax) for Ukrainian support
 * [Patrik Simek](https://github.com/patriksimek) for Czech support
+* [Toni Helminen](https://github.com/tonihelminen) for Finnish support
 
 Licensed under the permissive [Unlicense](http://unlicense.org/). Enjoy!
 

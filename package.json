@@ -13,7 +13,8 @@
     "Evgenios Kastanias (https://github.com/evgenios)",
     "Oleksii Mylotskyi (https://github.com/spalax)",
     "Matthew Brandly (https://github.com/brandly)",
-    "Patrik Simek (https://github.com/patriksimek)"
+    "Patrik Simek (https://github.com/patriksimek)",
+    "Toni Helminen (https://github.com/tonihelminen)"
   ],
   "version": "3.4.0",
   "description": "Convert millisecond durations to English and many other languages.",
