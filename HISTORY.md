@@ -1,3 +1,8 @@
+unreleased
+==========
+
+* new: recommend [millisec](https://github.com/sungwoncho/millisec) module in readme
+
 3.4.0 / 2015-12-11
 ==================
 

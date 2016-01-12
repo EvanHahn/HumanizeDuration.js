@@ -193,3 +193,4 @@ Related modules
 ---------------
 
 * [angularjs-humanize-duration](https://github.com/sebastianhaas/angularjs-humanize-duration)
+* [millisec](https://github.com/sungwoncho/millisec)
