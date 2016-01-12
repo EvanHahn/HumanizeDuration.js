@@ -79,6 +79,17 @@
       ms: function (c) { return 'milisegundo' + (c !== 1 ? 's' : '') },
       decimal: ','
     },
+    fi: {
+      y: function (c) { return c === 1 ? 'vuosi' : 'vuotta' },
+      mo: function (c) { return c === 1 ? 'kuukausi' : 'kuukautta' },
+      w: function (c) { return 'viikko' + (c !== 1 ? 'a' : '') },
+      d: function (c) { return 'päivä' + (c !== 1 ? 'ä' : '') },
+      h: function (c) { return 'tunti' + (c !== 1 ? 'a' : '') },
+      m: function (c) { return 'minuutti' + (c !== 1 ? 'a' : '') },
+      s: function (c) { return 'sekunti' + (c !== 1 ? 'a' : '') },
+      ms: function (c) { return 'millisekunti' + (c !== 1 ? 'a' : '') },
+      decimal: ','
+    },
     fr: {
       y: function (c) { return 'an' + (c !== 1 ? 's' : '') },
       mo: 'mois',
