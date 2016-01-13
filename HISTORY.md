@@ -1,5 +1,5 @@
-unreleased
-==========
+3.5.0 / 2016-01-13
+==================
 
 * new: Finnish support
 * new: recommend [millisec](https://github.com/sungwoncho/millisec) module in readme
