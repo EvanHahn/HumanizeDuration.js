@@ -297,10 +297,7 @@
   }
 
   // The main function is just a wrapper around a default humanizer.
-  var defaultHumanizer = humanizer({})
-  function humanizeDuration () {
-    return defaultHumanizer.apply(defaultHumanizer, arguments)
-  }
+  var humanizeDuration = humanizer({})
 
   // doHumanization does the bulk of the work.
   function doHumanization (ms, options) {
