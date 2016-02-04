@@ -449,4 +449,4 @@
   } else {
     this.humanizeDuration = humanizeDuration
   }
-})()
+})();
