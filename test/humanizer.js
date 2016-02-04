@@ -187,5 +187,6 @@ describe('humanizer', function () {
 
     assert.equal(h(1000), '1 s')
     assert.equal(h(15600000), '4 h, 20 m')
+    assert.equal(h(1000, { language: 'es' }), '1 segundo')
   })
 })
