@@ -1,3 +1,8 @@
+unreleased
+==========
+
+* fix: add trailing comma to improve concatenation with other libraries
+
 3.5.0 / 2016-01-13
 ==================
 
