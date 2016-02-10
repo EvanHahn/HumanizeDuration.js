@@ -156,6 +156,17 @@
       ms: '밀리 초',
       decimal: '.'
     },
+    lt: {
+      y: function (c) { return ((c % 10 === 0) || (c % 100 >= 10 && c % 100 <= 20)) ? 'metų' : 'metai' },
+      mo: function (c) { return ['mėnuo', 'mėnesiai', 'mėnesių'][getLithuanianForm(c)] },
+      w: function (c) { return ['savaitė', 'savaitės', 'savaičių'][getLithuanianForm(c)] },
+      d: function (c) { return ['diena', 'dienos', 'dienų'][getLithuanianForm(c)] },
+      h: function (c) { return ['valanda', 'valandos', 'valandų'][getLithuanianForm(c)] },
+      m: function (c) { return ['minutė', 'minutės', 'minučių'][getLithuanianForm(c)] },
+      s: function (c) { return ['sekundė', 'sekundės', 'sekundžių'][getLithuanianForm(c)] },
+      ms: function (c) { return ['milisekundė', 'milisekundės', 'milisekundžių'][getLithuanianForm(c)] },
+      decimal: ','
+    },
     nl: {
       y: 'jaar',
       mo: function (c) { return c === 1 ? 'maand' : 'maanden' },
@@ -421,6 +432,17 @@
       return 2
     } else {
       return 0
+    }
+  }
+
+  // Internal helper function for Lithuanian language.
+  function getLithuanianForm (c) {
+    if (c === 1 || (c % 10 === 1 && c % 100 > 20)) {
+      return 0
+    } else if (Math.floor(c) !== c || (c % 10 >= 2 && c % 100 > 20) || (c % 10 >= 2 && c % 100 < 10)) {
+      return 1
+    } else {
+      return 2
     }
   }
 

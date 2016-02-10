@@ -14,7 +14,8 @@
     "Oleksii Mylotskyi (https://github.com/spalax)",
     "Matthew Brandly (https://github.com/brandly)",
     "Patrik Simek (https://github.com/patriksimek)",
-    "Toni Helminen (https://github.com/tonihelminen)"
+    "Toni Helminen (https://github.com/tonihelminen)",
+    "Vidmantas Drasutis (https://github.com/drasius2)"
   ],
   "version": "3.5.0",
   "description": "Convert millisecond durations to English and many other languages.",
