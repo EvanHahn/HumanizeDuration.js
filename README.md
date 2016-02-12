@@ -133,32 +133,33 @@ Supported languages
 
 Humanize Duration supports the following languages:
 
-| Language             | Code    |
-|----------------------|---------|
-| Arabic               | `ar`    |
-| Catalan              | `ca`    |
-| Chinese, simplified  | `zh_CN` |
-| Chinese, traditional | `zh_TW` |
-| Czech                | `cs`    |
-| Danish               | `da`    |
-| Dutch                | `nl`    |
-| English              | `en`    |
-| Finnish              | `fi`    |
-| French               | `fr`    |
-| German               | `de`    |
-| Greek                | `gr`    |
-| Hungarian            | `hu`    |
-| Italian              | `it`    |
-| Japanese             | `ja`    |
-| Korean               | `ko`    |
-| Norwegian            | `no`    |
-| Polish               | `pl`    |
-| Portuguese           | `pt`    |
-| Russian              | `ru`    |
-| Spanish              | `es`    |
-| Swedish              | `sv`    |
-| Turkish              | `tr`    |
-| Ukrainian            | `uk`    |
+| Language             | Code     |
+|----------------------|----------|
+| Arabic               | `ar`     |
+| Catalan              | `ca`     |
+| Chinese, simplified  | `zh_CN`  |
+| Chinese, traditional | `zh_TW`  |
+| Czech                | `cs`     |
+| Danish               | `da`     |
+| Dutch                | `nl`     |
+| English              | `en`     |
+| Finnish              | `fi`     |
+| French               | `fr`     |
+| German               | `de`     |
+| Greek                | `gr`     |
+| Hungarian            | `hu`     |
+| Italian              | `it`     |
+| Japanese             | `ja`     |
+| Korean               | `ko`     |
+| Lithuanian           | `lt`     |
+| Norwegian            | `no`     |
+| Polish               | `pl`     |
+| Portuguese           | `pt`     |
+| Russian              | `ru`     |
+| Spanish              | `es`     |
+| Swedish              | `sv`     |
+| Turkish              | `tr`     |
+| Ukrainian            | `uk`     |
 
 For a list of supported languages, you can use the `getSupportedLanguages` function.
 
@@ -186,6 +187,7 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Oleksii Mylotskyi](https://github.com/spalax) for Ukrainian support
 * [Patrik Simek](https://github.com/patriksimek) for Czech support
 * [Toni Helminen](https://github.com/tonihelminen) for Finnish support
+* [Vidmantas Drasutis](https://github.com/Drasius2) for Lithuanian support
 
 Licensed under the permissive [Unlicense](http://unlicense.org/). Enjoy!
 
