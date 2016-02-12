@@ -1,8 +1,9 @@
-unreleased
-==========
+3.6.0 / 2016-02-12
+==================
 
 * new: Lithuanian support
-* fix: add trailing comma to improve concatenation with other libraries
+
+* fix: add trailing semicolon to improve concatenation with other libraries
 
 3.5.0 / 2016-01-13
 ==================
