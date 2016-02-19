@@ -3,6 +3,8 @@ unreleased
 
 * update: readme should use single quotes
 
+* fix: readme example was missing some quotes in its result
+
 3.6.0 / 2016-02-12
 ==================
 
