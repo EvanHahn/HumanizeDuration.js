@@ -312,6 +312,8 @@
 
   // doHumanization does the bulk of the work.
   function doHumanization (ms, options) {
+    var i, len, piece
+
     // Make sure we have a positive number.
     // Has the nice sideffect of turning Number objects into primitives.
     ms = Math.abs(ms)
@@ -321,36 +323,57 @@
       throw new Error('No language ' + dictionary + '.')
     }
 
-    var result = []
+    var pieces = []
 
     // Start at the top and keep removing units, bit by bit.
     var unitName, unitMS, unitCount
-    for (var i = 0, len = options.units.length; i < len; i++) {
+    for (i = 0, len = options.units.length; i < len; i++) {
       unitName = options.units[i]
       unitMS = options.unitMeasures[unitName]
 
       // What's the number of full units we can fit?
       if (i + 1 === len) {
         unitCount = ms / unitMS
-        if (options.round) {
-          unitCount = Math.round(unitCount)
-        }
       } else {
         unitCount = Math.floor(ms / unitMS)
       }
 
       // Add the string.
-      if (unitCount) {
-        result.push(render(unitCount, unitName, dictionary, options))
-      }
-
-      // Do we have enough units?
-      if (options.largest && options.largest <= result.length) {
-        break
-      }
+      pieces.push({
+        unitCount: unitCount,
+        unitName: unitName
+      })
 
       // Remove what we just figured out.
       ms -= unitCount * unitMS
+    }
+
+    if (options.round) {
+      var ratioToLargerUnit, previousPiece
+      for (i = pieces.length - 1; i >= 0; i--) {
+        piece = pieces[i]
+        piece.unitCount = Math.round(piece.unitCount)
+
+        if (i === 0) { break }
+
+        previousPiece = pieces[i - 1]
+
+        ratioToLargerUnit = options.unitMeasures[previousPiece.unitName] / options.unitMeasures[piece.unitName]
+        if ((piece.unitCount % ratioToLargerUnit) === 0 || (options.largest && ((options.largest - 1) < i))) {
+          previousPiece.unitCount += piece.unitCount / ratioToLargerUnit
+          piece.unitCount = 0
+        }
+      }
+    }
+
+    var result = []
+    for (i = 0, pieces.length; i < len; i++) {
+      piece = pieces[i]
+      if (piece.unitCount) {
+        result.push(render(piece.unitCount, piece.unitName, dictionary, options))
+      }
+
+      if (result.length === options.largest) { break }
     }
 
     if (result.length) {

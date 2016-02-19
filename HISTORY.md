@@ -3,6 +3,7 @@ unreleased
 
 * update: readme should use single quotes
 
+* fix: rounding had some errors (for example, you could get "1 day, 24 hours")
 * fix: readme example was missing some quotes in its result
 
 3.6.0 / 2016-02-12
