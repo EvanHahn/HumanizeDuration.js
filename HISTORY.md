@@ -1,5 +1,5 @@
-unreleased
-==========
+3.6.1 / 2016-02-19
+==================
 
 * update: readme should use single quotes
 
