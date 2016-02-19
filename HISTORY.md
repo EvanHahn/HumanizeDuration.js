@@ -1,3 +1,8 @@
+unreleased
+==========
+
+* update: readme should use single quotes
+
 3.6.0 / 2016-02-12
 ==================
 

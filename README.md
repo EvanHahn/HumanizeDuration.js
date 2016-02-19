@@ -23,7 +23,7 @@ humanizeDuration(12000)
 In Node (or Browserify or Webpack or anywhere with CommonJS):
 
 ```js
-var humanizeDuration = require("humanize-duration")
+var humanizeDuration = require('humanize-duration')
 humanizeDuration(12000)
 ```
 
@@ -33,39 +33,39 @@ Usage
 By default, Humanize Duration will humanize down to the second, and will return a decimal for the smallest unit. It will humanize in English by default.
 
 ```js
-humanizeDuration(3000)      // "3 seconds"
-humanizeDuration(2015)      // "2.25 seconds"
-humanizeDuration(97320000)  // "1 day, 3 hours, 2 minutes"
+humanizeDuration(3000)      // '3 seconds'
+humanizeDuration(2015)      // '2.25 seconds'
+humanizeDuration(97320000)  // '1 day, 3 hours, 2 minutes'
 ```
 
 You can change the settings by passing options as the second argument:
 
 ```js
-humanizeDuration(3000, { language: "es" })  // "3 segundos"
-humanizeDuration(5000, { language: "ko" })  // "5 초"
+humanizeDuration(3000, { language: 'es' })  // '3 segundos'
+humanizeDuration(5000, { language: 'ko' })  // '5 초'
 
-humanizeDuration(22140000, { delimiter: " and " })  // "6 hours and 9 minutes"
-humanizeDuration(22140000, { delimiter: "--" })     // "6 hours--9 minutes"
+humanizeDuration(22140000, { delimiter: ' and ' })  // '6 hours and 9 minutes'
+humanizeDuration(22140000, { delimiter: '--' })     // '6 hours--9 minutes'
 
-humanizeDuration(260040000, { spacer: " whole " })  // "3 whole days, 14 whole minutes"
-humanizeDuration(260040000, { spacer: "" })         // "3days, 14minutes"
+humanizeDuration(260040000, { spacer: ' whole ' })  // '3 whole days, 14 whole minutes'
+humanizeDuration(260040000, { spacer: '' })         // '3days, 14minutes'
 
 humanizeDuration(1000000000000)                  // 31 years, 8 months, 1 week, 19 hours, 46 minutes, 40 seconds
 humanizeDuration(1000000000000, { largest: 2 })  // 31 years, 8 month
 
-humanizeDuration(3600000, { units: ["h"] })       // "1 hour"
-humanizeDuration(3600000, { units: ["m"] })       // "60 minutes"
-humanizeDuration(3600000, { units: ["d", "h"] })  // "1 hour"
+humanizeDuration(3600000, { units: ['h'] })       // '1 hour'
+humanizeDuration(3600000, { units: ['m'] })       // '60 minutes'
+humanizeDuration(3600000, { units: ['d', 'h'] })  // '1 hour'
 
-humanizeDuration(1200)                   // "1.2 seconds"
-humanizeDuration(1200, { round: true })  // "1 second"
-humanizeDuration(1600, { round: true })  // "2 seconds"
+humanizeDuration(1200)                   // '1.2 seconds'
+humanizeDuration(1200, { round: true })  // '1 second'
+humanizeDuration(1600, { round: true })  // '2 seconds'
 
-humanizeDuration(1200)                          // "1.2 seconds"
-humanizeDuration(1200, { decimal: ' point ' })  // "1 point 2 seconds"
+humanizeDuration(1200)                          // '1.2 seconds'
+humanizeDuration(1200, { decimal: ' point ' })  // '1 point 2 seconds'
 
-humanizeDuration(400)    // "0.4 seconds"
-humanizeDuration(400, {  // "1 year, 1 month, 5 days"
+humanizeDuration(400)    // '0.4 seconds'
+humanizeDuration(400, {  // '1 year, 1 month, 5 days'
   unitMeasures: {
     y: 365,
     mo: 30,
@@ -75,10 +75,10 @@ humanizeDuration(400, {  // "1 year, 1 month, 5 days"
 })
 
 humanizeDuration(3600000, {
-  language: "es",
-  units: ["m"]
+  language: 'es',
+  units: ['m']
 })
-// "60 minutos"
+// '60 minutos'
 ```
 
 ### Humanizers
@@ -87,34 +87,34 @@ If you find yourself setting same options over and over again, you can create a 
 
 ```js
 var spanishHumanizer = humanizeDuration.humanizer({
-  language: "es",
-  units: ["y", "mo", "d"]
+  language: 'es',
+  units: ['y', 'mo', 'd']
 })
 
-spanishHumanizer(71177400000)  // "2 años, 3 meses, 2 días"
-spanishHumanizer(71177400000, { units: ["d", "h"] })  // "823 días, 19.5 horas"
+spanishHumanizer(71177400000)  // '2 años, 3 meses, 2 días'
+spanishHumanizer(71177400000, { units: ['d', 'h'] })  // '823 días, 19.5 horas'
 ```
 
 You can also add new languages to humanizers. For example:
 
 ```js
 var shortEnglishHumanizer = humanizeDuration.humanizer({
-  language: "shortEn",
+  language: 'shortEn',
   languages: {
     shortEn: {
-      y: function() { return "y"; },
-      mo: function() { return "mo"; },
-      w: function() { return "w"; },
-      d: function() { return "d"; },
-      h: function() { return "h"; },
-      m: function() { return "m"; },
-      s: function() { return "s"; },
-      ms: function() { return "ms"; },
+      y: function() { return 'y'; },
+      mo: function() { return 'mo'; },
+      w: function() { return 'w'; },
+      d: function() { return 'd'; },
+      h: function() { return 'h'; },
+      m: function() { return 'm'; },
+      s: function() { return 's'; },
+      ms: function() { return 'ms'; },
     }
   }
 })
 
-shortEnglishHumanizer(15600000)  // "4 h, 20 m"
+shortEnglishHumanizer(15600000)  // '4 h, 20 m'
 ```
 
 You can also add languages after initializing:
@@ -123,7 +123,7 @@ You can also add languages after initializing:
 var humanizer = humanizeDuration.humanizer()
 
 humanizer.languages.shortEn = {
-  y: function(c) { return c + "y"; },
+  y: function(c) { return c + 'y'; },
   // ...
 ```
 
@@ -166,7 +166,7 @@ For a list of supported languages, you can use the `getSupportedLanguages` funct
 
 ```js
 humanizeDuration.getSupportedLanguages()
-// ["ar", "ca", "da", "de" ...]
+// ['ar', 'ca', 'da', 'de' ...]
 ```
 
 This function won't return any new languages you define; it will only return the defaults supported by the library.
