@@ -102,14 +102,14 @@ var shortEnglishHumanizer = humanizeDuration.humanizer({
   language: 'shortEn',
   languages: {
     shortEn: {
-      y: function() { return 'y'; },
-      mo: function() { return 'mo'; },
-      w: function() { return 'w'; },
-      d: function() { return 'd'; },
-      h: function() { return 'h'; },
-      m: function() { return 'm'; },
-      s: function() { return 's'; },
-      ms: function() { return 'ms'; },
+      y: function() { return 'y' },
+      mo: function() { return 'mo' },
+      w: function() { return 'w' },
+      d: function() { return 'd' },
+      h: function() { return 'h' },
+      m: function() { return 'm' },
+      s: function() { return 's' },
+      ms: function() { return 'ms' },
     }
   }
 })
@@ -123,7 +123,7 @@ You can also add languages after initializing:
 var humanizer = humanizeDuration.humanizer()
 
 humanizer.languages.shortEn = {
-  y: function(c) { return c + 'y'; },
+  y: function(c) { return c + 'y' },
   // ...
 ```
 
