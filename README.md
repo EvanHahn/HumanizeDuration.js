@@ -148,6 +148,7 @@ Humanize Duration supports the following languages:
 | French               | `fr`    |
 | German               | `de`    |
 | Greek                | `gr`    |
+| Hebrew               | `he`    |
 | Hungarian            | `hu`    |
 | Italian              | `it`    |
 | Japanese             | `ja`    |
