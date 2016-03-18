@@ -18,7 +18,7 @@
     "Vidmantas Drasutis (https://github.com/drasius2)",
     "Manh Tuan (https://github.com/J2TeaM)"
   ],
-  "version": "3.6.1",
+  "version": "3.7.0",
   "description": "Convert millisecond durations to English and many other languages.",
   "main": "humanize-duration.js",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",

@@ -1,5 +1,5 @@
-unreleased
-==========
+3.7.0 / 2016-03-18
+==================
 
 * new: Vietnamese support
 
