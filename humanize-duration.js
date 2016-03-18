@@ -255,6 +255,17 @@
       ms: 'milisaniye',
       decimal: ','
     },
+    vi: {
+      y: 'năm',
+      mo: 'tháng',
+      w: 'tuần',
+      d: 'ngày',
+      h: 'giờ',
+      m: 'phút',
+      s: 'giây',
+      ms: 'mili giây',
+      decimal: ','
+    },
     zh_CN: {
       y: '年',
       mo: '个月',
