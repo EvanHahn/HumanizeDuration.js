@@ -256,14 +256,14 @@
       decimal: ','
     },
     vi: {
-      y: function (c) { return 'năm' + (c !== 1 ? 's' : '') },
-      mo: function (c) { return 'tháng' + (c !== 1 ? 's' : '') },
-      w: function (c) { return 'tuần' + (c !== 1 ? 's' : '') },
-      d: function (c) { return 'ngày' + (c !== 1 ? 's' : '') },
-      h: function (c) { return 'giờ' + (c !== 1 ? 's' : '') },
-      m: function (c) { return 'phút' + (c !== 1 ? 's' : '') },
-      s: function (c) { return 'giây' + (c !== 1 ? 's' : '') },
-      ms: function (c) { return 'mili giây' + (c !== 1 ? 's' : '') },
+      y: 'năm',
+      mo: 'tháng',
+      w: 'tuần',
+      d: 'ngày',
+      h: 'giờ',
+      m: 'phút',
+      s: 'giây',
+      ms: 'mili giây',
       decimal: ','
     },
     zh_CN: {
