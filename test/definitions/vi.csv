@@ -1,72 +1,18 @@
 0$0 mili giây
 1$1 mili giây
-2$2 mili giây
-5$5 mili giây
-12$12 mili giây
-420$420 mili giây
-500$500 mili giây
+1.2$1,2 mili giây
 1000$1 giây
-1500$1 giây+500 mili giây
-2000$2 giây
-2500$2 giây+500 mili giây
-3000$3 giây
-1001$1 giây+1 mili giây
-1002$1 giây+2 mili giây
-2001$2 giây+1 mili giây
-2003$2 giây+3 mili giây
-1200$1 giây+200 mili giây
-6900$6 giây+900 mili giây
-30000$30 giây
 60000$1 phút
-90000$1 phút+30 giây
-120000$2 phút
-150000$2 phút+30 giây
-180000$3 phút
-61000$1 phút+1 giây
-78000$1 phút+18 giây
-61001$1 phút+1 giây+1 mili giây
-61005$1 phút+1 giây+5 mili giây
-62001$1 phút+2 giây+1 mili giây
-62005$1 phút+2 giây+5 mili giây
-121001$2 phút+1 giây+1 mili giây
-121007$2 phút+1 giây+7 mili giây
-138001$2 phút+18 giây+1 mili giây
-138006$2 phút+18 giây+6 mili giây
-1800000$30 phút
 3600000$1 giờ
-5400000$1 giờ+30 phút
-7200000$2 giờ
-9000000$2 giờ+30 phút
-10800000$3 giờ
-3660000$1 giờ+1 phút
-3720000$1 giờ+2 phút
-10860000$3 giờ+1 phút
-11040000$3 giờ+4 phút
-43200000$12 giờ
 86400000$1 ngày
-129600000$1 ngày+12 giờ
-172800000$2 ngày
-216000000$2 ngày+12 giờ
-259200000$3 ngày
-302400000$3 ngày+12 giờ
 604800000$1 tuần
-907200000$1 tuần+3 ngày+12 giờ
-1209600000$2 tuần
-1512000000$2 tuần+3 ngày+12 giờ
-1814400000$3 tuần
-1314900000$2 tuần+1 ngày+5 giờ+15 phút
 2629800000$1 tháng
-3944700000$1 tháng+2 tuần+1 ngày+5 giờ+15 phút
-5259600000$2 tháng
-6574500000$2 tháng+2 tuần+1 ngày+5 giờ+15 phút
-7889400000$3 tháng
-15778800000$6 tháng
 31557600000$1 năm
-47336400000$1 năm+6 tháng
+2$2 mili giây
+2000$2 giây
+120000$2 phút
+7200000$2 giờ
+172800000$2 ngày
+1209600000$2 tuần
+5259600000$2 tháng
 63115200000$2 năm
-78894000000$2 năm+6 tháng
-94672800000$3 năm
--420$420 mili giây
-0.12$0.12 mili giây
-1.5$1.5 mili giây
-420.69$420.69 mili giây
