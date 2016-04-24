@@ -359,6 +359,14 @@
       ms -= unitCount * unitMS
     }
 
+    var firstOccupiedUnitIndex = 0
+    for (i = 0; i < pieces.length; i++) {
+      if (pieces[i].unitCount) {
+        firstOccupiedUnitIndex = i
+        break
+      }
+    }
+
     if (options.round) {
       var ratioToLargerUnit, previousPiece
       for (i = pieces.length - 1; i >= 0; i--) {
@@ -370,7 +378,7 @@
         previousPiece = pieces[i - 1]
 
         ratioToLargerUnit = options.unitMeasures[previousPiece.unitName] / options.unitMeasures[piece.unitName]
-        if ((piece.unitCount % ratioToLargerUnit) === 0 || (options.largest && ((options.largest - 1) < i))) {
+        if ((piece.unitCount % ratioToLargerUnit) === 0 || (options.largest && ((options.largest - 1) < (i - firstOccupiedUnitIndex)))) {
           previousPiece.unitCount += piece.unitCount / ratioToLargerUnit
           piece.unitCount = 0
         }
