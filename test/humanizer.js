@@ -101,6 +101,7 @@ describe('humanizer', function () {
     assert.equal(h(3692131200000, { largest: 1 }), '117 years')
     assert.equal(h(3692131200000, { largest: 2 }), '117 years')
     assert.equal(h(3692131200001, { largest: 100 }), '116 years, 11 months, 4 weeks, 1 day, 4 hours, 30 minutes')
+    assert.equal(h(2838550, { largest: 3 }), '47 minutes, 19 seconds')
   })
 
   it('can ask for the largest units', function () {
