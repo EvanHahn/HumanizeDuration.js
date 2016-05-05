@@ -368,20 +368,8 @@
     }
 
     if (options.round) {
-      var ratioToLargerUnit, previousPiece
       for (i = pieces.length - 1; i >= 0; i--) {
-        piece = pieces[i]
-        piece.unitCount = Math.round(piece.unitCount)
-
-        if (i === 0) { break }
-
-        previousPiece = pieces[i - 1]
-
-        ratioToLargerUnit = options.unitMeasures[previousPiece.unitName] / options.unitMeasures[piece.unitName]
-        if ((piece.unitCount % ratioToLargerUnit) === 0 || (options.largest && ((options.largest - 1) < (i - firstOccupiedUnitIndex)))) {
-          previousPiece.unitCount += piece.unitCount / ratioToLargerUnit
-          piece.unitCount = 0
-        }
+        pieces[i].unitCount = Math.round(pieces[i].unitCount)
       }
     }
 
