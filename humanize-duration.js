@@ -359,14 +359,6 @@
       ms -= unitCount * unitMS
     }
 
-    var firstOccupiedUnitIndex = 0
-    for (i = 0; i < pieces.length; i++) {
-      if (pieces[i].unitCount) {
-        firstOccupiedUnitIndex = i
-        break
-      }
-    }
-
     if (options.round) {
       for (i = pieces.length - 1; i >= 0; i--) {
         pieces[i].unitCount = Math.round(pieces[i].unitCount)
