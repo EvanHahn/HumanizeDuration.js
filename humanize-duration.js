@@ -386,6 +386,9 @@
             var ratioToLargerUnit = options.unitMeasures[next.unitName] / options.unitMeasures[pieces[i].unitName]
             next.unitCount += pieces[i].unitCount / ratioToLargerUnit
             pieces[i].unitCount = 0
+          } else if (next && pieces[i].unitCount * options.unitMeasures[pieces[i].unitName] === options.unitMeasures[next.unitName]) {
+            next.unitCount++
+            pieces[i].unitCount = 0
           }
         }
       }
