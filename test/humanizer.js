@@ -32,6 +32,15 @@ describe('humanizer', function () {
     assert.equal(h(260040000), '3 whole days, 14 whole minutes')
   })
 
+  it('can use a conjunction', function () {
+    var h = humanizer({ conjunction: ' and ' })
+
+    assert.equal(h(0), '0 seconds')
+    assert.equal(h(1000), '1 second')
+    assert.equal(h(260040000), '3 days and 14 minutes')
+    assert.equal(h(10874000), '3 hours, 1 minute and 14 seconds')
+  })
+
   it('can change the units', function () {
     var h = humanizer({ units: ['d'] })
 

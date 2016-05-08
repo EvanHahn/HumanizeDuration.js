@@ -302,6 +302,7 @@
       language: 'en',
       delimiter: ', ',
       spacer: ' ',
+      conjunction: '',
       units: ['y', 'mo', 'w', 'd', 'h', 'm', 's'],
       languages: {},
       round: false,
@@ -396,7 +397,13 @@
     }
 
     if (result.length) {
-      return result.join(options.delimiter)
+      if (!options.conjunction || result.length === 1) {
+        return result.join(options.delimiter)
+      } else if (result.length === 2) {
+          return result.join(options.conjunction)
+      } else if (result.length > 2) {
+        return result.slice(0, -1).join(options.delimiter) + options.conjunction + result.slice(-1);
+      }
     } else {
       return render(0, options.units[options.units.length - 1], dictionary, options)
     }
