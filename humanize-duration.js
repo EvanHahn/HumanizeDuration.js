@@ -303,6 +303,7 @@
       delimiter: ', ',
       spacer: ' ',
       conjunction: '',
+      serialComma: true,
       units: ['y', 'mo', 'w', 'd', 'h', 'm', 's'],
       languages: {},
       round: false,
@@ -402,7 +403,7 @@
       } else if (result.length === 2) {
         return result.join(options.conjunction)
       } else if (result.length > 2) {
-        return result.slice(0, -1).join(options.delimiter) + options.conjunction + result.slice(-1)
+        return result.slice(0, -1).join(options.delimiter) + (options.serialComma ? ',' : '') + options.conjunction + result.slice(-1)
       }
     } else {
       return render(0, options.units[options.units.length - 1], dictionary, options)

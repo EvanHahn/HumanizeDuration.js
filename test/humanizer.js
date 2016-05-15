@@ -38,7 +38,18 @@ describe('humanizer', function () {
     assert.equal(h(0), '0 seconds')
     assert.equal(h(1000), '1 second')
     assert.equal(h(260040000), '3 days and 14 minutes')
-    assert.equal(h(10874000), '3 hours, 1 minute and 14 seconds')
+    assert.equal(h(10874000), '3 hours, 1 minute, and 14 seconds')
+  })
+
+  it('can use a conjunction without a serial comma', function () {
+    var h = humanizer({
+      conjunction: ' & ',
+      serialComma: false
+    })
+
+    assert.equal(h(1000), '1 second')
+    assert.equal(h(260040000), '3 days & 14 minutes')
+    assert.equal(h(10874000), '3 hours, 1 minute & 14 seconds')
   })
 
   it('can change the units', function () {
