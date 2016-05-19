@@ -1,5 +1,5 @@
-unreleased
-==========
+3.8.0 / 2016-05-19
+==================
 
 * new: `conjunctions` and `serialComma` options
 
