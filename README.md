@@ -64,6 +64,11 @@ humanizeDuration(1600, { round: true })  // '2 seconds'
 humanizeDuration(1200)                          // '1.2 seconds'
 humanizeDuration(1200, { decimal: ' point ' })  // '1 point 2 seconds'
 
+humanizeDuration(22140000, { conjunction: ' and ' })                      // '6 hours and 9 minutes'
+humanizeDuration(22141000, { conjunction: ' and ' })                      // '6 hours, 9 minutes, and 1 second'
+humanizeDuration(22140000, { conjunction: ' and ', serialComma: false })  // '6 hours and 9 minutes'
+humanizeDuration(22141000, { conjunction: ' and ', serialComma: false })  // '6 hours, 9 minutes and 1 second'
+
 humanizeDuration(400)    // '0.4 seconds'
 humanizeDuration(400, {  // '1 year, 1 month, 5 days'
   unitMeasures: {
