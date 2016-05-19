@@ -44,7 +44,7 @@ You can change the settings by passing options as the second argument:
 
 **language**
 
-Language for unit display (accepts an [ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) from one of the [supported languages](#supported-languages))
+Language for unit display (accepts an [ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) from one of the [supported languages](#supported-languages)).
 
 ```js
 humanizeDuration(3000, { language: 'es' })  // '3 segundos'
@@ -53,7 +53,7 @@ humanizeDuration(5000, { language: 'ko' })  // '5 초'
 
 **delimiter**
 
-String to display between the previous unit and the next value
+String to display between the previous unit and the next value.
 
 ```js
 humanizeDuration(22140000, { delimiter: ' and ' })  // '6 hours and 9 minutes'
@@ -62,7 +62,7 @@ humanizeDuration(22140000, { delimiter: '--' })     // '6 hours--9 minutes'
 
 **spacer**
 
-String to display between each value and unit
+String to display between each value and unit.
 
 ```js
 humanizeDuration(260040000, { spacer: ' whole ' })  // '3 whole days, 14 whole minutes'
@@ -71,7 +71,7 @@ humanizeDuration(260040000, { spacer: '' })         // '3days, 14minutes'
 
 **largest**
 
-Number representing the maximum number of units to display for the duration
+Number representing the maximum number of units to display for the duration.
 
 ```js
 humanizeDuration(1000000000000)                  // '31 years, 8 months, 1 week, 19 hours, 46 minutes, 40 seconds'
@@ -90,7 +90,7 @@ humanizeDuration(3600000, { units: ['d', 'h'] })  // '1 hour'
 
 **round**
 
-Boolean value. Use `true` to [round](https://en.wikipedia.org/wiki/Rounding#Round_half_up) the smallest unit displayed (can be combined with `largest` and `units`)
+Boolean value. Use `true` to [round](https://en.wikipedia.org/wiki/Rounding#Round_half_up) the smallest unit displayed (can be combined with `largest` and `units`).
 
 ```js
 humanizeDuration(1200)                   // '1.2 seconds'
@@ -100,7 +100,7 @@ humanizeDuration(1600, { round: true })  // '2 seconds'
 
 **decimal**
 
-String to substitute for the decimal point in a decimal fraction
+String to substitute for the decimal point in a decimal fraction.
 
 ```js
 humanizeDuration(1200)                          // '1.2 seconds'
@@ -109,7 +109,7 @@ humanizeDuration(1200, { decimal: ' point ' })  // '1 point 2 seconds'
 
 **unitMeasures**
 
-Customize the value used to calculate each unit of time
+Customize the value used to calculate each unit of time.
 
 ```js
 humanizeDuration(400)    // '0.4 seconds'
@@ -126,11 +126,13 @@ humanizeDuration(400, {  // '1 year, 1 month, 5 days'
 **Combined example**
 
 ```js
-humanizeDuration(3600000, {
+humanizeDuration(3602000, {
   language: 'es',
+  round: true,
+  spacer: ' glorioso ',
   units: ['m']
 })
-// '60 minutos'
+// '60 glorioso minutos'
 ```
 
 ### Humanizers
@@ -243,7 +245,7 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Toni Helminen](https://github.com/tonihelminen) for Finnish support
 * [Vidmantas Drasutis](https://github.com/Drasius2) for Lithuanian support
 * [Manh Tuan](https://github.com/J2TeaM) for Vietnamese support
-* [Jesse Jackson](https://github.com/jsejcksn) for documentation support
+* [Jesse Jackson](https://github.com/jsejcksn) for documentation help
 
 Licensed under the permissive [Unlicense](http://unlicense.org/). Enjoy!
 
