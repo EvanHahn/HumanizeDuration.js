@@ -1,3 +1,8 @@
+unreleased
+==========
+
+* new: `conjunctions` and `serialComma` options
+
 3.7.1 / 2016-04-26
 ==================
 
