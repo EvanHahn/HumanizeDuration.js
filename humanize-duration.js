@@ -290,7 +290,7 @@
     }
   }
 
-  // You can create a humanizer, which returns a function with defaults
+  // You can create a humanizer, which returns a function with default
   // parameters.
   function humanizer (passedOptions) {
     var result = function humanizer (ms, humanizerOptions) {
