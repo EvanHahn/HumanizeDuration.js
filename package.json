@@ -24,13 +24,14 @@
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
   "main": "humanize-duration.js",
   "scripts": {
-    "test": "standard && mocha"
+    "pretest": "standard",
+    "test": "mocha"
   },
   "devDependencies": {
     "csv-parse": "^1.0.1",
     "mocha": "^2.3.4",
     "ms": "^0.7.1",
-    "standard": "^5.4.1"
+    "standard": "^7.1.2"
   },
   "keywords": [
     "humanize",
