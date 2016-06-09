@@ -178,6 +178,17 @@
       ms: function (c) { return ['milisekundė', 'milisekundės', 'milisekundžių'][getLithuanianForm(c)] },
       decimal: ','
     },
+    ms: {
+      y: 'tahun',
+      mo: 'bulan',
+      w: 'minggu',
+      d: 'hari',
+      h: 'jam',
+      m: 'minit',
+      s: 'saat',
+      ms: 'milisaat',
+      decimal: '.'
+    },
     nl: {
       y: 'jaar',
       mo: function (c) { return c === 1 ? 'maand' : 'maanden' },
