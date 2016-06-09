@@ -214,6 +214,7 @@ Humanize Duration supports the following languages:
 | German               | `de`    |
 | Greek                | `gr`    |
 | Hungarian            | `hu`    |
+| Indonesian           | `id`    |
 | Italian              | `it`    |
 | Japanese             | `ja`    |
 | Korean               | `ko`    |
@@ -256,6 +257,7 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Toni Helminen](https://github.com/tonihelminen) for Finnish support
 * [Vidmantas Drasutis](https://github.com/Drasius2) for Lithuanian support
 * [Manh Tuan](https://github.com/J2TeaM) for Vietnamese support
+* [Leonard Lee](https://github.com/sheeeng) for Indonesian support
 * [Jesse Jackson](https://github.com/jsejcksn) for documentation help
 
 Licensed under the permissive [Unlicense](http://unlicense.org/). Enjoy!
