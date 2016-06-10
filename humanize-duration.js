@@ -123,6 +123,17 @@
       ms: 'ezredmásodperc',
       decimal: ','
     },
+    id: {
+      y: 'tahun',
+      mo: 'bulan',
+      w: 'minggu',
+      d: 'hari',
+      h: 'jam',
+      m: 'menit',
+      s: 'detik',
+      ms: 'milidetik',
+      decimal: '.'
+    },
     it: {
       y: function (c) { return 'ann' + (c !== 1 ? 'i' : 'o') },
       mo: function (c) { return 'mes' + (c !== 1 ? 'i' : 'e') },
@@ -166,6 +177,17 @@
       s: function (c) { return ['sekundė', 'sekundės', 'sekundžių'][getLithuanianForm(c)] },
       ms: function (c) { return ['milisekundė', 'milisekundės', 'milisekundžių'][getLithuanianForm(c)] },
       decimal: ','
+    },
+    ms: {
+      y: 'tahun',
+      mo: 'bulan',
+      w: 'minggu',
+      d: 'hari',
+      h: 'jam',
+      m: 'minit',
+      s: 'saat',
+      ms: 'milisaat',
+      decimal: '.'
     },
     nl: {
       y: 'jaar',
