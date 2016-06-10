@@ -1,5 +1,5 @@
-unreleased
-==========
+3.9.0 / 2016-06-10
+==================
 
 * new: Indonesian support
 * new: Malay support
