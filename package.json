@@ -20,7 +20,7 @@
     "Leonard Lee (https://github.com/sheeeng)",
     "Jesse Jackson (https://github.com/jsejcksn)"
   ],
-  "version": "3.8.0",
+  "version": "3.9.0",
   "description": "Convert millisecond durations to English and many other languages.",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
   "main": "humanize-duration.js",
