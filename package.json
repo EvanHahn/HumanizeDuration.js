@@ -29,8 +29,8 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "csv-parse": "^1.0.1",
-    "mocha": "^2.3.4",
+    "csv-parse": "^1.1.1",
+    "mocha": "^2.5.3",
     "ms": "^0.7.1",
     "standard": "^7.1.2"
   },
