@@ -268,3 +268,4 @@ Related modules
 
 * [angularjs-humanize-duration](https://github.com/sebastianhaas/angularjs-humanize-duration)
 * [millisec](https://github.com/sungwoncho/millisec)
+* [HumanizeDuration.ts](https://github.com/Nightapes/HumanizeDuration.ts), a TypeScript version of this module
