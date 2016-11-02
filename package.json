@@ -18,7 +18,8 @@
     "Vidmantas Drasutis (https://github.com/drasius2)",
     "Manh Tuan (https://github.com/J2TeaM)",
     "Leonard Lee (https://github.com/sheeeng)",
-    "Jesse Jackson (https://github.com/jsejcksn)"
+    "Jesse Jackson (https://github.com/jsejcksn)",
+    "David H. Bronke (https://github.com/whitelynx)"
   ],
   "version": "3.9.1",
   "description": "Convert millisecond durations to English and many other languages.",
@@ -56,6 +57,7 @@
       "define",
       "describe",
       "it",
+      "xit",
       "before"
     ]
   }

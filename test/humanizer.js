@@ -124,6 +124,49 @@ describe('humanizer', function () {
     assert.equal(h(2838550, { largest: 3 }), '47 minutes, 19 seconds')
   })
 
+  it('can round using a custom function', function () {
+    var h = humanizer({ round: Math.ceil })
+
+    assert.equal(h(0), '0 seconds')
+    assert.equal(h(1), '1 second')
+    assert.equal(h(499), '1 second')
+    assert.equal(h(500), '1 second')
+    assert.equal(h(999), '1 second')
+    assert.equal(h(1000), '1 second')
+    assert.equal(h(1001), '2 seconds')
+    assert.equal(h(2000), '2 seconds')
+    assert.equal(h(120001), '2 minutes, 1 second')
+    assert.equal(h(121499), '2 minutes, 2 seconds')
+    assert.equal(h(122000), '2 minutes, 2 seconds')
+  })
+
+  it('can round using a custom function with the "units" option', function () {
+    var h = humanizer({ round: Math.ceil })
+
+    assert.equal(h(82800000, { units: ['y', 'mo', 'w', 'd', 'h'] }), '23 hours')
+    assert.equal(h(82800001, { units: ['y', 'mo', 'w', 'd', 'h'] }), '1 day')
+    assert.equal(h(604800000, { units: ['y', 'mo', 'w', 'd', 'h'] }), '1 week')
+    assert.equal(h(604800001, { units: ['y', 'mo', 'w', 'd', 'h'] }), '1 week, 1 hour')
+    assert.equal(h(3660681600000, { units: ['y', 'mo'] }), '116 years')
+    assert.equal(h(3660681600001, { units: ['y', 'mo'] }), '116 years, 1 month')
+    assert.equal(h(3692028600000, { units: ['y', 'mo', 'w', 'd', 'h', 'm'] }), '116 years, 11 months, 4 weeks')
+    assert.equal(h(3692028600001, { units: ['y', 'mo', 'w', 'd', 'h', 'm'] }), '116 years, 11 months, 4 weeks, 1 minute')
+    assert.equal(h(3692239199999, { units: ['y', 'mo', 'w', 'd', 'h', 'm'] }), '116 years, 11 months, 4 weeks, 2 days, 10 hours, 30 minutes')
+    assert.equal(h(3692239200000, { units: ['y', 'mo', 'w', 'd', 'h', 'm'] }), '117 years')
+  })
+
+  it('can round using a custom function with the "largest" option', function () {
+    var h = humanizer({ round: Math.ceil })
+
+    assert.equal(h(3692239200001, { largest: 1 }), '118 years')
+    assert.equal(h(3692239200001, { largest: 2 }), '117 years, 1 month')
+    assert.equal(h(3692131199999, { largest: 100 }), '116 years, 11 months, 4 weeks, 1 day, 4 hours, 30 minutes')
+    assert.equal(h(3692131200001, { largest: 100 }), '116 years, 11 months, 4 weeks, 1 day, 4 hours, 30 minutes, 1 second')
+    assert.equal(h(2838550, { largest: 3 }), '47 minutes, 19 seconds')
+    assert.equal(h(3692239199999, { largest: 1 }), '117 years') // FIXME: Returns '118 years' for some reason?
+    assert.equal(h(3692239199999, { largest: 2 }), '117 years') // FIXME: Returns '116 years, 13 months' for some reason?
+  })
+
   it('can ask for the largest units', function () {
     var h = humanizer({ largest: 2 })
 

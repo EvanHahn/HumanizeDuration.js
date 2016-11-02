@@ -1,3 +1,8 @@
+Unreleased
+==================
+
+* new: custom rounding function support
+
 3.9.1 / 2016-07-24
 ==================
 

@@ -392,10 +392,11 @@
     }
 
     if (options.round) {
+      var roundFunction = (typeof options.round === 'function') ? options.round : Math.round
       var ratioToLargerUnit, previousPiece
       for (i = pieces.length - 1; i >= 0; i--) {
         piece = pieces[i]
-        piece.unitCount = Math.round(piece.unitCount)
+        piece.unitCount = roundFunction(piece.unitCount)
 
         if (i === 0) { break }
 
