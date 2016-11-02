@@ -122,6 +122,9 @@ describe('humanizer', function () {
     assert.equal(h(3692131200000, { largest: 2 }), '117 years')
     assert.equal(h(3692131200001, { largest: 100 }), '116 years, 11 months, 4 weeks, 1 day, 4 hours, 30 minutes')
     assert.equal(h(2838550, { largest: 3 }), '47 minutes, 19 seconds')
+    assert.equal(h(540360012, { largest: 2 }), '6 days, 6 hours')
+    assert.equal(h(540360012, { largest: 3 }), '6 days, 6 hours, 6 minutes')
+    assert.equal(h(540360012, { largest: 100 }), '6 days, 6 hours, 6 minutes')
   })
 
   it('can round using a custom function', function () {
@@ -173,9 +176,8 @@ describe('humanizer', function () {
     assert.equal(h(0), '0 seconds')
     assert.equal(h(1000), '1 second')
     assert.equal(h(2000), '2 seconds')
-    assert.equal(h(540360012), '6 days, 6 hours')
-    assert.equal(h(540360012), '6 days, 6 hours')
-    assert.equal(h(540360012, { largest: 3 }), '6 days, 6 hours, 6 minutes')
+    assert.equal(h(540360012), '6 days, 6.100003333333333 hours')
+    assert.equal(h(540360012, { largest: 3 }), '6 days, 6 hours, 6.0002 minutes')
     assert.equal(h(540360012, { largest: 100 }), '6 days, 6 hours, 6 minutes, 0.012 seconds')
   })
 
