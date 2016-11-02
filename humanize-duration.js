@@ -362,19 +362,23 @@
 
     // Start at the top and keep removing units, bit by bit.
     var unitName, unitMS, unitCount, firstOccupiedUnitIndex
-    for (i = 0, len = options.units.length; i < len; i++) {
+    var lastShownUnitIndex = options.units.length - 1
+    for (i = 0; i <= lastShownUnitIndex; i++) {
       unitName = options.units[i]
       unitMS = options.unitMeasures[unitName]
 
-      // What's the number of full units we can fit?
-      if (i + 1 === len) {
-        unitCount = ms / unitMS
-      } else {
-        unitCount = Math.floor(ms / unitMS)
+      unitCount = ms / unitMS
+
+      if (Math.floor(unitCount) && firstOccupiedUnitIndex === undefined) {
+        firstOccupiedUnitIndex = i
+        if (options.largest) {
+          lastShownUnitIndex = Math.min(lastShownUnitIndex, firstOccupiedUnitIndex + options.largest - 1)
+        }
       }
 
-      if (unitCount && firstOccupiedUnitIndex === undefined) {
-        firstOccupiedUnitIndex = i
+      // What's the number of full units we can fit?
+      if (i !== lastShownUnitIndex) {
+        unitCount = Math.floor(unitCount)
       }
 
       // Add the string.
@@ -399,21 +403,19 @@
         previousPiece = pieces[i - 1]
 
         ratioToLargerUnit = options.unitMeasures[previousPiece.unitName] / options.unitMeasures[piece.unitName]
-        if ((piece.unitCount % ratioToLargerUnit) === 0 || (options.largest && ((options.largest - 1) < (i - firstOccupiedUnitIndex)))) {
-          previousPiece.unitCount += piece.unitCount / ratioToLargerUnit
-          piece.unitCount = 0
+        if (piece.unitCount >= ratioToLargerUnit) {
+          previousPiece.unitCount += Math.floor(piece.unitCount / ratioToLargerUnit)
+          piece.unitCount = piece.unitCount % ratioToLargerUnit
         }
       }
     }
 
     var result = []
-    for (i = 0, pieces.length; i < len; i++) {
+    for (i = 0, len = pieces.length; i < len; i++) {
       piece = pieces[i]
       if (piece.unitCount) {
         result.push(render(piece.unitCount, piece.unitName, dictionary, options))
       }
-
-      if (result.length === options.largest) { break }
     }
 
     if (result.length) {
