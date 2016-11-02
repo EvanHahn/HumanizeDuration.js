@@ -361,7 +361,7 @@
     var pieces = []
 
     // Start at the top and keep removing units, bit by bit.
-    var unitName, unitMS, unitCount
+    var unitName, unitMS, unitCount, firstOccupiedUnitIndex
     for (i = 0, len = options.units.length; i < len; i++) {
       unitName = options.units[i]
       unitMS = options.unitMeasures[unitName]
@@ -373,6 +373,10 @@
         unitCount = Math.floor(ms / unitMS)
       }
 
+      if (unitCount && firstOccupiedUnitIndex === undefined) {
+        firstOccupiedUnitIndex = i
+      }
+
       // Add the string.
       pieces.push({
         unitCount: unitCount,
@@ -381,14 +385,6 @@
 
       // Remove what we just figured out.
       ms -= unitCount * unitMS
-    }
-
-    var firstOccupiedUnitIndex = 0
-    for (i = 0; i < pieces.length; i++) {
-      if (pieces[i].unitCount) {
-        firstOccupiedUnitIndex = i
-        break
-      }
     }
 
     if (options.round) {
