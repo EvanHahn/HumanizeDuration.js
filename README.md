@@ -90,12 +90,13 @@ humanizeDuration(3600000, { units: ['d', 'h'] })  // '1 hour'
 
 **round**
 
-Boolean value. Use `true` to [round](https://en.wikipedia.org/wiki/Rounding#Round_half_up) the smallest unit displayed (can be combined with `largest` and `units`).
+Boolean value or function. Use `true` to [round](https://en.wikipedia.org/wiki/Rounding#Round_half_up) the smallest unit displayed (can be combined with `largest` and `units`), or pass a function to customize how rounding is done.
 
 ```js
 humanizeDuration(1200)                   // '1.2 seconds'
 humanizeDuration(1200, { round: true })  // '1 second'
 humanizeDuration(1600, { round: true })  // '2 seconds'
+humanizeDuration(1600, { round: Math.floor })  // '1 second'
 ```
 
 **decimal**
@@ -260,6 +261,7 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Manh Tuan](https://github.com/J2TeaM) for Vietnamese support
 * [Leonard Lee](https://github.com/sheeeng) for Indonesian & Malay support
 * [Jesse Jackson](https://github.com/jsejcksn) for documentation help
+* [David H. Bronke](https://github.com/whitelynx) for custom rounding function support
 
 Licensed under the permissive [Unlicense](http://unlicense.org/). Enjoy!
 

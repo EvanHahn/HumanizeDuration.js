@@ -361,16 +361,24 @@
     var pieces = []
 
     // Start at the top and keep removing units, bit by bit.
-    var unitName, unitMS, unitCount
-    for (i = 0, len = options.units.length; i < len; i++) {
+    var unitName, unitMS, unitCount, firstOccupiedUnitIndex
+    var lastShownUnitIndex = options.units.length - 1
+    for (i = 0; i <= lastShownUnitIndex; i++) {
       unitName = options.units[i]
       unitMS = options.unitMeasures[unitName]
 
+      unitCount = ms / unitMS
+
+      if (Math.floor(unitCount) && firstOccupiedUnitIndex === undefined) {
+        firstOccupiedUnitIndex = i
+        if (options.largest) {
+          lastShownUnitIndex = Math.min(lastShownUnitIndex, firstOccupiedUnitIndex + options.largest - 1)
+        }
+      }
+
       // What's the number of full units we can fit?
-      if (i + 1 === len) {
-        unitCount = ms / unitMS
-      } else {
-        unitCount = Math.floor(ms / unitMS)
+      if (i !== lastShownUnitIndex) {
+        unitCount = Math.floor(unitCount)
       }
 
       // Add the string.
@@ -383,40 +391,31 @@
       ms -= unitCount * unitMS
     }
 
-    var firstOccupiedUnitIndex = 0
-    for (i = 0; i < pieces.length; i++) {
-      if (pieces[i].unitCount) {
-        firstOccupiedUnitIndex = i
-        break
-      }
-    }
-
     if (options.round) {
+      var roundFunction = (typeof options.round === 'function') ? options.round : Math.round
       var ratioToLargerUnit, previousPiece
       for (i = pieces.length - 1; i >= 0; i--) {
         piece = pieces[i]
-        piece.unitCount = Math.round(piece.unitCount)
+        piece.unitCount = roundFunction(piece.unitCount)
 
         if (i === 0) { break }
 
         previousPiece = pieces[i - 1]
 
         ratioToLargerUnit = options.unitMeasures[previousPiece.unitName] / options.unitMeasures[piece.unitName]
-        if ((piece.unitCount % ratioToLargerUnit) === 0 || (options.largest && ((options.largest - 1) < (i - firstOccupiedUnitIndex)))) {
-          previousPiece.unitCount += piece.unitCount / ratioToLargerUnit
-          piece.unitCount = 0
+        if (piece.unitCount >= ratioToLargerUnit) {
+          previousPiece.unitCount += Math.floor(piece.unitCount / ratioToLargerUnit)
+          piece.unitCount = piece.unitCount % ratioToLargerUnit
         }
       }
     }
 
     var result = []
-    for (i = 0, pieces.length; i < len; i++) {
+    for (i = 0, len = pieces.length; i < len; i++) {
       piece = pieces[i]
       if (piece.unitCount) {
         result.push(render(piece.unitCount, piece.unitName, dictionary, options))
       }
-
-      if (result.length === options.largest) { break }
     }
 
     if (result.length) {
