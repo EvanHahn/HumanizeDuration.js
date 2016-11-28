@@ -2,6 +2,7 @@
   "name": "humanize-duration",
   "author": "Evan Hahn <me@evanhahn.com> (http://evanhahn.com)",
   "contributors": [
+    "Óli Tómas Freysson (https://github.com/olitomas)",
     "Martin Prins (https://github.com/magarcia)",
     "Filipi Siqueira (https://github.com/filipi777)",
     "Peter Rekdal Sunde (https://github.com/peters)",
@@ -20,7 +21,7 @@
     "Leonard Lee (https://github.com/sheeeng)",
     "Jesse Jackson (https://github.com/jsejcksn)"
   ],
-  "version": "3.9.1",
+  "version": "3.9.2",
   "description": "Convert millisecond durations to English and many other languages.",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
   "main": "humanize-duration.js",

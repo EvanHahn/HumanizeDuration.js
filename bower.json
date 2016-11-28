@@ -1,6 +1,7 @@
 {
   "name": "humanize-duration",
   "authors": [
+    "Óli Tómas Freysson (http://olitomas.com)",
     "Evan Hahn <me@evanhahn.com> (http://evanhahn.com)",
     "Martin Prins (https://github.com/magarcia)",
     "Filipi Siqueira (https://github.com/filipi777)",
