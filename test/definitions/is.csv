@@ -1,0 +1,72 @@
+0$0 millisekúndur
+1$1 millisekúnda
+2$2 millisekúndur
+5$5 millisekúndur
+12$12 millisekúndur
+420$420 millisekúndur
+500$500 millisekúndur
+1000$1 sekúnda
+1500$1 sekúnda+500 millisekúndur
+2000$2 sekúndur
+2500$2 sekúndur+500 millisekúndur
+3000$3 sekúndur
+1001$1 sekúnda+1 millisekúnda
+1002$1 sekúnda+2 millisekúndur
+2001$2 sekúndur+1 millisekúnda
+2003$2 sekúndur+3 millisekúndur
+1200$1 sekúnda+200 millisekúndur
+6900$6 sekúndur+900 millisekúndur
+30000$30 sekúndur
+60000$1 mínúta
+90000$1 mínúta+30 sekúndur
+120000$2 mínútur
+150000$2 mínútur+30 sekúndur
+180000$3 mínútur
+61000$1 mínúta+1 sekúnda
+78000$1 mínúta+18 sekúndur
+61001$1 mínúta+1 sekúnda+1 millisekúnda
+61005$1 mínúta+1 sekúnda+5 millisekúndur
+62001$1 mínúta+2 sekúndur+1 millisekúnda
+62005$1 mínúta+2 sekúndur+5 millisekúndur
+121001$2 mínútur+1 sekúnda+1 millisekúnda
+121007$2 mínútur+1 sekúnda+7 millisekúndur
+138001$2 mínútur+18 sekúndur+1 millisekúnda
+138006$2 mínútur+18 sekúndur+6 millisekúndur
+1800000$30 mínútur
+3600000$1 klukkutími
+5400000$1 klukkutími+30 mínútur
+7200000$2 klukkutímar
+9000000$2 klukkutímar+30 mínútur
+10800000$3 klukkutímar
+3660000$1 klukkutími+1 mínúta
+3720000$1 klukkutími+2 mínútur
+10860000$3 klukkutímar+1 mínúta
+11040000$3 klukkutímar+4 mínútur
+43200000$12 klukkutímar
+86400000$1 dagur
+129600000$1 dagur+12 klukkutímar
+172800000$2 dagar
+216000000$2 dagar+12 klukkutímar
+259200000$3 dagar
+302400000$3 dagar+12 klukkutímar
+604800000$1 vika
+907200000$1 vika+3 dagar+12 klukkutímar
+1209600000$2 vikur
+1512000000$2 vikur+3 dagar+12 klukkutímar
+1814400000$3 vikur
+1314900000$2 vikur+1 dagur+5 klukkutímar+15 mínútur
+2629800000$1 mánuður
+3944700000$1 mánuður+2 vikur+1 dagur+5 klukkutímar+15 mínútur
+5259600000$2 mánuðir
+6574500000$2 mánuðir+2 vikur+1 dagur+5 klukkutímar+15 mínútur
+7889400000$3 mánuðir
+15778800000$6 mánuðir
+31557600000$1 ár
+47336400000$1 ár+6 mánuðir
+63115200000$2 ár
+78894000000$2 ár+6 mánuðir
+94672800000$3 ár
+-420$420 millisekúndur
+0.12$0.12 millisekúndur
+1.5$1.5 millisekúndur
+420.69$420.69 millisekúndur

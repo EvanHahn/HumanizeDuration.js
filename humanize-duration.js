@@ -134,6 +134,17 @@
       ms: 'milidetik',
       decimal: '.'
     },
+    is: {
+      y: 'ár',
+      mo: function (c) { return 'mánuð' + (c !== 1 ? 'ir' : 'ur') },
+      w: function (c) { return 'vik' + (c !== 1 ? 'ur' : 'a') },
+      d: function (c) { return 'dag' + (c !== 1 ? 'ar' : 'ur') },
+      h: function (c) { return 'klukkutím' + (c !== 1 ? 'ar' : 'i') },
+      m: function (c) { return 'mínút' + (c !== 1 ? 'ur' : 'a') },
+      s: function (c) { return 'sekúnd' + (c !== 1 ? 'ur' : 'a') },
+      ms: function (c) { return 'millisekúnd' + (c !== 1 ? 'ur' : 'a') },
+      decimal: '.'
+    },
     it: {
       y: function (c) { return 'ann' + (c !== 1 ? 'i' : 'o') },
       mo: function (c) { return 'mes' + (c !== 1 ? 'i' : 'e') },
