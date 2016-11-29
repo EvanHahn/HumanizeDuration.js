@@ -1,4 +1,4 @@
-3.9.2 / 2016-11-28
+unreleased
 ==================
 
 * new: Icelandic support
