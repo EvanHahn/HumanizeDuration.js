@@ -135,7 +135,7 @@
       decimal: '.'
     },
     is: {
-      y: function (c) { return 'ár' + (c !== 1 ? '' : '') },
+      y: function (c) { return 'ár' },
       mo: function (c) { return 'mánuð' + (c !== 1 ? 'ir' : 'ur') },
       w: function (c) { return 'vik' + (c !== 1 ? 'ur' : 'a') },
       d: function (c) { return 'dag' + (c !== 1 ? 'ar' : 'ur') },
