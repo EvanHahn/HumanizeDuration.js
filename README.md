@@ -261,6 +261,7 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Manh Tuan](https://github.com/J2TeaM) for Vietnamese support
 * [Leonard Lee](https://github.com/sheeeng) for Indonesian & Malay support
 * [Jesse Jackson](https://github.com/jsejcksn) for documentation help
+* [Óli Tómas Freysson](https://github.com/olitomas) for Icelandic support
 
 Licensed under the permissive [Unlicense](http://unlicense.org/). Enjoy!
 
