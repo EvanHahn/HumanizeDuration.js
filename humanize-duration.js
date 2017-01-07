@@ -351,14 +351,14 @@
         ms: 1
       },
       numberRenderer: {
-        y: x => x,
-        mo: x => x,
-        w: x => x,
-        d: x => x,
-        h: x => x,
-        m: x => x,
-        s: x => x,
-        ms: x => x
+        y: (decimalReplacedValue, originalValue) => decimalReplacedValue,
+        mo: (decimalReplacedValue, originalValue) => decimalReplacedValue,
+        w: (decimalReplacedValue, originalValue) => decimalReplacedValue,
+        d: (decimalReplacedValue, originalValue) => decimalReplacedValue,
+        h: (decimalReplacedValue, originalValue) => decimalReplacedValue,
+        m: (decimalReplacedValue, originalValue) => decimalReplacedValue,
+        s: (decimalReplacedValue, originalValue) => decimalReplacedValue,
+        ms: (decimalReplacedValue, originalValue) => decimalReplacedValue
       }
     }, passedOptions)
   }
@@ -467,7 +467,9 @@
       throw new Error('Renderer ' + type + ' must be a function.')
     }
 
-    var countStr = numberRenderer(count).toString().replace('.', decimal)
+    var decimalReplacedValue = count.toString().replace('.', decimal)
+
+    var countStr = numberRenderer(decimalReplacedValue, count)
 
     var dictionaryValue = dictionary[type]
     var word

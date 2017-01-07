@@ -113,6 +113,18 @@ describe('humanizer', function () {
     }), '1!!234 seconds')
   })
 
+  it('can use custom numberRenderer with possible conflicting decimal replacements', function () {
+    var h = humanizer({
+      units: ['s'],
+      decimal: 'what',
+      numberRenderer: {
+        s: (decimalReplacedValue, actualValue) => '...' + decimalReplacedValue + '...'
+      }
+    })
+
+    assert.equal(h(1234), '...1what234... seconds')
+  })
+
   it('can do simple rounding', function () {
     var h = humanizer({ round: true })
 
