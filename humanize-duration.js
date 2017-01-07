@@ -349,6 +349,16 @@
         m: 60000,
         s: 1000,
         ms: 1
+      },
+      numberRender: {
+        y: x => x,
+        mo: x => x,
+        w: x => x,
+        d: x => x,
+        h: x => x,
+        m: x => x,
+        s: x => x,
+        ms: x => x
       }
     }, passedOptions)
   }
@@ -451,7 +461,13 @@
       decimal = options.decimal
     }
 
-    var countStr = count.toString().replace('.', decimal)
+    var numberRenderer = options.numberRender[type];
+
+    if (typeof numberRenderer !== "function"){
+      throw new Error('Renderer ' + type + ' must be a function.')
+    }
+
+    var countStr = numberRenderer(count).toString().replace('.', decimal)
 
     var dictionaryValue = dictionary[type]
     var word
@@ -550,4 +566,5 @@
   } else {
     this.humanizeDuration = humanizeDuration
   }
+
 })();  // eslint-disable-line semi
