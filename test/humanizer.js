@@ -80,6 +80,27 @@ describe('humanizer', function () {
     assert.equal(h(144000000), '1 week')
   })
 
+  it('can overwrite the numberRenderers in the initializer', function () {
+    var h = humanizer({
+      numberRenderer: {
+        y: x => x + 'y',
+        mo: x => x + 'mo',
+        w: x => x + 'w',
+        d: x => x + 'd',
+        h: x => x + 'h',
+        m: x => x + 'm',
+        s: x => x + 's',
+        ms: x => x + 'h'
+      }
+    })
+
+    assert.equal(h(1000), '1s second')
+    assert.equal(h(60000), '1m minute')
+    assert.equal(h(3600000), '1h hour')
+    assert.equal(h(86400000), '1d day')
+    assert.equal(h(31557600000), '1y year')
+  })
+
   it('can change the decimal', function () {
     var h = humanizer({
       units: ['s'],

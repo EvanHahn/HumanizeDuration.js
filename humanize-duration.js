@@ -350,7 +350,7 @@
         s: 1000,
         ms: 1
       },
-      numberRender: {
+      numberRenderer: {
         y: x => x,
         mo: x => x,
         w: x => x,
@@ -461,9 +461,9 @@
       decimal = options.decimal
     }
 
-    var numberRenderer = options.numberRender[type];
+    var numberRenderer = options.numberRenderer[type]
 
-    if (typeof numberRenderer !== "function"){
+    if (typeof numberRenderer !== 'function') {
       throw new Error('Renderer ' + type + ' must be a function.')
     }
 
@@ -566,5 +566,4 @@
   } else {
     this.humanizeDuration = humanizeDuration
   }
-
 })();  // eslint-disable-line semi
