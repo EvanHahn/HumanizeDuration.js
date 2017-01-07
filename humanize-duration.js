@@ -351,14 +351,14 @@
         ms: 1
       },
       numberRenderer: {
-        y: (decimalReplacedValue, originalValue) => decimalReplacedValue,
-        mo: (decimalReplacedValue, originalValue) => decimalReplacedValue,
-        w: (decimalReplacedValue, originalValue) => decimalReplacedValue,
-        d: (decimalReplacedValue, originalValue) => decimalReplacedValue,
-        h: (decimalReplacedValue, originalValue) => decimalReplacedValue,
-        m: (decimalReplacedValue, originalValue) => decimalReplacedValue,
-        s: (decimalReplacedValue, originalValue) => decimalReplacedValue,
-        ms: (decimalReplacedValue, originalValue) => decimalReplacedValue
+        y: function (decimalReplacedValue, originalValue) { return decimalReplacedValue },
+        mo: function (decimalReplacedValue, originalValue) { return decimalReplacedValue },
+        w: function (decimalReplacedValue, originalValue) { return decimalReplacedValue },
+        d: function (decimalReplacedValue, originalValue) { return decimalReplacedValue },
+        h: function (decimalReplacedValue, originalValue) { return decimalReplacedValue },
+        m: function (decimalReplacedValue, originalValue) { return decimalReplacedValue },
+        s: function (decimalReplacedValue, originalValue) { return decimalReplacedValue },
+        ms: function (decimalReplacedValue, originalValue) { return decimalReplacedValue }
       }
     }, passedOptions)
   }

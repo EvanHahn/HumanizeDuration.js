@@ -83,14 +83,14 @@ describe('humanizer', function () {
   it('can overwrite the numberRenderers in the initializer', function () {
     var h = humanizer({
       numberRenderer: {
-        y: x => x + 'y',
-        mo: x => x + 'mo',
-        w: x => x + 'w',
-        d: x => x + 'd',
-        h: x => x + 'h',
-        m: x => x + 'm',
-        s: x => x + 's',
-        ms: x => x + 'h'
+        y: function (x) { return x + 'y' },
+        mo: function (x) { return x + 'mo' },
+        w: function (x) { return x + 'w' },
+        d: function (x) { return x + 'd' },
+        h: function (x) { return x + 'h' },
+        m: function (x) { return x + 'm' },
+        s: function (x) { return x + 's' },
+        ms: function (x) { return x + 'ms' }
       }
     })
 
@@ -118,7 +118,7 @@ describe('humanizer', function () {
       units: ['s'],
       decimal: 'what',
       numberRenderer: {
-        s: (decimalReplacedValue, actualValue) => '...' + decimalReplacedValue + '...'
+        s: function (decimalReplacedValue, actualValue) { return '...' + decimalReplacedValue + '...' }
       }
     })
 
