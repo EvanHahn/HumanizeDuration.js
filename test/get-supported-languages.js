@@ -10,13 +10,11 @@ describe('getSupportedLanguages', function () {
     fs.readdir(definitionsPath, function (err, files) {
       if (err) { throw err }
 
-      var languages = files.reduce(function (result, file) {
-        if (path.extname(file) === '.csv') {
-          return result.concat(path.basename(file, '.csv'))
-        } else {
-          return result
-        }
-      }, [])
+      var languages = files.filter(function (file) {
+        return path.extname(file) === '.csv'
+      }).map(function (file) {
+        return path.basename(file, '.csv')
+      })
 
       assert.deepEqual(languages.sort(), getSupportedLanguages().sort())
 
