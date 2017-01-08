@@ -21,4 +21,8 @@ describe('getSupportedLanguages', function () {
       done()
     })
   })
+
+  it('returns a different array each time', function () {
+    assert.notEqual(getSupportedLanguages(), getSupportedLanguages())
+  })
 })
