@@ -30,10 +30,10 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "csv-parse": "^1.1.1",
-    "mocha": "^2.5.3",
-    "ms": "^0.7.1",
-    "standard": "^7.1.2"
+    "csv-parse": "^1.1.7",
+    "mocha": "^3.2.0",
+    "ms": "^0.7.2",
+    "standard": "^8.6.0"
   },
   "keywords": [
     "humanize",
