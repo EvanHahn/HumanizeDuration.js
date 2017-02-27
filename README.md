@@ -34,7 +34,7 @@ By default, Humanize Duration will humanize down to the second, and will return 
 
 ```js
 humanizeDuration(3000)      // '3 seconds'
-humanizeDuration(2015)      // '2.25 seconds'
+humanizeDuration(2250)      // '2.25 seconds'
 humanizeDuration(97320000)  // '1 day, 3 hours, 2 minutes'
 ```
 
