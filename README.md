@@ -156,7 +156,7 @@ var spanishHumanizer = humanizeDuration.humanizer({
   units: ['y', 'mo', 'd']
 });
 
-spanishHumanizer(71177400000)'  // '2 años, 3 meses, 2 días'
+spanishHumanizer(71177400000);  // '2 años, 3 meses, 2 días'
 spanishHumanizer(71177400000, { units: ['d', 'h'] });  // '823 días, 19.5 horas'
 ```
 
