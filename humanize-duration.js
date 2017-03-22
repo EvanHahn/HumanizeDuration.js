@@ -91,14 +91,14 @@
       decimal: ','
     },
     fr: {
-      y: function (c) { return 'an' + (c !== 1 ? 's' : '') },
+      y: function (c) { return 'an' + (c >= 2 ? 's' : '') },
       mo: 'mois',
-      w: function (c) { return 'semaine' + (c !== 1 ? 's' : '') },
-      d: function (c) { return 'jour' + (c !== 1 ? 's' : '') },
-      h: function (c) { return 'heure' + (c !== 1 ? 's' : '') },
-      m: function (c) { return 'minute' + (c !== 1 ? 's' : '') },
-      s: function (c) { return 'seconde' + (c !== 1 ? 's' : '') },
-      ms: function (c) { return 'milliseconde' + (c !== 1 ? 's' : '') },
+      w: function (c) { return 'semaine' + (c >= 2 ? 's' : '') },
+      d: function (c) { return 'jour' + (c >= 2 ? 's' : '') },
+      h: function (c) { return 'heure' + (c >= 2 ? 's' : '') },
+      m: function (c) { return 'minute' + (c >= 2 ? 's' : '') },
+      s: function (c) { return 'seconde' + (c >= 2 ? 's' : '') },
+      ms: function (c) { return 'milliseconde' + (c >= 2 ? 's' : '') },
       decimal: ','
     },
     gr: {
