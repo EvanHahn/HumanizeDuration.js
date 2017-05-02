@@ -340,6 +340,7 @@
       units: ['y', 'mo', 'w', 'd', 'h', 'm', 's'],
       languages: {},
       round: false,
+      short: false,
       unitMeasures: {
         y: 31557600000,
         mo: 2629800000,
@@ -456,7 +457,7 @@
     var dictionaryValue = dictionary[type]
     var word
     if (typeof dictionaryValue === 'function') {
-      word = dictionaryValue(count)
+      word = dictionaryValue(count, options.short)
     } else {
       word = dictionaryValue
     }
