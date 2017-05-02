@@ -58,14 +58,14 @@
       decimal: ','
     },
     en: {
-      y: function (c) { return 'year' + (c === 1 ? '' : 's') },
-      mo: function (c) { return 'month' + (c === 1 ? '' : 's') },
-      w: function (c) { return 'week' + (c === 1 ? '' : 's') },
-      d: function (c) { return 'day' + (c === 1 ? '' : 's') },
-      h: function (c) { return 'hour' + (c === 1 ? '' : 's') },
-      m: function (c) { return 'minute' + (c === 1 ? '' : 's') },
-      s: function (c) { return 'second' + (c === 1 ? '' : 's') },
-      ms: function (c) { return 'millisecond' + (c === 1 ? '' : 's') },
+      y: function (c, s) { return s ? 'y' : 'year' + (c === 1 ? '' : 's') },
+      mo: function (c, s) { return s ? 'mo' : 'month' + (c === 1 ? '' : 's') },
+      w: function (c, s) { return s ? 'w' : 'week' + (c === 1 ? '' : 's') },
+      d: function (c, s) { return s ? 'd' : 'day' + (c === 1 ? '' : 's') },
+      h: function (c, s) { return s ? 'h' : 'hour' + (c === 1 ? '' : 's') },
+      m: function (c, s) { return s ? 'm' : 'minute' + (c === 1 ? '' : 's') },
+      s: function (c, s) { return s ? 's' : 'second' + (c === 1 ? '' : 's') },
+      ms: function (c, s) { return s ? 'ms' : 'millisecond' + (c === 1 ? '' : 's') },
       decimal: '.'
     },
     es: {
@@ -245,14 +245,14 @@
       decimal: ','
     },
     ru: {
-      y: function (c) { return ['лет', 'год', 'года'][getSlavicForm(c)] },
-      mo: function (c) { return ['месяцев', 'месяц', 'месяца'][getSlavicForm(c)] },
-      w: function (c) { return ['недель', 'неделя', 'недели'][getSlavicForm(c)] },
-      d: function (c) { return ['дней', 'день', 'дня'][getSlavicForm(c)] },
-      h: function (c) { return ['часов', 'час', 'часа'][getSlavicForm(c)] },
-      m: function (c) { return ['минут', 'минута', 'минуты'][getSlavicForm(c)] },
-      s: function (c) { return ['секунд', 'секунда', 'секунды'][getSlavicForm(c)] },
-      ms: function (c) { return ['миллисекунд', 'миллисекунда', 'миллисекунды'][getSlavicForm(c)] },
+      y: function (c, s) { return ['лет', 'год', 'года'][getSlavicForm(c)] },
+      mo: function (c, s) { return s ? 'мес' : ['месяцев', 'месяц', 'месяца'][getSlavicForm(c)] },
+      w: function (c, s) { return s ? 'нед' : ['недель', 'неделя', 'недели'][getSlavicForm(c)] },
+      d: function (c, s) { return s ? 'д.' : ['дней', 'день', 'дня'][getSlavicForm(c)] },
+      h: function (c, s) { return s ? 'ч' : ['часов', 'час', 'часа'][getSlavicForm(c)] },
+      m: function (c, s) { return s ? 'м' : ['минут', 'минута', 'минуты'][getSlavicForm(c)] },
+      s: function (c, s) { return s ? 'с' : ['секунд', 'секунда', 'секунды'][getSlavicForm(c)] },
+      ms: function (c, s) { return s ? 'мс' : ['миллисекунд', 'миллисекунда', 'миллисекунды'][getSlavicForm(c)] },
       decimal: ','
     },
     uk: {
