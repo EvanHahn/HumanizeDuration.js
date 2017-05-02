@@ -155,7 +155,7 @@ describe('humanizer', function () {
     assert.equal(humanizer().name, 'humanizer')
   })
 
-  it('can use short option', function () {
+  it('can use a short option', function () {
     var h = humanizer({ short: true })
     assert.equal(h(3692131200000), '116 y, 11 mo, 4 w, 1 d, 4 h, 30 m')
   })
