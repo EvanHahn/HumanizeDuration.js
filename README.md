@@ -215,6 +215,7 @@ Humanize Duration supports the following languages:
 | French               | `fr`    |
 | German               | `de`    |
 | Greek                | `gr`    |
+| Hebrew               | `he`    |
 | Hungarian            | `hu`    |
 | Icelandic            | `is`    |
 | Indonesian           | `id`    |
