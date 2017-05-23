@@ -394,28 +394,37 @@
       ms -= unitCount * unitMS
     }
 
-    var firstOccupiedUnitIndex = 0
-    for (i = 0; i < pieces.length; i++) {
-      if (pieces[i].unitCount) {
-        firstOccupiedUnitIndex = i
-        break
-      }
-    }
-
     if (options.round) {
-      var ratioToLargerUnit, previousPiece
+      var next
+      var lastNotEmpty // Save here last index of pieces that is not empty.
       for (i = pieces.length - 1; i >= 0; i--) {
-        piece = pieces[i]
-        piece.unitCount = Math.round(piece.unitCount)
+        pieces[i].unitCount = Math.round(pieces[i].unitCount)
 
-        if (i === 0) { break }
+        next = pieces[i - 1]
+        if (next && pieces[i].unitCount * options.unitMeasures[pieces[i].unitName] === options.unitMeasures[next.unitName]) {
+          next.unitCount++
+          pieces[i].unitCount = 0
+        }
 
-        previousPiece = pieces[i - 1]
+        if (pieces[i].unitCount !== 0) {
+          lastNotEmpty = i
+        }
+      }
 
-        ratioToLargerUnit = options.unitMeasures[previousPiece.unitName] / options.unitMeasures[piece.unitName]
-        if ((piece.unitCount % ratioToLargerUnit) === 0 || (options.largest && ((options.largest - 1) < (i - firstOccupiedUnitIndex)))) {
-          previousPiece.unitCount += piece.unitCount / ratioToLargerUnit
-          piece.unitCount = 0
+      // Need extra rounding to display only largest units
+      if (options.largest && (pieces.length - 1 - lastNotEmpty) > 1) {
+        for (i = pieces.length - 1; i >= 0; i--) {
+          pieces[i].unitCount = Math.round(pieces[i].unitCount)
+
+          next = pieces[i - 1]
+          if (next && (options.largest <= i) && (i >= lastNotEmpty)) {
+            var ratioToLargerUnit = options.unitMeasures[next.unitName] / options.unitMeasures[pieces[i].unitName]
+            next.unitCount += pieces[i].unitCount / ratioToLargerUnit
+            pieces[i].unitCount = 0
+          } else if (next && pieces[i].unitCount * options.unitMeasures[pieces[i].unitName] === options.unitMeasures[next.unitName]) {
+            next.unitCount++
+            pieces[i].unitCount = 0
+          }
         }
       }
     }
