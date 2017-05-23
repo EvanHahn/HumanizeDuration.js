@@ -13,7 +13,6 @@ This assumes you have Node and npm installed.
 1. If adding a new language, add it to the README.
 1. Credit yourself in the README, in `package.json`, and in `bower.json`.
 1. Make sure `npm test` doesn't have any errors.
-1. Make sure `npm run hint` doesn't give any JSHint errors.
 1. Submit your pull request!
 
 Thanks so much.
