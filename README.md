@@ -18,15 +18,15 @@ In the browser:
 ```html
 <script src="humanize-duration.js"></script>
 <script>
-humanizeDuration(12000)
+humanizeDuration(12000); // '12 seconds'
 </script>
 ```
 
 In Node (or Browserify or Webpack or anywhere with CommonJS):
 
 ```js
-var humanizeDuration = require('humanize-duration')
-humanizeDuration(12000)
+var humanizeDuration = require('humanize-duration');
+humanizeDuration(12000); // '12 seconds'
 ```
 
 Usage
@@ -35,9 +35,9 @@ Usage
 By default, Humanize Duration will humanize down to the second, and will return a decimal for the smallest unit. It will humanize in English by default.
 
 ```js
-humanizeDuration(3000)      // '3 seconds'
-humanizeDuration(2250)      // '2.25 seconds'
-humanizeDuration(97320000)  // '1 day, 3 hours, 2 minutes'
+humanizeDuration(3000);      // '3 seconds'
+humanizeDuration(2250);      // '2.25 seconds'
+humanizeDuration(97320000);  // '1 day, 3 hours, 2 minutes'
 ```
 
 ### Options
@@ -49,8 +49,8 @@ You can change the settings by passing options as the second argument:
 Language for unit display (accepts an [ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) from one of the [supported languages](#supported-languages)).
 
 ```js
-humanizeDuration(3000, { language: 'es' })  // '3 segundos'
-humanizeDuration(5000, { language: 'ko' })  // '5 초'
+humanizeDuration(3000, { language: 'es' });  // '3 segundos'
+humanizeDuration(5000, { language: 'ko' });  // '5 초'
 ```
 
 **delimiter**
@@ -58,8 +58,8 @@ humanizeDuration(5000, { language: 'ko' })  // '5 초'
 String to display between the previous unit and the next value.
 
 ```js
-humanizeDuration(22140000, { delimiter: ' and ' })  // '6 hours and 9 minutes'
-humanizeDuration(22140000, { delimiter: '--' })     // '6 hours--9 minutes'
+humanizeDuration(22140000, { delimiter: ' and ' });  // '6 hours and 9 minutes'
+humanizeDuration(22140000, { delimiter: '--' });     // '6 hours--9 minutes'
 ```
 
 **spacer**
@@ -67,8 +67,8 @@ humanizeDuration(22140000, { delimiter: '--' })     // '6 hours--9 minutes'
 String to display between each value and unit.
 
 ```js
-humanizeDuration(260040000, { spacer: ' whole ' })  // '3 whole days, 14 whole minutes'
-humanizeDuration(260040000, { spacer: '' })         // '3days, 14minutes'
+humanizeDuration(260040000, { spacer: ' whole ' });  // '3 whole days, 14 whole minutes'
+humanizeDuration(260040000, { spacer: '' });         // '3days, 14minutes'
 ```
 
 **largest**
@@ -76,8 +76,8 @@ humanizeDuration(260040000, { spacer: '' })         // '3days, 14minutes'
 Number representing the maximum number of units to display for the duration.
 
 ```js
-humanizeDuration(1000000000000)                  // '31 years, 8 months, 1 week, 19 hours, 46 minutes, 40 seconds'
-humanizeDuration(1000000000000, { largest: 2 })  // '31 years, 8 month'
+humanizeDuration(1000000000000);                  // '31 years, 8 months, 1 week, 19 hours, 46 minutes, 40 seconds'
+humanizeDuration(1000000000000, { largest: 2 });  // '31 years, 8 month'
 ```
 
 **units**
@@ -85,9 +85,9 @@ humanizeDuration(1000000000000, { largest: 2 })  // '31 years, 8 month'
 Array of strings to define which units are used to display the duration (if needed). Can be one, or a combination of any, of the following: `['y', 'mo', 'w', 'd', 'h', 'm', 's', 'ms']`
 
 ```js
-humanizeDuration(3600000, { units: ['h'] })       // '1 hour'
-humanizeDuration(3600000, { units: ['m'] })       // '60 minutes'
-humanizeDuration(3600000, { units: ['d', 'h'] })  // '1 hour'
+humanizeDuration(3600000, { units: ['h'] });       // '1 hour'
+humanizeDuration(3600000, { units: ['m'] });       // '60 minutes'
+humanizeDuration(3600000, { units: ['d', 'h'] });  // '1 hour'
 ```
 
 **round**
@@ -95,9 +95,9 @@ humanizeDuration(3600000, { units: ['d', 'h'] })  // '1 hour'
 Boolean value. Use `true` to [round](https://en.wikipedia.org/wiki/Rounding#Round_half_up) the smallest unit displayed (can be combined with `largest` and `units`).
 
 ```js
-humanizeDuration(1200)                   // '1.2 seconds'
-humanizeDuration(1200, { round: true })  // '1 second'
-humanizeDuration(1600, { round: true })  // '2 seconds'
+humanizeDuration(1200);                   // '1.2 seconds'
+humanizeDuration(1200, { round: true });  // '1 second'
+humanizeDuration(1600, { round: true });  // '2 seconds'
 ```
 
 **decimal**
@@ -105,8 +105,8 @@ humanizeDuration(1600, { round: true })  // '2 seconds'
 String to substitute for the decimal point in a decimal fraction.
 
 ```js
-humanizeDuration(1200)                          // '1.2 seconds'
-humanizeDuration(1200, { decimal: ' point ' })  // '1 point 2 seconds'
+humanizeDuration(1200);                          // '1.2 seconds'
+humanizeDuration(1200, { decimal: ' point ' });  // '1 point 2 seconds'
 ```
 
 **conjunction**
@@ -114,10 +114,10 @@ humanizeDuration(1200, { decimal: ' point ' })  // '1 point 2 seconds'
 String to include before the final unit. You can also set `serialComma` to `false` to eliminate the final comma.
 
 ```js
-humanizeDuration(22140000, { conjunction: ' and ' })                      // '6 hours and 9 minutes'
-humanizeDuration(22141000, { conjunction: ' and ' })                      // '6 hours, 9 minutes, and 1 second'
-humanizeDuration(22140000, { conjunction: ' and ', serialComma: false })  // '6 hours and 9 minutes'
-humanizeDuration(22141000, { conjunction: ' and ', serialComma: false })  // '6 hours, 9 minutes and 1 second'
+humanizeDuration(22140000, { conjunction: ' and ' });                      // '6 hours and 9 minutes'
+humanizeDuration(22141000, { conjunction: ' and ' });                      // '6 hours, 9 minutes, and 1 second'
+humanizeDuration(22140000, { conjunction: ' and ', serialComma: false });  // '6 hours and 9 minutes'
+humanizeDuration(22141000, { conjunction: ' and ', serialComma: false });  // '6 hours, 9 minutes and 1 second'
 ```
 
 **unitMeasures**
@@ -125,7 +125,7 @@ humanizeDuration(22141000, { conjunction: ' and ', serialComma: false })  // '6 
 Customize the value used to calculate each unit of time.
 
 ```js
-humanizeDuration(400)    // '0.4 seconds'
+humanizeDuration(400);    // '0.4 seconds'
 humanizeDuration(400, {  // '1 year, 1 month, 5 days'
   unitMeasures: {
     y: 365,
@@ -133,7 +133,7 @@ humanizeDuration(400, {  // '1 year, 1 month, 5 days'
     w: 7,
     d: 1
   }
-})
+});
 ```
 
 **Combined example**
@@ -144,7 +144,7 @@ humanizeDuration(3602000, {
   round: true,
   spacer: ' glorioso ',
   units: ['m']
-})
+});
 // '60 glorioso minutos'
 ```
 
@@ -156,10 +156,10 @@ If you find yourself setting same options over and over again, you can create a 
 var spanishHumanizer = humanizeDuration.humanizer({
   language: 'es',
   units: ['y', 'mo', 'd']
-})
+});
 
-spanishHumanizer(71177400000)  // '2 años, 3 meses, 2 días'
-spanishHumanizer(71177400000, { units: ['d', 'h'] })  // '823 días, 19.5 horas'
+spanishHumanizer(71177400000);  // '2 años, 3 meses, 2 días'
+spanishHumanizer(71177400000, { units: ['d', 'h'] });  // '823 días, 19.5 horas'
 ```
 
 You can also add new languages to humanizers. For example:
@@ -179,15 +179,15 @@ var shortEnglishHumanizer = humanizeDuration.humanizer({
       ms: function() { return 'ms' },
     }
   }
-})
+});
 
-shortEnglishHumanizer(15600000)  // '4 h, 20 m'
+shortEnglishHumanizer(15600000);  // '4 h, 20 m'
 ```
 
 You can also add languages after initializing:
 
 ```js
-var humanizer = humanizeDuration.humanizer()
+var humanizer = humanizeDuration.humanizer();
 
 humanizer.languages.shortEn = {
   y: function(c) { return c + 'y' },
@@ -236,7 +236,7 @@ Humanize Duration supports the following languages:
 For a list of supported languages, you can use the `getSupportedLanguages` function.
 
 ```js
-humanizeDuration.getSupportedLanguages()
+humanizeDuration.getSupportedLanguages();
 // ['ar', 'ca', 'da', 'de' ...]
 ```
 
