@@ -1,6 +1,8 @@
 How to contribute
 =================
 
+**Note that this library is in maintenance mode. New languages and bug fixes will be added, but no new features. Please keep this in mind when making a pull request!**
+
 This assumes you have Node and npm installed.
 
 1. Fork the repo on GitHub.
