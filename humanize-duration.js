@@ -2,6 +2,16 @@
 
 ;(function () {
   var languages = {
+    he: {
+      year: function(c) { return ((c === 1) ? "שנה" : "שנים"); },
+      month: function(c) { return ((c === 1) ? "חודש" : "חודשים"); },
+      week: function(c) { return ((c === 1) ? "שבוע" : "שבועות"); },
+      day: function(c) { return ((c === 1) ? "יום" : "ימים"); },
+      hour: function(c) { return ((c === 1) ? "שעה" : "שעות"); },
+      minute: function(c) { return ((c === 1) ? "דקה" : "דקות"); },
+      second: function(c) { return ((c === 1) ? "שניה" : "שניות"); },
+      millisecond: function(c) { return ((c === 1) ? "מאית השניה" : "מאיות השניה"); }
+    },
     ar: {
       y: function (c) { return c === 1 ? 'سنة' : 'سنوات' },
       mo: function (c) { return c === 1 ? 'شهر' : 'أشهر' },
