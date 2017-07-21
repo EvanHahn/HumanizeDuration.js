@@ -26,7 +26,7 @@ In Node (or Browserify or Webpack or anywhere with CommonJS):
 
 ```js
 var humanizeDuration = require('humanize-duration')
-humanizeDuration(12000)
+humanizeDuration(12000) // '12 seconds'
 ```
 
 Usage
@@ -144,8 +144,7 @@ humanizeDuration(3602000, {
   round: true,
   spacer: ' glorioso ',
   units: ['m']
-})
-// '60 glorioso minutos'
+}) // '60 glorioso minutos'
 ```
 
 ### Humanizers
