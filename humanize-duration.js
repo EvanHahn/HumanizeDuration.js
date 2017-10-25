@@ -360,6 +360,16 @@
         m: 60000,
         s: 1000,
         ms: 1
+      },
+      numberRenderer: {
+        y: function (decimalReplacedValue, originalValue) { return decimalReplacedValue },
+        mo: function (decimalReplacedValue, originalValue) { return decimalReplacedValue },
+        w: function (decimalReplacedValue, originalValue) { return decimalReplacedValue },
+        d: function (decimalReplacedValue, originalValue) { return decimalReplacedValue },
+        h: function (decimalReplacedValue, originalValue) { return decimalReplacedValue },
+        m: function (decimalReplacedValue, originalValue) { return decimalReplacedValue },
+        s: function (decimalReplacedValue, originalValue) { return decimalReplacedValue },
+        ms: function (decimalReplacedValue, originalValue) { return decimalReplacedValue }
       }
     }, passedOptions)
   }
@@ -462,7 +472,15 @@
       decimal = options.decimal
     }
 
-    var countStr = count.toString().replace('.', decimal)
+    var numberRenderer = options.numberRenderer[type]
+
+    if (typeof numberRenderer !== 'function') {
+      throw new Error('Renderer ' + type + ' must be a function.')
+    }
+
+    var decimalReplacedValue = count.toString().replace('.', decimal)
+
+    var countStr = numberRenderer(decimalReplacedValue, count)
 
     var dictionaryValue = dictionary[type]
     var word

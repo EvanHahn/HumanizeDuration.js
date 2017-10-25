@@ -80,6 +80,27 @@ describe('humanizer', function () {
     assert.equal(h(144000000), '1 week')
   })
 
+  it('can overwrite the numberRenderers in the initializer', function () {
+    var h = humanizer({
+      numberRenderer: {
+        y: function (x) { return x + 'y' },
+        mo: function (x) { return x + 'mo' },
+        w: function (x) { return x + 'w' },
+        d: function (x) { return x + 'd' },
+        h: function (x) { return x + 'h' },
+        m: function (x) { return x + 'm' },
+        s: function (x) { return x + 's' },
+        ms: function (x) { return x + 'ms' }
+      }
+    })
+
+    assert.equal(h(1000), '1s second')
+    assert.equal(h(60000), '1m minute')
+    assert.equal(h(3600000), '1h hour')
+    assert.equal(h(86400000), '1d day')
+    assert.equal(h(31557600000), '1y year')
+  })
+
   it('can change the decimal', function () {
     var h = humanizer({
       units: ['s'],
@@ -90,6 +111,18 @@ describe('humanizer', function () {
     assert.equal(h(1234, {
       decimal: '!!'
     }), '1!!234 seconds')
+  })
+
+  it('can use custom numberRenderer with possible conflicting decimal replacements', function () {
+    var h = humanizer({
+      units: ['s'],
+      decimal: 'what',
+      numberRenderer: {
+        s: function (decimalReplacedValue, actualValue) { return '...' + decimalReplacedValue + '...' }
+      }
+    })
+
+    assert.equal(h(1234), '...1what234... seconds')
   })
 
   it('can do simple rounding', function () {

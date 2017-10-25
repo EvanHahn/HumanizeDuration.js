@@ -33,4 +33,20 @@ describe('error handling', function () {
     assert.throws(humanizing({ language: null }), Error)
     assert.doesNotThrow(humanizing({ language: 'es' }), Error)
   })
+
+  it('throws an error when passed a non-function numberRenderer', function () {
+    var h = humanizeDuration.humanizer({
+      numberRenderer: {
+        s: 'this is not a function'
+      }
+    })
+
+    function humanizing (options) {
+      return function () {
+        h(10000, options)
+      }
+    }
+
+    assert.throws(humanizing(1000), Error)
+  })
 })
