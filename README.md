@@ -265,7 +265,7 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Jesse Jackson](https://github.com/jsejcksn) for documentation help
 * [Óli Tómas Freysson](https://github.com/olitomas) for Icelandic support
 
-Licensed under the permissive [Unlicense](http://unlicense.org/). Enjoy!
+Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 
 Related modules
 ---------------
