@@ -79,6 +79,17 @@
       ms: function (c) { return 'milisegundo' + (c === 1 ? '' : 's') },
       decimal: ','
     },
+    fa: {
+      y: 'سال',
+      mo: 'ماه',
+      w: 'هفته',
+      d: 'روز',
+      h: 'ساعت',
+      m: 'دقیقه',
+      s: 'ثانیه',
+      ms: 'میلی ثانیه',
+      decimal: '.'
+    },
     fi: {
       y: function (c) { return c === 1 ? 'vuosi' : 'vuotta' },
       mo: function (c) { return c === 1 ? 'kuukausi' : 'kuukautta' },
