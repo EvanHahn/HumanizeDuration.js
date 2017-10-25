@@ -210,6 +210,7 @@ Humanize Duration supports the following languages:
 | Danish               | `da`    |
 | Dutch                | `nl`    |
 | English              | `en`    |
+| Farsi/Persian        | `fa`    |
 | Finnish              | `fi`    |
 | French               | `fr`    |
 | German               | `de`    |
