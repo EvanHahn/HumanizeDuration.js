@@ -264,6 +264,7 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Leonard Lee](https://github.com/sheeeng) for Indonesian & Malay support
 * [Jesse Jackson](https://github.com/jsejcksn) for documentation help
 * [Óli Tómas Freysson](https://github.com/olitomas) for Icelandic support
+* [Saeed Ganji](https://github.com/shahabganji) for Farsi/Persian support
 
 Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 
