@@ -19,9 +19,10 @@
     "Vidmantas Drasutis (https://github.com/drasius2)",
     "Manh Tuan (https://github.com/J2TeaM)",
     "Leonard Lee (https://github.com/sheeeng)",
-    "Jesse Jackson (https://github.com/jsejcksn)"
+    "Jesse Jackson (https://github.com/jsejcksn)",
+    "Caner Elci (https://github.com/canerelci)"
   ],
-  "version": "3.11.0",
+  "version": "3.11.1",
   "description": "Convert millisecond durations to English and many other languages.",
   "main": "humanize-duration.js",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",

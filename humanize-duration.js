@@ -13,6 +13,17 @@
       ms: function (c) { return c === 1 ? 'جزء من الثانية' : 'أجزاء من الثانية' },
       decimal: ','
     },
+    bg: {
+      y: function (c) { return ['години', 'година', 'години'][getSlavicForm(c)] },
+      mo: function (c) { return ['месеца', 'месец', 'месеца'][getSlavicForm(c)] },
+      w: function (c) { return ['седмици', 'седмица', 'седмици'][getSlavicForm(c)] },
+      d: function (c) { return ['дни', 'ден', 'дни'][getSlavicForm(c)] },
+      h: function (c) { return ['часа', 'час', 'часа'][getSlavicForm(c)] },
+      m: function (c) { return ['минути', 'минута', 'минути'][getSlavicForm(c)] },
+      s: function (c) { return ['секунди', 'секунда', 'секунди'][getSlavicForm(c)] },
+      ms: function (c) { return ['милисекунди', 'милисекунда', 'милисекунди'][getSlavicForm(c)] },
+      decimal: ','
+    },
     ca: {
       y: function (c) { return 'any' + (c === 1 ? '' : 's') },
       mo: function (c) { return 'mes' + (c === 1 ? '' : 'os') },

@@ -203,6 +203,7 @@ Humanize Duration supports the following languages:
 | Language             | Code    |
 |----------------------|---------|
 | Arabic               | `ar`    |
+| Bulgarian            | `bg`    |
 | Catalan              | `ca`    |
 | Chinese, simplified  | `zh_CN` |
 | Chinese, traditional | `zh_TW` |
@@ -237,7 +238,7 @@ For a list of supported languages, you can use the `getSupportedLanguages` funct
 
 ```js
 humanizeDuration.getSupportedLanguages()
-// ['ar', 'ca', 'da', 'de' ...]
+// ['ar', 'bg', 'ca', 'cs', da', 'de', ...]
 ```
 
 This function won't return any new languages you define; it will only return the defaults supported by the library.
@@ -265,6 +266,7 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Jesse Jackson](https://github.com/jsejcksn) for documentation help
 * [Óli Tómas Freysson](https://github.com/olitomas) for Icelandic support
 * [Saeed Ganji](https://github.com/shahabganji) for Farsi/Persian support
+* [Caner Elci](https://github.com/canerelci) for Bulgarian support
 
 Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 
