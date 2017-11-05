@@ -1,4 +1,4 @@
-3.11.1 / 2017-11-02
+3.11.0 / Unreleased
 ===================
 
 * new: Bulgarian support
