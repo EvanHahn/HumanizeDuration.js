@@ -27,7 +27,7 @@
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
   "main": "humanize-duration.js",
   "scripts": {
-    "pretest": "standard",
+    "pretest": "standard --fix",
     "test": "mocha"
   },
   "devDependencies": {
