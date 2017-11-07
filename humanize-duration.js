@@ -257,7 +257,7 @@
     },
     pt: {
       y: function (c) { return 'ano' + (c === 1 ? '' : 's') },
-      mo: function (c) { return c !== 1 ? 'meses' : 'mês' },
+      mo: function (c) { return c === 1 ? 'mês' : 'meses' },
       w: function (c) { return 'semana' + (c === 1 ? '' : 's') },
       d: function (c) { return 'dia' + (c === 1 ? '' : 's') },
       h: function (c) { return 'hora' + (c === 1 ? '' : 's') },
