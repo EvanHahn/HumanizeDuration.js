@@ -273,6 +273,7 @@ Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 Related modules
 ---------------
 
+* [pretty-ms](https://github.com/sindresorhus/pretty-ms)
 * [angularjs-humanize-duration](https://github.com/sebastianhaas/angularjs-humanize-duration)
 * [millisec](https://github.com/sungwoncho/millisec)
 * [HumanizeDuration.ts](https://github.com/Nightapes/HumanizeDuration.ts), a TypeScript version of this module
