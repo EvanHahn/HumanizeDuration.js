@@ -280,7 +280,7 @@
     uk: {
       y: function (c) { return ['років', 'рік', 'роки'][getSlavicForm(c)] },
       mo: function (c) { return ['місяців', 'місяць', 'місяці'][getSlavicForm(c)] },
-      w: function (c) { return ['неділь', 'неділя', 'неділі'][getSlavicForm(c)] },
+      w: function (c) { return ['тижнів', 'тиждень', 'тижні'][getSlavicForm(c)] },
       d: function (c) { return ['днів', 'день', 'дні'][getSlavicForm(c)] },
       h: function (c) { return ['годин', 'година', 'години'][getSlavicForm(c)] },
       m: function (c) { return ['хвилин', 'хвилина', 'хвилини'][getSlavicForm(c)] },
