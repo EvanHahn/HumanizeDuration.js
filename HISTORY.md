@@ -1,3 +1,8 @@
+3.12.1 / 2018-01-03
+===================
+
+* fix: Ukranian translation for weeks was incorrect
+
 3.12.0 / 2017-11-07
 ===================
 
