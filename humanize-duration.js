@@ -36,14 +36,14 @@
       decimal: ','
     },
     cs: {
-      y: function (c) { return ['rok', 'roku', 'roky', 'let'][getCzechForm(c)] },
-      mo: function (c) { return ['měsíc', 'měsíce', 'měsíce', 'měsíců'][getCzechForm(c)] },
-      w: function (c) { return ['týden', 'týdne', 'týdny', 'týdnů'][getCzechForm(c)] },
-      d: function (c) { return ['den', 'dne', 'dny', 'dní'][getCzechForm(c)] },
-      h: function (c) { return ['hodina', 'hodiny', 'hodiny', 'hodin'][getCzechForm(c)] },
-      m: function (c) { return ['minuta', 'minuty', 'minuty', 'minut'][getCzechForm(c)] },
-      s: function (c) { return ['sekunda', 'sekundy', 'sekundy', 'sekund'][getCzechForm(c)] },
-      ms: function (c) { return ['milisekunda', 'milisekundy', 'milisekundy', 'milisekund'][getCzechForm(c)] },
+      y: function (c) { return ['rok', 'roku', 'roky', 'let'][getCzechOrSlovakForm(c)] },
+      mo: function (c) { return ['měsíc', 'měsíce', 'měsíce', 'měsíců'][getCzechOrSlovakForm(c)] },
+      w: function (c) { return ['týden', 'týdne', 'týdny', 'týdnů'][getCzechOrSlovakForm(c)] },
+      d: function (c) { return ['den', 'dne', 'dny', 'dní'][getCzechOrSlovakForm(c)] },
+      h: function (c) { return ['hodina', 'hodiny', 'hodiny', 'hodin'][getCzechOrSlovakForm(c)] },
+      m: function (c) { return ['minuta', 'minuty', 'minuty', 'minut'][getCzechOrSlovakForm(c)] },
+      s: function (c) { return ['sekunda', 'sekundy', 'sekundy', 'sekund'][getCzechOrSlovakForm(c)] },
+      ms: function (c) { return ['milisekunda', 'milisekundy', 'milisekundy', 'milisekund'][getCzechOrSlovakForm(c)] },
       decimal: ','
     },
     da: {
@@ -288,6 +288,17 @@
       ms: function (c) { return ['мілісекунд', 'мілісекунда', 'мілісекунди'][getSlavicForm(c)] },
       decimal: ','
     },
+    sk: {
+      y: function (c) { return ['rok', 'roky', 'roky', 'rokov'][getCzechOrSlovakForm(c)] },
+      mo: function (c) { return ['mesiac', 'mesiace', 'mesiace', 'mesiacov'][getCzechOrSlovakForm(c)] },
+      w: function (c) { return ['týždeň', 'týždne', 'týždne', 'týždňov'][getCzechOrSlovakForm(c)] },
+      d: function (c) { return ['deň', 'dni', 'dni', 'dní'][getCzechOrSlovakForm(c)] },
+      h: function (c) { return ['hodina', 'hodiny', 'hodiny', 'hodín'][getCzechOrSlovakForm(c)] },
+      m: function (c) { return ['minúta', 'minúty', 'minúty', 'minút'][getCzechOrSlovakForm(c)] },
+      s: function (c) { return ['sekunda', 'sekundy', 'sekundy', 'sekúnd'][getCzechOrSlovakForm(c)] },
+      ms: function (c) { return ['milisekunda', 'milisekundy', 'milisekundy', 'milisekúnd'][getCzechOrSlovakForm(c)] },
+      decimal: ','
+    },
     sv: {
       y: 'år',
       mo: function (c) { return 'månad' + (c === 1 ? '' : 'er') },
@@ -499,19 +510,6 @@
     return destination
   }
 
-  // Internal helper function for Czech language.
-  function getCzechForm (c) {
-    if (c === 1) {
-      return 0
-    } else if (Math.floor(c) !== c) {
-      return 1
-    } else if (c % 10 >= 2 && c % 10 <= 4 && c % 100 < 10) {
-      return 2
-    } else {
-      return 3
-    }
-  }
-
   // Internal helper function for Polish language.
   function getPolishForm (c) {
     if (c === 1) {
@@ -537,6 +535,19 @@
       return 2
     } else {
       return 0
+    }
+  }
+
+    // Internal helper function for Slovak language.
+  function getCzechOrSlovakForm (c) {
+    if (c === 1) {
+      return 0
+    } else if (Math.floor(c) !== c) {
+      return 1
+    } else if (c % 10 >= 2 && c % 10 <= 4 && c % 100 < 10) {
+      return 2
+    } else {
+      return 3
     }
   }
 
