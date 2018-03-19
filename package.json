@@ -23,7 +23,7 @@
     "Caner Elci (https://github.com/canerelci)",
     "Matej Kolesár (https://github.com/rasel-sk)"
   ],
-  "version": "3.12.1",
+  "version": "3.13.0",
   "description": "Convert millisecond durations to English and many other languages.",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
   "main": "humanize-duration.js",
