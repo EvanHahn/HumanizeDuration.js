@@ -228,6 +228,7 @@ Humanize Duration supports the following languages:
 | Polish               | `pl`    |
 | Portuguese           | `pt`    |
 | Russian              | `ru`    |
+| Slovak               | `sk`    |
 | Spanish              | `es`    |
 | Swedish              | `sv`    |
 | Turkish              | `tr`    |
@@ -267,6 +268,7 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Óli Tómas Freysson](https://github.com/olitomas) for Icelandic support
 * [Saeed Ganji](https://github.com/shahabganji) for Farsi/Persian support
 * [Caner Elci](https://github.com/canerelci) for Bulgarian support
+* [Matej Kolesár](https://github.com/rasel-sk) for Slovak support
 
 Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 
