@@ -1,4 +1,4 @@
-UNRELEASED
+3.13.0 / 2018-03-19
 ===================
 
 * new: Slovak support
