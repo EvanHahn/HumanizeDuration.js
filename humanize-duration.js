@@ -288,6 +288,17 @@
       ms: function (c) { return ['мілісекунд', 'мілісекунда', 'мілісекунди'][getSlavicForm(c)] },
       decimal: ','
     },
+    ur: {
+      y: 'سال',
+      mo: function (c) { return c === 1 ? 'مہینہ' : 'مہینے' },
+      w: function (c) { return c === 1 ? 'ہفتہ' : 'ہفتے' },
+      d: 'دن',
+      h: function (c) { return c === 1 ? 'گھنٹہ' : 'گھنٹے' },
+      m: 'منٹ',
+      s: 'سیکنڈ',
+      ms: 'ملی سیکنڈ',
+      decimal: '.'
+    },
     sk: {
       y: function (c) { return ['rok', 'roky', 'roky', 'rokov'][getCzechOrSlovakForm(c)] },
       mo: function (c) { return ['mesiac', 'mesiace', 'mesiace', 'mesiacov'][getCzechOrSlovakForm(c)] },
