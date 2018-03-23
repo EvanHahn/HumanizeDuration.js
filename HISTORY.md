@@ -1,4 +1,4 @@
-UNRELEASED
+3.14.0 / 2018-03-23
 ===================
 
 * new: Urdu support
