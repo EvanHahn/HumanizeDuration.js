@@ -233,6 +233,7 @@ Humanize Duration supports the following languages:
 | Swedish              | `sv`    |
 | Turkish              | `tr`    |
 | Ukrainian            | `uk`    |
+| Urdu                 | `ur`    |
 | Vietnamese           | `vi`    |
 
 For a list of supported languages, you can use the `getSupportedLanguages` function.
@@ -269,6 +270,7 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Saeed Ganji](https://github.com/shahabganji) for Farsi/Persian support
 * [Caner Elci](https://github.com/canerelci) for Bulgarian support
 * [Matej Kolesár](https://github.com/rasel-sk) for Slovak support
+* [Abdul Jalil](https://github.com/abduljalilm94) for Urdu support
 
 Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 
