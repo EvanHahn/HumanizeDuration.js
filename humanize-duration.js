@@ -549,7 +549,7 @@
     }
   }
 
-    // Internal helper function for Slovak language.
+  // Internal helper function for Slovak language.
   function getCzechOrSlovakForm (c) {
     if (c === 1) {
       return 0
@@ -594,4 +594,4 @@
   } else {
     this.humanizeDuration = humanizeDuration
   }
-})();  // eslint-disable-line semi
+})(); // eslint-disable-line semi
