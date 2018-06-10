@@ -156,6 +156,7 @@
       },
       m: function (c) {
         if (c === 1) return 'minuta'
+        if (c === 12 || c  === 13 || c === 14) return 'minuta'
         if (c % 10 === 2 || c % 10 === 3 || c % 10 === 4) return 'minute'
         return 'minuta'
       },
