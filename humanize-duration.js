@@ -208,7 +208,7 @@
       h: 'ຊົ່ວໂມງ',
       m: 'ນາທີ',
       s: 'ວິນາທີ',
-      ms: function (c) { return 'millisecond' + (c === 1 ? '' : 's') },
+      ms: 'ມິນລິວິນາທີ',
       decimal: ','
     },
     lt: {
