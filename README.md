@@ -207,6 +207,7 @@ Humanize Duration supports the following languages:
 | Catalan              | `ca`    |
 | Chinese, simplified  | `zh_CN` |
 | Chinese, traditional | `zh_TW` |
+| Croatian             | `hr`    |
 | Czech                | `cs`    |
 | Danish               | `da`    |
 | Dutch                | `nl`    |
