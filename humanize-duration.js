@@ -1,4 +1,4 @@
-// HumanizeDuration.js - http://git.io/j0HgmQ
+// HumanizeDuration.js - https://git.io/j0HgmQ
 
 ;(function () {
   var languages = {
