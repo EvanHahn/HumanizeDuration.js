@@ -1,5 +1,5 @@
-unreleased
-==========
+3.15.0 / 2018-06-12
+===================
 
 * new: Croatian support
 * new: Lao support

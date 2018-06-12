@@ -25,7 +25,7 @@
     "Abdul Jalil (https://github.com/abduljalilm94)",
     "Alex Sam (https://github.com/sam-lex)"
   ],
-  "version": "3.14.0",
+  "version": "3.15.0",
   "description": "Convert millisecond durations to English and many other languages.",
   "main": "humanize-duration.js",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
