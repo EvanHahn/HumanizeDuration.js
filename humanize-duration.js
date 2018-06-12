@@ -136,38 +136,56 @@
     },
     hr: {
       y: function (c) {
-        if (c % 10 === 2 || c % 10 === 3 || c % 10 === 4) return 'godine'
+        if (c % 10 === 2 || c % 10 === 3 || c % 10 === 4) {
+          return 'godine'
+        }
         return 'godina'
       },
       mo: function (c) {
-        if (c === 1) return 'mjesec'
-        if (c === 2 || c === 3 || c === 4) return 'mjeseca'
+        if (c === 1) {
+          return 'mjesec'
+        } else if (c === 2 || c === 3 || c === 4) {
+          return 'mjeseca'
+        }
         return 'mjeseci'
       },
       w: function (c) {
-        if (c % 10 === 1 && c !== 11) return 'tjedan'
+        if (c % 10 === 1 && c !== 11) {
+          return 'tjedan'
+        }
         return 'tjedna'
       },
       d: function (c) { return c === 1 ? 'dan' : 'dana' },
       h: function (c) {
-        if (c === 1) return 'sat'
-        if (c === 2 || c === 3 || c === 4) return 'sata'
+        if (c === 1) {
+          return 'sat'
+        } else if (c === 2 || c === 3 || c === 4) {
+          return 'sata'
+        }
         return 'sati'
       },
       m: function (c) {
-        if (c === 1) return 'minuta'
-        if (c === 12 || c  === 13 || c === 14) return 'minuta'
-        if (c % 10 === 2 || c % 10 === 3 || c % 10 === 4) return 'minute'
+        if (c === 12 || c === 13 || c === 14) {
+          return 'minuta'
+        } else if (c % 10 === 2 || c % 10 === 3 || c % 10 === 4) {
+          return 'minute'
+        }
         return 'minuta'
       },
       s: function (c) {
-        if (c === 1) return 'sekunda'
-        if (c % 10 === 2 || c % 10 === 3 || c % 10 === 4) return 'sekunde'
+        if (c === 1) {
+          return 'sekunda'
+        } else if (c % 10 === 2 || c % 10 === 3 || c % 10 === 4) {
+          return 'sekunde'
+        }
         return 'sekundi'
       },
       ms: function (c) {
-        if (c === 1) return 'milisekunda'
-        if (c % 10 === 2 || c % 10 === 3 || c % 10 === 4) return 'milisekunde'
+        if (c === 1) {
+          return 'milisekunda'
+        } else if (c % 10 === 2 || c % 10 === 3 || c % 10 === 4) {
+          return 'milisekunde'
+        }
         return 'milisekundi'
       },
       decimal: ','
