@@ -33,6 +33,7 @@
     "test": "mocha"
   },
   "devDependencies": {
+    "check-ecmascript-version-compatibility": "^0.1.1",
     "csv-parse": "^1.1.7",
     "mocha": "^5.2.0",
     "ms": "^0.7.2",
