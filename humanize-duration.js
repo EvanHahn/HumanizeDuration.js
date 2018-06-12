@@ -256,6 +256,17 @@
       ms: '밀리 초',
       decimal: '.'
     },
+    lo: {
+      y: 'ປີ',
+      mo: 'ເດືອນ',
+      w: 'ອາທິດ',
+      d: 'ມື້',
+      h: 'ຊົ່ວໂມງ',
+      m: 'ນາທີ',
+      s: 'ວິນາທີ',
+      ms: 'ມິນລິວິນາທີ',
+      decimal: ','
+    },
     lt: {
       y: function (c) { return ((c % 10 === 0) || (c % 100 >= 10 && c % 100 <= 20)) ? 'metų' : 'metai' },
       mo: function (c) { return ['mėnuo', 'mėnesiai', 'mėnesių'][getLithuanianForm(c)] },
