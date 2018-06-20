@@ -13,20 +13,20 @@ Basic usage
 
 This package is available as *humanize-duration* on [npm](https://www.npmjs.com/package/humanize-duration) and Bower. You can also include the JavaScript file in the browser.
 
-In the browser:
+With `require` (like in Node or with common build systems):
+
+```js
+var humanizeDuration = require('humanize-duration')
+humanizeDuration(12000) // '12 seconds'
+```
+
+With a `<script>` tag:
 
 ```html
 <script src="humanize-duration.js"></script>
 <script>
 humanizeDuration(12000)
 </script>
-```
-
-In Node (or Browserify or Webpack or anywhere with CommonJS):
-
-```js
-var humanizeDuration = require('humanize-duration')
-humanizeDuration(12000) // '12 seconds'
 ```
 
 Usage
