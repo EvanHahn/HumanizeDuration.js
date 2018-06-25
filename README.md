@@ -16,7 +16,7 @@ This package is available as *humanize-duration* on [npm](https://www.npmjs.com/
 With `require` (like in Node or with common build systems):
 
 ```js
-var humanizeDuration = require('humanize-duration')
+const humanizeDuration = require('humanize-duration')
 humanizeDuration(12000) // '12 seconds'
 ```
 
@@ -152,7 +152,7 @@ humanizeDuration(3602000, {
 If you find yourself setting same options over and over again, you can create a *humanizer* that changes the defaults, which you can still override later.
 
 ```js
-var spanishHumanizer = humanizeDuration.humanizer({
+const spanishHumanizer = humanizeDuration.humanizer({
   language: 'es',
   units: ['y', 'mo', 'd']
 })
@@ -164,7 +164,7 @@ spanishHumanizer(71177400000, { units: ['d', 'h'] })  // '823 días, 19.5 horas'
 You can also add new languages to humanizers. For example:
 
 ```js
-var shortEnglishHumanizer = humanizeDuration.humanizer({
+const shortEnglishHumanizer = humanizeDuration.humanizer({
   language: 'shortEn',
   languages: {
     shortEn: {
@@ -186,7 +186,7 @@ shortEnglishHumanizer(15600000)  // '4 h, 20 m'
 You can also add languages after initializing:
 
 ```js
-var humanizer = humanizeDuration.humanizer()
+const humanizer = humanizeDuration.humanizer()
 
 humanizer.languages.shortEn = {
   y: function(c) { return c + 'y' },
