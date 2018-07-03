@@ -6,27 +6,27 @@ Humanize Duration
 
 I have the time in milliseconds and I want it to become "30 minutes" or "3 days, 1 hour". Enter Humanize Duration!
 
-**This library is in maintenance mode. New languages and bug fixes will be added but no new features will be. If you're interested in helping out by taking over the project, please see [this GitHub issue](https://github.com/EvanHahn/HumanizeDuration.js/issues/120).**
+**This library is actively maintained but no new features will be added.**
 
 Basic usage
 -----------
 
 This package is available as *humanize-duration* on [npm](https://www.npmjs.com/package/humanize-duration) and Bower. You can also include the JavaScript file in the browser.
 
-In the browser:
+With `require` (like in Node or with common build systems):
+
+```js
+const humanizeDuration = require('humanize-duration')
+humanizeDuration(12000) // '12 seconds'
+```
+
+With a `<script>` tag:
 
 ```html
 <script src="humanize-duration.js"></script>
 <script>
 humanizeDuration(12000)
 </script>
-```
-
-In Node (or Browserify or Webpack or anywhere with CommonJS):
-
-```js
-var humanizeDuration = require('humanize-duration')
-humanizeDuration(12000) // '12 seconds'
 ```
 
 Usage
@@ -152,7 +152,7 @@ humanizeDuration(3602000, {
 If you find yourself setting same options over and over again, you can create a *humanizer* that changes the defaults, which you can still override later.
 
 ```js
-var spanishHumanizer = humanizeDuration.humanizer({
+const spanishHumanizer = humanizeDuration.humanizer({
   language: 'es',
   units: ['y', 'mo', 'd']
 })
@@ -164,7 +164,7 @@ spanishHumanizer(71177400000, { units: ['d', 'h'] })  // '823 días, 19.5 horas'
 You can also add new languages to humanizers. For example:
 
 ```js
-var shortEnglishHumanizer = humanizeDuration.humanizer({
+const shortEnglishHumanizer = humanizeDuration.humanizer({
   language: 'shortEn',
   languages: {
     shortEn: {
@@ -186,7 +186,7 @@ shortEnglishHumanizer(15600000)  // '4 h, 20 m'
 You can also add languages after initializing:
 
 ```js
-var humanizer = humanizeDuration.humanizer()
+const humanizer = humanizeDuration.humanizer()
 
 humanizer.languages.shortEn = {
   y: function(c) { return c + 'y' },
@@ -223,6 +223,7 @@ Humanize Duration supports the following languages:
 | Italian              | `it`    |
 | Japanese             | `ja`    |
 | Korean               | `ko`    |
+| Lao                  | `lo`    |
 | Lithuanian           | `lt`    |
 | Malay                | `ms`    |
 | Norwegian            | `no`    |
@@ -272,6 +273,7 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Caner Elci](https://github.com/canerelci) for Bulgarian support
 * [Matej Kolesár](https://github.com/rasel-sk) for Slovak support
 * [Abdul Jalil](https://github.com/abduljalilm94) for Urdu support
+* Malikoun for Lao support
 
 Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 
