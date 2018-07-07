@@ -168,14 +168,14 @@ const shortEnglishHumanizer = humanizeDuration.humanizer({
   language: 'shortEn',
   languages: {
     shortEn: {
-      y: function() { return 'y' },
-      mo: function() { return 'mo' },
-      w: function() { return 'w' },
-      d: function() { return 'd' },
-      h: function() { return 'h' },
-      m: function() { return 'm' },
-      s: function() { return 's' },
-      ms: function() { return 'ms' },
+      y: () => 'y',
+      mo: () => 'mo',
+      w: () => 'w',
+      d: () => 'd',
+      h: () => 'h',
+      m: () => 'm',
+      s: () => 's',
+      ms: () => 'ms',
     }
   }
 })
@@ -189,7 +189,7 @@ You can also add languages after initializing:
 const humanizer = humanizeDuration.humanizer()
 
 humanizer.languages.shortEn = {
-  y: function(c) { return c + 'y' },
+  y: () => 'y',
   // ...
 ```
 
@@ -285,3 +285,4 @@ Related modules
 * [millisec](https://github.com/sungwoncho/millisec)
 * [HumanizeDuration.ts](https://github.com/Nightapes/HumanizeDuration.ts), a TypeScript version of this module
 * [aurelia-time](https://github.com/shahabganji/aurelia-time)
+
