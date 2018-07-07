@@ -189,7 +189,7 @@ You can also add languages after initializing:
 const humanizer = humanizeDuration.humanizer()
 
 humanizer.languages.shortEn = {
-  y: () => `${c}y`,
+  y: () => 'y',
   // ...
 ```
 
