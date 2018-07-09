@@ -173,8 +173,14 @@
       s: function (c) {
         if (c === 1) {
           return 'sekunda'
+        } else if (c === 10 || c === 11 || c === 12 || c === 13 || c === 14 || c === 15 || c === 16 || c === 17 || c === 18 || c === 19) {
+          return 'sekundi'
+        } else if (c % 10 === 1) {
+          return 'sekunda'
         } else if (c % 10 === 2 || c % 10 === 3 || c % 10 === 4) {
           return 'sekunde'
+        } else if (c % 10 === 5) {
+          return 'sekundi'
         }
         return 'sekundi'
       },
