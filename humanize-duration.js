@@ -490,7 +490,11 @@
 
       // What's the number of full units we can fit?
       if (i + 1 === len) {
-        unitCount = (ms / unitMS).toFixed(options.maxDecimalPoints || 2)
+        if (options.maxDecimalPoints) {
+          unitCount = (ms / unitMS).toFixed(options.maxDecimalPoints)
+        } else {
+          unitCount = ms / unitMS
+        }
       } else {
         unitCount = Math.floor(ms / unitMS)
       }

@@ -122,7 +122,7 @@ humanizeDuration(22141000, { conjunction: ' and ', serialComma: false })  // '6 
 
 **maxDecimalPoints**
 
-Number that defines a maximal decimal points for float values (default: 2)
+Number that defines a maximal decimal points for float values
 
 humanizeDuration(8123.456789) // 8.12 seconds
 humanizeDuration(8123.456789, {maxDecimalPoints: 3}) // 8.123 seconds
