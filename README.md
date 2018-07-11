@@ -120,6 +120,14 @@ humanizeDuration(22140000, { conjunction: ' and ', serialComma: false })  // '6 
 humanizeDuration(22141000, { conjunction: ' and ', serialComma: false })  // '6 hours, 9 minutes and 1 second'
 ```
 
+**maxDecimalPoints**
+
+Number that defines a maximal decimal points for float values (default: 2)
+
+humanizeDuration(8123.456789) // 8.12 seconds
+humanizeDuration(8123.456789, {maxDecimalPoints: 3}) // 8.123 seconds
+humanizeDuration(8123.456789, {maxDecimalPoints: 6}) // 8.123456 seconds
+
 **unitMeasures**
 
 Customize the value used to calculate each unit of time.
