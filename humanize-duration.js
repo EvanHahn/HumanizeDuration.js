@@ -165,15 +165,16 @@
         return 'sati'
       },
       m: function (c) {
-        if (c === 12 || c === 13 || c === 14) {
-          return 'minuta'
-        } else if (c % 10 === 2 || c % 10 === 3 || c % 10 === 4) {
+        var mod10 = c % 10
+        if ((mod10 === 2 || mod10 === 3 || mod10 === 4) && (c < 10 || c > 14)) {
           return 'minute'
         }
         return 'minuta'
       },
       s: function (c) {
-        if (c === 1) {
+        if ((c === 10 || c === 11 || c === 12 || c === 13 || c === 14 || c === 16 || c === 17 || c === 18 || c === 19) || (c % 10 === 5)) {
+          return 'sekundi'
+        } else if (c % 10 === 1) {
           return 'sekunda'
         } else if (c % 10 === 2 || c % 10 === 3 || c % 10 === 4) {
           return 'sekunde'
