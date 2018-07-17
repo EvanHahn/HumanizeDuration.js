@@ -491,7 +491,10 @@
       // What's the number of full units we can fit?
       if (i + 1 === len) {
         if (options.maxDecimalPoints) {
-          unitCount = (ms / unitMS).toFixed(options.maxDecimalPoints)
+          // We need to use this expValue to avoid rounding functionality of toFixed call
+          var expValue = Math.pow(10, options.maxDecimalPoints)
+          var unitCountFloat = (ms / unitMS)
+          unitCount = parseFloat((Math.floor(expValue * unitCountFloat) / expValue).toFixed(options.maxDecimalPoints))
         } else {
           unitCount = ms / unitMS
         }
