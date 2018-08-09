@@ -9,9 +9,7 @@
       d: function (c) { return c === 1 ? 'يوم' : 'أيام' },
       h: function (c) { return c === 1 ? 'ساعة' : 'ساعات' },
       m: function (c) {
-        if (c === 2) return 'دقيقتين'
-        if (c === 1 || c > 10) return 'دقيقة'
-        if (c > 1 && c < 10) return 'دقائق'
+        return ['دقيقة', 'دقائق'][getArabicForm(c)]
       },
       s: function (c) { return c === 1 ? 'ثانية' : 'ثواني' },
       ms: function (c) { return c === 1 ? 'جزء من الثانية' : 'أجزاء من الثانية' },
@@ -643,6 +641,17 @@
     } else {
       return 2
     }
+  }
+
+  // Internal helper function for Slovak language.
+  function getArabicForm (c) {
+    // ['دقيقة','دقائق']
+    // check if one or two minutes
+    if (c <= 2) { return 0 }
+    // check if more than two minutes and less than 10 minutes
+    if (c > 2 && c < 11) { return 1 }
+    // more than 10 minutes
+    return 0
   }
 
   humanizeDuration.getSupportedLanguages = function getSupportedLanguages () {
