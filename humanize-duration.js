@@ -8,7 +8,9 @@
       w: function (c) { return c === 1 ? 'أسبوع' : 'أسابيع' },
       d: function (c) { return c === 1 ? 'يوم' : 'أيام' },
       h: function (c) { return c === 1 ? 'ساعة' : 'ساعات' },
-      m: function (c) { return c === 1 ? 'دقيقة' : 'دقائق' },
+      m: function (c) {
+        return ['دقيقة', 'دقائق'][getArabicForm(c)]
+      },
       s: function (c) { return c === 1 ? 'ثانية' : 'ثواني' },
       ms: function (c) { return c === 1 ? 'جزء من الثانية' : 'أجزاء من الثانية' },
       decimal: ','
@@ -639,6 +641,13 @@
     } else {
       return 2
     }
+  }
+
+  // Internal helper function for Arabic language.
+  function getArabicForm (c) {
+    if (c <= 2) { return 0 }
+    if (c > 2 && c < 11) { return 1 }
+    return 0
   }
 
   humanizeDuration.getSupportedLanguages = function getSupportedLanguages () {
