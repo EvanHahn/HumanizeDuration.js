@@ -643,14 +643,10 @@
     }
   }
 
-  // Internal helper function for Slovak language.
+  // Internal helper function for Arabic language.
   function getArabicForm (c) {
-    // ['دقيقة','دقائق']
-    // check if one or two minutes
     if (c <= 2) { return 0 }
-    // check if more than two minutes and less than 10 minutes
     if (c > 2 && c < 11) { return 1 }
-    // more than 10 minutes
     return 0
   }
 
