@@ -1,58 +1,56 @@
-var humanizeDuration = require('..')
-var assert = require('assert')
-var fs = require('fs')
-var path = require('path')
-var parseCSV = require('csv-parse')
+const humanizeDuration = require('..')
+const assert = require('assert')
+const fs = require('fs')
+const path = require('path')
+const parseCSV = require('csv-parse')
 
 function options (language) {
   return {
-    language: language,
+    language,
     delimiter: '+',
     units: ['y', 'mo', 'w', 'd', 'h', 'm', 's', 'ms']
   }
 }
 
-describe('localized humanization', function () {
-  var definitionsPath = path.resolve(__dirname, 'definitions')
-  var files = fs.readdirSync(definitionsPath)
-  var languages = files.reduce(function (result, file) {
+describe('localized humanization', () => {
+  const definitionsPath = path.resolve(__dirname, 'definitions')
+  const files = fs.readdirSync(definitionsPath)
+  const languages = files.reduce((result, file) => {
     if (path.extname(file) === '.csv') {
-      result = result.concat(path.basename(file, '.csv'))
+      return result.concat(path.basename(file, '.csv'))
     }
     return result
   }, [])
 
-  languages.forEach(function (language) {
-    describe('for ' + language, function () {
+  languages.forEach(language => {
+    describe('for ' + language, () => {
       before(function (done) {
-        var self = this
-        var file = path.resolve(definitionsPath, language + '.csv')
-        fs.readFile(file, { encoding: 'utf8' }, function (err, data) {
+        const self = this
+        const filePath = path.resolve(definitionsPath, language + '.csv')
+        fs.readFile(filePath, { encoding: 'utf8' }, (err, data) => {
           if (err) { return done(err) }
 
-          parseCSV(data, { delimiter: '$' }, function (err, rows) {
+          parseCSV(data, { delimiter: '$' }, (err, rows) => {
             if (err) { return done(err) }
 
-            self.pairs = rows.map(function (r) {
-              return [parseFloat(r[0]), r[1]]
-            })
+            self.pairs = rows.map(row => [parseFloat(row[0]), row[1]])
             done()
           })
         })
       })
 
       it('humanizes with arguments', function () {
-        this.pairs.forEach(function (pair) {
-          var result = humanizeDuration(pair[0], options(language))
+        this.pairs.forEach(pair => {
+          const result = humanizeDuration(pair[0], options(language))
           assert.equal(result, pair[1])
         })
       })
 
       it('humanizes with a humanizer', function () {
-        var h = humanizeDuration.humanizer(options(language))
+        const h = humanizeDuration.humanizer(options(language))
 
-        this.pairs.forEach(function (pair) {
-          var result = h(pair[0])
+        this.pairs.forEach(pair => {
+          const result = h(pair[0])
           assert.equal(result, pair[1])
         })
       })
