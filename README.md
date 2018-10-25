@@ -274,6 +274,7 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Matej Kolesár](https://github.com/rasel-sk) for Slovak support
 * [Abdul Jalil](https://github.com/abduljalilm94) for Urdu support
 * Malikoun for Lao support
+* [Lucas Rocha](https://github.com/lucascudo) for Brazilian Portuguese support
 
 Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 
