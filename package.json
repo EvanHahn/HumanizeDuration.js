@@ -23,9 +23,10 @@
     "Caner Elci (https://github.com/canerelci)",
     "Matej Kolesár (https://github.com/rasel-sk)",
     "Abdul Jalil (https://github.com/abduljalilm94)",
-    "Alex Sam (https://github.com/sam-lex)"
+    "Alex Sam (https://github.com/sam-lex)",
+    "Wasuwat Limsuparhat (https://github.com/rappad)"
   ],
-  "version": "3.15.3",
+  "version": "3.16.0",
   "description": "Convert millisecond durations to English and many other languages.",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
   "main": "humanize-duration.js",
