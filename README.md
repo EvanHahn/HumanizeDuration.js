@@ -234,6 +234,7 @@ Humanize Duration supports the following languages:
 | Spanish              | `es`    |
 | Swedish              | `sv`    |
 | Turkish              | `tr`    |
+| Thai                 | `th`    |
 | Ukrainian            | `uk`    |
 | Urdu                 | `ur`    |
 | Vietnamese           | `vi`    |
