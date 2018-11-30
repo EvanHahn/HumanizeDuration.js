@@ -1,4 +1,4 @@
-3.16.0 / 2018-11-30
+UNRELEASED
 ===================
 
 * new: Thai support
