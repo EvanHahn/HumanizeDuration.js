@@ -1,4 +1,4 @@
-UNRELEASED
+3.16.0 / 2018-12-01
 ===================
 
 * new: Romanian support
