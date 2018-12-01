@@ -1,6 +1,7 @@
 UNRELEASED
 ===================
 
+* new: Romanian support
 * new: Thai support
 
 3.15.3 / 2018-09-18
