@@ -229,6 +229,7 @@ Humanize Duration supports the following languages:
 | Norwegian            | `no`    |
 | Polish               | `pl`    |
 | Portuguese           | `pt`    |
+| Romanian             | `ro`    |
 | Russian              | `ru`    |
 | Slovak               | `sk`    |
 | Spanish              | `es`    |

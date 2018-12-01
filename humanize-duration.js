@@ -343,6 +343,17 @@
       ms: function (c) { return 'milissegundo' + (c === 1 ? '' : 's') },
       decimal: ','
     },
+    ro: {
+      y: function (c) { return c === 1 ? 'an' : 'ani' },
+      mo: function (c) { return c === 1 ? 'lună' : 'luni' },
+      w: function (c) { return c === 1 ? 'săptămână' : 'săptămâni' },
+      d: function (c) { return c === 1 ? 'zi' : 'zile' },
+      h: function (c) { return c === 1 ? 'oră' : 'ore' },
+      m: function (c) { return c === 1 ? 'minut' : 'minute' },
+      s: function (c) { return c === 1 ? 'secundă' : 'secunde' },
+      ms: function (c) { return c === 1 ? 'milisecundă' : 'milisecunde' },
+      decimal: ','
+    },
     ru: {
       y: function (c) { return ['лет', 'год', 'года'][getSlavicForm(c)] },
       mo: function (c) { return ['месяцев', 'месяц', 'месяца'][getSlavicForm(c)] },
