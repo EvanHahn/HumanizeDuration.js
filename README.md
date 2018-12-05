@@ -114,7 +114,7 @@ humanizeDuration(1200, { decimal: ' point ' })  // '1 point 2 seconds'
 String to include before the final unit. You can also set `serialComma` to `false` to eliminate the final comma.
 
 ```js
-humanizeDuration(22140000, { conjunction: ' and ' })                      // '6 hours and 9 minutes'
+humanizeDuration(22140000, { conjunction: ' and ' })                      // '6 hours, and 9 minutes'
 humanizeDuration(22141000, { conjunction: ' and ' })                      // '6 hours, 9 minutes, and 1 second'
 humanizeDuration(22140000, { conjunction: ' and ', serialComma: false })  // '6 hours and 9 minutes'
 humanizeDuration(22141000, { conjunction: ' and ', serialComma: false })  // '6 hours, 9 minutes and 1 second'
