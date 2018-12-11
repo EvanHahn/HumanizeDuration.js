@@ -507,7 +507,7 @@
     // Has the nice sideffect of turning Number objects into primitives.
     ms = Math.abs(ms)
 
-    var dictionary = options.languages[options.language] || languages[options.language]
+    var dictionary = options.languages[options.language] || languages[options.language] || languages[options.fallback]
     if (!dictionary) {
       throw new Error('No language ' + dictionary + '.')
     }

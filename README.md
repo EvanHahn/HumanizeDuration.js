@@ -53,6 +53,14 @@ humanizeDuration(3000, { language: 'es' })  // '3 segundos'
 humanizeDuration(5000, { language: 'ko' })  // '5 초'
 ```
 
+**fallback**
+Fallback language if the provided language cannot be found (accepts an [ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) from one of the [supported languages](#supported-languages)).
+```js
+humanizeDuration(3000, { language: 'bad language', fallback: 'en' })  // '3 seconds'
+humanizeDuration(3000, { language: 'EN', fallback: 'en' })  // '3 seconds'
+```
+
+
 **delimiter**
 
 String to display between the previous unit and the next value.
