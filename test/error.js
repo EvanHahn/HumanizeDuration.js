@@ -3,7 +3,7 @@ const assert = require('assert')
 
 describe('error handling', () => {
   it('throws an error when passed a bad language in the function', () => {
-    function humanizingWith(options) {
+    function humanizingWith (options) {
       return () => {
         humanizeDuration(10000, options)
       }
@@ -21,7 +21,7 @@ describe('error handling', () => {
       language: 'bad language'
     })
 
-    function humanizing(options) {
+    function humanizing (options) {
       return () => {
         humanizer(10000, options)
       }
@@ -36,7 +36,7 @@ describe('error handling', () => {
   })
 
   it('does not throw an error when passed a bad language in the function and a valid fallback specified', () => {
-    function humanizingWith(options) {
+    function humanizingWith (options) {
       return () => {
         humanizeDuration(10000, options)
       }
