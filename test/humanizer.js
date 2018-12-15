@@ -231,14 +231,6 @@ describe('humanizer', () => {
 
     assert.strictEqual(h(10000, { language: 'es', fallbacks: ['en'] }), '10 segundos')
     assert.strictEqual(h(10000, { language: 'BAD', fallbacks: ['BAD', 'es'] }), '10 segundos')
-  })
-
-  it('should not resolve a language with an invalid configuration', function () {
-    const h = humanizer()
-
-    assert.strictEqual(h(10000, { language: 'es', fallbacks: 'en' }), '10 segundos')
-    // Default language is en
-    assert.strictEqual(h(10000, { fallbacks: ['es'] }), '10 seconds')
-    assert.strictEqual(h(10000, { fallbacks: [] }), '10 seconds')
+    assert.strictEqual(h(10000, { language: 'BAD', fallbacks: ['es', 'fr'] }), '10 segundos')
   })
 })

@@ -498,42 +498,31 @@
 
   // The main function is just a wrapper around a default humanizer.
   var humanizeDuration = humanizer({})
-
-  // Compare a collection of languages against the specified type (language, or fallback)
-  function hasLanguage (collection, userLanguages) {
-    var value, i
-    if (!Array.isArray(collection)) {
-      return
-    }
-    // Allow an override, useful for switching between options.languages and languages
-    for (i = 0; i < collection.length; i++) {
-      value = collection[i]
-      // Check if languages has the array value
-      if (languages.hasOwnProperty(value)) {
-        return languages[value]
-      } else if (userLanguages.hasOwnProperty(value)) {
-        return userLanguages[value]
+  
+  // Build dictionary from options
+  function getDictionary (options) {
+    var languagesFromOptions = [options.language]
+  
+    if (options.hasOwnProperty('fallbacks')) {
+      if (isArray(options.fallbacks) && options.fallbacks.length) {
+        languagesFromOptions = languagesFromOptions.concat(options.fallbacks)
+      } else {
+        throw new Error('fallbacks must be an array with at least one element')
       }
     }
+  
+    for (var i = 0; i < languagesFromOptions.length; i++) {
+      var languageToTry = languagesFromOptions[i]
+      if (options.languages.hasOwnProperty(languageToTry)) {
+        return options.languages[languageToTry]
+      } else if (languages.hasOwnProperty(languageToTry)) {
+        return languages[languageToTry]
+      }
+    }
+  
+    throw new Error('No language found.')
   }
-  // Get the dictionary from the supplied language and possible fallback(s)
-  function getDictionary (options) {
-    var dictionary
-    if (options.languages.hasOwnProperty(options.language)) {
-      dictionary = options.languages[options.language]
-    } else if (languages.hasOwnProperty(options.language)) {
-      dictionary = languages[options.language]
-    }
-    // Attempt to get a fallback
-    if (!dictionary) {
-      dictionary = hasLanguage(options.fallbacks, options.languages)
-    }
-
-    if (!dictionary) {
-      throw new Error('No language ' + dictionary + '.')
-    }
-    return dictionary
-  }
+  
   // doHumanization does the bulk of the work.
   function doHumanization (ms, options) {
     var i, len, piece
@@ -708,6 +697,12 @@
     if (c <= 2) { return 0 }
     if (c > 2 && c < 11) { return 1 }
     return 0
+  }
+
+  // We need to make sure we support browsers that don't have
+  // `Array.isArray`, so we define a fallback here.
+  var isArray = Array.isArray || function (arg) {
+    return Object.prototype.toString.call(arg) === '[object Array]'
   }
 
   humanizeDuration.getSupportedLanguages = function getSupportedLanguages () {
