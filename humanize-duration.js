@@ -499,6 +499,41 @@
   // The main function is just a wrapper around a default humanizer.
   var humanizeDuration = humanizer({})
 
+  // Compare a collection of languages against the specified type (language, or fallback)
+  function hasLanguage (collection, userLanguages) {
+    var value, i
+    if (!Array.isArray(collection)) {
+      return
+    }
+    // Allow an override, useful for switching between options.languages and languages
+    for (i = 0; i < collection.length; i++) {
+      value = collection[i]
+      // Check if languages has the array value
+      if (languages.hasOwnProperty(value)) {
+        return languages[value]
+      } else if (userLanguages.hasOwnProperty(value)) {
+        return userLanguages[value]
+      }
+    }
+  }
+  // Get the dictionary from the supplied language and possible fallback(s)
+  function getDictionary (options) {
+    var dictionary
+    if (options.languages.hasOwnProperty(options.language)) {
+      dictionary = options.languages[options.language]
+    } else if (languages.hasOwnProperty(options.language)) {
+      dictionary = languages[options.language]
+    }
+    // Attempt to get a fallback
+    if (!dictionary) {
+      dictionary = hasLanguage(options.fallbacks, options.languages)
+    }
+
+    if (!dictionary) {
+      throw new Error('No language ' + dictionary + '.')
+    }
+    return dictionary
+  }
   // doHumanization does the bulk of the work.
   function doHumanization (ms, options) {
     var i, len, piece
@@ -507,11 +542,7 @@
     // Has the nice sideffect of turning Number objects into primitives.
     ms = Math.abs(ms)
 
-    var dictionary = options.languages[options.language] || languages[options.language] || languages[options.fallback]
-    if (!dictionary) {
-      throw new Error('No language ' + dictionary + '.')
-    }
-
+    var dictionary = getDictionary(options)
     var pieces = []
 
     // Start at the top and keep removing units, bit by bit.

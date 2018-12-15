@@ -33,6 +33,7 @@ describe('error handling', () => {
     assert.throws(humanizing({ language: '' }), Error)
     assert.throws(humanizing({ language: null }), Error)
     assert.doesNotThrow(humanizing({ language: 'es' }), Error)
+    assert.throws(humanizing({ language: ['es', 'en'] }), Error)
   })
 
   it('does not throw an error when passed a bad language in the function and a valid fallback specified', () => {
@@ -42,6 +43,7 @@ describe('error handling', () => {
       }
     }
 
-    assert.doesNotThrow(humanizingWith({ language: 'EN', fallback: 'en' }), Error)
+    assert.doesNotThrow(humanizingWith({ language: 'BAD', fallbacks: ['en'] }), Error)
+    assert.doesNotThrow(humanizingWith({ language: 'BAD', fallbacks: ['BAD', 'en'] }), Error)
   })
 })
