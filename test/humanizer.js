@@ -225,4 +225,12 @@ describe('humanizer', () => {
     assert.equal(h(15600000), '4 h, 20 m')
     assert.equal(h(1000, { language: 'es' }), '1 segundo')
   })
+
+  it('accepts fallback languages', () => {
+    const h = humanizer()
+
+    assert.strictEqual(h(10000, { language: 'es', fallbacks: ['en'] }), '10 segundos')
+    assert.strictEqual(h(10000, { language: 'BAD', fallbacks: ['BAD', 'es'] }), '10 segundos')
+    assert.strictEqual(h(10000, { language: 'BAD', fallbacks: ['es', 'fr'] }), '10 segundos')
+  })
 })
