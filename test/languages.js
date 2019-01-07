@@ -42,7 +42,7 @@ describe('localized humanization', () => {
       it('humanizes with arguments', function () {
         this.pairs.forEach(pair => {
           const result = humanizeDuration(pair[0], options(language))
-          assert.equal(result, pair[1])
+          assert.strictEqual(result, pair[1])
         })
       })
 
@@ -51,7 +51,7 @@ describe('localized humanization', () => {
 
         this.pairs.forEach(pair => {
           const result = h(pair[0])
-          assert.equal(result, pair[1])
+          assert.strictEqual(result, pair[1])
         })
       })
     })

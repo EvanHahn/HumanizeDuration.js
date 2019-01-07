@@ -1,4 +1,4 @@
-const {getSupportedLanguages} = require('..')
+const { getSupportedLanguages } = require('..')
 const assert = require('assert')
 const fs = require('fs')
 const path = require('path')
@@ -14,13 +14,13 @@ describe('getSupportedLanguages', () => {
         .filter(file => path.extname(file) === '.csv')
         .map(file => path.basename(file, '.csv'))
 
-      assert.deepEqual(languages.sort(), getSupportedLanguages().sort())
+      assert.deepStrictEqual(languages.sort(), getSupportedLanguages().sort())
 
       done()
     })
   })
 
   it('returns a different array each time', function () {
-    assert.notEqual(getSupportedLanguages(), getSupportedLanguages())
+    assert.notStrictEqual(getSupportedLanguages(), getSupportedLanguages())
   })
 })

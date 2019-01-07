@@ -4,7 +4,7 @@ const assert = require('assert')
 
 describe('package.json', () => {
   it('has `bugs`', () => {
-    assert.equal(typeof pkg.bugs, 'string')
+    assert.strictEqual(typeof pkg.bugs, 'string')
   })
 })
 
@@ -20,13 +20,13 @@ describe('package.json and bower.json', () => {
     'homepage'
   ].forEach(key => {
     it('have the same ' + key, () => {
-      assert.deepEqual(pkg[key], bower[key])
+      assert.deepStrictEqual(pkg[key], bower[key])
     })
   })
 
   it('have the same authors', () => {
     const pkgAuthors = [pkg.author].concat(pkg.contributors)
-    assert.deepEqual(pkgAuthors, bower.authors)
+    assert.deepStrictEqual(pkgAuthors, bower.authors)
   })
 
   it('are public', () => {
