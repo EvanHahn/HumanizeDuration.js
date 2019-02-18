@@ -53,6 +53,15 @@ humanizeDuration(3000, { language: 'es' })  // '3 segundos'
 humanizeDuration(5000, { language: 'ko' })  // '5 초'
 ```
 
+**fallbacks**
+
+Fallback languages if the provided language cannot be found (accepts an [ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) from one of the [supported languages](#supported-languages)). It works from left to right.
+
+```js
+humanizeDuration(3000, { language: 'bad language', fallbacks: ['en'] })  // '3 seconds'
+humanizeDuration(3000, { language: 'bad language', fallbacks: ['bad language', 'es'] })  // '3 segundos'
+```
+
 **delimiter**
 
 String to display between the previous unit and the next value.
@@ -226,7 +235,7 @@ Humanize Duration supports the following languages:
 | Finnish              | `fi`    |
 | French               | `fr`    |
 | German               | `de`    |
-| Greek                | `gr`    |
+| Greek                | `el`    |
 | Hungarian            | `hu`    |
 | Icelandic            | `is`    |
 | Indonesian           | `id`    |
@@ -239,11 +248,13 @@ Humanize Duration supports the following languages:
 | Norwegian            | `no`    |
 | Polish               | `pl`    |
 | Portuguese           | `pt`    |
+| Romanian             | `ro`    |
 | Russian              | `ru`    |
 | Slovak               | `sk`    |
 | Spanish              | `es`    |
 | Swedish              | `sv`    |
 | Turkish              | `tr`    |
+| Thai                 | `th`    |
 | Ukrainian            | `uk`    |
 | Urdu                 | `ur`    |
 | Vietnamese           | `vi`    |
@@ -283,6 +294,7 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Caner Elci](https://github.com/canerelci) for Bulgarian support
 * [Matej Kolesár](https://github.com/rasel-sk) for Slovak support
 * [Abdul Jalil](https://github.com/abduljalilm94) for Urdu support
+* [Wasuwat Limsuparhat](https://github.com/rappad) for Thai support
 * Malikoun for Lao support
 
 Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!

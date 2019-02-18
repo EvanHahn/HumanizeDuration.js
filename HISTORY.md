@@ -1,3 +1,29 @@
+3.17.0 / 2019-01-06
+===================
+
+* new: `fallback` option
+
+3.16.0 / 2018-12-01
+===================
+
+* new: Romanian support
+* new: Thai support
+
+3.15.3 / 2018-09-18
+===================
+
+* fix: Greek should be `el`, not `gr`
+
+3.15.2 / 2018-09-12
+===================
+
+* fix: corrections for Arabic
+
+3.15.1 / 2018-07-15
+===================
+
+* fix: corrections for Croatian
+
 3.15.0 / 2018-06-12
 ===================
 
