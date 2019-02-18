@@ -135,8 +135,10 @@ Number that defines a maximal decimal points for float values.
 
 ```js
 humanizeDuration(8123.456789) // 8.12 seconds
-humanizeDuration(8123.456789, {maxDecimalPoints: 3}) // 8.123 seconds
-humanizeDuration(8123.456789, {maxDecimalPoints: 6}) // 8.123456 seconds
+humanizeDuration(8123.456789, { maxDecimalPoints: 3 }) // 8.123 seconds
+humanizeDuration(8123.456789, { maxDecimalPoints: 6 }) // 8.123456 seconds
+humanizeDuration(8123.45, { maxDecimalPoints: 6 }) // 8.12345 seconds
+humanizeDuration(8000, { maxDecimalPoints: 6 }) // 8 seconds
 ```
 
 **unitMeasures**

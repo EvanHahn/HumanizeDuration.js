@@ -542,7 +542,7 @@
 
       // What's the number of full units we can fit?
       if (i + 1 === len) {
-        if (options.maxDecimalPoints) {
+        if (options.hasOwnProperty('maxDecimalPoints')) {
           // We need to use this expValue to avoid rounding functionality of toFixed call
           var expValue = Math.pow(10, options.maxDecimalPoints)
           var unitCountFloat = (ms / unitMS)
