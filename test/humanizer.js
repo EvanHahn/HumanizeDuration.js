@@ -127,23 +127,23 @@ describe('humanizer', () => {
   it('can do rounding with the "maxDecimalPoint" option', function () {
     var h = humanizer({ maxDecimalPoints: 2 })
 
-    assert.equal(h(8123.456789), '8.12 seconds')
+    assert.strictEqual(h(8123.456789), '8.12 seconds')
     h.maxDecimalPoints = 3
-    assert.equal(h(8123.456789), '8.123 seconds')
-    assert.equal(h(8000), '8 seconds')
+    assert.strictEqual(h(8123.456789), '8.123 seconds')
+    assert.strictEqual(h(8000), '8 seconds')
 
     h.maxDecimalPoints = 6
-    assert.equal(h(8123.45), '8.12345 seconds')
+    assert.strictEqual(h(8123.45), '8.12345 seconds')
 
     h.maxDecimalPoints = 6
-    assert.equal(h(8000), '8 seconds')
+    assert.strictEqual(h(8000), '8 seconds')
 
     h.maxDecimalPoints = 0
-    assert.equal(h(7123.456), '7 seconds')
+    assert.strictEqual(h(7123.456), '7 seconds')
     h.maxDecimalPoints = 2
-    assert.equal(h(7999), '7.99 seconds')
+    assert.strictEqual(h(7999), '7.99 seconds')
     h.maxDecimalPoints = 3
-    assert.equal(h(7999), '7.999 seconds')
+    assert.strictEqual(h(7999), '7.999 seconds')
   })
 
   it('can ask for the largest units', function () {
