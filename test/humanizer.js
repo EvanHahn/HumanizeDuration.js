@@ -124,7 +124,7 @@ describe('humanizer', () => {
     assert.strictEqual(h(2838550, { largest: 3 }), '47 minutes, 19 seconds')
   })
 
-  it('can do rounding with the "maxDecimalPoints" option', function () {
+  it('can do rounding with the "maxDecimalPoints" option', () => {
     var h = humanizer({ maxDecimalPoints: 2 })
 
     assert.strictEqual(h(8123.456789), '8.12 seconds')
