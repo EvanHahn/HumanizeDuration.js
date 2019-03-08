@@ -26,7 +26,7 @@
     "Alex Sam (https://github.com/sam-lex)",
     "Wasuwat Limsuparhat (https://github.com/rappad)"
   ],
-  "version": "3.17.0",
+  "version": "3.18.0",
   "description": "Convert millisecond durations to English and many other languages.",
   "main": "humanize-duration.js",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
