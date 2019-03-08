@@ -124,7 +124,29 @@ describe('humanizer', () => {
     assert.strictEqual(h(2838550, { largest: 3 }), '47 minutes, 19 seconds')
   })
 
-  it('can ask for the largest units', () => {
+  it('can do rounding with the "maxDecimalPoints" option', () => {
+    var h = humanizer({ maxDecimalPoints: 2 })
+
+    assert.strictEqual(h(8123.456789), '8.12 seconds')
+    h.maxDecimalPoints = 3
+    assert.strictEqual(h(8123.456789), '8.123 seconds')
+    assert.strictEqual(h(8000), '8 seconds')
+
+    h.maxDecimalPoints = 6
+    assert.strictEqual(h(8123.45), '8.12345 seconds')
+
+    h.maxDecimalPoints = 6
+    assert.strictEqual(h(8000), '8 seconds')
+
+    h.maxDecimalPoints = 0
+    assert.strictEqual(h(7123.456), '7 seconds')
+    h.maxDecimalPoints = 2
+    assert.strictEqual(h(7999), '7.99 seconds')
+    h.maxDecimalPoints = 3
+    assert.strictEqual(h(7999), '7.999 seconds')
+  })
+
+  it('can ask for the largest units', function () {
     const h = humanizer({ largest: 2 })
 
     assert.strictEqual(h(0), '0 seconds')
