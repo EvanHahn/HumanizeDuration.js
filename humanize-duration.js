@@ -109,6 +109,17 @@
       ms: function (c) { return 'milisegundo' + (c === 1 ? '' : 's') },
       decimal: ','
     },
+    et: {
+      y: function (c) { return 'aasta' + (c === 1 ? '' : 't') },
+      mo: function (c) { return 'kuu' + (c === 1 ? '' : 'd') },
+      w: function (c) { return 'nädal' + (c === 1 ? '' : 'at') },
+      d: function (c) { return 'päev' + (c === 1 ? '' : 'a') },
+      h: function (c) { return 'tund' + (c === 1 ? '' : 'i') },
+      m: function (c) { return 'minut' + (c === 1 ? '' : 'it') },
+      s: function (c) { return 'sekund' + (c === 1 ? '' : 'it') },
+      ms: function (c) { return 'millisekund' + (c === 1 ? '' : 'it') },
+      decimal: ','
+    },
     fa: {
       y: 'سال',
       mo: 'ماه',
