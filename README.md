@@ -233,6 +233,7 @@ Humanize Duration supports the following languages:
 | Danish               | `da`    |
 | Dutch                | `nl`    |
 | English              | `en`    |
+| Estonian             | `et`    |
 | Farsi/Persian        | `fa`    |
 | Finnish              | `fi`    |
 | French               | `fr`    |
@@ -298,6 +299,7 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * [Abdul Jalil](https://github.com/abduljalilm94) for Urdu support
 * [Wasuwat Limsuparhat](https://github.com/rappad) for Thai support
 * Malikoun for Lao support
+* [Villu Orav](https://github.com/villu164) for Estonian support
 
 Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 
