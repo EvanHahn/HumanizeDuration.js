@@ -58,6 +58,13 @@
   },
   "bugs": "https://github.com/EvanHahn/HumanizeDuration.js/issues",
   "license": "Unlicense",
+  "files": [
+    "/README.md",
+    "/LICENSE.txt",
+    "/CONTRIBUTING.md",
+    "/HISTORY.md",
+    "/humanize-duration.js"
+  ],
   "standard": {
     "globals": [
       "define",
