@@ -55,17 +55,17 @@
 1512000000$2 weeks+3 days+12 hours
 1814400000$3 weeks
 1314900000$2 weeks+1 day+5 hours+15 minutes
-2629800000$1 month
-3944700000$1 month+2 weeks+1 day+5 hours+15 minutes
-5259600000$2 months
-6574500000$2 months+2 weeks+1 day+5 hours+15 minutes
-7889400000$3 months
-15778800000$6 months
-31557600000$1 year
-47336400000$1 year+6 months
-63115200000$2 years
-78894000000$2 years+6 months
-94672800000$3 years
+2629746000$1 month
+3944646000$1 month+2 weeks+1 day+5 hours+15 minutes
+5259492000$2 months
+6574392000$2 months+2 weeks+1 day+5 hours+15 minutes
+7889238000$3 months
+15778476000$6 months
+31556952000$1 year
+47335428000$1 year+6 months
+63113904000$2 years
+78892380000$2 years+6 months
+94670856000$3 years
 -420$420 milliseconds
 0.12$0.12 milliseconds
 1.5$1.5 milliseconds

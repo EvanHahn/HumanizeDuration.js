@@ -111,16 +111,16 @@ describe('humanizer', () => {
 
     assert.strictEqual(h(86364000, { units: ['y', 'mo', 'w', 'd', 'h'] }), '1 day')
     assert.strictEqual(h(1209564000, { units: ['y', 'mo', 'w', 'd', 'h'] }), '2 weeks')
-    assert.strictEqual(h(3692131200000, { units: ['y', 'mo'] }), '117 years')
-    assert.strictEqual(h(3692131200001, { units: ['y', 'mo', 'w', 'd', 'h', 'm'] }), '116 years, 11 months, 4 weeks, 1 day, 4 hours, 30 minutes')
+    assert.strictEqual(h(3692055438000, { units: ['y', 'mo'] }), '117 years')
+    assert.strictEqual(h(3692055438001, { units: ['y', 'mo', 'w', 'd', 'h', 'm'] }), '116 years, 11 months, 4 weeks, 1 day, 4 hours, 30 minutes')
   })
 
   it('can do rounding with the "largest" option', () => {
     const h = humanizer({ round: true })
 
-    assert.strictEqual(h(3692131200000, { largest: 1 }), '117 years')
-    assert.strictEqual(h(3692131200000, { largest: 2 }), '117 years')
-    assert.strictEqual(h(3692131200001, { largest: 100 }), '116 years, 11 months, 4 weeks, 1 day, 4 hours, 30 minutes')
+    assert.strictEqual(h(3692055438000, { largest: 1 }), '117 years')
+    assert.strictEqual(h(3692055438000, { largest: 2 }), '117 years')
+    assert.strictEqual(h(3692055438001, { largest: 100 }), '116 years, 11 months, 4 weeks, 1 day, 4 hours, 30 minutes')
     assert.strictEqual(h(2838550, { largest: 3 }), '47 minutes, 19 seconds')
   })
 
