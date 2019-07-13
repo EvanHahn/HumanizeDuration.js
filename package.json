@@ -39,7 +39,7 @@
     "csv-parse": "^4.4.3",
     "mocha": "^6.1.4",
     "ms": "^2.1.2",
-    "standard": "^12.0.1"
+    "standard": "^13.0.2"
   },
   "keywords": [
     "humanize",

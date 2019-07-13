@@ -514,7 +514,7 @@
   function getDictionary (options) {
     var languagesFromOptions = [options.language]
 
-    if (options.hasOwnProperty('fallbacks')) {
+    if (has(options, 'fallbacks')) {
       if (isArray(options.fallbacks) && options.fallbacks.length) {
         languagesFromOptions = languagesFromOptions.concat(options.fallbacks)
       } else {
@@ -524,9 +524,9 @@
 
     for (var i = 0; i < languagesFromOptions.length; i++) {
       var languageToTry = languagesFromOptions[i]
-      if (options.languages.hasOwnProperty(languageToTry)) {
+      if (has(options.languages, languageToTry)) {
         return options.languages[languageToTry]
-      } else if (languages.hasOwnProperty(languageToTry)) {
+      } else if (has(languages, languageToTry)) {
         return languages[languageToTry]
       }
     }
@@ -553,7 +553,7 @@
 
       // What's the number of full units we can fit?
       if (i + 1 === len) {
-        if (options.hasOwnProperty('maxDecimalPoints')) {
+        if (has(options, 'maxDecimalPoints')) {
           // We need to use this expValue to avoid rounding functionality of toFixed call
           var expValue = Math.pow(10, options.maxDecimalPoints)
           var unitCountFloat = (ms / unitMS)
@@ -650,7 +650,7 @@
     for (var i = 1; i < arguments.length; i++) {
       source = arguments[i]
       for (var prop in source) {
-        if (source.hasOwnProperty(prop)) {
+        if (has(source, prop)) {
           destination[prop] = source[prop]
         }
       }
@@ -723,10 +723,14 @@
     return Object.prototype.toString.call(arg) === '[object Array]'
   }
 
+  function has (obj, key) {
+    return Object.prototype.hasOwnProperty.call(obj, key)
+  }
+
   humanizeDuration.getSupportedLanguages = function getSupportedLanguages () {
     var result = []
     for (var language in languages) {
-      if (languages.hasOwnProperty(language) && language !== 'gr') {
+      if (has(languages, language) && language !== 'gr') {
         result.push(language)
       }
     }
