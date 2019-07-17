@@ -27,7 +27,7 @@
     "Wasuwat Limsuparhat (https://github.com/rappad)",
     "Harijs Deksnis (https://github.com/arcanous)"
   ],
-  "version": "3.19.0",
+  "version": "3.20.0",
   "description": "Convert millisecond durations to English and many other languages.",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
   "main": "humanize-duration.js",
