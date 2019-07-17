@@ -1,6 +1,7 @@
 unreleased
 ==========
 
+* new: Latvian support
 * fix: better handle properties that happen to also be on `Object.prototype`
 
 3.19.0 / 2019-07-08
