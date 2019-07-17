@@ -299,6 +299,17 @@
       ms: function (c) { return ['milisekundė', 'milisekundės', 'milisekundžių'][getLithuanianForm(c)] },
       decimal: ','
     },
+    lv: {
+      y: function (c) { return ['gads', 'gadi'][getLatvianForm(c)] },
+      mo: function (c) { return ['mēnesis', 'mēneši'][getLatvianForm(c)] },
+      w: function (c) { return ['nedēļa', 'nedēļas'][getLatvianForm(c)] },
+      d: function (c) { return ['diena', 'dienas'][getLatvianForm(c)] },
+      h: function (c) { return ['stunda', 'stundas'][getLatvianForm(c)] },
+      m: function (c) { return ['minūte', 'minūtes'][getLatvianForm(c)] },
+      s: function (c) { return ['sekunde', 'sekundes'][getLatvianForm(c)] },
+      ms: function (c) { return ['milisekunde', 'milisekundes'][getLatvianForm(c)] },
+      decimal: ','
+    },
     ms: {
       y: 'tahun',
       mo: 'bulan',
@@ -707,6 +718,15 @@
       return 1
     } else {
       return 2
+    }
+  }
+
+  // Internal helper function for Latvian language.
+  function getLatvianForm (c) {
+    if (c === 1 || (c % 10 === 1 && c % 100 !== 11)) {
+      return 0
+    } else {
+      return 1
     }
   }
 
