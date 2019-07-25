@@ -13,6 +13,13 @@ Basic usage
 
 This package is available as *humanize-duration* on [npm](https://www.npmjs.com/package/humanize-duration) and Bower. You can also include the JavaScript file in the browser.
 
+With `ES Modules`:
+
+```js
+import * as humanizeDuration from 'humanize-duration';
+humanizeDuration(12000) // '12 seconds'
+```
+
 With `require` (like in Node or with common build systems):
 
 ```js
