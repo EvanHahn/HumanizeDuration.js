@@ -238,7 +238,8 @@ describe('humanizer', () => {
           h: () => 'h',
           m: () => 'm',
           s: () => 's',
-          ms: () => 'ms'
+          ms: () => 'ms',
+          decimal: '!'
         }
       }
     })
@@ -246,6 +247,27 @@ describe('humanizer', () => {
     assert.strictEqual(h(1000), '1 s')
     assert.strictEqual(h(15600000), '4 h, 20 m')
     assert.strictEqual(h(1000, { language: 'es' }), '1 segundo')
+    assert.strictEqual(h(71750), '1 m, 11!75 s')
+  })
+
+  it('uses "." as a fallback for a missing decimal', () => {
+    const h = humanizer({
+      languages: {
+        en: {
+          y: () => 'y',
+          mo: () => 'mo',
+          w: () => 'w',
+          d: () => 'd',
+          h: () => 'h',
+          m: () => 'm',
+          s: () => 's',
+          ms: () => 'ms'
+        }
+      }
+    })
+
+    assert.strictEqual(h(71750), '1 m, 11.75 s')
+    assert.strictEqual(h(71750, { decimal: '!' }), '1 m, 11!75 s')
   })
 
   it('accepts fallback languages', () => {

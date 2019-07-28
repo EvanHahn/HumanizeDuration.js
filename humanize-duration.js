@@ -637,10 +637,12 @@
 
   function render (count, type, dictionary, options) {
     var decimal
-    if (options.decimal === void 0) {
+    if (has(options, 'decimal')) {
+      decimal = options.decimal
+    } else if (has(dictionary, 'decimal')) {
       decimal = dictionary.decimal
     } else {
-      decimal = options.decimal
+      decimal = '.'
     }
 
     var countStr = count.toString().replace('.', decimal)
