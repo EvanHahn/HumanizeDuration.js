@@ -1,3 +1,8 @@
+3.20.1 / 2019-07-28
+===================
+
+* fix: if `decimal` is missing in a language, use `.` (see [#160](https://github.com/EvanHahn/HumanizeDuration.js/issues/160))
+
 3.20.0 / 2019-07-17
 ===================
 
