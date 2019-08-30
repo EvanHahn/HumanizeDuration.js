@@ -208,7 +208,7 @@ describe('humanizer', () => {
 
     assert.strictEqual(h(1000), '1 second')
 
-    h.languages['en'] = {
+    h.languages.en = {
       y: () => 'y',
       mo: () => 'mo',
       w: () => 'w',
