@@ -236,6 +236,7 @@ Humanize Duration supports the following languages:
 | Estonian             | `et`    |
 | Farsi/Persian        | `fa`    |
 | Finnish              | `fi`    |
+| Faroese              | `fo`    |
 | French               | `fr`    |
 | German               | `de`    |
 | Greek                | `el`    |
@@ -302,6 +303,7 @@ Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
 * Malikoun for Lao support
 * [Villu Orav](https://github.com/villu164) for Estonian support
 * [Harijs Deksnis](https://github.com/arcanous) for Latvian support
+* [Nirmala Thapa(Subit)](https://github.com/nirmalathapa) for Faroese support
 
 Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 
