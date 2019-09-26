@@ -1,4 +1,4 @@
-Unreleased
+3.21.0 / 2019-09-26
 ===================
 
 * new: Færøsk support
