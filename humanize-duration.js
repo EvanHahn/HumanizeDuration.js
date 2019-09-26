@@ -142,6 +142,17 @@
       ms: function (c) { return 'millisekunti' + (c === 1 ? '' : 'a') },
       decimal: ','
     },
+    fo: {
+      y: 'ár',
+      mo: function (c) { return c === 1 ? 'mánaður' : 'mánaðir' },
+      w: function (c) { return c === 1 ? 'vika' : 'vikur' },
+      d: function (c) { return c === 1 ? 'dagur' : 'dagar' },
+      h: function (c) { return c === 1 ? 'tími' : 'tímar' },
+      m: function (c) { return c === 1 ? 'minuttur' : 'minuttir' },
+      s: 'sekund',
+      ms: 'millisekund',
+      decimal: ','
+    },
     fr: {
       y: function (c) { return 'an' + (c >= 2 ? 's' : '') },
       mo: 'mois',
