@@ -13,14 +13,8 @@ I have the time in milliseconds and I want it to become "30 minutes" or "3 days,
 
 This package is available as *humanize-duration* on [npm](https://www.npmjs.com/package/humanize-duration) and Bower. You can also include the JavaScript file in the browser.
 
-```bash
+```sh
 npm install humanize-duration
-```
-
-Or using `yarn`
-
-```bash
-yarn add humanize-duration
 ```
 
 Basic usage
