@@ -247,6 +247,7 @@ Humanize Duration supports the following languages:
 | French               | `fr`    |
 | German               | `de`    |
 | Greek                | `el`    |
+| Hebrew               | `he`    |
 | Hungarian            | `hu`    |
 | Icelandic            | `is`    |
 | Indonesian           | `id`    |
@@ -322,4 +323,3 @@ Related modules
 * [millisec](https://github.com/sungwoncho/millisec)
 * [HumanizeDuration.ts](https://github.com/Nightapes/HumanizeDuration.ts), a TypeScript version of this module
 * [aurelia-time](https://github.com/shahabganji/aurelia-time)
-
