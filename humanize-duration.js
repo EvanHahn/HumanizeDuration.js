@@ -165,6 +165,17 @@
       decimal: ','
     },
     gr: greek,
+    he: {
+      y: function (c) { return c === 1 ? 'שנה' : 'שנים' },
+      mo: function (c) { return c === 1 ? 'חודש' : 'חודשים' },
+      w: function (c) { return c === 1 ? 'שבוע' : 'שבועות' },
+      d: function (c) { return c === 1 ? 'יום' : 'ימים' },
+      h: function (c) { return c === 1 ? 'שעה' : 'שעות' },
+      m: function (c) { return c === 1 ? 'דקה' : 'דקות' },
+      s: function (c) { return c === 1 ? 'שניה' : 'שניות' },
+      ms: function (c) { return c === 1 ? 'מילישנייה' : 'מילישניות' },
+      decimal: '.'
+    },
     hr: {
       y: function (c) {
         if (c % 10 === 2 || c % 10 === 3 || c % 10 === 4) {
