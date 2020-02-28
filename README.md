@@ -9,7 +9,8 @@ I have the time in milliseconds and I want it to become "30 minutes" or "3 days,
 **This library is actively maintained but no new features will be added.**
 
 Installation
------------
+------------
+
 This package is available as *humanize-duration* on [npm](https://www.npmjs.com/package/humanize-duration) and Bower. You can also include the JavaScript file in the browser.
 
 ```sh
@@ -18,7 +19,6 @@ npm install humanize-duration
 
 Basic usage
 -----------
-
 
 With `require` (like in Node or with common build systems):
 
