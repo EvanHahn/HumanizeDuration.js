@@ -600,8 +600,8 @@
 
       // Add the string.
       pieces.push({
-        unitCount: unitCount,
-        unitName: unitName
+        unitCount,
+        unitName
       })
 
       // Remove what we just figured out.
