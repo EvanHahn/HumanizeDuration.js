@@ -106,6 +106,16 @@ describe('humanizer', () => {
     assert.strictEqual(h(121500), '2 minutes, 2 seconds')
   })
 
+  it('can handle rounding with the "largest" option without truncating the largest units', () => {
+    const h = humanizer({ round: true })
+    assert.strictEqual(h(739160000, { largest: 2 }), '1 week, 2 days')
+    assert.strictEqual(h(739160000, { largest: 2 }), '1 week, 2 days')
+    assert.strictEqual(h(7199000, { largest: 2 }), '2 hours')
+    assert.strictEqual(h(7199000, { largest: 3 }), '1 hour, 59 minutes, 59 seconds')
+    assert.strictEqual(h(7201000, { largest: 2 }), '2 hours')
+    assert.strictEqual(h(7201000, { largest: 3 }), '2 hours, 1 second')
+  })
+
   it('can do rounding with the "units" option', () => {
     const h = humanizer({ round: true })
 
@@ -144,6 +154,36 @@ describe('humanizer', () => {
     assert.strictEqual(h(7999), '7.99 seconds')
     h.maxDecimalPoints = 3
     assert.strictEqual(h(7999), '7.999 seconds')
+  })
+
+  it('can return floating point result with the "maxDecimalPoint" and the "largest" options', () => {
+    const h = humanizer({ round: false })
+
+    h.maxDecimalPoints = 1
+    assert.strictEqual(h(8123.456789, { largest: 1 }), '8.1 seconds')
+    assert.strictEqual(h(80000, { largest: 1 }), '1.3 minutes')
+    assert.strictEqual(h(450000, { largest: 1 }), '7.5 minutes')
+    assert.strictEqual(h(540360012, { largest: 2 }), '6 days, 6.1 hours')
+
+    h.maxDecimalPoints = 2
+    assert.strictEqual(h(8123.456789, { largest: 1 }), '8.12 seconds')
+    assert.strictEqual(h(80000, { largest: 1 }), '1.33 minutes')
+    assert.strictEqual(h(450000, { largest: 1 }), '7.5 minutes')
+    assert.strictEqual(h(540360012, { largest: 2 }), '6 days, 6.1 hours')
+
+    assert.strictEqual(h(3692131200001, { largest: 6 }), '116 years, 11 months, 4 weeks, 1 day, 4 hours, 30 minutes')
+
+    h.maxDecimalPoints = 7
+    assert.strictEqual(h(3692131200001, { largest: 6 }), '116 years, 11 months, 4 weeks, 1 day, 4 hours, 30.0000166 minutes')
+  })
+
+  it('can return floating point result with the "maxDecimalPoint", "largest" and "units" options', () => {
+    const h = humanizer({ round: false, units: ['h', 'm'] })
+
+    h.maxDecimalPoints = 1
+    assert.strictEqual(h(5400000, { largest: 1 }), '1.5 hours')
+    assert.strictEqual(h(5400001, { largest: 1 }), '1.5 hours')
+    assert.strictEqual(h(5400001, { largest: 2 }), '1 hour, 30 minutes')
   })
 
   it('can ask for the largest units', function () {

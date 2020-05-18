@@ -588,9 +588,7 @@
       if (i + 1 === len) {
         if (has(options, 'maxDecimalPoints')) {
           // We need to use this expValue to avoid rounding functionality of toFixed call
-          var expValue = Math.pow(10, options.maxDecimalPoints)
-          var unitCountFloat = (ms / unitMS)
-          unitCount = parseFloat((Math.floor(expValue * unitCountFloat) / expValue).toFixed(options.maxDecimalPoints))
+          unitCount = toFixed((ms / unitMS), options.maxDecimalPoints)
         } else {
           unitCount = ms / unitMS
         }
@@ -637,6 +635,24 @@
     var result = []
     for (i = 0, pieces.length; i < len; i++) {
       piece = pieces[i]
+
+      // If the result is not rounded, and `largest` option has been set, aggregate the rest and apply the
+      // `maxDecimalPoints` to truncate the decimals
+      if (piece.unitCount && !options.round && options.largest && result.length === options.largest - 1) {
+        var j
+        var remainder = 0
+        for (j = i + 1, pieces.length; j < len; j++) {
+          var remainderPiece = pieces[j]
+          ratioToLargerUnit = options.unitMeasures[remainderPiece.unitName] / options.unitMeasures[piece.unitName]
+          remainder += remainderPiece.unitCount * ratioToLargerUnit
+        }
+        piece.unitCount += remainder
+
+        if (has(options, 'maxDecimalPoints')) {
+          piece.unitCount = toFixed(piece.unitCount, options.maxDecimalPoints)
+        }
+      }
+
       if (piece.unitCount) {
         result.push(render(piece.unitCount, piece.unitName, dictionary, options))
       }
@@ -691,6 +707,11 @@
       }
     }
     return destination
+  }
+
+  function toFixed (num, fixed) {
+    var re = new RegExp('^-?\\d+(?:.\\d{0,' + (fixed || -1) + '})?')
+    return parseFloat(num.toString().match(re)[0], 10)
   }
 
   // Internal helper function for Polish language.
