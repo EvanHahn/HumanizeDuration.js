@@ -39,10 +39,10 @@
   },
   "devDependencies": {
     "check-ecmascript-version-compatibility": "^0.1.1",
-    "csv-parse": "^4.4.6",
-    "mocha": "^6.2.0",
+    "csv-parse": "^4.10.1",
+    "mocha": "^7.1.2",
     "ms": "^2.1.2",
-    "standard": "^14.3.1"
+    "standard": "^14.3.4"
   },
   "keywords": [
     "humanize",
