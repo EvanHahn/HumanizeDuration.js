@@ -452,6 +452,17 @@
       s: function (c) { return 'sekund' + (c === 1 ? '' : 'er') },
       ms: function (c) { return 'millisekund' + (c === 1 ? '' : 'er') },
       decimal: ','
+    },	
+    sw: {
+      y:  function (c) { return c === 1 ? 'mwaka' : 'miaka' },
+      mo: function (c) { return c === 1 ? 'mwezi' : 'miezi' },
+      w:  'wiki',
+      d:  function (c) { return c === 1 ? 'siku' : 'masiku' },
+      h:  function (c) { return c === 1 ? 'saa'  : 'masaa'  },
+      m:  'dakika',
+      s:  'sekunde',
+      ms: 'milisekunde',
+      decimal: '.'
     },
     tr: {
       y: 'yıl',
