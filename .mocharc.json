@@ -1,0 +1,7 @@
+{
+  "checkLeaks": true,
+  "exit": true,
+  "throwDeprecation": true,
+  "forbidOnly": true,
+  "forbidPending": true
+}
