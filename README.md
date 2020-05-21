@@ -241,9 +241,9 @@ Humanize Duration supports the following languages:
 | Dutch                | `nl`    |
 | English              | `en`    |
 | Estonian             | `et`    |
+| Faroese              | `fo`    |
 | Farsi/Persian        | `fa`    |
 | Finnish              | `fi`    |
-| Faroese              | `fo`    |
 | French               | `fr`    |
 | German               | `de`    |
 | Greek                | `el`    |
@@ -255,8 +255,8 @@ Humanize Duration supports the following languages:
 | Japanese             | `ja`    |
 | Korean               | `ko`    |
 | Lao                  | `lo`    |
-| Lithuanian           | `lt`    |
 | Latvian              | `lv`    |
+| Lithuanian           | `lt`    |
 | Malay                | `ms`    |
 | Norwegian            | `no`    |
 | Polish               | `pl`    |
@@ -265,10 +265,10 @@ Humanize Duration supports the following languages:
 | Russian              | `ru`    |
 | Slovak               | `sk`    |
 | Spanish              | `es`    |
-| Swedish              | `sv`    |
 | Swahili              | `sw`    |
-| Turkish              | `tr`    |
+| Swedish              | `sv`    |
 | Thai                 | `th`    |
+| Turkish              | `tr`    |
 | Ukrainian            | `uk`    |
 | Urdu                 | `ur`    |
 | Vietnamese           | `vi`    |
