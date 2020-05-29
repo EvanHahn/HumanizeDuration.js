@@ -156,6 +156,15 @@ describe('humanizer', () => {
     assert.strictEqual(h(7999), '7.999 seconds')
   })
 
+  it('does not throw when passing Infinity', () => {
+    var h = humanizer({ maxDecimalPoints: 2 })
+    assert.strictEqual(h(Number.POSITIVE_INFINITY), 'Infinity years')
+    assert.strictEqual(h(Number.NEGATIVE_INFINITY), 'Infinity years')
+
+    h.units = ['h', 'm']
+    assert.strictEqual(h(Number.POSITIVE_INFINITY), 'Infinity hours')
+  })
+
   it('can return floating point result with the "maxDecimalPoint" and the "largest" options', () => {
     const h = humanizer({ round: false })
 

@@ -711,6 +711,8 @@
 
   function toFixed (num, fixed) {
     var re = new RegExp('^-?\\d+(?:.\\d{0,' + (fixed || -1) + '})?')
+    var matches = num.toString().match(re)
+    if (!matches) return num // can be undefined when num is Number.POSITIVE_INFINITY
     return parseFloat(num.toString().match(re)[0], 10)
   }
 
