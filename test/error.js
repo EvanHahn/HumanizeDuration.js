@@ -1,8 +1,8 @@
 const humanizeDuration = require("..");
 const assert = require("assert");
 
-describe("error handling", () => {
-  it("throws an error when passed a bad language in the function", () => {
+describe("error handling", function () {
+  it("throws an error when passed a bad language in the function", function () {
     function humanizingWith(options) {
       return () => {
         humanizeDuration(10000, options);
@@ -19,7 +19,7 @@ describe("error handling", () => {
     );
   });
 
-  it("throws an error when passed a bad language in a humanizer", () => {
+  it("throws an error when passed a bad language in a humanizer", function () {
     const humanizer = humanizeDuration.humanizer({
       language: "bad language",
     });
@@ -39,7 +39,7 @@ describe("error handling", () => {
     assert.throws(humanizing({ language: ["es", "en"] }), Error);
   });
 
-  it("should throw if fallbacks configuration is invalid", () => {
+  it("should throw if fallbacks configuration is invalid", function () {
     function humanizingWith(options) {
       return () => {
         humanizeDuration(10000, options);

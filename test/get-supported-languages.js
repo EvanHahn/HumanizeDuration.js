@@ -3,8 +3,8 @@ const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
 
-describe("getSupportedLanguages", () => {
-  it("lists all supported languages", (done) => {
+describe("getSupportedLanguages", function () {
+  it("lists all supported languages", function (done) {
     const definitionsPath = path.resolve(__dirname, "definitions");
 
     fs.readdir(definitionsPath, (err, files) => {

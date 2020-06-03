@@ -2,7 +2,10 @@ const humanizeDuration = require("..");
 const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
-const parseCSV = require("csv-parse");
+const parseCsv = require("csv-parse");
+const { promisify } = require("util");
+
+const readdir = promisify(fs.readdir);
 
 function options(language) {
   return {
@@ -12,52 +15,51 @@ function options(language) {
   };
 }
 
-describe("localized humanization", () => {
-  const definitionsPath = path.resolve(__dirname, "definitions");
-  const files = fs.readdirSync(definitionsPath);
-  const languages = files.reduce((result, file) => {
-    if (path.extname(file) === ".csv") {
-      return result.concat(path.basename(file, ".csv"));
+describe("localized humanization", function () {
+  before(async function () {
+    this.languages = new Map();
+
+    const definitionsPath = path.resolve(__dirname, "definitions");
+    const definitionFilePaths = (await readdir(definitionsPath))
+      .filter((f) => path.extname(f) === ".csv")
+      .map((f) => path.join(definitionsPath, f));
+    await Promise.all(
+      definitionFilePaths.map(async (filePath) => {
+        const language = path.basename(filePath, ".csv");
+
+        const parser = fs
+          .createReadStream(filePath)
+          .pipe(parseCsv({ delimiter: "$" }));
+        const pairs = [];
+        for await (const [msString, expectedResult] of parser) {
+          pairs.push([parseFloat(msString), expectedResult]);
+        }
+
+        this.languages.set(language, pairs);
+      })
+    );
+
+    assert(this.languages.has("en"), "Definition smoke test failed");
+    assert(this.languages.has("es"), "Definition smoke test failed");
+  });
+
+  it("humanizes all languages correctly with the top-level function", function () {
+    for (const [language, pairs] of this.languages) {
+      for (const [ms, expectedResult] of pairs) {
+        assert.strictEqual(
+          humanizeDuration(ms, options(language)),
+          expectedResult
+        );
+      }
     }
-    return result;
-  }, []);
+  });
 
-  languages.forEach((language) => {
-    describe("for " + language, () => {
-      before(function (done) {
-        const self = this;
-        const filePath = path.resolve(definitionsPath, language + ".csv");
-        fs.readFile(filePath, { encoding: "utf8" }, (err, data) => {
-          if (err) {
-            return done(err);
-          }
-
-          parseCSV(data, { delimiter: "$" }, (err, rows) => {
-            if (err) {
-              return done(err);
-            }
-
-            self.pairs = rows.map((row) => [parseFloat(row[0]), row[1]]);
-            done();
-          });
-        });
-      });
-
-      it("humanizes with arguments", function () {
-        this.pairs.forEach((pair) => {
-          const result = humanizeDuration(pair[0], options(language));
-          assert.strictEqual(result, pair[1]);
-        });
-      });
-
-      it("humanizes with a humanizer", function () {
-        const h = humanizeDuration.humanizer(options(language));
-
-        this.pairs.forEach((pair) => {
-          const result = h(pair[0]);
-          assert.strictEqual(result, pair[1]);
-        });
-      });
-    });
+  it("humanizes all languages correctly with a humanizer", function () {
+    for (const [language, pairs] of this.languages) {
+      const h = humanizeDuration.humanizer(options(language));
+      for (const [ms, expectedResult] of pairs) {
+        assert.strictEqual(h(ms), expectedResult);
+      }
+    }
   });
 });

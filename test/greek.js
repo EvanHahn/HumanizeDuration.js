@@ -4,11 +4,11 @@ const fs = require("fs");
 const path = require("path");
 const parseCSV = require("csv-parse");
 
-describe("legacy Greek support", () => {
+describe("legacy Greek support", function () {
   // See https://github.com/EvanHahn/HumanizeDuration.js/issues/143
   // for more here.
 
-  it('aliases "gr" to "el"', (done) => {
+  it('aliases "gr" to "el"', function (done) {
     const greekPath = path.resolve(__dirname, "definitions", "el.csv");
 
     fs.readFile(greekPath, { encoding: "utf8" }, (err, data) => {
@@ -34,7 +34,7 @@ describe("legacy Greek support", () => {
     });
   });
 
-  it('does not include "gr" in getSupportedLanguages', () => {
+  it('does not include "gr" in getSupportedLanguages', function () {
     const supportedLanguages = humanizeDuration.getSupportedLanguages();
     assert.strictEqual(supportedLanguages.indexOf("gr"), -1);
   });

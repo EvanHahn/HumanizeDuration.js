@@ -6,5 +6,7 @@
   },
   "parserOptions": {
     "ecmaVersion": 11
-  }
+  },
+  "plugins": ["mocha"],
+  "extends": "plugin:mocha/recommended"
 }
