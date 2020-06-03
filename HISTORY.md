@@ -1,3 +1,7 @@
+# Unreleased
+
+- remove: `gr` language code (see [#174](https://github.com/EvanHahn/HumanizeDuration.js/issues/174))
+
 # 3.23.0 / 2020-05-21
 
 - new: Swahili support
