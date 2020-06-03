@@ -44,7 +44,7 @@
     "csv-parse": "^4.10.1",
     "eslint": "^7.1.0",
     "eslint-plugin-mocha": "^7.0.1",
-    "mocha": "^7.1.2",
+    "mocha": "^7.2.0",
     "ms": "^2.1.2",
     "prettier": "^2.0.5"
   },
