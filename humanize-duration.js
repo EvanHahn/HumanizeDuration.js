@@ -3,40 +3,6 @@
 /* global define, module */
 
 (function () {
-  // This has to be defined separately because of a bug: we want to alias
-  // `gr` and `el` for backwards-compatiblity. In a breaking change, we can
-  // remove `gr` entirely.
-  // See https://github.com/EvanHahn/HumanizeDuration.js/issues/143 for more.
-  var greek = {
-    y: function (c) {
-      return c === 1 ? "χρόνος" : "χρόνια";
-    },
-    mo: function (c) {
-      return c === 1 ? "μήνας" : "μήνες";
-    },
-    w: function (c) {
-      return c === 1 ? "εβδομάδα" : "εβδομάδες";
-    },
-    d: function (c) {
-      return c === 1 ? "μέρα" : "μέρες";
-    },
-    h: function (c) {
-      return c === 1 ? "ώρα" : "ώρες";
-    },
-    m: function (c) {
-      return c === 1 ? "λεπτό" : "λεπτά";
-    },
-    s: function (c) {
-      return c === 1 ? "δευτερόλεπτο" : "δευτερόλεπτα";
-    },
-    ms: function (c) {
-      return c === 1
-        ? "χιλιοστό του δευτερολέπτου"
-        : "χιλιοστά του δευτερολέπτου";
-    },
-    decimal: ",",
-  };
-
   var LANGUAGES = {
     ar: {
       y: function (c) {
@@ -202,7 +168,35 @@
       },
       decimal: ",",
     },
-    el: greek,
+    el: {
+      y: function (c) {
+        return c === 1 ? "χρόνος" : "χρόνια";
+      },
+      mo: function (c) {
+        return c === 1 ? "μήνας" : "μήνες";
+      },
+      w: function (c) {
+        return c === 1 ? "εβδομάδα" : "εβδομάδες";
+      },
+      d: function (c) {
+        return c === 1 ? "μέρα" : "μέρες";
+      },
+      h: function (c) {
+        return c === 1 ? "ώρα" : "ώρες";
+      },
+      m: function (c) {
+        return c === 1 ? "λεπτό" : "λεπτά";
+      },
+      s: function (c) {
+        return c === 1 ? "δευτερόλεπτο" : "δευτερόλεπτα";
+      },
+      ms: function (c) {
+        return c === 1
+          ? "χιλιοστό του δευτερολέπτου"
+          : "χιλιοστά του δευτερολέπτου";
+      },
+      decimal: ",",
+    },
     en: {
       y: function (c) {
         return "year" + (c === 1 ? "" : "s");
@@ -368,7 +362,6 @@
       },
       decimal: ",",
     },
-    gr: greek,
     he: {
       y: function (c) {
         return c === 1 ? "שנה" : "שנים";
@@ -1276,7 +1269,7 @@
   humanizeDuration.getSupportedLanguages = function getSupportedLanguages() {
     var result = [];
     for (var language in LANGUAGES) {
-      if (has(LANGUAGES, language) && language !== "gr") {
+      if (has(LANGUAGES, language)) {
         result.push(language);
       }
     }
