@@ -29,7 +29,7 @@
 
 # 3.17.0 / 2019-01-06
 
-- new: `fallback` option
+- new: `fallbacks` option
 
 # 3.16.0 / 2018-12-01
 
