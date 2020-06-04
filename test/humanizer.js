@@ -293,21 +293,4 @@ describe("humanizer", function () {
     assert.strictEqual(h(71750), "1 m, 11.75 s");
     assert.strictEqual(h(71750, { decimal: "!" }), "1 m, 11!75 s");
   });
-
-  it("accepts fallback languages", function () {
-    const h = humanizer();
-
-    assert.strictEqual(
-      h(10000, { language: "es", fallbacks: ["en"] }),
-      "10 segundos"
-    );
-    assert.strictEqual(
-      h(10000, { language: "BAD", fallbacks: ["BAD", "es"] }),
-      "10 segundos"
-    );
-    assert.strictEqual(
-      h(10000, { language: "BAD", fallbacks: ["es", "fr"] }),
-      "10 segundos"
-    );
-  });
 });
