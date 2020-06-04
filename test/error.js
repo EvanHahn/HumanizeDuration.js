@@ -13,10 +13,6 @@ describe("error handling", function () {
     assert.throws(humanizingWith({ language: "bad language" }), Error);
     assert.throws(humanizingWith({ language: "" }), Error);
     assert.throws(humanizingWith({ language: null }), Error);
-    assert.throws(
-      humanizingWith({ language: "bad language", fallback: null }),
-      Error
-    );
   });
 
   it("throws an error when passed a bad language in a humanizer", function () {
@@ -37,20 +33,5 @@ describe("error handling", function () {
     assert.throws(humanizing({ language: null }), Error);
     assert.doesNotThrow(humanizing({ language: "es" }), Error);
     assert.throws(humanizing({ language: ["es", "en"] }), Error);
-  });
-
-  it("should throw if fallbacks configuration is invalid", function () {
-    function humanizingWith(options) {
-      return () => {
-        humanizeDuration(10000, options);
-      };
-    }
-    assert.throws(humanizingWith({ language: "es", fallbacks: [] }), Error);
-    assert.throws(
-      humanizingWith({ language: "es", fallbacks: undefined }),
-      Error
-    );
-    assert.throws(humanizingWith({ language: "es", fallbacks: null }), Error);
-    assert.throws(humanizingWith({ language: "es", fallbacks: "en" }), Error);
   });
 });

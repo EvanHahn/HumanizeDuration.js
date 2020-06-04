@@ -1,13 +1,15 @@
 <<<<<<< HEAD
+
 # 3.23.1 / 2020-06-11
 
 - change: removed extra check when humanizing Arabic
-- change: simplify logic for Latvian
-=======
+- # change: simplify logic for Latvian
+
 # Unreleased
 
+- remove: `fallbacks` option
 - remove: `gr` language code (see [#174](https://github.com/EvanHahn/HumanizeDuration.js/issues/174))
->>>>>>> eaf8527... Remove `gr` language code
+  > > > > > > > eaf8527... Remove `gr` language code
 
 # 3.23.0 / 2020-05-21
 

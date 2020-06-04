@@ -1016,25 +1016,11 @@
 
   // Build dictionary from options
   function getDictionary(options) {
-    var languagesFromOptions = [options.language];
-
-    if (has(options, "fallbacks")) {
-      if (isArray(options.fallbacks) && options.fallbacks.length) {
-        languagesFromOptions = languagesFromOptions.concat(options.fallbacks);
-      } else {
-        throw new Error("fallbacks must be an array with at least one element");
-      }
+    if (has(options.languages, options.language)) {
+      return options.languages[options.language];
+    } else if (has(LANGUAGES, options.language)) {
+      return LANGUAGES[options.language];
     }
-
-    for (var i = 0; i < languagesFromOptions.length; i++) {
-      var languageToTry = languagesFromOptions[i];
-      if (has(options.languages, languageToTry)) {
-        return options.languages[languageToTry];
-      } else if (has(LANGUAGES, languageToTry)) {
-        return LANGUAGES[languageToTry];
-      }
-    }
-
     throw new Error("No language found.");
   }
 
@@ -1253,14 +1239,6 @@
   function getLatvianForm(c) {
     return c % 10 === 1 && c % 100 !== 11;
   }
-
-  // We need to make sure we support browsers that don't have
-  // `Array.isArray`, so we define a fallback here.
-  var isArray =
-    Array.isArray ||
-    function (arg) {
-      return Object.prototype.toString.call(arg) === "[object Array]";
-    };
 
   function has(obj, key) {
     return Object.prototype.hasOwnProperty.call(obj, key);
