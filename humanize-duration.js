@@ -37,7 +37,7 @@
     decimal: ",",
   };
 
-  var languages = {
+  var LANGUAGES = {
     ar: {
       y: function (c) {
         return c === 1 ? "سنة" : "سنوات";
@@ -1037,8 +1037,8 @@
       var languageToTry = languagesFromOptions[i];
       if (has(options.languages, languageToTry)) {
         return options.languages[languageToTry];
-      } else if (has(languages, languageToTry)) {
-        return languages[languageToTry];
+      } else if (has(LANGUAGES, languageToTry)) {
+        return LANGUAGES[languageToTry];
       }
     }
 
@@ -1275,8 +1275,8 @@
 
   humanizeDuration.getSupportedLanguages = function getSupportedLanguages() {
     var result = [];
-    for (var language in languages) {
-      if (has(languages, language) && language !== "gr") {
+    for (var language in LANGUAGES) {
+      if (has(LANGUAGES, language) && language !== "gr") {
         result.push(language);
       }
     }
