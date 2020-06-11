@@ -55,7 +55,7 @@
         return c === 1 ? "ساعة" : "ساعات";
       },
       m: function (c) {
-        return ["دقيقة", "دقائق"][getArabicForm(c)];
+        return c > 2 && c < 11 ? "دقائق" : "دقيقة";
       },
       s: function (c) {
         return c === 1 ? "ثانية" : "ثواني";
@@ -1263,17 +1263,6 @@
     } else {
       return 1;
     }
-  }
-
-  // Internal helper function for Arabic language.
-  function getArabicForm(c) {
-    if (c <= 2) {
-      return 0;
-    }
-    if (c > 2 && c < 11) {
-      return 1;
-    }
-    return 0;
   }
 
   // We need to make sure we support browsers that don't have

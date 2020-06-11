@@ -1,3 +1,7 @@
+# Unreleased
+
+- change: removed extra check when humanizing Arabic
+
 # 3.23.0 / 2020-05-21
 
 - new: Swahili support
