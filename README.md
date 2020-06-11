@@ -283,7 +283,7 @@ This function won't return any new languages you define; it will only return the
 
 ## Credits
 
-Lovingly made by [Evan Hahn](http://evanhahn.com/) with help from:
+Lovingly made by [Evan Hahn](https://evanhahn.com/) with help from:
 
 - [Martin Prins](https://github.com/magarcia) for language support
 - [Filipi Siqueira](https://github.com/filipi777) for Portuguese support
