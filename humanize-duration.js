@@ -606,28 +606,28 @@
     },
     lv: {
       y: function (c) {
-        return ["gads", "gadi"][getLatvianForm(c)];
+        return getLatvianForm(c) ? "gads" : "gadi";
       },
       mo: function (c) {
-        return ["mēnesis", "mēneši"][getLatvianForm(c)];
+        return getLatvianForm(c) ? "mēnesis" : "mēneši";
       },
       w: function (c) {
-        return ["nedēļa", "nedēļas"][getLatvianForm(c)];
+        return getLatvianForm(c) ? "nedēļa" : "nedēļas";
       },
       d: function (c) {
-        return ["diena", "dienas"][getLatvianForm(c)];
+        return getLatvianForm(c) ? "diena" : "dienas";
       },
       h: function (c) {
-        return ["stunda", "stundas"][getLatvianForm(c)];
+        return getLatvianForm(c) ? "stunda" : "stundas";
       },
       m: function (c) {
-        return ["minūte", "minūtes"][getLatvianForm(c)];
+        return getLatvianForm(c) ? "minūte" : "minūtes";
       },
       s: function (c) {
-        return ["sekunde", "sekundes"][getLatvianForm(c)];
+        return getLatvianForm(c) ? "sekunde" : "sekundes";
       },
       ms: function (c) {
-        return ["milisekunde", "milisekundes"][getLatvianForm(c)];
+        return getLatvianForm(c) ? "milisekunde" : "milisekundes";
       },
       decimal: ",",
     },
@@ -1258,11 +1258,7 @@
 
   // Internal helper function for Latvian language.
   function getLatvianForm(c) {
-    if (c === 1 || (c % 10 === 1 && c % 100 !== 11)) {
-      return 0;
-    } else {
-      return 1;
-    }
+    return c % 10 === 1 && c % 100 !== 11;
   }
 
   // We need to make sure we support browsers that don't have

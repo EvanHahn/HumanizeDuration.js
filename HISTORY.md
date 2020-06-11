@@ -1,6 +1,7 @@
 # Unreleased
 
 - change: removed extra check when humanizing Arabic
+- change: simplify logic for Latvian
 
 # 3.23.0 / 2020-05-21
 
