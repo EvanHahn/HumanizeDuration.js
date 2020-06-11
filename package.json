@@ -40,7 +40,6 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "check-ecmascript-version-compatibility": "^0.1.1",
     "csv-parse": "^4.10.1",
     "eslint": "^7.1.0",
     "eslint-plugin-mocha": "^7.0.1",
