@@ -29,7 +29,7 @@
     "Neer Thapa(Subit) (https://github.com/nirmalathapa)",
     "Fahad Kassim (https://github.com/fadsel)"
   ],
-  "version": "3.23.0",
+  "version": "3.23.1",
   "description": "Convert millisecond durations to English and many other languages.",
   "main": "humanize-duration.js",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
