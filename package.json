@@ -27,7 +27,8 @@
     "Wasuwat Limsuparhat (https://github.com/rappad)",
     "Harijs Deksnis (https://github.com/arcanous)",
     "Neer Thapa(Subit) (https://github.com/nirmalathapa)",
-    "Fahad Kassim (https://github.com/fadsel)"
+    "Fahad Kassim (https://github.com/fadsel)",
+    "Prayag Roy Choudhury (https://github.com/BeardyGod)"
   ],
   "version": "3.23.1",
   "description": "Convert millisecond durations to English and many other languages.",
@@ -43,7 +44,7 @@
     "csv-parse": "^4.10.1",
     "eslint": "^7.2.0",
     "eslint-plugin-mocha": "^7.0.1",
-    "mocha": "^7.2.0",
+    "mocha": "^8.0.1",
     "ms": "^2.1.2",
     "prettier": "^2.0.5"
   },

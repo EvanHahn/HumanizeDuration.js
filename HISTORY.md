@@ -1,3 +1,7 @@
+# 3.24.0 / 2020-06-17
+
+- update: updated mocha to latest version
+
 # 3.23.1 / 2020-06-11
 
 - change: removed extra check when humanizing Arabic
