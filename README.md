@@ -19,7 +19,7 @@ npm install humanize-duration
 With `require` (like in Node or with common build systems):
 
 ```js
-const humanizeDuration = require('humanize-duration');
+const humanizeDuration = require("humanize-duration");
 humanizeDuration(12000); // '12 seconds'
 ```
 
@@ -51,8 +51,8 @@ You can change the settings by passing options as the second argument:
 Language for unit display (accepts an [ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) from one of the [supported languages](#supported-languages)).
 
 ```js
-humanizeDuration(3000, { language: 'es' }); // '3 segundos'
-humanizeDuration(5000, { language: 'ko' }); // '5 초'
+humanizeDuration(3000, { language: "es" }); // '3 segundos'
+humanizeDuration(5000, { language: "ko" }); // '5 초'
 ```
 
 **fallbacks**
@@ -60,10 +60,10 @@ humanizeDuration(5000, { language: 'ko' }); // '5 초'
 Fallback languages if the provided language cannot be found (accepts an [ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) from one of the [supported languages](#supported-languages)). It works from left to right.
 
 ```js
-humanizeDuration(3000, { language: 'bad language', fallbacks: ['en'] }); // '3 seconds'
+humanizeDuration(3000, { language: "bad language", fallbacks: ["en"] }); // '3 seconds'
 humanizeDuration(3000, {
-  language: 'bad language',
-  fallbacks: ['bad language', 'es'],
+  language: "bad language",
+  fallbacks: ["bad language", "es"],
 }); // '3 segundos'
 ```
 
@@ -72,8 +72,8 @@ humanizeDuration(3000, {
 String to display between the previous unit and the next value.
 
 ```js
-humanizeDuration(22140000, { delimiter: ' and ' }); // '6 hours and 9 minutes'
-humanizeDuration(22140000, { delimiter: '--' }); // '6 hours--9 minutes'
+humanizeDuration(22140000, { delimiter: " and " }); // '6 hours and 9 minutes'
+humanizeDuration(22140000, { delimiter: "--" }); // '6 hours--9 minutes'
 ```
 
 **spacer**
@@ -81,8 +81,8 @@ humanizeDuration(22140000, { delimiter: '--' }); // '6 hours--9 minutes'
 String to display between each value and unit.
 
 ```js
-humanizeDuration(260040000, { spacer: ' whole ' }); // '3 whole days, 14 whole minutes'
-humanizeDuration(260040000, { spacer: '' }); // '3days, 14minutes'
+humanizeDuration(260040000, { spacer: " whole " }); // '3 whole days, 14 whole minutes'
+humanizeDuration(260040000, { spacer: "" }); // '3days, 14minutes'
 ```
 
 **largest**
@@ -99,9 +99,9 @@ humanizeDuration(1000000000000, { largest: 2 }); // '31 years, 8 month'
 Array of strings to define which units are used to display the duration (if needed). Can be one, or a combination of any, of the following: `['y', 'mo', 'w', 'd', 'h', 'm', 's', 'ms']`
 
 ```js
-humanizeDuration(3600000, { units: ['h'] }); // '1 hour'
-humanizeDuration(3600000, { units: ['m'] }); // '60 minutes'
-humanizeDuration(3600000, { units: ['d', 'h'] }); // '1 hour'
+humanizeDuration(3600000, { units: ["h"] }); // '1 hour'
+humanizeDuration(3600000, { units: ["m"] }); // '60 minutes'
+humanizeDuration(3600000, { units: ["d", "h"] }); // '1 hour'
 ```
 
 **round**
@@ -120,7 +120,7 @@ String to substitute for the decimal point in a decimal fraction.
 
 ```js
 humanizeDuration(1200); // '1.2 seconds'
-humanizeDuration(1200, { decimal: ' point ' }); // '1 point 2 seconds'
+humanizeDuration(1200, { decimal: " point " }); // '1 point 2 seconds'
 ```
 
 **conjunction**
@@ -128,10 +128,10 @@ humanizeDuration(1200, { decimal: ' point ' }); // '1 point 2 seconds'
 String to include before the final unit. You can also set `serialComma` to `false` to eliminate the final comma.
 
 ```js
-humanizeDuration(22140000, { conjunction: ' and ' }); // '6 hours and 9 minutes'
-humanizeDuration(22141000, { conjunction: ' and ' }); // '6 hours, 9 minutes, and 1 second'
-humanizeDuration(22140000, { conjunction: ' and ', serialComma: false }); // '6 hours and 9 minutes'
-humanizeDuration(22141000, { conjunction: ' and ', serialComma: false }); // '6 hours, 9 minutes and 1 second'
+humanizeDuration(22140000, { conjunction: " and " }); // '6 hours and 9 minutes'
+humanizeDuration(22141000, { conjunction: " and " }); // '6 hours, 9 minutes, and 1 second'
+humanizeDuration(22140000, { conjunction: " and ", serialComma: false }); // '6 hours and 9 minutes'
+humanizeDuration(22141000, { conjunction: " and ", serialComma: false }); // '6 hours, 9 minutes and 1 second'
 ```
 
 **maxDecimalPoints**
@@ -167,10 +167,10 @@ humanizeDuration(400, {
 
 ```js
 humanizeDuration(3602000, {
-  language: 'es',
+  language: "es",
   round: true,
-  spacer: ' glorioso ',
-  units: ['m'],
+  spacer: " glorioso ",
+  units: ["m"],
 }); // '60 glorioso minutos'
 ```
 
@@ -180,29 +180,29 @@ If you find yourself setting same options over and over again, you can create a 
 
 ```js
 const spanishHumanizer = humanizeDuration.humanizer({
-  language: 'es',
-  units: ['y', 'mo', 'd'],
+  language: "es",
+  units: ["y", "mo", "d"],
 });
 
 spanishHumanizer(71177400000); // '2 años, 3 meses, 2 días'
-spanishHumanizer(71177400000, { units: ['d', 'h'] }); // '823 días, 19.5 horas'
+spanishHumanizer(71177400000, { units: ["d", "h"] }); // '823 días, 19.5 horas'
 ```
 
 You can also add new languages to humanizers. For example:
 
 ```js
 const shortEnglishHumanizer = humanizeDuration.humanizer({
-  language: 'shortEn',
+  language: "shortEn",
   languages: {
     shortEn: {
-      y: () => 'y',
-      mo: () => 'mo',
-      w: () => 'w',
-      d: () => 'd',
-      h: () => 'h',
-      m: () => 'm',
-      s: () => 's',
-      ms: () => 'ms',
+      y: () => "y",
+      mo: () => "mo",
+      w: () => "w",
+      d: () => "d",
+      h: () => "h",
+      m: () => "m",
+      s: () => "s",
+      ms: () => "ms",
     },
   },
 });
@@ -311,7 +311,7 @@ Lovingly made by [Evan Hahn](https://evanhahn.com/) with help from:
 - [Harijs Deksnis](https://github.com/arcanous) for Latvian support
 - [Nirmala Thapa(Subit)](https://github.com/nirmalathapa) for Faroese support
 - [Fahad Kassim](https://github.com/fadsel) for Swahili support
-- [Prayag Roy Choudhury](https://github.com/BeardyGod) for mocha update
+- [Prayag Roy Choudhury](https://github.com/BeardyGod) for updating mocha
 
 Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 
