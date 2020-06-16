@@ -35,8 +35,8 @@
   "main": "humanize-duration.js",
   "scripts": {
     "pretest": "npm run lint",
-    "lint": "prettier --check '**/*.{js,json,md}' && eslint '**/*.js'",
-    "format": "prettier --write '**/*.{js,json,md}'",
+    "lint": "prettier --check \"**/*.{js,json,md}\" && eslint \"**/*.js\"",
+    "format": "prettier --write \"**/*.{js,json,md}\"",
     "test": "mocha"
   },
   "devDependencies": {
