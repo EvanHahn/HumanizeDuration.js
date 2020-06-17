@@ -311,7 +311,7 @@ Lovingly made by [Evan Hahn](https://evanhahn.com/) with help from:
 - [Harijs Deksnis](https://github.com/arcanous) for Latvian support
 - [Nirmala Thapa(Subit)](https://github.com/nirmalathapa) for Faroese support
 - [Fahad Kassim](https://github.com/fadsel) for Swahili support
-- [Prayag Roy Choudhury](https://github.com/BeardyGod) for updating mocha
+- [Prayag Roy Choudhury](https://github.com/BeardyGod) for updating Mocha
 
 Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 
