@@ -993,7 +993,7 @@
         spacer: " ",
         conjunction: "",
         serialComma: true,
-        units: ["y", "mo", "w", "d", "h", "m", "s"],
+        units: ["w", "d", "h", "m", "s"],
         languages: {},
         round: false,
         unitMeasures: {
