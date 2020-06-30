@@ -1,6 +1,6 @@
 // HumanizeDuration.js - https://git.io/j0HgmQ
 
-/* global define, module */
+/* global module */
 
 (function () {
   var LANGUAGES = {
@@ -1256,10 +1256,6 @@
 
   humanizeDuration.humanizer = humanizer;
 
-  if (typeof define === "function" && define.amd) {
-    define(function () {
-      return humanizeDuration;
-    });
   } else if (typeof module !== "undefined" && module.exports) {
     module.exports = humanizeDuration;
   } else {
