@@ -1,5 +1,6 @@
 # Unreleased
 
+- remove: AMD support (see [#178](https://github.com/EvanHahn/HumanizeDuration.js/issues/178) and [#186](https://github.com/EvanHahn/HumanizeDuration.js/pull/186))
 - remove: `fallbacks` option
 - remove: `gr` language code (see [#174](https://github.com/EvanHahn/HumanizeDuration.js/issues/174))
 
