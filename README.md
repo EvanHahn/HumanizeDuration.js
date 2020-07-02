@@ -153,14 +153,13 @@ Customize the value used to calculate each unit of time.
 ```js
 humanizeDuration(400); // '0.4 seconds'
 humanizeDuration(400, {
-  // '1 year, 1 month, 5 days'
   unitMeasures: {
     y: 365,
     mo: 30,
     w: 7,
     d: 1,
   },
-});
+}); // '1 year, 1 month, 5 days'
 ```
 
 **Combined example**
