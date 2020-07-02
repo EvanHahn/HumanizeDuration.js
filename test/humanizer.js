@@ -130,11 +130,11 @@ describe("humanizer", function () {
   it('can do rounding with the "largest" option', function () {
     const h = humanizer({ round: true });
 
-    assert.strictEqual(h(3692131200000, { largest: 1 }), "117 years");
-    assert.strictEqual(h(3692131200000, { largest: 2 }), "117 years");
+    assert.strictEqual(h(3692131200000, { largest: 1 }), "6105 weeks");
+    assert.strictEqual(h(3692131200000, { largest: 2 }), "6104 weeks, 5 days");
     assert.strictEqual(
       h(3692131200001, { largest: 100 }),
-      "116 years, 11 months, 4 weeks, 1 day, 4 hours, 30 minutes"
+      "6104 weeks, 5 days"
     );
     assert.strictEqual(h(2838550, { largest: 3 }), "47 minutes, 19 seconds");
   });

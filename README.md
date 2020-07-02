@@ -78,8 +78,8 @@ humanizeDuration(260040000, { spacer: "" }); // '3days, 14minutes'
 Number representing the maximum number of units to display for the duration.
 
 ```js
-humanizeDuration(1000000000000); // '31 years, 8 months, 1 week, 19 hours, 46 minutes, 40 seconds'
-humanizeDuration(1000000000000, { largest: 2 }); // '31 years, 8 month'
+humanizeDuration(10000000000); // '16 weeks, 3 days, 17 hours, 46 minutes, 40 seconds'
+humanizeDuration(10000000000, { largest: 2 }); // '16 weeks, 3 days'
 ```
 
 **units**
@@ -147,7 +147,7 @@ humanizeDuration(400, {
     w: 7,
     d: 1,
   },
-}); // '1 year, 1 month, 5 days'
+}); // '57 weeks, 1 day'
 ```
 
 **Combined example**
