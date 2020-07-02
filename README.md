@@ -141,7 +141,6 @@ Customize the value used to calculate each unit of time.
 ```js
 humanizeDuration(400); // '0.4 seconds'
 humanizeDuration(400, {
-  '
   unitMeasures: {
     y: 365,
     mo: 30,
