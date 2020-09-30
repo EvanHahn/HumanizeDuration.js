@@ -245,6 +245,7 @@ Humanize Duration supports the following languages:
 | German               | `de`    |
 | Greek                | `el`    |
 | Hebrew               | `he`    |
+| Hindi                | `hi`    |
 | Hungarian            | `hu`    |
 | Icelandic            | `is`    |
 | Indonesian           | `id`    |
@@ -311,6 +312,7 @@ Lovingly made by [Evan Hahn](https://evanhahn.com/) with help from:
 - [Nirmala Thapa(Subit)](https://github.com/nirmalathapa) for Faroese support
 - [Fahad Kassim](https://github.com/fadsel) for Swahili support
 - [Prayag Roy Choudhury](https://github.com/BeardyGod) for updating Mocha
+- [Aryan Rawlani](https://github.com/aryanrawlani28) for Hindi support
 
 Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 
