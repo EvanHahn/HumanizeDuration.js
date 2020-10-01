@@ -31,7 +31,7 @@
     "Prayag Roy Choudhury (https://github.com/BeardyGod)",
     "Aryan Rawlani (https://github.com/aryanrawlani28)"
   ],
-  "version": "3.23.1",
+  "version": "3.24.0",
   "description": "Convert millisecond durations to English and many other languages.",
   "main": "humanize-duration.js",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
