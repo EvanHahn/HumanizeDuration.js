@@ -1,3 +1,7 @@
+# unreleased
+
+- new: Hindi support
+
 # 3.23.1 / 2020-06-11
 
 - change: removed extra check when humanizing Arabic
