@@ -262,6 +262,7 @@ Humanize Duration supports the following languages:
 | Romanian             | `ro`    |
 | Russian              | `ru`    |
 | Slovak               | `sk`    |
+| Slovenian            | `sl`    |
 | Spanish              | `es`    |
 | Swahili              | `sw`    |
 | Swedish              | `sv`    |
@@ -313,6 +314,7 @@ Lovingly made by [Evan Hahn](https://evanhahn.com/) with help from:
 - [Fahad Kassim](https://github.com/fadsel) for Swahili support
 - [Prayag Roy Choudhury](https://github.com/BeardyGod) for updating Mocha
 - [Aryan Rawlani](https://github.com/aryanrawlani28) for Hindi support
+- [Kristijan Jesenski](https://github.com/kjesenski) for Slovenian support
 
 Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 

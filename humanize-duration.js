@@ -900,6 +900,99 @@
       },
       decimal: ",",
     },
+    sl: {
+      y: function (c) {
+        if (c % 10 === 1) {
+          return "leto";
+        } else if (c % 100 === 2) {
+          return "leti";
+        } else if (
+          c % 100 === 3 ||
+          c % 100 === 4 ||
+          (Math.floor(c) !== c && c % 100 <= 5)
+        ) {
+          return "leta";
+        } else {
+          return "let";
+        }
+      },
+      mo: function (c) {
+        if (c % 10 === 1) {
+          return "mesec";
+        } else if (c % 100 === 2 || (Math.floor(c) !== c && c % 100 <= 5)) {
+          return "meseca";
+        } else if (c % 10 === 3 || c % 10 === 4) {
+          return "mesece";
+        } else {
+          return "mesecev";
+        }
+      },
+      w: function (c) {
+        if (c % 10 === 1) {
+          return "teden";
+        } else if (c % 10 === 2 || (Math.floor(c) !== c && c % 100 <= 4)) {
+          return "tedna";
+        } else if (c % 10 === 3 || c % 10 === 4) {
+          return "tedne";
+        }
+      },
+      d: function (c) {
+        if (c % 100 === 1) {
+          return "dan";
+        } else {
+          return "dni";
+        }
+      },
+      h: function (c) {
+        if (c % 10 === 1) {
+          return "ura";
+        } else if (c % 100 === 2) {
+          return "uri";
+        } else if (c % 10 === 3 || c % 10 === 4 || Math.floor(c) !== c) {
+          return "ure";
+        } else {
+          return "ur";
+        }
+      },
+      m: function (c) {
+        if (c % 10 === 1) {
+          return "minuta";
+        } else if (c % 10 === 2) {
+          return "minuti";
+        } else if (
+          c % 10 === 3 ||
+          c % 10 === 4 ||
+          (Math.floor(c) !== c && c % 100 <= 4)
+        ) {
+          return "minute";
+        } else {
+          return "minut";
+        }
+      },
+      s: function (c) {
+        if (c % 10 === 1) {
+          return "sekunda";
+        } else if (c % 100 === 2) {
+          return "sekundi";
+        } else if (c % 100 === 3 || c % 100 === 4 || Math.floor(c) !== c) {
+          return "sekunde";
+        } else {
+          return "sekund";
+        }
+      },
+      ms: function (c) {
+        if (c % 10 === 1) {
+          return "milisekunda";
+        } else if (c % 100 === 2) {
+          return "milisekundi";
+        } else if (c % 100 === 3 || c % 100 === 4 || Math.floor(c) !== c) {
+          return "milisekunde";
+        } else {
+          return "milisekund";
+        }
+      },
+      decimal: ",",
+    },
     sv: {
       y: "år",
       mo: function (c) {
