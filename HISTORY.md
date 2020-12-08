@@ -1,3 +1,7 @@
+# Unreleased
+
+- new: Slovenian support
+
 # 3.24.0 / 2020-10-01
 
 - new: Hindi support
