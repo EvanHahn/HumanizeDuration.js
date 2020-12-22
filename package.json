@@ -43,11 +43,11 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "csv-parse": "^4.14.1",
-    "eslint": "^7.15.0",
+    "csv-parse": "^4.14.2",
+    "eslint": "^7.16.0",
     "eslint-plugin-mocha": "^8.0.0",
     "mocha": "^8.2.1",
-    "ms": "^2.1.2",
+    "ms": "^2.1.3",
     "prettier": "^2.2.1"
   },
   "keywords": [
