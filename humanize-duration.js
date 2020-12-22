@@ -1088,11 +1088,11 @@
   // parameters.
   function humanizer(passedOptions) {
     var result = function humanizer(ms, humanizerOptions) {
-      var options = extend({}, result, humanizerOptions || {});
+      var options = assign({}, result, humanizerOptions || {});
       return doHumanization(ms, options);
     };
 
-    return extend(
+    return assign(
       result,
       {
         language: "en",
@@ -1283,7 +1283,7 @@
     return countStr + options.spacer + word;
   }
 
-  function extend(destination) {
+  function assign(destination) {
     var source;
     for (var i = 1; i < arguments.length; i++) {
       source = arguments[i];
