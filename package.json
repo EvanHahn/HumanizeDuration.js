@@ -10,7 +10,7 @@
     "build": "webpack --mode=production",
     "start": "webpack serve --mode=development"
   },
-  "license": "MIT",
+  "license": "Unlicense",
   "devDependencies": {
     "webpack": "^5.11.1",
     "webpack-cli": "^4.3.0",
