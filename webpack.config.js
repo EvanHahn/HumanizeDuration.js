@@ -1,26 +1,9 @@
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var autoprefixer = require('autoprefixer-core')
+const path = require("path");
 
 module.exports = {
-  entry: './src/app.js',
+  entry: path.join(__dirname, "src", "index.js"),
   output: {
-    path: __dirname + '/dev',
-    filename: 'bundle.js'
+    path: __dirname,
+    filename: "bundle.js",
   },
-  module: {
-    loaders: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader'
-    }, {
-      test: /src.*\.css$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
-    }]
-  },
-  plugins: [
-    new ExtractTextPlugin('style.css')
-  ],
-  postcss: function () {
-    return [autoprefixer()]
-  }
-}
+};

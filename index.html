@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>HumanizeDuration.js</title>
-    <meta name="description" content="Turn millisecond durations into human-readable strings.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Turn millisecond durations into human-readable strings."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body class="container">
     <header>
@@ -14,30 +17,54 @@
     </header>
     <p>Turn millisecond durations into human-readable strings.</p>
 
-<pre><code class="">humanizeDuration(3000)      // "3 seconds"
+    <pre><code>humanizeDuration(3000)      // "3 seconds"
 humanizeDuration(2250)      // "2.25 seconds"
 humanizeDuration(97320000)  // "1 day, 3 hours, 2 minutes"</code></pre>
 
-    <div id="demo"></div>
+    <div id="demoContainer" hidden>
+      <h2>Demo</h2>
+
+      <div class="row">
+        <div class="six columns">
+          <label for="msInput">Milliseconds</label>
+          <input type="number" id="msInput" min="0" step="1" />
+        </div>
+
+        <div class="six columns">
+          <label for="languageInput">Language</label>
+          <select id="languageInput"></select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="twelve columns">
+          <label for="resultInput">Result</label>
+          <input id="resultInput" type="text" readonly />
+        </div>
+      </div>
+    </div>
+
+    <script src="bundle.js"></script>
 
     <h2>Basic usage</h2>
 
     <p>In the browser:</p>
 
-<pre><code>&lt;script src="humanize-duration.js"&gt;&lt;/script&gt;
+    <pre><code>&lt;script src="humanize-duration.js"&gt;&lt;/script&gt;
 &lt;script&gt;
 humanizeDuration(12000)
 &lt;/script&gt;</code></pre>
 
     <p>In Node (or Browserify or Webpack or anywhere with CommonJS):</p>
 
-<pre><code>var humanizeDuration = require("humanize-duration")
+    <pre><code>var humanizeDuration = require("humanize-duration")
 humanizeDuration(12000)</code></pre>
 
     <footer>
-      <a href="https://github.com/EvanHahn/HumanizeDuration.js" class="button github-link">View on GitHub</a>
+      <a
+        href="https://github.com/EvanHahn/HumanizeDuration.js"
+        class="button github-link"
+        >View on GitHub</a
+      >
     </footer>
-
-    <script src="bundle.js"></script>
   </body>
 </html>
