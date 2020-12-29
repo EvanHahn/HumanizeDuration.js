@@ -4,7 +4,6 @@
   "private": true,
   "description": "interactive demo for EvanHahn/HumanizeDuration.js",
   "dependencies": {
-    "highlight.js": "^10.5.0",
     "humanize-duration": "^3.25.0"
   },
   "scripts": {

@@ -10,10 +10,15 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
-  <body class="container">
+  <body>
     <header>
       <h1>Humanize Duration</h1>
+
+      <a href="https://github.com/EvanHahn/HumanizeDuration.js"
+        >View on GitHub</a
+      >
     </header>
+
     <p>Turn millisecond durations into human-readable strings.</p>
 
     <pre><code>humanizeDuration(3000)      // "3 seconds"
@@ -22,23 +27,17 @@ humanizeDuration(97320000)  // "1 day, 3 hours, 2 minutes"</code></pre>
 
     <div id="demoContainer" hidden>
       <h2>Demo</h2>
-
-      <div class="row">
-        <div class="six columns">
-          <label for="msInput">Milliseconds</label>
-          <input type="number" id="msInput" min="0" step="1" />
-        </div>
-
-        <div class="six columns">
-          <label for="languageInput">Language</label>
-          <select id="languageInput"></select>
-        </div>
+      <div>
+        <label for="msInput">Milliseconds</label>
+        <input type="number" id="msInput" min="0" step="1" />
       </div>
-      <div class="row">
-        <div class="twelve columns">
-          <label for="resultInput">Result</label>
-          <input id="resultInput" type="text" readonly />
-        </div>
+      <div>
+        <label for="languageInput">Language</label>
+        <select id="languageInput"></select>
+      </div>
+      <div>
+        <label for="resultInput">Result</label>
+        <input id="resultInput" type="text" readonly />
       </div>
     </div>
 
@@ -58,12 +57,8 @@ humanizeDuration(12000)
     <pre><code>var humanizeDuration = require("humanize-duration")
 humanizeDuration(12000)</code></pre>
 
-    <footer>
-      <a
-        href="https://github.com/EvanHahn/HumanizeDuration.js"
-        class="button github-link"
-        >View on GitHub</a
-      >
-    </footer>
+    <a href="https://github.com/EvanHahn/HumanizeDuration.js"
+      >See the README for more.</a
+    >
   </body>
 </html>

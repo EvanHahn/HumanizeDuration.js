@@ -2,7 +2,6 @@
 
 const humanizeDuration = require("humanize-duration");
 const sample = require("./lib/sample");
-const hljs = require("highlight.js");
 
 // Let them play in the console
 window.humanizeDuration = humanizeDuration;
@@ -88,11 +87,9 @@ const state = {
   msInput.value = state.ms;
   languageInput.value = state.language;
 
-  hljs.initHighlightingOnLoad();
+  render();
 
   demoContainer.removeAttribute("hidden");
-
-  render();
 }
 
 function render() {
