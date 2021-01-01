@@ -40,28 +40,28 @@
   var LANGUAGES = {
     ar: {
       y: function (c) {
-        return c === 1 ? "سنة" : "سنوات";
+        return ["سنة", "سنتان", "سنوات"][getArabicForm(c)];
       },
       mo: function (c) {
-        return c === 1 ? "شهر" : "أشهر";
+        return ["شهر", "شهران", "أشهر"][getArabicForm(c)];
       },
       w: function (c) {
-        return c === 1 ? "أسبوع" : "أسابيع";
+        return ["أسبوع", "أسبوعين", "أسابيع"][getArabicForm(c)];
       },
       d: function (c) {
-        return c === 1 ? "يوم" : "أيام";
+        return ["يوم", "يومين", "أيام"][getArabicForm(c)];
       },
       h: function (c) {
-        return c === 1 ? "ساعة" : "ساعات";
+        return ["ساعة", "ساعتين", "ساعات"][getArabicForm(c)];
       },
       m: function (c) {
-        return c > 2 && c < 11 ? "دقائق" : "دقيقة";
+        return ["دقيقة", "دقيقتان", "دقائق"][getArabicForm(c)];
       },
       s: function (c) {
-        return c === 1 ? "ثانية" : "ثواني";
+        return ["ثانية", "ثانيتان", "ثواني"][getArabicForm(c)];
       },
       ms: function (c) {
-        return c === 1 ? "جزء من الثانية" : "أجزاء من الثانية";
+        return ["جزء من الثانية", "جزآن من الثانية", "أجزاء من الثانية"][getArabicForm(c)];
       },
       decimal: ",",
     },
@@ -1088,6 +1088,14 @@
   // parameters.
   function humanizer(passedOptions) {
     var result = function humanizer(ms, humanizerOptions) {
+
+      if (
+        humanizerOptions !== undefined &&
+        humanizerOptions.hasOwnProperty('language') &&
+        humanizerOptions.language === 'ar' &&
+        !humanizerOptions.hasOwnProperty('delimiter')
+      ) humanizerOptions.delimiter = ' و ';
+
       var options = assign({}, result, humanizerOptions || {});
       return doHumanization(ms, options);
     };
@@ -1280,6 +1288,10 @@
       word = dictionaryValue;
     }
 
+    if (options.language === 'ar') {
+      if (countStr === '1' || countStr === '2') return word + options.spacer;
+    }
+
     return countStr + options.spacer + word;
   }
 
@@ -1359,6 +1371,14 @@
   // Internal helper function for Latvian language.
   function getLatvianForm(c) {
     return c % 10 === 1 && c % 100 !== 11;
+  }
+
+  // Internal helper function for Arabic language.
+  function getArabicForm(c) {
+    if (c === 1) return 0;
+    else if (c === 2) return 1;
+    else if (c > 2 && c < 11) return 2;
+    else return 0;
   }
 
   // We need to make sure we support browsers that don't have
