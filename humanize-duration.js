@@ -924,6 +924,8 @@
           return "tedna";
         } else if (c % 10 === 3 || c % 10 === 4) {
           return "tedne";
+        } else {
+          return "tednov";
         }
       },
       d: function (c) {
