@@ -1,4 +1,4 @@
-# unreleased
+# 3.25.1 / 2021-01-07
 
 - fix: Slovenian might return `undefined` for weeks (see [#194](https://github.com/EvanHahn/HumanizeDuration.js/issues/194))
 
