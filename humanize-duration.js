@@ -929,11 +929,7 @@
         }
       },
       d: function (c) {
-        if (c % 100 === 1) {
-          return "dan";
-        } else {
-          return "dni";
-        }
+        return c % 100 === 1 ? "dan" : "dni";
       },
       h: function (c) {
         if (c % 10 === 1) {
