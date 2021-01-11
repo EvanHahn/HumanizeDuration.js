@@ -61,7 +61,9 @@
         return ["ثانية", "ثانيتان", "ثواني"][getArabicForm(c)];
       },
       ms: function (c) {
-        return ["جزء من الثانية", "جزآن من الثانية", "أجزاء من الثانية"][getArabicForm(c)];
+        return ["جزء من الثانية", "جزآن من الثانية", "أجزاء من الثانية"][
+          getArabicForm(c)
+        ];
       },
       decimal: ",",
     },
@@ -1088,13 +1090,13 @@
   // parameters.
   function humanizer(passedOptions) {
     var result = function humanizer(ms, humanizerOptions) {
-
       if (
         humanizerOptions !== undefined &&
-        humanizerOptions.hasOwnProperty('language') &&
-        humanizerOptions.language === 'ar' &&
-        !humanizerOptions.hasOwnProperty('delimiter')
-      ) humanizerOptions.delimiter = ' و ';
+        humanizerOptions.hasOwnProperty("language") &&
+        humanizerOptions.language === "ar" &&
+        !humanizerOptions.hasOwnProperty("delimiter")
+      )
+        humanizerOptions.delimiter = " و ";
 
       var options = assign({}, result, humanizerOptions || {});
       return doHumanization(ms, options);
@@ -1288,8 +1290,8 @@
       word = dictionaryValue;
     }
 
-    if (options.language === 'ar') {
-      if (countStr === '1' || countStr === '2') return word + options.spacer;
+    if (options.language === "ar") {
+      if (countStr === "1" || countStr === "2") return word + options.spacer;
     }
 
     return countStr + options.spacer + word;
