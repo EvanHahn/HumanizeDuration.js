@@ -1,3 +1,7 @@
+# 3.25.2 / 2021-04-17
+
+- fix: Thai word for "week" is now less colloquial (see [#196](https://github.com/EvanHahn/HumanizeDuration.js/pull/196))
+
 # 3.25.1 / 2021-01-07
 
 - fix: Slovenian might return `undefined` for weeks (see [#194](https://github.com/EvanHahn/HumanizeDuration.js/issues/194))
