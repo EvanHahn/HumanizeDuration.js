@@ -1,0 +1,11 @@
+{
+  "trailingComma": "none",
+  "overrides": [
+    {
+      "files": ["*.md", "test/**/*.js"],
+      "options": {
+        "trailingComma": "es5"
+      }
+    }
+  ]
+}

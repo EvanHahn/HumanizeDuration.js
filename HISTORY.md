@@ -14,6 +14,7 @@
 - new: Tamil support (`ta`)
 - new: Telugu support (`te`)
 - new: Welsh support (`cy`)
+- fix: invalid syntax (trailing commas) for old browsers
 
 # 3.25.2 / 2021-04-17
 

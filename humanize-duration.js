@@ -34,7 +34,7 @@
         ? "χιλιοστό του δευτερολέπτου"
         : "χιλιοστά του δευτερολέπτου";
     },
-    decimal: ",",
+    decimal: ","
   };
 
   var LANGUAGES = {
@@ -61,7 +61,7 @@
       ms: function (c) {
         return "millisekonde" + (c === 1 ? "" : "s");
       },
-      decimal: ",",
+      decimal: ","
     },
     ar: {
       y: function (c) {
@@ -88,7 +88,7 @@
       ms: function (c) {
         return c === 1 ? "جزء من الثانية" : "أجزاء من الثانية";
       },
-      decimal: ",",
+      decimal: ","
     },
     bg: {
       y: function (c) {
@@ -115,7 +115,7 @@
       ms: function (c) {
         return ["милисекунди", "милисекунда", "милисекунди"][getSlavicForm(c)];
       },
-      decimal: ",",
+      decimal: ","
     },
     bn: {
       y: "বছর",
@@ -125,7 +125,7 @@
       h: "ঘন্টা",
       m: "মিনিট",
       s: "সেকেন্ড",
-      ms: "মিলিসেকেন্ড",
+      ms: "মিলিসেকেন্ড"
     },
     ca: {
       y: function (c) {
@@ -152,7 +152,7 @@
       ms: function (c) {
         return "milisegon" + (c === 1 ? "" : "s");
       },
-      decimal: ",",
+      decimal: ","
     },
     cs: {
       y: function (c) {
@@ -183,7 +183,7 @@
           getCzechOrSlovakForm(c)
         ];
       },
-      decimal: ",",
+      decimal: ","
     },
     cy: {
       y: "flwyddyn",
@@ -193,7 +193,7 @@
       h: "awr",
       m: "munud",
       s: "eiliad",
-      ms: "milieiliad",
+      ms: "milieiliad"
     },
     da: {
       y: "år",
@@ -218,7 +218,7 @@
       ms: function (c) {
         return "millisekund" + (c === 1 ? "" : "er");
       },
-      decimal: ",",
+      decimal: ","
     },
     de: {
       y: function (c) {
@@ -245,7 +245,7 @@
       ms: function (c) {
         return "Millisekunde" + (c === 1 ? "" : "n");
       },
-      decimal: ",",
+      decimal: ","
     },
     el: greek,
     en: {
@@ -273,7 +273,7 @@
       ms: function (c) {
         return "millisecond" + (c === 1 ? "" : "s");
       },
-      decimal: ".",
+      decimal: "."
     },
     eo: {
       y: function (c) {
@@ -300,7 +300,7 @@
       ms: function (c) {
         return "milisekundo" + (c === 1 ? "" : "j");
       },
-      decimal: ",",
+      decimal: ","
     },
     es: {
       y: function (c) {
@@ -327,7 +327,7 @@
       ms: function (c) {
         return "milisegundo" + (c === 1 ? "" : "s");
       },
-      decimal: ",",
+      decimal: ","
     },
     et: {
       y: function (c) {
@@ -354,7 +354,7 @@
       ms: function (c) {
         return "millisekund" + (c === 1 ? "" : "it");
       },
-      decimal: ",",
+      decimal: ","
     },
     eu: {
       y: "urte",
@@ -365,7 +365,7 @@
       m: "minutu",
       s: "segundo",
       ms: "milisegundo",
-      decimal: ",",
+      decimal: ","
     },
     fa: {
       y: "سال",
@@ -376,7 +376,7 @@
       m: "دقیقه",
       s: "ثانیه",
       ms: "میلی ثانیه",
-      decimal: ".",
+      decimal: "."
     },
     fi: {
       y: function (c) {
@@ -403,7 +403,7 @@
       ms: function (c) {
         return "millisekunti" + (c === 1 ? "" : "a");
       },
-      decimal: ",",
+      decimal: ","
     },
     fo: {
       y: "ár",
@@ -424,7 +424,7 @@
       },
       s: "sekund",
       ms: "millisekund",
-      decimal: ",",
+      decimal: ","
     },
     fr: {
       y: function (c) {
@@ -449,7 +449,7 @@
       ms: function (c) {
         return "milliseconde" + (c >= 2 ? "s" : "");
       },
-      decimal: ",",
+      decimal: ","
     },
     gr: greek,
     he: {
@@ -477,7 +477,7 @@
       ms: function (c) {
         return c === 1 ? "מילישנייה" : "מילישניות";
       },
-      decimal: ".",
+      decimal: "."
     },
     hr: {
       y: function (c) {
@@ -537,7 +537,7 @@
         }
         return "milisekundi";
       },
-      decimal: ",",
+      decimal: ","
     },
     hi: {
       y: "साल",
@@ -554,7 +554,7 @@
       m: "मिनट",
       s: "सेकंड",
       ms: "मिलीसेकंड",
-      decimal: ".",
+      decimal: "."
     },
     hu: {
       y: "év",
@@ -565,7 +565,7 @@
       m: "perc",
       s: "másodperc",
       ms: "ezredmásodperc",
-      decimal: ",",
+      decimal: ","
     },
     id: {
       y: "tahun",
@@ -576,7 +576,7 @@
       m: "menit",
       s: "detik",
       ms: "milidetik",
-      decimal: ".",
+      decimal: "."
     },
     is: {
       y: "ár",
@@ -601,7 +601,7 @@
       ms: function (c) {
         return "millisekúnd" + (c === 1 ? "a" : "ur");
       },
-      decimal: ".",
+      decimal: "."
     },
     it: {
       y: function (c) {
@@ -628,7 +628,7 @@
       ms: function (c) {
         return "millisecond" + (c === 1 ? "o" : "i");
       },
-      decimal: ",",
+      decimal: ","
     },
     ja: {
       y: "年",
@@ -639,7 +639,7 @@
       m: "分",
       s: "秒",
       ms: "ミリ秒",
-      decimal: ".",
+      decimal: "."
     },
     km: {
       y: "ឆ្នាំ",
@@ -649,7 +649,7 @@
       h: "ម៉ោង",
       m: "នាទី",
       s: "វិនាទី",
-      ms: "មិល្លីវិនាទី",
+      ms: "មិល្លីវិនាទី"
     },
     kn: {
       y: function (c) {
@@ -675,7 +675,7 @@
       },
       ms: function (c) {
         return c === 1 ? "ಮಿಲಿಸೆಕೆಂಡ್" : "ಮಿಲಿಸೆಕೆಂಡುಗಳು";
-      },
+      }
     },
     ko: {
       y: "년",
@@ -686,7 +686,7 @@
       m: "분",
       s: "초",
       ms: "밀리 초",
-      decimal: ".",
+      decimal: "."
     },
     ku: {
       y: "sal",
@@ -697,7 +697,7 @@
       m: "deqe",
       s: "saniye",
       ms: "mîlîçirk",
-      decimal: ",",
+      decimal: ","
     },
     lo: {
       y: "ປີ",
@@ -708,7 +708,7 @@
       m: "ນາທີ",
       s: "ວິນາທີ",
       ms: "ມິນລິວິນາທີ",
-      decimal: ",",
+      decimal: ","
     },
     lt: {
       y: function (c) {
@@ -739,7 +739,7 @@
           getLithuanianForm(c)
         ];
       },
-      decimal: ",",
+      decimal: ","
     },
     lv: {
       y: function (c) {
@@ -766,7 +766,7 @@
       ms: function (c) {
         return getLatvianForm(c) ? "milisekunde" : "milisekundes";
       },
-      decimal: ",",
+      decimal: ","
     },
     mk: {
       y: function (c) {
@@ -793,7 +793,7 @@
       ms: function (c) {
         return c === 1 ? "милисекунда" : "милисекунди";
       },
-      decimal: ",",
+      decimal: ","
     },
     mr: {
       y: function (c) {
@@ -811,7 +811,7 @@
         return c === 1 ? "मिनिट" : "मिनिटे";
       },
       s: "सेकंद",
-      ms: "मिलिसेकंद",
+      ms: "मिलिसेकंद"
     },
     ms: {
       y: "tahun",
@@ -822,7 +822,7 @@
       m: "minit",
       s: "saat",
       ms: "milisaat",
-      decimal: ".",
+      decimal: "."
     },
     nl: {
       y: "jaar",
@@ -845,7 +845,7 @@
       ms: function (c) {
         return c === 1 ? "milliseconde" : "milliseconden";
       },
-      decimal: ",",
+      decimal: ","
     },
     no: {
       y: "år",
@@ -870,7 +870,7 @@
       ms: function (c) {
         return "millisekund" + (c === 1 ? "" : "er");
       },
-      decimal: ",",
+      decimal: ","
     },
     pl: {
       y: function (c) {
@@ -901,7 +901,7 @@
           getPolishForm(c)
         ];
       },
-      decimal: ",",
+      decimal: ","
     },
     pt: {
       y: function (c) {
@@ -928,7 +928,7 @@
       ms: function (c) {
         return "milissegundo" + (c === 1 ? "" : "s");
       },
-      decimal: ",",
+      decimal: ","
     },
     ro: {
       y: function (c) {
@@ -955,7 +955,7 @@
       ms: function (c) {
         return c === 1 ? "milisecundă" : "milisecunde";
       },
-      decimal: ",",
+      decimal: ","
     },
     ru: {
       y: function (c) {
@@ -984,7 +984,7 @@
           getSlavicForm(c)
         ];
       },
-      decimal: ",",
+      decimal: ","
     },
     sq: {
       y: function (c) {
@@ -1003,7 +1003,7 @@
       ms: function (c) {
         return "milisekond" + (c === 1 ? "ë" : "a");
       },
-      decimal: ",",
+      decimal: ","
     },
     sr: {
       y: function (c) {
@@ -1030,7 +1030,7 @@
       ms: function (c) {
         return ["милисекунди", "милисекунда", "милисекунде"][getSlavicForm(c)];
       },
-      decimal: ",",
+      decimal: ","
     },
     ta: {
       y: function (c) {
@@ -1056,7 +1056,7 @@
       },
       ms: function (c) {
         return "மில்லி விநாடி" + (c === 1 ? "" : "கள்");
-      },
+      }
     },
     te: {
       y: function (c) {
@@ -1082,7 +1082,7 @@
       },
       ms: function (c) {
         return c === 1 ? "మిల్లీసెకన్" : "మిల్లీసెకన్లు";
-      },
+      }
     },
     uk: {
       y: function (c) {
@@ -1109,7 +1109,7 @@
       ms: function (c) {
         return ["мілісекунд", "мілісекунда", "мілісекунди"][getSlavicForm(c)];
       },
-      decimal: ",",
+      decimal: ","
     },
     ur: {
       y: "سال",
@@ -1126,7 +1126,7 @@
       m: "منٹ",
       s: "سیکنڈ",
       ms: "ملی سیکنڈ",
-      decimal: ".",
+      decimal: "."
     },
     sk: {
       y: function (c) {
@@ -1161,7 +1161,7 @@
           getCzechOrSlovakForm(c)
         ];
       },
-      decimal: ",",
+      decimal: ","
     },
     sl: {
       y: function (c) {
@@ -1252,7 +1252,7 @@
           return "milisekund";
         }
       },
-      decimal: ",",
+      decimal: ","
     },
     sv: {
       y: "år",
@@ -1277,7 +1277,7 @@
       ms: function (c) {
         return "millisekund" + (c === 1 ? "" : "er");
       },
-      decimal: ",",
+      decimal: ","
     },
     sw: {
       y: function (c) {
@@ -1296,7 +1296,7 @@
       m: "dakika",
       s: "sekunde",
       ms: "milisekunde",
-      decimal: ".",
+      decimal: "."
     },
     tr: {
       y: "yıl",
@@ -1307,7 +1307,7 @@
       m: "dakika",
       s: "saniye",
       ms: "milisaniye",
-      decimal: ",",
+      decimal: ","
     },
     th: {
       y: "ปี",
@@ -1318,7 +1318,7 @@
       m: "นาที",
       s: "วินาที",
       ms: "มิลลิวินาที",
-      decimal: ".",
+      decimal: "."
     },
     vi: {
       y: "năm",
@@ -1329,7 +1329,7 @@
       m: "phút",
       s: "giây",
       ms: "mili giây",
-      decimal: ",",
+      decimal: ","
     },
     zh_CN: {
       y: "年",
@@ -1340,7 +1340,7 @@
       m: "分钟",
       s: "秒",
       ms: "毫秒",
-      decimal: ".",
+      decimal: "."
     },
     zh_TW: {
       y: "年",
@@ -1351,8 +1351,8 @@
       m: "分鐘",
       s: "秒",
       ms: "毫秒",
-      decimal: ".",
-    },
+      decimal: "."
+    }
   };
 
   // You can create a humanizer, which returns a function with default
@@ -1382,8 +1382,8 @@
           h: 3600000,
           m: 60000,
           s: 1000,
-          ms: 1,
-        },
+          ms: 1
+        }
       },
       passedOptions
     );
@@ -1454,7 +1454,7 @@
       // Add the string.
       pieces.push({
         unitCount: unitCount,
-        unitName: unitName,
+        unitName: unitName
       });
 
       // Remove what we just figured out.
