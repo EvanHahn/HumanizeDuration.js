@@ -68,10 +68,10 @@
   "bugs": "https://github.com/EvanHahn/HumanizeDuration.js/issues",
   "license": "Unlicense",
   "files": [
-    "/README.md",
-    "/LICENSE.txt",
-    "/CONTRIBUTING.md",
-    "/HISTORY.md",
-    "/humanize-duration.js"
+    "README.md",
+    "LICENSE.txt",
+    "CONTRIBUTING.md",
+    "HISTORY.md",
+    "humanize-duration.js"
   ]
 }
