@@ -227,7 +227,11 @@ Humanize Duration supports the following languages:
 
 | Language             | Code    |
 | -------------------- | ------- |
+| Afrikaans            | `af`    |
+| Albanian             | `sq`    |
 | Arabic               | `ar`    |
+| Basque               | `eu`    |
+| Bengali              | `bn`    |
 | Bulgarian            | `bg`    |
 | Catalan              | `ca`    |
 | Chinese, simplified  | `zh_CN` |
@@ -237,6 +241,7 @@ Humanize Duration supports the following languages:
 | Danish               | `da`    |
 | Dutch                | `nl`    |
 | English              | `en`    |
+| Esperanto            | `eo`    |
 | Estonian             | `et`    |
 | Faroese              | `fo`    |
 | Farsi/Persian        | `fa`    |
@@ -251,28 +256,37 @@ Humanize Duration supports the following languages:
 | Indonesian           | `id`    |
 | Italian              | `it`    |
 | Japanese             | `ja`    |
+| Kannada              | `kn`    |
+| Khmer                | `km`    |
 | Korean               | `ko`    |
+| Kurdish              | `ku`    |
 | Lao                  | `lo`    |
 | Latvian              | `lv`    |
 | Lithuanian           | `lt`    |
+| Macedonian           | `mk`    |
 | Malay                | `ms`    |
+| Marathi              | `mr`    |
 | Norwegian            | `no`    |
 | Polish               | `pl`    |
 | Portuguese           | `pt`    |
 | Romanian             | `ro`    |
 | Russian              | `ru`    |
+| Serbian              | `sr`    |
 | Slovak               | `sk`    |
 | Slovenian            | `sl`    |
 | Spanish              | `es`    |
 | Swahili              | `sw`    |
 | Swedish              | `sv`    |
+| Tamil                | `ta`    |
+| Telugu               | `te`    |
 | Thai                 | `th`    |
 | Turkish              | `tr`    |
 | Ukrainian            | `uk`    |
 | Urdu                 | `ur`    |
 | Vietnamese           | `vi`    |
+| Welsh                | `cy`    |
 
-For a list of supported languages, you can use the `getSupportedLanguages` function.
+For a list of supported languages, you can use the `getSupportedLanguages` function. The results may not be in the same order every time.
 
 ```js
 humanizeDuration.getSupportedLanguages();

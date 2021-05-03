@@ -17,26 +17,26 @@ function options(language) {
 
 describe("localized humanization", function () {
   before(async function () {
-    this.languages = new Map();
-
     const definitionsPath = path.resolve(__dirname, "definitions");
     const definitionFilePaths = (await readdir(definitionsPath))
       .filter((f) => path.extname(f) === ".csv")
       .map((f) => path.join(definitionsPath, f));
-    await Promise.all(
-      definitionFilePaths.map(async (filePath) => {
-        const language = path.basename(filePath, ".csv");
+    this.languages = new Map(
+      await Promise.all(
+        definitionFilePaths.map(async (filePath) => {
+          const language = path.basename(filePath, ".csv");
 
-        const parser = fs
-          .createReadStream(filePath)
-          .pipe(parseCsv({ delimiter: "$" }));
-        const pairs = [];
-        for await (const [msString, expectedResult] of parser) {
-          pairs.push([parseFloat(msString), expectedResult]);
-        }
+          const parser = fs
+            .createReadStream(filePath)
+            .pipe(parseCsv({ delimiter: "$" }));
+          const pairs = [];
+          for await (const [msString, expectedResult] of parser) {
+            pairs.push([parseFloat(msString), expectedResult]);
+          }
 
-        this.languages.set(language, pairs);
-      })
+          return [language, pairs];
+        })
+      )
     );
 
     assert(this.languages.has("en"), "Definition smoke test failed");
@@ -48,7 +48,8 @@ describe("localized humanization", function () {
       for (const [ms, expectedResult] of pairs) {
         assert.strictEqual(
           humanizeDuration(ms, options(language)),
-          expectedResult
+          expectedResult,
+          `${language} localization error for ${ms} milliseconds`
         );
       }
     }
@@ -58,7 +59,11 @@ describe("localized humanization", function () {
     for (const [language, pairs] of this.languages) {
       const h = humanizeDuration.humanizer(options(language));
       for (const [ms, expectedResult] of pairs) {
-        assert.strictEqual(h(ms), expectedResult);
+        assert.strictEqual(
+          h(ms),
+          expectedResult,
+          `${language} localization error ${ms} milliseconds`
+        );
       }
     }
   });

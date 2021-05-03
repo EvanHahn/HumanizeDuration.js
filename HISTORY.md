@@ -1,3 +1,20 @@
+# Unreleased
+
+- new: Afrikaans support
+- new: Albanian support
+- new: Basque support
+- new: Bengali support
+- new: Esperanto support
+- new: Kannada support
+- new: Khmer support
+- new: Kurdish support
+- new: Macedonian support
+- new: Marathi support
+- new: Serbian support
+- new: Tamil support
+- new: Telugu support
+- new: Welsh support
+
 # 3.25.2 / 2021-04-17
 
 - fix: Thai word for "week" is now less colloquial (see [#196](https://github.com/EvanHahn/HumanizeDuration.js/pull/196))
