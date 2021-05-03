@@ -1,19 +1,19 @@
 # Unreleased
 
-- new: Afrikaans support
-- new: Albanian support
-- new: Basque support
-- new: Bengali support
-- new: Esperanto support
-- new: Kannada support
-- new: Khmer support
-- new: Kurdish support
-- new: Macedonian support
-- new: Marathi support
-- new: Serbian support
-- new: Tamil support
-- new: Telugu support
-- new: Welsh support
+- new: Afrikaans support (`af`)
+- new: Albanian support (`sq`)
+- new: Basque support (`eu`)
+- new: Bengali support (`bn`)
+- new: Esperanto support (`eo`)
+- new: Kannada support (`kn`)
+- new: Khmer support (`km`)
+- new: Kurdish support (`ku`)
+- new: Macedonian support (`mk`)
+- new: Marathi support (`mr`)
+- new: Serbian support (`sr`)
+- new: Tamil support (`ta`)
+- new: Telugu support (`te`)
+- new: Welsh support (`cy`)
 
 # 3.25.2 / 2021-04-17
 
