@@ -1,4 +1,4 @@
-# Unreleased
+# 3.26.0 / 2021-05-03
 
 - new: Afrikaans support (`af`)
 - new: Albanian support (`sq`)
