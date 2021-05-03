@@ -43,8 +43,8 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "csv-parse": "^4.15.3",
-    "eslint": "^7.23.0",
+    "csv-parse": "^4.15.4",
+    "eslint": "^7.25.0",
     "eslint-plugin-mocha": "^8.1.0",
     "mocha": "^8.3.2",
     "ms": "^2.1.3",
