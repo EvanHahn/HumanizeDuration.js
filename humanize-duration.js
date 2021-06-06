@@ -1380,7 +1380,6 @@
       result,
       {
         language: "en",
-        delimiter: ", ",
         spacer: " ",
         conjunction: "",
         serialComma: true,
@@ -1522,13 +1521,22 @@
     }
 
     if (result.length) {
+      var delimiter;
+      if (has(options, "delimiter")) {
+        delimiter = options.delimiter;
+      } else if (has(dictionary, "delimiter")) {
+        delimiter = dictionary.delimiter;
+      } else {
+        delimiter = ", ";
+      }
+
       if (!options.conjunction || result.length === 1) {
-        return result.join(dictionary.delimiter || options.delimiter);
+        return result.join(delimiter);
       } else if (result.length === 2) {
         return result.join(options.conjunction);
       } else if (result.length > 2) {
         return (
-          result.slice(0, -1).join(dictionary.delimiter || options.delimiter) +
+          result.slice(0, -1).join(delimiter) +
           (options.serialComma ? "," : "") +
           options.conjunction +
           result.slice(-1)
