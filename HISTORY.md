@@ -1,3 +1,7 @@
+# Unreleased
+
+- change: use Arabic numerals, delimiters, and updated words (see [#198](https://github.com/EvanHahn/HumanizeDuration.js/pull/198) and [#199](https://github.com/EvanHahn/HumanizeDuration.js/pull/199))
+
 # 3.26.0 / 2021-05-03
 
 - new: Afrikaans support (`af`)
