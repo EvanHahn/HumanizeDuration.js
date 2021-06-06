@@ -65,30 +65,43 @@
     },
     ar: {
       y: function (c) {
-        return c === 1 ? "سنة" : "سنوات";
+        return ["سنة", "سنتان", "سنوات"][getArabicForm(c)];
       },
       mo: function (c) {
-        return c === 1 ? "شهر" : "أشهر";
+        return ["شهر", "شهران", "أشهر"][getArabicForm(c)];
       },
       w: function (c) {
-        return c === 1 ? "أسبوع" : "أسابيع";
+        return ["أسبوع", "أسبوعين", "أسابيع"][getArabicForm(c)];
       },
       d: function (c) {
-        return c === 1 ? "يوم" : "أيام";
+        return ["يوم", "يومين", "أيام"][getArabicForm(c)];
       },
       h: function (c) {
-        return c === 1 ? "ساعة" : "ساعات";
+        return ["ساعة", "ساعتين", "ساعات"][getArabicForm(c)];
       },
       m: function (c) {
-        return c > 2 && c < 11 ? "دقائق" : "دقيقة";
+        return ["دقيقة", "دقيقتان", "دقائق"][getArabicForm(c)];
       },
       s: function (c) {
-        return c === 1 ? "ثانية" : "ثواني";
+        return ["ثانية", "ثانيتان", "ثواني"][getArabicForm(c)];
       },
       ms: function (c) {
-        return c === 1 ? "جزء من الثانية" : "أجزاء من الثانية";
+        return ["جزء من الثانية", "جزآن من الثانية", "أجزاء من الثانية"][
+          getArabicForm(c)
+        ];
       },
-      decimal: ","
+      decimal: ",",
+      delimiter: " و ",
+      convert: function (v) {
+        var arabicNumbers = ["۰", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
+        var chars = v.toString().split("");
+        for (var i = 0; i < chars.length; i++) {
+          if (/\d/.test(chars[i])) {
+            chars[i] = arabicNumbers[chars[i]];
+          }
+        }
+        return chars.join("");
+      }
     },
     bg: {
       y: function (c) {
@@ -1355,6 +1368,14 @@
     }
   };
 
+  // Internal helper function for Arabic language.
+  function getArabicForm(c) {
+    if (c === 1) return 0;
+    else if (c === 2) return 1;
+    else if (c > 2 && c < 11) return 2;
+    else return 0;
+  }
+
   // You can create a humanizer, which returns a function with default
   // parameters.
   function humanizer(passedOptions) {
@@ -1510,12 +1531,12 @@
 
     if (result.length) {
       if (!options.conjunction || result.length === 1) {
-        return result.join(options.delimiter);
+        return result.join(dictionary.delimiter || options.delimiter);
       } else if (result.length === 2) {
         return result.join(options.conjunction);
       } else if (result.length > 2) {
         return (
-          result.slice(0, -1).join(options.delimiter) +
+          result.slice(0, -1).join(dictionary.delimiter || options.delimiter) +
           (options.serialComma ? "," : "") +
           options.conjunction +
           result.slice(-1)
@@ -1541,8 +1562,11 @@
       decimal = ".";
     }
 
-    var countStr = count.toString().replace(".", decimal);
-
+    var countStr = count.toString();
+    if (typeof dictionary.convert === "function") {
+      countStr = dictionary.convert(count);
+    }
+    countStr = countStr.replace(".", decimal);
     var dictionaryValue = dictionary[type];
     var word;
     if (typeof dictionaryValue === "function") {
