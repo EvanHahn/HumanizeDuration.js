@@ -206,12 +206,17 @@ describe("humanizer", function () {
       w: () => "w",
       d: () => "d",
       h: () => "h",
-      m: () => "mi",
+      m: () => "m",
       s: () => "s",
       ms: () => "ms",
+      delimiter: "--",
     };
 
     assert.strictEqual(h(1000), "1 s");
+    assert.strictEqual(h(61000), "1 m--1 s");
+
+    assert.strictEqual(h(61000, { delimiter: "&&" }), "1 m&&1 s");
+
     assert.strictEqual(
       h(1000, {
         language: "es",

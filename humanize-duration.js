@@ -37,6 +37,8 @@
     decimal: ","
   };
 
+  var ARABIC_DIGITS = ["۰", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
+
   var LANGUAGES = {
     af: {
       y: "jaar",
@@ -65,30 +67,44 @@
     },
     ar: {
       y: function (c) {
-        return c === 1 ? "سنة" : "سنوات";
+        return ["سنة", "سنتان", "سنوات"][getArabicForm(c)];
       },
       mo: function (c) {
-        return c === 1 ? "شهر" : "أشهر";
+        return ["شهر", "شهران", "أشهر"][getArabicForm(c)];
       },
       w: function (c) {
-        return c === 1 ? "أسبوع" : "أسابيع";
+        return ["أسبوع", "أسبوعين", "أسابيع"][getArabicForm(c)];
       },
       d: function (c) {
-        return c === 1 ? "يوم" : "أيام";
+        return ["يوم", "يومين", "أيام"][getArabicForm(c)];
       },
       h: function (c) {
-        return c === 1 ? "ساعة" : "ساعات";
+        return ["ساعة", "ساعتين", "ساعات"][getArabicForm(c)];
       },
       m: function (c) {
-        return c > 2 && c < 11 ? "دقائق" : "دقيقة";
+        return ["دقيقة", "دقيقتان", "دقائق"][getArabicForm(c)];
       },
       s: function (c) {
-        return c === 1 ? "ثانية" : "ثواني";
+        return ["ثانية", "ثانيتان", "ثواني"][getArabicForm(c)];
       },
       ms: function (c) {
-        return c === 1 ? "جزء من الثانية" : "أجزاء من الثانية";
+        return ["جزء من الثانية", "جزآن من الثانية", "أجزاء من الثانية"][
+          getArabicForm(c)
+        ];
       },
-      decimal: ","
+      decimal: ",",
+      delimiter: " و ",
+      _formatCount: function (count, decimal) {
+        var replacements = assign(ARABIC_DIGITS, { ".": decimal });
+        var characters = count.toString().split("");
+        for (var i = 0; i < characters.length; i++) {
+          var character = characters[i];
+          if (has(replacements, character)) {
+            characters[i] = replacements[character];
+          }
+        }
+        return characters.join("");
+      }
     },
     bg: {
       y: function (c) {
@@ -1367,7 +1383,6 @@
       result,
       {
         language: "en",
-        delimiter: ", ",
         spacer: " ",
         conjunction: "",
         serialComma: true,
@@ -1509,13 +1524,22 @@
     }
 
     if (result.length) {
+      var delimiter;
+      if (has(options, "delimiter")) {
+        delimiter = options.delimiter;
+      } else if (has(dictionary, "delimiter")) {
+        delimiter = dictionary.delimiter;
+      } else {
+        delimiter = ", ";
+      }
+
       if (!options.conjunction || result.length === 1) {
-        return result.join(options.delimiter);
+        return result.join(delimiter);
       } else if (result.length === 2) {
         return result.join(options.conjunction);
       } else if (result.length > 2) {
         return (
-          result.slice(0, -1).join(options.delimiter) +
+          result.slice(0, -1).join(delimiter) +
           (options.serialComma ? "," : "") +
           options.conjunction +
           result.slice(-1)
@@ -1541,7 +1565,12 @@
       decimal = ".";
     }
 
-    var countStr = count.toString().replace(".", decimal);
+    var countStr;
+    if (typeof dictionary._formatCount === "function") {
+      countStr = dictionary._formatCount(count, decimal);
+    } else {
+      countStr = count.toString().replace(".", decimal);
+    }
 
     var dictionaryValue = dictionary[type];
     var word;
@@ -1565,6 +1594,19 @@
       }
     }
     return destination;
+  }
+
+  function getArabicForm(c) {
+    if (c === 1) {
+      return 0;
+    }
+    if (c === 2) {
+      return 1;
+    }
+    if (c > 2 && c < 11) {
+      return 2;
+    }
+    return 0;
   }
 
   function getPolishForm(c) {
