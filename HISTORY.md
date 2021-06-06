@@ -1,4 +1,4 @@
-# Unreleased
+# 3.27.0 / 2021-06-06
 
 - change: use Arabic numerals, delimiters, and updated words (see [#198](https://github.com/EvanHahn/HumanizeDuration.js/pull/198) and [#199](https://github.com/EvanHahn/HumanizeDuration.js/pull/199))
 
