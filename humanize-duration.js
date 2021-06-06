@@ -37,6 +37,8 @@
     decimal: ","
   };
 
+  var ARABIC_DIGITS = ["۰", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
+
   var LANGUAGES = {
     af: {
       y: "jaar",
@@ -92,15 +94,16 @@
       },
       decimal: ",",
       delimiter: " و ",
-      convert: function (v) {
-        var arabicNumbers = ["۰", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
-        var chars = v.toString().split("");
-        for (var i = 0; i < chars.length; i++) {
-          if (/\d/.test(chars[i])) {
-            chars[i] = arabicNumbers[chars[i]];
+      _formatCount: function (count, decimal) {
+        var replacements = assign(ARABIC_DIGITS, { ".": decimal });
+        var characters = count.toString().split("");
+        for (var i = 0; i < characters.length; i++) {
+          var character = characters[i];
+          if (has(replacements, character)) {
+            characters[i] = replacements[character];
           }
         }
-        return chars.join("");
+        return characters.join("");
       }
     },
     bg: {
@@ -1562,11 +1565,13 @@
       decimal = ".";
     }
 
-    var countStr = count.toString();
-    if (typeof dictionary.convert === "function") {
-      countStr = dictionary.convert(count);
+    var countStr;
+    if (typeof dictionary._formatCount === "function") {
+      countStr = dictionary._formatCount(count, decimal);
+    } else {
+      countStr = count.toString().replace(".", decimal);
     }
-    countStr = countStr.replace(".", decimal);
+
     var dictionaryValue = dictionary[type];
     var word;
     if (typeof dictionaryValue === "function") {
