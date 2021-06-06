@@ -1368,14 +1368,6 @@
     }
   };
 
-  // Internal helper function for Arabic language.
-  function getArabicForm(c) {
-    if (c === 1) return 0;
-    else if (c === 2) return 1;
-    else if (c > 2 && c < 11) return 2;
-    else return 0;
-  }
-
   // You can create a humanizer, which returns a function with default
   // parameters.
   function humanizer(passedOptions) {
@@ -1589,6 +1581,19 @@
       }
     }
     return destination;
+  }
+
+  function getArabicForm(c) {
+    if (c === 1) {
+      return 0;
+    }
+    if (c === 2) {
+      return 1;
+    }
+    if (c > 2 && c < 11) {
+      return 2;
+    }
+    return 0;
   }
 
   function getPolishForm(c) {
