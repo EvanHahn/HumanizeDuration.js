@@ -2,7 +2,7 @@ const humanizeDuration = require("..");
 const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
-const parseCSV = require("csv-parse");
+const parseCsv = require("csv-parse").parse;
 
 describe("legacy Greek support", function () {
   // See https://github.com/EvanHahn/HumanizeDuration.js/issues/143
@@ -16,7 +16,7 @@ describe("legacy Greek support", function () {
         return done(err);
       }
 
-      parseCSV(data, { delimiter: "$" }, (err, rows) => {
+      parseCsv(data, { delimiter: "$" }, (err, rows) => {
         if (err) {
           return done(err);
         }

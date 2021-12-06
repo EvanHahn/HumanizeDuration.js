@@ -2,7 +2,7 @@ const humanizeDuration = require("..");
 const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
-const parseCsv = require("csv-parse");
+const parseCsv = require("csv-parse").parse;
 const { promisify } = require("util");
 
 const readdir = promisify(fs.readdir);
