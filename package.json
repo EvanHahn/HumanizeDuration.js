@@ -39,7 +39,7 @@
   "main": "humanize-duration.js",
   "scripts": {
     "pretest": "npm run lint",
-    "lint": "prettier --check . && eslint \"**/*.js\"",
+    "lint": "prettier --check . && eslint .",
     "format": "prettier --write .",
     "test": "mocha"
   },
