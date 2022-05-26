@@ -33,7 +33,7 @@
     "Kristijan Jesenski (https://github.com/kjesenski)",
     "Michal Karzel (https://github.com/Misioka)"
   ],
-  "version": "3.27.1",
+  "version": "3.27.2",
   "description": "Convert millisecond durations to English and many other languages.",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
   "main": "humanize-duration.js",
