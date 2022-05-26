@@ -1,3 +1,7 @@
+# unreleased
+
+- change: shrank package size slightly
+
 # 3.27.1 / 2021-12-05
 
 - fix: Japanese word for "month" (see [#203](https://github.com/EvanHahn/HumanizeDuration.js/pull/203))
