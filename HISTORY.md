@@ -1,4 +1,4 @@
-# unreleased
+# 3.27.2 / 2022-05-26
 
 - change: shrank package size slightly
 
