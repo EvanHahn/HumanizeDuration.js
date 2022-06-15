@@ -1510,12 +1510,20 @@
     var result = [];
     for (i = 0, pieces.length; i < len; i++) {
       piece = pieces[i];
-      if (piece.unitCount) {
+      if (options.includeZero) {
         result.push(
           render(piece.unitCount, piece.unitName, dictionary, options)
         );
+      } else {
+        if (piece.unitCount) {
+          result.push(
+            render(piece.unitCount, piece.unitName, dictionary, options)
+          );
+        }
       }
-
+       
+      
+     
       if (result.length === options.largest) {
         break;
       }
