@@ -1521,8 +1521,6 @@
           );
         }
       }
-       
-      
      
       if (result.length === options.largest) {
         break;
