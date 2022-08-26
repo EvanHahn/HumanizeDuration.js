@@ -1,3 +1,7 @@
+# Unreleased
+
+- fix: ordering for Swahili (see [#207](https://github.com/EvanHahn/HumanizeDuration.js/issues/207))
+
 # 3.27.2 / 2022-05-26
 
 - change: shrank package size slightly

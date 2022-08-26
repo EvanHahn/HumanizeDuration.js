@@ -1310,7 +1310,8 @@
       m: "dakika",
       s: "sekunde",
       ms: "milisekunde",
-      decimal: "."
+      decimal: ".",
+      _numberFirst: true
     },
     tr: {
       y: "yıl",
@@ -1578,6 +1579,9 @@
       word = dictionaryValue;
     }
 
+    if (dictionary._numberFirst) {
+      return word + options.spacer + countStr;
+    }
     return countStr + options.spacer + word;
   }
 
