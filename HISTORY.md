@@ -1,4 +1,4 @@
-# Unreleased
+# 3.27.3 / 2022-08-26
 
 - fix: ordering for Swahili (see [#207](https://github.com/EvanHahn/HumanizeDuration.js/issues/207))
 
