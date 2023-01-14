@@ -264,6 +264,7 @@ Humanize Duration supports the following languages:
 | Latvian              | `lv`    |
 | Lithuanian           | `lt`    |
 | Macedonian           | `mk`    |
+| Mongolian            | `mn`    |
 | Malay                | `ms`    |
 | Marathi              | `mr`    |
 | Norwegian            | `no`    |
