@@ -1,7 +1,7 @@
 const { getSupportedLanguages } = require("..");
-const assert = require("assert");
-const fs = require("fs");
-const path = require("path");
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
 
 describe("getSupportedLanguages", function () {
   it("lists all supported languages", function (done) {

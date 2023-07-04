@@ -1,6 +1,6 @@
 const pkg = require("../package.json");
 const bower = require("../bower.json");
-const assert = require("assert");
+const assert = require("node:assert/strict");
 
 describe("package.json", function () {
   it("has `bugs`", function () {

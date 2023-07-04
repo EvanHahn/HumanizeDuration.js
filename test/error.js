@@ -1,5 +1,5 @@
 const humanizeDuration = require("..");
-const assert = require("assert");
+const assert = require("node:assert/strict");
 
 describe("error handling", function () {
   it("throws an error when passed a bad language in the function", function () {
