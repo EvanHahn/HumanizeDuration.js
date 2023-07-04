@@ -1,4 +1,5 @@
 const humanizeDuration = require("..");
+const { before, describe, it } = require("node:test");
 const assert = require("node:assert");
 const fs = require("node:fs");
 const path = require("node:path");
@@ -7,21 +8,21 @@ const { promisify } = require("node:util");
 
 const readdir = promisify(fs.readdir);
 
-function options(language) {
-  return {
-    language,
-    delimiter: "+",
-    units: ["y", "mo", "w", "d", "h", "m", "s", "ms"],
-  };
-}
+const options = (language) => ({
+  language,
+  delimiter: "+",
+  units: ["y", "mo", "w", "d", "h", "m", "s", "ms"],
+});
 
 describe("localized humanization", function () {
+  let languages;
+
   before(async function () {
     const definitionsPath = path.resolve(__dirname, "definitions");
     const definitionFilePaths = (await readdir(definitionsPath))
       .filter((f) => path.extname(f) === ".csv")
       .map((f) => path.join(definitionsPath, f));
-    this.languages = new Map(
+    languages = new Map(
       await Promise.all(
         definitionFilePaths.map(async (filePath) => {
           const language = path.basename(filePath, ".csv");
@@ -39,12 +40,12 @@ describe("localized humanization", function () {
       )
     );
 
-    assert(this.languages.has("en"), "Definition smoke test failed");
-    assert(this.languages.has("es"), "Definition smoke test failed");
+    assert(languages.has("en"), "Definition smoke test failed");
+    assert(languages.has("es"), "Definition smoke test failed");
   });
 
   it("humanizes all languages correctly with the top-level function", function () {
-    for (const [language, pairs] of this.languages) {
+    for (const [language, pairs] of languages) {
       for (const [ms, expectedResult] of pairs) {
         assert.strictEqual(
           humanizeDuration(ms, options(language)),
@@ -56,7 +57,7 @@ describe("localized humanization", function () {
   });
 
   it("humanizes all languages correctly with a humanizer", function () {
-    for (const [language, pairs] of this.languages) {
+    for (const [language, pairs] of languages) {
       const h = humanizeDuration.humanizer(options(language));
       for (const [ms, expectedResult] of pairs) {
         assert.strictEqual(
