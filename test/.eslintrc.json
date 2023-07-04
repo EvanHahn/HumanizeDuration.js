@@ -5,7 +5,7 @@
     "mocha": true
   },
   "parserOptions": {
-    "ecmaVersion": 11
+    "ecmaVersion": "latest"
   },
   "plugins": ["mocha"],
   "extends": "plugin:mocha/recommended"
