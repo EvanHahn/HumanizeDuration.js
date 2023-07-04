@@ -45,12 +45,12 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "csv-parse": "^5.3.3",
-    "eslint": "^8.31.0",
+    "csv-parse": "^5.4.0",
+    "eslint": "^8.44.0",
     "eslint-plugin-mocha": "^10.1.0",
     "mocha": "^10.2.0",
     "ms": "^2.1.3",
-    "prettier": "^2.8.3"
+    "prettier": "^2.8.8"
   },
   "keywords": [
     "humanize",
