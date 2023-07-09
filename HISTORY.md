@@ -1,3 +1,7 @@
+# Unreleased
+
+- change: shrank package size slightly
+
 # 3.28.0 / 2023-01-14
 
 - new: Mongolian support (`mn`)
