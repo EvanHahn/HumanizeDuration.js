@@ -1,12 +1,9 @@
 {
   "env": {
     "node": true,
-    "es6": true,
-    "mocha": true
+    "es6": true
   },
   "parserOptions": {
     "ecmaVersion": "latest"
-  },
-  "plugins": ["mocha"],
-  "extends": "plugin:mocha/recommended"
+  }
 }
