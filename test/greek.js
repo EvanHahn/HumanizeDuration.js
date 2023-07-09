@@ -16,5 +16,5 @@ test('aliases "gr" to "el"', () => {
 
 test('does not include "gr" in getSupportedLanguages', () => {
   const supportedLanguages = humanizeDuration.getSupportedLanguages();
-  assert.strictEqual(supportedLanguages.indexOf("gr"), -1);
+  assert(!supportedLanguages.includes("gr"));
 });
