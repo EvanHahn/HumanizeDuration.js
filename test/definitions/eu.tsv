@@ -1,0 +1,72 @@
+0	0 milisegundo
+1	1 milisegundo
+2	2 milisegundo
+5	5 milisegundo
+12	12 milisegundo
+420	420 milisegundo
+500	500 milisegundo
+1000	1 segundo
+1500	1 segundo+500 milisegundo
+2000	2 segundo
+2500	2 segundo+500 milisegundo
+3000	3 segundo
+1001	1 segundo+1 milisegundo
+1002	1 segundo+2 milisegundo
+2001	2 segundo+1 milisegundo
+2003	2 segundo+3 milisegundo
+1200	1 segundo+200 milisegundo
+6900	6 segundo+900 milisegundo
+30000	30 segundo
+60000	1 minutu
+90000	1 minutu+30 segundo
+120000	2 minutu
+150000	2 minutu+30 segundo
+180000	3 minutu
+61000	1 minutu+1 segundo
+78000	1 minutu+18 segundo
+61001	1 minutu+1 segundo+1 milisegundo
+61005	1 minutu+1 segundo+5 milisegundo
+62001	1 minutu+2 segundo+1 milisegundo
+62005	1 minutu+2 segundo+5 milisegundo
+121001	2 minutu+1 segundo+1 milisegundo
+121007	2 minutu+1 segundo+7 milisegundo
+138001	2 minutu+18 segundo+1 milisegundo
+138006	2 minutu+18 segundo+6 milisegundo
+1800000	30 minutu
+3600000	1 ordu
+5400000	1 ordu+30 minutu
+7200000	2 ordu
+9000000	2 ordu+30 minutu
+10800000	3 ordu
+3660000	1 ordu+1 minutu
+3720000	1 ordu+2 minutu
+10860000	3 ordu+1 minutu
+11040000	3 ordu+4 minutu
+43200000	12 ordu
+86400000	1 egun
+129600000	1 egun+12 ordu
+172800000	2 egun
+216000000	2 egun+12 ordu
+259200000	3 egun
+302400000	3 egun+12 ordu
+604800000	1 aste
+907200000	1 aste+3 egun+12 ordu
+1209600000	2 aste
+1512000000	2 aste+3 egun+12 ordu
+1814400000	3 aste
+1314900000	2 aste+1 egun+5 ordu+15 minutu
+2629800000	1 hilabete
+3944700000	1 hilabete+2 aste+1 egun+5 ordu+15 minutu
+5259600000	2 hilabete
+6574500000	2 hilabete+2 aste+1 egun+5 ordu+15 minutu
+7889400000	3 hilabete
+15778800000	6 hilabete
+31557600000	1 urte
+47336400000	1 urte+6 hilabete
+63115200000	2 urte
+78894000000	2 urte+6 hilabete
+94672800000	3 urte
+-420	420 milisegundo
+0.12	0,12 milisegundo
+1.5	1,5 milisegundo
+420.69	420,69 milisegundo

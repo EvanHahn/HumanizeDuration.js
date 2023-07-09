@@ -1,0 +1,163 @@
+0	0 milisekundi
+1	1 milisekunda
+2	2 milisekunde
+30000	30 sekundi
+60000	1 minuta
+90000	1 minuta+30 sekundi
+120000	2 minute
+150000	2 minute+30 sekundi
+180000	3 minute
+61000	1 minuta+1 sekunda
+78000	1 minuta+18 sekundi
+61001	1 minuta+1 sekunda+1 milisekunda
+3600000	1 sat
+5400000	1 sat+30 minuta
+7200000	2 sata
+9000000	2 sata+30 minuta
+10800000	3 sata
+3660000	1 sat+1 minuta
+3720000	1 sat+2 minute
+10860000	3 sata+1 minuta
+11040000	3 sata+4 minute
+43200000	12 sati
+86400000	1 dan
+129600000	1 dan+12 sati
+172800000	2 dana
+216000000	2 dana+12 sati
+259200000	3 dana
+302400000	3 dana+12 sati
+604800000	1 tjedan
+907200000	1 tjedan+3 dana+12 sati
+1209600000	2 tjedna
+1512000000	2 tjedna+3 dana+12 sati
+1814400000	3 tjedna
+1314900000	2 tjedna+1 dan+5 sati+15 minuta
+2629800000	1 mjesec
+3944700000	1 mjesec+2 tjedna+1 dan+5 sati+15 minuta
+5259600000	2 mjeseca
+6574500000	2 mjeseca+2 tjedna+1 dan+5 sati+15 minuta
+7889400000	3 mjeseca
+15778800000	6 mjeseci
+31557600000	1 godina
+47336400000	1 godina+6 mjeseci
+63115200000	2 godine
+78894000000	2 godine+6 mjeseci
+94672800000	3 godine
+60000	1 minuta
+120000	2 minute
+180000	3 minute
+240000	4 minute
+300000	5 minuta
+360000	6 minuta
+420000	7 minuta
+480000	8 minuta
+540000	9 minuta
+600000	10 minuta
+660000	11 minuta
+720000	12 minuta
+780000	13 minuta
+840000	14 minuta
+900000	15 minuta
+960000	16 minuta
+1020000	17 minuta
+1080000	18 minuta
+1140000	19 minuta
+1200000	20 minuta
+1260000	21 minuta
+1320000	22 minute
+1380000	23 minute
+1440000	24 minute
+1500000	25 minuta
+1560000	26 minuta
+1620000	27 minuta
+1680000	28 minuta
+1740000	29 minuta
+1800000	30 minuta
+1860000	31 minuta
+1920000	32 minute
+1980000	33 minute
+2040000	34 minute
+2100000	35 minuta
+2160000	36 minuta
+2220000	37 minuta
+2280000	38 minuta
+2340000	39 minuta
+2400000	40 minuta
+2460000	41 minuta
+2520000	42 minute
+2580000	43 minute
+2640000	44 minute
+2700000	45 minuta
+2760000	46 minuta
+2820000	47 minuta
+2880000	48 minuta
+2940000	49 minuta
+3000000	50 minuta
+3060000	51 minuta
+3120000	52 minute
+3180000	53 minute
+3240000	54 minute
+3300000	55 minuta
+3360000	56 minuta
+3420000	57 minuta
+3480000	58 minuta
+3540000	59 minuta
+1000	1 sekunda
+2000	2 sekunde
+3000	3 sekunde
+4000	4 sekunde
+5000	5 sekundi
+6000	6 sekundi
+7000	7 sekundi
+8000	8 sekundi
+9000	9 sekundi
+10000	10 sekundi
+11000	11 sekundi
+12000	12 sekundi
+13000	13 sekundi
+14000	14 sekundi
+15000	15 sekundi
+16000	16 sekundi
+17000	17 sekundi
+18000	18 sekundi
+19000	19 sekundi
+20000	20 sekundi
+21000	21 sekunda
+22000	22 sekunde
+23000	23 sekunde
+24000	24 sekunde
+25000	25 sekundi
+26000	26 sekundi
+27000	27 sekundi
+28000	28 sekundi
+29000	29 sekundi
+30000	30 sekundi
+31000	31 sekunda
+32000	32 sekunde
+33000	33 sekunde
+34000	34 sekunde
+35000	35 sekundi
+36000	36 sekundi
+37000	37 sekundi
+38000	38 sekundi
+39000	39 sekundi
+40000	40 sekundi
+41000	41 sekunda
+42000	42 sekunde
+43000	43 sekunde
+44000	44 sekunde
+45000	45 sekundi
+46000	46 sekundi
+47000	47 sekundi
+48000	48 sekundi
+49000	49 sekundi
+50000	50 sekundi
+51000	51 sekunda
+52000	52 sekunde
+53000	53 sekunde
+54000	54 sekunde
+55000	55 sekundi
+56000	56 sekundi
+57000	57 sekundi
+58000	58 sekundi
+59000	59 sekundi

@@ -1,0 +1,65 @@
+0	0 milisekund
+1	1 milisekunda
+2	2 milisekundi
+5	5 milisekund
+420	420 milisekund
+500	500 milisekund
+1000	1 sekunda
+1500	1 sekunda+500 milisekund
+2000	2 sekundi
+2500	2 sekundi+500 milisekund
+3000	3 sekunde
+2003	2 sekundi+3 milisekunde
+30000	30 sekund
+60000	1 minuta
+90000	1 minuta+30 sekund
+120000	2 minuti
+150000	2 minuti+30 sekund
+180000	3 minute
+61000	1 minuta+1 sekunda
+78000	1 minuta+18 sekund
+61001	1 minuta+1 sekunda+1 milisekunda
+61005	1 minuta+1 sekunda+5 milisekund
+62001	1 minuta+2 sekundi+1 milisekunda
+62005	1 minuta+2 sekundi+5 milisekund
+121001	2 minuti+1 sekunda+1 milisekunda
+121007	2 minuti+1 sekunda+7 milisekund
+138001	2 minuti+18 sekund+1 milisekunda
+138006	2 minuti+18 sekund+6 milisekund
+1800000	30 minut
+3600000	1 ura
+5400000	1 ura+30 minut
+7200000	2 uri
+9000000	2 uri+30 minut
+10800000	3 ure
+3660000	1 ura+1 minuta
+3720000	1 ura+2 minuti
+10860000	3 ure+1 minuta
+11040000	3 ure+4 minute
+43200000	12 ur
+86400000	1 dan
+129600000	1 dan+12 ur
+172800000	2 dni
+216000000	2 dni+12 ur
+259200000	3 dni
+302400000	3 dni+12 ur
+604800000	1 teden
+907200000	1 teden+3 dni+12 ur
+1209600000	2 tedna
+1512000000	2 tedna+3 dni+12 ur
+1814400000	3 tedne
+1314900000	2 tedna+1 dan+5 ur+15 minut
+2629800000	1 mesec
+3944700000	1 mesec+2 tedna+1 dan+5 ur+15 minut
+5259600000	2 meseca
+6574500000	2 meseca+2 tedna+1 dan+5 ur+15 minut
+7889400000	3 mesece
+15778800000	6 mesecev
+31557600000	1 leto
+47336400000	1 leto+6 mesecev
+63115200000	2 leti
+78894000000	2 leti+6 mesecev
+94672800000	3 leta
+0.12	0,12 milisekunde
+1.5	1,5 milisekunde
+420.69	420,69 milisekunde

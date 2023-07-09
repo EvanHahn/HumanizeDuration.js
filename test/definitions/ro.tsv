@@ -1,0 +1,72 @@
+0	0 milisecunde
+1	1 milisecundă
+2	2 milisecunde
+5	5 milisecunde
+12	12 milisecunde
+420	420 milisecunde
+500	500 milisecunde
+1000	1 secundă
+1500	1 secundă+500 milisecunde
+2000	2 secunde
+2500	2 secunde+500 milisecunde
+3000	3 secunde
+1001	1 secundă+1 milisecundă
+1002	1 secundă+2 milisecunde
+2001	2 secunde+1 milisecundă
+2003	2 secunde+3 milisecunde
+1200	1 secundă+200 milisecunde
+6900	6 secunde+900 milisecunde
+30000	30 secunde
+60000	1 minut
+90000	1 minut+30 secunde
+120000	2 minute
+150000	2 minute+30 secunde
+180000	3 minute
+61000	1 minut+1 secundă
+78000	1 minut+18 secunde
+61001	1 minut+1 secundă+1 milisecundă
+61005	1 minut+1 secundă+5 milisecunde
+62001	1 minut+2 secunde+1 milisecundă
+62005	1 minut+2 secunde+5 milisecunde
+121001	2 minute+1 secundă+1 milisecundă
+121007	2 minute+1 secundă+7 milisecunde
+138001	2 minute+18 secunde+1 milisecundă
+138006	2 minute+18 secunde+6 milisecunde
+1800000	30 minute
+3600000	1 oră
+5400000	1 oră+30 minute
+7200000	2 ore
+9000000	2 ore+30 minute
+10800000	3 ore
+3660000	1 oră+1 minut
+3720000	1 oră+2 minute
+10860000	3 ore+1 minut
+11040000	3 ore+4 minute
+43200000	12 ore
+86400000	1 zi
+129600000	1 zi+12 ore
+172800000	2 zile
+216000000	2 zile+12 ore
+259200000	3 zile
+302400000	3 zile+12 ore
+604800000	1 săptămână
+907200000	1 săptămână+3 zile+12 ore
+1209600000	2 săptămâni
+1512000000	2 săptămâni+3 zile+12 ore
+1814400000	3 săptămâni
+1314900000	2 săptămâni+1 zi+5 ore+15 minute
+2629800000	1 lună
+3944700000	1 lună+2 săptămâni+1 zi+5 ore+15 minute
+5259600000	2 luni
+6574500000	2 luni+2 săptămâni+1 zi+5 ore+15 minute
+7889400000	3 luni
+15778800000	6 luni
+31557600000	1 an
+47336400000	1 an+6 luni
+63115200000	2 ani
+78894000000	2 ani+6 luni
+94672800000	3 ani
+-420	420 milisecunde
+0.12	0,12 milisecunde
+1.5	1,5 milisecunde
+420.69	420,69 milisecunde

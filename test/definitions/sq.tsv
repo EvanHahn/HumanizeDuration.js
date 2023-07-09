@@ -1,0 +1,72 @@
+0	0 milisekonda
+1	1 milisekondë
+2	2 milisekonda
+5	5 milisekonda
+12	12 milisekonda
+420	420 milisekonda
+500	500 milisekonda
+1000	1 sekondë
+1500	1 sekondë+500 milisekonda
+2000	2 sekonda
+2500	2 sekonda+500 milisekonda
+3000	3 sekonda
+1001	1 sekondë+1 milisekondë
+1002	1 sekondë+2 milisekonda
+2001	2 sekonda+1 milisekondë
+2003	2 sekonda+3 milisekonda
+1200	1 sekondë+200 milisekonda
+6900	6 sekonda+900 milisekonda
+30000	30 sekonda
+60000	1 minutë
+90000	1 minutë+30 sekonda
+120000	2 minuta
+150000	2 minuta+30 sekonda
+180000	3 minuta
+61000	1 minutë+1 sekondë
+78000	1 minutë+18 sekonda
+61001	1 minutë+1 sekondë+1 milisekondë
+61005	1 minutë+1 sekondë+5 milisekonda
+62001	1 minutë+2 sekonda+1 milisekondë
+62005	1 minutë+2 sekonda+5 milisekonda
+121001	2 minuta+1 sekondë+1 milisekondë
+121007	2 minuta+1 sekondë+7 milisekonda
+138001	2 minuta+18 sekonda+1 milisekondë
+138006	2 minuta+18 sekonda+6 milisekonda
+1800000	30 minuta
+3600000	1 orë
+5400000	1 orë+30 minuta
+7200000	2 orë
+9000000	2 orë+30 minuta
+10800000	3 orë
+3660000	1 orë+1 minutë
+3720000	1 orë+2 minuta
+10860000	3 orë+1 minutë
+11040000	3 orë+4 minuta
+43200000	12 orë
+86400000	1 ditë
+129600000	1 ditë+12 orë
+172800000	2 ditë
+216000000	2 ditë+12 orë
+259200000	3 ditë
+302400000	3 ditë+12 orë
+604800000	1 javë
+907200000	1 javë+3 ditë+12 orë
+1209600000	2 javë
+1512000000	2 javë+3 ditë+12 orë
+1814400000	3 javë
+1314900000	2 javë+1 ditë+5 orë+15 minuta
+2629800000	1 muaj
+3944700000	1 muaj+2 javë+1 ditë+5 orë+15 minuta
+5259600000	2 muaj
+6574500000	2 muaj+2 javë+1 ditë+5 orë+15 minuta
+7889400000	3 muaj
+15778800000	6 muaj
+31557600000	1 vit
+47336400000	1 vit+6 muaj
+63115200000	2 vjet
+78894000000	2 vjet+6 muaj
+94672800000	3 vjet
+-420	420 milisekonda
+0.12	0,12 milisekonda
+1.5	1,5 milisekonda
+420.69	420,69 milisekonda

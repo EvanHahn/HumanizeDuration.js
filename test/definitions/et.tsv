@@ -1,0 +1,72 @@
+0	0 millisekundit
+1	1 millisekund
+2	2 millisekundit
+5	5 millisekundit
+12	12 millisekundit
+420	420 millisekundit
+500	500 millisekundit
+1000	1 sekund
+1500	1 sekund+500 millisekundit
+2000	2 sekundit
+2500	2 sekundit+500 millisekundit
+3000	3 sekundit
+1001	1 sekund+1 millisekund
+1002	1 sekund+2 millisekundit
+2001	2 sekundit+1 millisekund
+2003	2 sekundit+3 millisekundit
+1200	1 sekund+200 millisekundit
+6900	6 sekundit+900 millisekundit
+30000	30 sekundit
+60000	1 minut
+90000	1 minut+30 sekundit
+120000	2 minutit
+150000	2 minutit+30 sekundit
+180000	3 minutit
+61000	1 minut+1 sekund
+78000	1 minut+18 sekundit
+61001	1 minut+1 sekund+1 millisekund
+61005	1 minut+1 sekund+5 millisekundit
+62001	1 minut+2 sekundit+1 millisekund
+62005	1 minut+2 sekundit+5 millisekundit
+121001	2 minutit+1 sekund+1 millisekund
+121007	2 minutit+1 sekund+7 millisekundit
+138001	2 minutit+18 sekundit+1 millisekund
+138006	2 minutit+18 sekundit+6 millisekundit
+1800000	30 minutit
+3600000	1 tund
+5400000	1 tund+30 minutit
+7200000	2 tundi
+9000000	2 tundi+30 minutit
+10800000	3 tundi
+3660000	1 tund+1 minut
+3720000	1 tund+2 minutit
+10860000	3 tundi+1 minut
+11040000	3 tundi+4 minutit
+43200000	12 tundi
+86400000	1 päev
+129600000	1 päev+12 tundi
+172800000	2 päeva
+216000000	2 päeva+12 tundi
+259200000	3 päeva
+302400000	3 päeva+12 tundi
+604800000	1 nädal
+907200000	1 nädal+3 päeva+12 tundi
+1209600000	2 nädalat
+1512000000	2 nädalat+3 päeva+12 tundi
+1814400000	3 nädalat
+1314900000	2 nädalat+1 päev+5 tundi+15 minutit
+2629800000	1 kuu
+3944700000	1 kuu+2 nädalat+1 päev+5 tundi+15 minutit
+5259600000	2 kuud
+6574500000	2 kuud+2 nädalat+1 päev+5 tundi+15 minutit
+7889400000	3 kuud
+15778800000	6 kuud
+31557600000	1 aasta
+47336400000	1 aasta+6 kuud
+63115200000	2 aastat
+78894000000	2 aastat+6 kuud
+94672800000	3 aastat
+-420	420 millisekundit
+0.12	0,12 millisekundit
+1.5	1,5 millisekundit
+420.69	420,69 millisekundit

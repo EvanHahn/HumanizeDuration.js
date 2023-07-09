@@ -1,0 +1,72 @@
+0	milisekunde 0
+1	milisekunde 1
+2	milisekunde 2
+5	milisekunde 5
+12	milisekunde 12
+420	milisekunde 420
+500	milisekunde 500
+1000	sekunde 1
+1500	sekunde 1+milisekunde 500
+2000	sekunde 2
+2500	sekunde 2+milisekunde 500
+3000	sekunde 3
+1001	sekunde 1+milisekunde 1
+1002	sekunde 1+milisekunde 2
+2001	sekunde 2+milisekunde 1
+2003	sekunde 2+milisekunde 3
+1200	sekunde 1+milisekunde 200
+6900	sekunde 6+milisekunde 900
+30000	sekunde 30
+60000	dakika 1
+90000	dakika 1+sekunde 30
+120000	dakika 2
+150000	dakika 2+sekunde 30
+180000	dakika 3
+61000	dakika 1+sekunde 1
+78000	dakika 1+sekunde 18
+61001	dakika 1+sekunde 1+milisekunde 1
+61005	dakika 1+sekunde 1+milisekunde 5
+62001	dakika 1+sekunde 2+milisekunde 1
+62005	dakika 1+sekunde 2+milisekunde 5
+121001	dakika 2+sekunde 1+milisekunde 1
+121007	dakika 2+sekunde 1+milisekunde 7
+138001	dakika 2+sekunde 18+milisekunde 1
+138006	dakika 2+sekunde 18+milisekunde 6
+1800000	dakika 30
+3600000	saa 1
+5400000	saa 1+dakika 30
+7200000	masaa 2
+9000000	masaa 2+dakika 30
+10800000	masaa 3
+3660000	saa 1+dakika 1
+3720000	saa 1+dakika 2
+10860000	masaa 3+dakika 1
+11040000	masaa 3+dakika 4
+43200000	masaa 12
+86400000	siku 1
+129600000	siku 1+masaa 12
+172800000	masiku 2
+216000000	masiku 2+masaa 12
+259200000	masiku 3
+302400000	masiku 3+masaa 12
+604800000	wiki 1
+907200000	wiki 1+masiku 3+masaa 12
+1209600000	wiki 2
+1512000000	wiki 2+masiku 3+masaa 12
+1814400000	wiki 3
+1314900000	wiki 2+siku 1+masaa 5+dakika 15
+2629800000	mwezi 1
+3944700000	mwezi 1+wiki 2+siku 1+masaa 5+dakika 15
+5259600000	miezi 2
+6574500000	miezi 2+wiki 2+siku 1+masaa 5+dakika 15
+7889400000	miezi 3
+15778800000	miezi 6
+31557600000	mwaka 1
+47336400000	mwaka 1+miezi 6
+63115200000	miaka 2
+78894000000	miaka 2+miezi 6
+94672800000	miaka 3
+-420	milisekunde 420
+0.12	milisekunde 0.12
+1.5	milisekunde 1.5
+420.69	milisekunde 420.69

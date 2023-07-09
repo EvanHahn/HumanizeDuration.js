@@ -23,7 +23,7 @@ describe("localized humanization", function () {
   before(async function () {
     const definitionsPath = path.resolve(__dirname, "definitions");
     const definitionFileNames = (await readdir(definitionsPath)).filter(
-      (f) => path.extname(f) === ".csv"
+      (f) => path.extname(f) === ".tsv"
     );
 
     /**
@@ -36,7 +36,7 @@ describe("localized humanization", function () {
 
       const parser = fs
         .createReadStream(filePath)
-        .pipe(parseCsv({ delimiter: "$" }));
+        .pipe(parseCsv({ delimiter: "\t" }));
       for await (const [msString, expectedResult] of parser) {
         result.push([parseFloat(msString), expectedResult]);
       }
@@ -46,7 +46,7 @@ describe("localized humanization", function () {
 
     await Promise.all(
       definitionFileNames.map(async (fileName) => {
-        const language = path.basename(fileName, ".csv");
+        const language = path.basename(fileName, ".tsv");
         const filePath = path.join(definitionsPath, fileName);
         languages.set(language, await readPairs(filePath));
       })

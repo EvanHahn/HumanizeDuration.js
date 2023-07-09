@@ -11,14 +11,14 @@ const parseCsv = require("csv-parse").parse;
 // for more here.
 
 test('aliases "gr" to "el"', (t, done) => {
-  const greekPath = path.resolve(__dirname, "definitions", "el.csv");
+  const greekPath = path.resolve(__dirname, "definitions", "el.tsv");
 
   fs.readFile(greekPath, { encoding: "utf8" }, (err, data) => {
     if (err) {
       return done(err);
     }
 
-    parseCsv(data, { delimiter: "$" }, (err, rows) => {
+    parseCsv(data, { delimiter: "\t" }, (err, rows) => {
       if (err) {
         return done(err);
       }

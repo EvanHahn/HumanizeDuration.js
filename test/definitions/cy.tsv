@@ -1,0 +1,72 @@
+0	0 milieiliad
+1	1 milieiliad
+2	2 milieiliad
+5	5 milieiliad
+12	12 milieiliad
+420	420 milieiliad
+500	500 milieiliad
+1000	1 eiliad
+1500	1 eiliad+500 milieiliad
+2000	2 eiliad
+2500	2 eiliad+500 milieiliad
+3000	3 eiliad
+1001	1 eiliad+1 milieiliad
+1002	1 eiliad+2 milieiliad
+2001	2 eiliad+1 milieiliad
+2003	2 eiliad+3 milieiliad
+1200	1 eiliad+200 milieiliad
+6900	6 eiliad+900 milieiliad
+30000	30 eiliad
+60000	1 munud
+90000	1 munud+30 eiliad
+120000	2 munud
+150000	2 munud+30 eiliad
+180000	3 munud
+61000	1 munud+1 eiliad
+78000	1 munud+18 eiliad
+61001	1 munud+1 eiliad+1 milieiliad
+61005	1 munud+1 eiliad+5 milieiliad
+62001	1 munud+2 eiliad+1 milieiliad
+62005	1 munud+2 eiliad+5 milieiliad
+121001	2 munud+1 eiliad+1 milieiliad
+121007	2 munud+1 eiliad+7 milieiliad
+138001	2 munud+18 eiliad+1 milieiliad
+138006	2 munud+18 eiliad+6 milieiliad
+1800000	30 munud
+3600000	1 awr
+5400000	1 awr+30 munud
+7200000	2 awr
+9000000	2 awr+30 munud
+10800000	3 awr
+3660000	1 awr+1 munud
+3720000	1 awr+2 munud
+10860000	3 awr+1 munud
+11040000	3 awr+4 munud
+43200000	12 awr
+86400000	1 diwrnod
+129600000	1 diwrnod+12 awr
+172800000	2 diwrnod
+216000000	2 diwrnod+12 awr
+259200000	3 diwrnod
+302400000	3 diwrnod+12 awr
+604800000	1 wythnos
+907200000	1 wythnos+3 diwrnod+12 awr
+1209600000	2 wythnos
+1512000000	2 wythnos+3 diwrnod+12 awr
+1814400000	3 wythnos
+1314900000	2 wythnos+1 diwrnod+5 awr+15 munud
+2629800000	1 mis
+3944700000	1 mis+2 wythnos+1 diwrnod+5 awr+15 munud
+5259600000	2 mis
+6574500000	2 mis+2 wythnos+1 diwrnod+5 awr+15 munud
+7889400000	3 mis
+15778800000	6 mis
+31557600000	1 flwyddyn
+47336400000	1 flwyddyn+6 mis
+63115200000	2 flwyddyn
+78894000000	2 flwyddyn+6 mis
+94672800000	3 flwyddyn
+-420	420 milieiliad
+0.12	0.12 milieiliad
+1.5	1.5 milieiliad
+420.69	420.69 milieiliad

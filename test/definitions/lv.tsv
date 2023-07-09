@@ -1,0 +1,78 @@
+0	0 milisekundes
+1	1 milisekunde
+2	2 milisekundes
+5	5 milisekundes
+12	12 milisekundes
+420	420 milisekundes
+500	500 milisekundes
+1000	1 sekunde
+1500	1 sekunde+500 milisekundes
+2000	2 sekundes
+2500	2 sekundes+500 milisekundes
+3000	3 sekundes
+51000	51 sekunde
+52000	52 sekundes
+1001	1 sekunde+1 milisekunde
+1002	1 sekunde+2 milisekundes
+2001	2 sekundes+1 milisekunde
+2003	2 sekundes+3 milisekundes
+1200	1 sekunde+200 milisekundes
+6900	6 sekundes+900 milisekundes
+30000	30 sekundes
+60000	1 minūte
+90000	1 minūte+30 sekundes
+120000	2 minūtes
+150000	2 minūtes+30 sekundes
+180000	3 minūtes
+660000	11 minūtes
+1260000	21 minūte
+61000	1 minūte+1 sekunde
+78000	1 minūte+18 sekundes
+61001	1 minūte+1 sekunde+1 milisekunde
+61005	1 minūte+1 sekunde+5 milisekundes
+62001	1 minūte+2 sekundes+1 milisekunde
+62005	1 minūte+2 sekundes+5 milisekundes
+121001	2 minūtes+1 sekunde+1 milisekunde
+121007	2 minūtes+1 sekunde+7 milisekundes
+138001	2 minūtes+18 sekundes+1 milisekunde
+138006	2 minūtes+18 sekundes+6 milisekundes
+1800000	30 minūtes
+3600000	1 stunda
+5400000	1 stunda+30 minūtes
+7200000	2 stundas
+9000000	2 stundas+30 minūtes
+10800000	3 stundas
+3660000	1 stunda+1 minūte
+3720000	1 stunda+2 minūtes
+10860000	3 stundas+1 minūte
+11040000	3 stundas+4 minūtes
+43200000	12 stundas
+86400000	1 diena
+129600000	1 diena+12 stundas
+172800000	2 dienas
+216000000	2 dienas+12 stundas
+259200000	3 dienas
+302400000	3 dienas+12 stundas
+604800000	1 nedēļa
+907200000	1 nedēļa+3 dienas+12 stundas
+1209600000	2 nedēļas
+1512000000	2 nedēļas+3 dienas+12 stundas
+1814400000	3 nedēļas
+1314900000	2 nedēļas+1 diena+5 stundas+15 minūtes
+2629800000	1 mēnesis
+3944700000	1 mēnesis+2 nedēļas+1 diena+5 stundas+15 minūtes
+5259600000	2 mēneši
+6574500000	2 mēneši+2 nedēļas+1 diena+5 stundas+15 minūtes
+7889400000	3 mēneši
+15778800000	6 mēneši
+31557600000	1 gads
+47336400000	1 gads+6 mēneši
+63115200000	2 gadi
+78894000000	2 gadi+6 mēneši
+94672800000	3 gadi
+347133600000	11 gadi
+1293861600000	41 gads
+-420	420 milisekundes
+0.12	0,12 milisekundes
+1.5	1,5 milisekundes
+420.69	420,69 milisekundes

@@ -1,0 +1,72 @@
+0	0 millisekondes
+1	1 millisekonde
+2	2 millisekondes
+5	5 millisekondes
+12	12 millisekondes
+420	420 millisekondes
+500	500 millisekondes
+1000	1 sekonde
+1500	1 sekonde+500 millisekondes
+2000	2 sekondes
+2500	2 sekondes+500 millisekondes
+3000	3 sekondes
+1001	1 sekonde+1 millisekonde
+1002	1 sekonde+2 millisekondes
+2001	2 sekondes+1 millisekonde
+2003	2 sekondes+3 millisekondes
+1200	1 sekonde+200 millisekondes
+6900	6 sekondes+900 millisekondes
+30000	30 sekondes
+60000	1 minuut
+90000	1 minuut+30 sekondes
+120000	2 minute
+150000	2 minute+30 sekondes
+180000	3 minute
+61000	1 minuut+1 sekonde
+78000	1 minuut+18 sekondes
+61001	1 minuut+1 sekonde+1 millisekonde
+61005	1 minuut+1 sekonde+5 millisekondes
+62001	1 minuut+2 sekondes+1 millisekonde
+62005	1 minuut+2 sekondes+5 millisekondes
+121001	2 minute+1 sekonde+1 millisekonde
+121007	2 minute+1 sekonde+7 millisekondes
+138001	2 minute+18 sekondes+1 millisekonde
+138006	2 minute+18 sekondes+6 millisekondes
+1800000	30 minute
+3600000	1 uur
+5400000	1 uur+30 minute
+7200000	2 ure
+9000000	2 ure+30 minute
+10800000	3 ure
+3660000	1 uur+1 minuut
+3720000	1 uur+2 minute
+10860000	3 ure+1 minuut
+11040000	3 ure+4 minute
+43200000	12 ure
+86400000	1 dag
+129600000	1 dag+12 ure
+172800000	2 dae
+216000000	2 dae+12 ure
+259200000	3 dae
+302400000	3 dae+12 ure
+604800000	1 week
+907200000	1 week+3 dae+12 ure
+1209600000	2 weke
+1512000000	2 weke+3 dae+12 ure
+1814400000	3 weke
+1314900000	2 weke+1 dag+5 ure+15 minute
+2629800000	1 maand
+3944700000	1 maand+2 weke+1 dag+5 ure+15 minute
+5259600000	2 maande
+6574500000	2 maande+2 weke+1 dag+5 ure+15 minute
+7889400000	3 maande
+15778800000	6 maande
+31557600000	1 jaar
+47336400000	1 jaar+6 maande
+63115200000	2 jaar
+78894000000	2 jaar+6 maande
+94672800000	3 jaar
+-420	420 millisekondes
+0.12	0,12 millisekondes
+1.5	1,5 millisekondes
+420.69	420,69 millisekondes
