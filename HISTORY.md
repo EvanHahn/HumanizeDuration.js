@@ -1,5 +1,6 @@
 # Unreleased
 
+- new: `digitReplacements` option
 - change: cleaned up documentation
 - change: shrank package size slightly
 

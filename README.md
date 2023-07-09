@@ -228,6 +228,33 @@ humanizeDuration(7999, { maxDecimalPoints: 2 });
 // => "7.99 seconds"
 ```
 
+### digitReplacements
+
+Array of ten strings to which will replace the numerals 0-9. Useful if a language uses different numerals.
+
+Default: `undefined` for most languages, `["۰", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"]` for Arabic
+
+```js
+humanizeDuration(1234);
+// => "1.234 seconds"
+
+humanizeDuration(1234, {
+  digitReplacements: [
+    "Zero",
+    "One",
+    "Two",
+    "Three",
+    "Four",
+    "Five",
+    "Six",
+    "Seven",
+    "Eight",
+    "Nine",
+  ],
+});
+// => "One.TwoThreeFour seconds"
+```
+
 ### unitMeasures
 
 _Use this option with care. It is an advanced feature._

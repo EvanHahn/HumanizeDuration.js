@@ -318,4 +318,22 @@ describe("humanizer", function () {
       "10 segundos"
     );
   });
+
+  it("can replace digits", function () {
+    const h = humanizer({
+      digitReplacements: [
+        "Zero",
+        "One",
+        "Two",
+        "Three",
+        "UNUSED",
+        "UNUSED",
+        "UNUSED",
+        "UNUSED",
+        "UNUSED",
+        "UNUSED",
+      ],
+    });
+    assert.strictEqual(h(123), "Zero.OneTwoThree seconds");
+  });
 });

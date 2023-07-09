@@ -23,6 +23,10 @@
  */
 
 /**
+ * @typedef {Record<"0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9", string>} DigitReplacements
+ */
+
+/**
  * @typedef {Object} Language
  * @prop {Unit} y
  * @prop {Unit} mo
@@ -34,7 +38,7 @@
  * @prop {Unit} ms
  * @prop {string} [decimal]
  * @prop {string} [delimiter]
- * @prop {Record<"0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9", string>} [_digitReplacements]
+ * @prop {DigitReplacements} [_digitReplacements]
  * @prop {boolean} [_numberFirst]
  */
 
@@ -53,6 +57,7 @@
  * @prop {number} [maxDecimalPoints]
  * @prop {UnitMeasures} [unitMeasures]
  * @prop {boolean} [serialComma]
+ * @prop {DigitReplacements} [digitReplacements]
  */
 
 /**
@@ -1572,7 +1577,7 @@
   /**
    * @param {Piece} piece
    * @param {Language} language
-   * @param {Pick<Required<Options>, "decimal" | "spacer" | "maxDecimalPoints">} options
+   * @param {Pick<Required<Options>, "decimal" | "spacer" | "maxDecimalPoints" | "digitReplacements">} options
    */
   function renderPiece(piece, language, options) {
     var unitName = piece.unitName;
@@ -1591,6 +1596,14 @@
       decimal = ".";
     }
 
+    /** @type {undefined | DigitReplacements} */
+    var digitReplacements;
+    if ("digitReplacements" in options) {
+      digitReplacements = options.digitReplacements;
+    } else if ("_digitReplacements" in language) {
+      digitReplacements = language._digitReplacements;
+    }
+
     /** @type {string} */
     var formattedCount;
     var normalizedUnitCount =
@@ -1599,8 +1612,7 @@
         : Math.floor(unitCount * Math.pow(10, maxDecimalPoints)) /
           Math.pow(10, maxDecimalPoints);
     var countStr = normalizedUnitCount.toString();
-    if ("_digitReplacements" in language) {
-      var digitReplacements = language._digitReplacements;
+    if (digitReplacements) {
       formattedCount = "";
       for (var i = 0; i < countStr.length; i++) {
         var char = countStr[i];
@@ -1748,7 +1760,7 @@
 
   /**
    * @param {Piece[]} pieces
-   * @param {Pick<Required<Options>, "units" | "language" | "languages" | "fallbacks" | "delimiter" | "spacer" | "decimal" | "conjunction" | "maxDecimalPoints" | "serialComma">} options
+   * @param {Pick<Required<Options>, "units" | "language" | "languages" | "fallbacks" | "delimiter" | "spacer" | "decimal" | "conjunction" | "maxDecimalPoints" | "serialComma" | "digitReplacements">} options
    * @returns {string}
    */
   function formatPieces(pieces, options) {
