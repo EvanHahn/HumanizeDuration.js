@@ -1618,9 +1618,6 @@
   }
 
   function getArabicForm(c) {
-    if (c === 1) {
-      return 0;
-    }
     if (c === 2) {
       return 1;
     }
@@ -1633,57 +1630,61 @@
   function getPolishForm(c) {
     if (c === 1) {
       return 0;
-    } else if (Math.floor(c) !== c) {
-      return 1;
-    } else if (c % 10 >= 2 && c % 10 <= 4 && !(c % 100 > 10 && c % 100 < 20)) {
-      return 2;
-    } else {
-      return 3;
     }
+    if (Math.floor(c) !== c) {
+      return 1;
+    }
+    if (c % 10 >= 2 && c % 10 <= 4 && !(c % 100 > 10 && c % 100 < 20)) {
+      return 2;
+    }
+    return 3;
   }
 
   function getSlavicForm(c) {
     if (Math.floor(c) !== c) {
       return 2;
-    } else if (
+    }
+    if (
       (c % 100 >= 5 && c % 100 <= 20) ||
       (c % 10 >= 5 && c % 10 <= 9) ||
       c % 10 === 0
     ) {
       return 0;
-    } else if (c % 10 === 1) {
-      return 1;
-    } else if (c > 1) {
-      return 2;
-    } else {
-      return 0;
     }
+    if (c % 10 === 1) {
+      return 1;
+    }
+    if (c > 1) {
+      return 2;
+    }
+    return 0;
   }
 
   function getCzechOrSlovakForm(c) {
     if (c === 1) {
       return 0;
-    } else if (Math.floor(c) !== c) {
-      return 1;
-    } else if (c % 10 >= 2 && c % 10 <= 4 && c % 100 < 10) {
-      return 2;
-    } else {
-      return 3;
     }
+    if (Math.floor(c) !== c) {
+      return 1;
+    }
+    if (c % 10 >= 2 && c % 10 <= 4 && c % 100 < 10) {
+      return 2;
+    }
+    return 3;
   }
 
   function getLithuanianForm(c) {
     if (c === 1 || (c % 10 === 1 && c % 100 > 20)) {
       return 0;
-    } else if (
+    }
+    if (
       Math.floor(c) !== c ||
       (c % 10 >= 2 && c % 100 > 20) ||
       (c % 10 >= 2 && c % 100 < 10)
     ) {
       return 1;
-    } else {
-      return 2;
     }
+    return 2;
   }
 
   function getLatvianForm(c) {
