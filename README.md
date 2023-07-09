@@ -105,7 +105,7 @@ humanizeDuration(3600000, { units: ["m"] });
 // => "60 minutes"
 
 humanizeDuration(3600000, { units: ["d", "h"] });
-// => "1 hour'"
+// => "1 hour"
 ```
 
 ### largest
