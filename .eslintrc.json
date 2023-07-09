@@ -3,5 +3,9 @@
   "parserOptions": {
     "ecmaVersion": 5
   },
+  "globals": {
+    "define": true,
+    "module": true
+  },
   "rules": {}
 }

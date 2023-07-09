@@ -2,8 +2,6 @@
 
 // @ts-check
 
-/* global define, module */
-
 /**
  * @typedef {string | ((number) => string)} Unit
  */
