@@ -1,3 +1,5 @@
+// @ts-check
+
 const humanizeDuration = require("..");
 const { before, describe, it } = require("node:test");
 const assert = require("node:assert");
@@ -15,29 +17,39 @@ const options = (language) => ({
 });
 
 describe("localized humanization", function () {
-  let languages;
+  /** @type {Map<string, Array<[number, string]>>} */
+  const languages = new Map();
 
   before(async function () {
     const definitionsPath = path.resolve(__dirname, "definitions");
-    const definitionFilePaths = (await readdir(definitionsPath))
-      .filter((f) => path.extname(f) === ".csv")
-      .map((f) => path.join(definitionsPath, f));
-    languages = new Map(
-      await Promise.all(
-        definitionFilePaths.map(async (filePath) => {
-          const language = path.basename(filePath, ".csv");
+    const definitionFileNames = (await readdir(definitionsPath)).filter(
+      (f) => path.extname(f) === ".csv"
+    );
 
-          const parser = fs
-            .createReadStream(filePath)
-            .pipe(parseCsv({ delimiter: "$" }));
-          const pairs = [];
-          for await (const [msString, expectedResult] of parser) {
-            pairs.push([parseFloat(msString), expectedResult]);
-          }
+    /**
+     * @param {string} filePath
+     * @returns {Promise<Array<[number, string]>>}
+     */
+    const readPairs = async (filePath) => {
+      /** @type {Array<[number, string]>} */
+      const result = [];
 
-          return [language, pairs];
-        })
-      )
+      const parser = fs
+        .createReadStream(filePath)
+        .pipe(parseCsv({ delimiter: "$" }));
+      for await (const [msString, expectedResult] of parser) {
+        result.push([parseFloat(msString), expectedResult]);
+      }
+
+      return result;
+    };
+
+    await Promise.all(
+      definitionFileNames.map(async (fileName) => {
+        const language = path.basename(fileName, ".csv");
+        const filePath = path.join(definitionsPath, fileName);
+        languages.set(language, await readPairs(filePath));
+      })
     );
 
     assert(languages.has("en"), "Definition smoke test failed");

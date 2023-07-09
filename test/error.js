@@ -1,5 +1,7 @@
+// @ts-check
+
 const humanizeDuration = require("..");
-const test = require("node:test");
+const { test } = require("node:test");
 const assert = require("node:assert/strict");
 
 test("throws an error when passed a bad language in the function", () => {

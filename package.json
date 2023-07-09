@@ -39,16 +39,19 @@
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
   "main": "humanize-duration.js",
   "scripts": {
-    "pretest": "npm run lint",
+    "pretest": "npm run lint && npm run typecheck",
     "lint": "prettier --check . && eslint .",
+    "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "test": "node --test"
   },
   "devDependencies": {
+    "@types/node": "^20.4.1",
     "csv-parse": "^5.4.0",
     "eslint": "^8.44.0",
     "ms": "^2.1.3",
-    "prettier": "^2.8.8"
+    "prettier": "^2.8.8",
+    "typescript": "^5.1.6"
   },
   "keywords": [
     "humanize",

@@ -1,5 +1,7 @@
 // HumanizeDuration.js - https://git.io/j0HgmQ
 
+// @ts-check
+
 /* global define, module */
 
 (function () {
@@ -1710,7 +1712,9 @@
 
   humanizeDuration.humanizer = humanizer;
 
+  // @ts-ignore
   if (typeof define === "function" && define.amd) {
+    // @ts-ignore
     define(function () {
       return humanizeDuration;
     });

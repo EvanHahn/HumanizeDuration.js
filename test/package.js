@@ -1,6 +1,8 @@
+// @ts-check
+
 const pkg = require("../package.json");
 const bower = require("../bower.json");
-const test = require("node:test");
+const { test } = require("node:test");
 const assert = require("node:assert/strict");
 
 test("package.json has `bugs`", () => {
@@ -24,9 +26,9 @@ test("package.json and bower.json largely match", () => {
   const pkgAuthors = [pkg.author].concat(pkg.contributors);
   assert.deepStrictEqual(pkgAuthors, bower.authors);
 
-  assert(!pkg.private);
-  assert(!bower.private);
+  assert(!("private" in pkg));
+  assert(!("private" in bower));
 
-  assert(!pkg.dependencies);
-  assert(!bower.dependencies);
+  assert(!("dependencies" in pkg));
+  assert(!("dependencies" in bower));
 });

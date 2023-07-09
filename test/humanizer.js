@@ -1,3 +1,5 @@
+// @ts-check
+
 const humanizeDuration = require("..");
 const humanizer = humanizeDuration.humanizer;
 const { describe, it } = require("node:test");
