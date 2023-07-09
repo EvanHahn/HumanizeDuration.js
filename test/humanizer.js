@@ -171,7 +171,6 @@ describe("humanizer", function () {
     assert.strictEqual(h(1000), "1 second");
     assert.strictEqual(h(2000), "2 seconds");
     assert.strictEqual(h(540360012), "6 days, 6 hours");
-    assert.strictEqual(h(540360012), "6 days, 6 hours");
     assert.strictEqual(
       h(540360012, { largest: 3 }),
       "6 days, 6 hours, 6 minutes"
