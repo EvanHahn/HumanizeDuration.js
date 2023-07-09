@@ -20,7 +20,8 @@ With `require` (like in Node or with common build systems):
 
 ```js
 const humanizeDuration = require("humanize-duration");
-humanizeDuration(12000); // '12 seconds'
+humanizeDuration(12000);
+// => "12 seconds"
 ```
 
 With a `<script>` tag:
@@ -32,148 +33,229 @@ With a `<script>` tag:
 </script>
 ```
 
-## Usage
-
 By default, Humanize Duration will humanize down to the second, and will return a decimal for the smallest unit. It will humanize in English by default.
 
 ```js
-humanizeDuration(3000); // '3 seconds'
-humanizeDuration(2250); // '2.25 seconds'
-humanizeDuration(97320000); // '1 day, 3 hours, 2 minutes'
+humanizeDuration(3000);
+// => "3 seconds"
+
+humanizeDuration(2250);
+// => "2.25 seconds"
+
+humanizeDuration(97320000);
+// => "1 day, 3 hours, 2 minutes"
 ```
 
-### Options
+## Options
 
-You can change the settings by passing options as the second argument:
+You can change the settings by passing options as the second argument.
 
-**language**
+### language
 
-Language for unit display (accepts an [ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) from one of the [supported languages](#supported-languages)).
+Language for unit display. Accepts an [ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) from one of the [supported languages](#supported-languages).
+
+Default: `"en"`.
 
 ```js
-humanizeDuration(3000, { language: "es" }); // '3 segundos'
-humanizeDuration(5000, { language: "ko" }); // '5 초'
+humanizeDuration(3000, { language: "es" });
+// => "3 segundos"
+
+humanizeDuration(5000, { language: "ko" });
+// => "5 초"
 ```
 
-**fallbacks**
+### fallbacks
 
-Fallback languages if the provided language cannot be found (accepts an [ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) from one of the [supported languages](#supported-languages)). It works from left to right.
+Array of fallback languages, if the provided language cannot be found. Like `language`, accepts an [ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) from one of the [supported languages](#supported-languages). It works from left to right, choosing the first language that's found.
+
+Default: `[]`.
 
 ```js
-humanizeDuration(3000, { language: "bad language", fallbacks: ["en"] }); // '3 seconds'
 humanizeDuration(3000, {
   language: "bad language",
-  fallbacks: ["bad language", "es"],
-}); // '3 segundos'
+  fallbacks: ["en"],
+});
+// => "3 seconds"
+
+humanizeDuration(3000, {
+  language: "bad language",
+  fallbacks: ["another bad language", "es"],
+});
+// => "3 segundos"
 ```
 
-**delimiter**
+### units
 
-String to display between the previous unit and the next value.
+Array of possible units to use. Units are `y`, `mo`, `w`, `d`, `h`, `m`, `s`, and `ms`.
+
+Units are skipped if their count is zero. For example, if you pass a duration of `1000` and units `["h", "m", "s"]`, the output will be "1 second".
+
+Must be in descending order of unit size. For example, `["h", "m"]` is valid but `["m", "h"]` is not.
+
+Default: `["y", "mo", "w", "d", "h", "m", "s"]`
 
 ```js
-humanizeDuration(22140000, { delimiter: " and " }); // '6 hours and 9 minutes'
-humanizeDuration(22140000, { delimiter: "--" }); // '6 hours--9 minutes'
+humanizeDuration(69000, { units: ["h", "m", "s", "ms"] });
+// => "1 minute, 9 seconds"
+
+humanizeDuration(3600000, { units: ["h"] });
+// => "1 hour"
+
+humanizeDuration(3600000, { units: ["m"] });
+// => "60 minutes"
+
+humanizeDuration(3600000, { units: ["d", "h"] });
+// => "1 hour'"
 ```
 
-**spacer**
+### largest
 
-String to display between each value and unit.
+Integer representing the maximum number of units to use.
+
+Default: `Infinity`
 
 ```js
-humanizeDuration(260040000, { spacer: " whole " }); // '3 whole days, 14 whole minutes'
-humanizeDuration(260040000, { spacer: "" }); // '3days, 14minutes'
+humanizeDuration(1000000000000);
+// => "31 years, 8 months, 1 week, 19 hours, 46 minutes, 40 seconds"
+
+humanizeDuration(1000000000000, { largest: 2 });
+// => "31 years, 8 months"
 ```
 
-**largest**
+### round
 
-Number representing the maximum number of units to display for the duration.
+A boolean that, if `true`, rounds the smallest unit.
+
+Default: `false`
 
 ```js
-humanizeDuration(1000000000000); // '31 years, 8 months, 1 week, 19 hours, 46 minutes, 40 seconds'
-humanizeDuration(1000000000000, { largest: 2 }); // '31 years, 8 months'
+humanizeDuration(1200);
+// => "1.2 seconds"
+
+humanizeDuration(1200, { round: true });
+// => "1 second"
+
+humanizeDuration(1600, { round: true });
+// => "2 seconds"
 ```
 
-**units**
+### delimiter
 
-Array of strings to define which units are used to display the duration (if needed). Can be one, or a combination of any, of the following: `['y', 'mo', 'w', 'd', 'h', 'm', 's', 'ms']`
+String to display between units.
+
+Default: `", "` in most languages, `" ﻭ "` for Arabic
 
 ```js
-humanizeDuration(3600000, { units: ["h"] }); // '1 hour'
-humanizeDuration(3600000, { units: ["m"] }); // '60 minutes'
-humanizeDuration(3600000, { units: ["d", "h"] }); // '1 hour'
+humanizeDuration(22140000);
+// => "6 hours, 9 minutes"
+
+humanizeDuration(22140000, { delimiter: " and " });
+// => "6 hours and 9 minutes"
 ```
 
-**round**
+### spacer
 
-Boolean value. Use `true` to [round](https://en.wikipedia.org/wiki/Rounding#Round_half_up) the smallest unit displayed (can be combined with `largest` and `units`).
+String to display between the count and the word.
+
+Default: `" "`
 
 ```js
-humanizeDuration(1200); // '1.2 seconds'
-humanizeDuration(1200, { round: true }); // '1 second'
-humanizeDuration(1600, { round: true }); // '2 seconds'
+humanizeDuration(260040000);
+// => "3 days, 14 minutes"
+
+humanizeDuration(260040000, { spacer: " whole " });
+// => "3 whole days, 14 whole minutes"
 ```
 
-**decimal**
+### decimal
 
-String to substitute for the decimal point in a decimal fraction.
+String to display between the integer and decimal parts of a count, if relevant.
+
+Default depends on the language.
 
 ```js
-humanizeDuration(1200); // '1.2 seconds'
-humanizeDuration(1200, { decimal: " point " }); // '1 point 2 seconds'
+humanizeDuration(1200);
+// => "1.2 seconds"
+
+humanizeDuration(1200, { decimal: " point " });
+// => "1 point 2 seconds"
 ```
 
-**conjunction**
+### conjunction
 
-String to include before the final unit. You can also set `serialComma` to `false` to eliminate the final comma.
+String to include before the final unit.
+
+You can also set `serialComma` to `false` to eliminate the final comma.
+
+Default: `""`
 
 ```js
-humanizeDuration(22140000, { conjunction: " and " }); // '6 hours and 9 minutes'
-humanizeDuration(22141000, { conjunction: " and " }); // '6 hours, 9 minutes, and 1 second'
-humanizeDuration(22140000, { conjunction: " and ", serialComma: false }); // '6 hours and 9 minutes'
-humanizeDuration(22141000, { conjunction: " and ", serialComma: false }); // '6 hours, 9 minutes and 1 second'
+humanizeDuration(22140000, { conjunction: " and " });
+// => "6 hours and 9 minutes"
+
+humanizeDuration(22141000, { conjunction: " and " });
+// => "6 hours, 9 minutes, and 1 second"
+
+humanizeDuration(22140000, { conjunction: " and ", serialComma: false });
+// => "6 hours and 9 minutes"
+
+humanizeDuration(22141000, { conjunction: " and ", serialComma: false });
+// => "6 hours, 9 minutes and 1 second"
 ```
 
-**maxDecimalPoints**
+### maxDecimalPoints
 
-Number that defines a maximal decimal points for float values.
+Integer that defines the maximum number of decimal points to show, if relevant. If `undefined`, the count will be converted to a string using [`Number.prototype.toString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString).
+
+This does not round any numbers. See [the `round` option](#round).
+
+Default: `undefined`
 
 ```js
-humanizeDuration(8123.456789); // 8.12 seconds
-humanizeDuration(8123.456789, { maxDecimalPoints: 3 }); // 8.123 seconds
-humanizeDuration(8123.456789, { maxDecimalPoints: 6 }); // 8.123456 seconds
-humanizeDuration(8123.45, { maxDecimalPoints: 6 }); // 8.12345 seconds
-humanizeDuration(8000, { maxDecimalPoints: 6 }); // 8 seconds
+humanizeDuration(8123.456789);
+// => "8.123456789 seconds"
+
+humanizeDuration(8123.456789, { maxDecimalPoints: 3 });
+// => "8.123 seconds"
+
+humanizeDuration(8100, { maxDecimalPoints: 99 });
+// => "8.1 seconds"
+
+humanizeDuration(8000, { maxDecimalPoints: 99 });
+// => "8 seconds"
+
+humanizeDuration(7999, { maxDecimalPoints: 2 });
+// => "7.99 seconds"
 ```
 
-**unitMeasures**
+### unitMeasures
 
-Customize the value used to calculate each unit of time.
+_Use this option with care. It is an advanced feature._
+
+Object used to customize the value used to calculate each unit of time. Most useful when you want to update the length of years or months, which have ambiguous lengths.
+
+Default: `{ y: 31557600000, mo: 2629800000, w: 604800000, d: 86400000, h: 3600000, m: 60000, s: 1000, ms: 1 }`
 
 ```js
-humanizeDuration(400); // '0.4 seconds'
-humanizeDuration(400, {
+humanizeDuration(2629800000);
+// => "1 month"
+
+humanizeDuration(2629800000, {
   unitMeasures: {
-    y: 365,
-    mo: 30,
-    w: 7,
-    d: 1,
+    y: 31557600000,
+    mo: 30 * 86400000,
+    w: 604800000,
+    d: 86400000,
+    h: 3600000,
+    m: 60000,
+    s: 1000,
+    ms: 1,
   },
-}); // '1 year, 1 month, 5 days'
+});
+// => "1 month, 10 hours, 30 minutes"
 ```
 
-**Combined example**
-
-```js
-humanizeDuration(3602000, {
-  language: "es",
-  round: true,
-  spacer: " glorioso ",
-  units: ["m"],
-}); // '60 glorioso minutos'
-```
-
-### Humanizers
+## Humanizers
 
 If you find yourself setting same options over and over again, you can create a _humanizer_ that changes the defaults, which you can still override later.
 
@@ -183,8 +265,11 @@ const spanishHumanizer = humanizeDuration.humanizer({
   units: ["y", "mo", "d"],
 });
 
-spanishHumanizer(71177400000); // '2 años, 3 meses, 2 días'
-spanishHumanizer(71177400000, { units: ["d", "h"] }); // '823 días, 19.5 horas'
+spanishHumanizer(71177400000);
+// => "2 años, 3 meses, 2 días"
+
+spanishHumanizer(71177400000, { units: ["d", "h"] });
+// => "823 días, 19.5 horas"
 ```
 
 You can also add new languages to humanizers. For example:
@@ -206,16 +291,17 @@ const shortEnglishHumanizer = humanizeDuration.humanizer({
   },
 });
 
-shortEnglishHumanizer(15600000); // '4 h, 20 m'
+shortEnglishHumanizer(15600000);
+// => "4 h, 20 m"
 ```
 
 You can also add languages after initializing:
 
 ```js
-const humanizer = humanizeDuration.humanizer()
+const humanizer = humanizeDuration.humanizer();
 
 humanizer.languages.shortEn = {
-  y: () => 'y',
+  y: () => "y",
   // ...
 ```
 
@@ -291,7 +377,7 @@ For a list of supported languages, you can use the `getSupportedLanguages` funct
 
 ```js
 humanizeDuration.getSupportedLanguages();
-// ['ar', 'bg', 'ca', 'cs', da', 'de', ...]
+// => ["af", "ar", "bg", "bn", "ca", ...]
 ```
 
 This function won't return any new languages you define; it will only return the defaults supported by the library.
