@@ -4,61 +4,32 @@
 
 /* global define, module */
 
+/**
+ * @typedef {string | ((number) => string)} Unit
+ */
+
+/**
+ * @typedef {Object} Language
+ * @prop {Unit} y
+ * @prop {Unit} mo
+ * @prop {Unit} w
+ * @prop {Unit} d
+ * @prop {Unit} h
+ * @prop {Unit} m
+ * @prop {Unit} s
+ * @prop {Unit} ms
+ * @prop {string} [decimal]
+ * @prop {string} [delimiter]
+ */
+
 (function () {
-  /**
-   * @typedef {string | ((number) => string)} Unit
-   */
-
-  /**
-   * @typedef {Object} Language
-   * @prop {Unit} y
-   * @prop {Unit} mo
-   * @prop {Unit} w
-   * @prop {Unit} d
-   * @prop {Unit} h
-   * @prop {Unit} m
-   * @prop {Unit} s
-   * @prop {Unit} ms
-   * @prop {string} [decimal]
-   * @prop {string} [delimiter]
-   */
-
-  /**
-   * @param {Unit} y
-   * @param {Unit} mo
-   * @param {Unit} w
-   * @param {Unit} d
-   * @param {Unit} h
-   * @param {Unit} m
-   * @param {Unit} s
-   * @param {Unit} ms
-   * @param {string} [decimal]
-   * @returns {Language}
-   */
-  function language(y, mo, w, d, h, m, s, ms, decimal) {
-    var result = {
-      y: y,
-      mo: mo,
-      w: w,
-      d: d,
-      h: h,
-      m: m,
-      s: s,
-      ms: ms
-    };
-
-    if (typeof decimal !== "undefined") {
-      result.decimal = decimal;
-    }
-
-    return result;
-  }
+  var ARABIC_DIGITS = ["۰", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
 
   // This has to be defined separately because of a bug: we want to alias
   // `gr` and `el` for backwards-compatiblity. In a breaking change, we can
   // remove `gr` entirely.
   // See https://github.com/EvanHahn/HumanizeDuration.js/issues/143 for more.
-  var greek = language(
+  var GREEK = language(
     function (c) {
       return c === 1 ? "χρόνος" : "χρόνια";
     },
@@ -85,8 +56,6 @@
     },
     ","
   );
-
-  var ARABIC_DIGITS = ["۰", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
 
   var LANGUAGES = {
     af: language(
@@ -316,7 +285,7 @@
       },
       ","
     ),
-    el: greek,
+    el: GREEK,
     en: language(
       function (c) {
         return "year" + (c === 1 ? "" : "s");
@@ -518,7 +487,7 @@
       },
       ","
     ),
-    gr: greek,
+    gr: GREEK,
     he: language(
       function (c) {
         return c === 1 ? "שנה" : "שנים";
@@ -1386,6 +1355,39 @@
     zh_CN: language("年", "个月", "周", "天", "小时", "分钟", "秒", "毫秒"),
     zh_TW: language("年", "個月", "周", "天", "小時", "分鐘", "秒", "毫秒")
   };
+
+  /**
+   * Helper function for creating language definitions.
+   *
+   * @param {Unit} y
+   * @param {Unit} mo
+   * @param {Unit} w
+   * @param {Unit} d
+   * @param {Unit} h
+   * @param {Unit} m
+   * @param {Unit} s
+   * @param {Unit} ms
+   * @param {string} [decimal]
+   * @returns {Language}
+   */
+  function language(y, mo, w, d, h, m, s, ms, decimal) {
+    var result = {
+      y: y,
+      mo: mo,
+      w: w,
+      d: d,
+      h: h,
+      m: m,
+      s: s,
+      ms: ms
+    };
+
+    if (typeof decimal !== "undefined") {
+      result.decimal = decimal;
+    }
+
+    return result;
+  }
 
   // You can create a humanizer, which returns a function with default
   // parameters.
