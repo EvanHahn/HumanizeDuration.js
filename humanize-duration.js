@@ -3,7 +3,23 @@
 // @ts-check
 
 /**
- * @typedef {string | ((number) => string)} Unit
+ * @typedef {string | ((unitCount: number) => string)} Unit
+ */
+
+/**
+ * @typedef {("y" | "mo" | "w" | "d" | "h" | "m" | "s" | "ms")} UnitName
+ */
+
+/**
+ * @typedef {Object} UnitMeasures
+ * @prop {number} y
+ * @prop {number} mo
+ * @prop {number} w
+ * @prop {number} d
+ * @prop {number} h
+ * @prop {number} m
+ * @prop {number} s
+ * @prop {number} ms
  */
 
 /**
@@ -18,11 +34,32 @@
  * @prop {Unit} ms
  * @prop {string} [decimal]
  * @prop {string} [delimiter]
+ * @prop {Record<"0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9", string>} [_digitReplacements]
+ * @prop {boolean} [_numberFirst]
+ */
+
+/**
+ * @typedef {Object} Options
+ * @prop {string} [language]
+ * @prop {Record<string, Language>} [languages]
+ * @prop {string[]} [fallbacks]
+ * @prop {string} [delimiter]
+ * @prop {string} [spacer]
+ * @prop {boolean} [round]
+ * @prop {number} [largest]
+ * @prop {UnitName[]} [units]
+ * @prop {string} [decimal]
+ * @prop {string} [conjunction]
+ * @prop {number} [maxDecimalPoints]
+ * @prop {UnitMeasures} [unitMeasures]
+ * @prop {boolean} [serialComma]
+ */
+
+/**
+ * @typedef {Required<Options>} NormalizedOptions
  */
 
 (function () {
-  var ARABIC_DIGITS = ["۰", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
-
   // This has to be defined separately because of a bug: we want to alias
   // `gr` and `el` for backwards-compatiblity. In a breaking change, we can
   // remove `gr` entirely.
@@ -55,6 +92,7 @@
     ","
   );
 
+  /** @type {Record<string, Language>} */
   var LANGUAGES = {
     af: language(
       "jaar",
@@ -113,17 +151,7 @@
       ),
       {
         delimiter: " ﻭ ",
-        _formatCount: function (count, decimal) {
-          var replacements = assign(ARABIC_DIGITS, { ".": decimal });
-          var characters = count.toString().split("");
-          for (var i = 0; i < characters.length; i++) {
-            var character = characters[i];
-            if (has(replacements, character)) {
-              characters[i] = replacements[character];
-            }
-          }
-          return characters.join("");
-        }
+        _digitReplacements: ["۰", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"]
       }
     ),
     bg: language(
@@ -1369,24 +1397,20 @@
    * @returns {Language}
    */
   function language(y, mo, w, d, h, m, s, ms, decimal) {
-    var result = {
-      y: y,
-      mo: mo,
-      w: w,
-      d: d,
-      h: h,
-      m: m,
-      s: s,
-      ms: ms
-    };
-
+    /** @type {Language} */
+    var result = { y: y, mo: mo, w: w, d: d, h: h, m: m, s: s, ms: ms };
     if (typeof decimal !== "undefined") {
       result.decimal = decimal;
     }
-
     return result;
   }
 
+  /**
+   * Helper function for Arabic.
+   *
+   * @param {number} c
+   * @returns {0 | 1 | 2}
+   */
   function getArabicForm(c) {
     if (c === 2) {
       return 1;
@@ -1397,6 +1421,12 @@
     return 0;
   }
 
+  /**
+   * Helper function for Polish.
+   *
+   * @param {number} c
+   * @returns {0 | 1 | 2 | 3}
+   */
   function getPolishForm(c) {
     if (c === 1) {
       return 0;
@@ -1410,6 +1440,12 @@
     return 3;
   }
 
+  /**
+   * Helper function for Slavic languages.
+   *
+   * @param {number} c
+   * @returns {0 | 1 | 2 | 3}
+   */
   function getSlavicForm(c) {
     if (Math.floor(c) !== c) {
       return 2;
@@ -1430,6 +1466,12 @@
     return 0;
   }
 
+  /**
+   * Helper function for Czech or Slovak.
+   *
+   * @param {number} c
+   * @returns {0 | 1 | 2 | 3}
+   */
   function getCzechOrSlovakForm(c) {
     if (c === 1) {
       return 0;
@@ -1443,6 +1485,12 @@
     return 3;
   }
 
+  /**
+   * Helper function for Lithuanian.
+   *
+   * @param {number} c
+   * @returns {0 | 1 | 2}
+   */
   function getLithuanianForm(c) {
     if (c === 1 || (c % 10 === 1 && c % 100 > 20)) {
       return 0;
@@ -1457,6 +1505,12 @@
     return 2;
   }
 
+  /**
+   * Helper function for Latvian.
+   *
+   * @param {number} c
+   * @returns {boolean}
+   */
   function getLatvianForm(c) {
     return c % 10 === 1 && c % 100 !== 11;
   }
@@ -1486,23 +1540,28 @@
     return Object.prototype.hasOwnProperty.call(obj, key);
   }
 
-  // Build dictionary from options
-  function getDictionary(options) {
-    var languagesFromOptions = [options.language];
+  /**
+   * @param {Pick<Required<Options>, "language" | "fallbacks" | "languages">} options
+   * @throws {Error} Throws an error if language is not found.
+   * @returns {Language}
+   */
+  function getLanguage(options) {
+    var possibleLanguages = [options.language];
 
     if (has(options, "fallbacks")) {
       if (isArray(options.fallbacks) && options.fallbacks.length) {
-        languagesFromOptions = languagesFromOptions.concat(options.fallbacks);
+        possibleLanguages = possibleLanguages.concat(options.fallbacks);
       } else {
         throw new Error("fallbacks must be an array with at least one element");
       }
     }
 
-    for (var i = 0; i < languagesFromOptions.length; i++) {
-      var languageToTry = languagesFromOptions[i];
+    for (var i = 0; i < possibleLanguages.length; i++) {
+      var languageToTry = possibleLanguages[i];
       if (has(options.languages, languageToTry)) {
         return options.languages[languageToTry];
-      } else if (has(LANGUAGES, languageToTry)) {
+      }
+      if (has(LANGUAGES, languageToTry)) {
         return LANGUAGES[languageToTry];
       }
     }
@@ -1510,159 +1569,233 @@
     throw new Error("No language found.");
   }
 
-  function render(count, type, dictionary, options) {
+  /**
+   * @param {Piece} piece
+   * @param {Language} language
+   * @param {Pick<Required<Options>, "decimal" | "spacer" | "maxDecimalPoints">} options
+   */
+  function renderPiece(piece, language, options) {
+    var unitName = piece.unitName;
+    var unitCount = piece.unitCount;
+
+    var spacer = options.spacer;
+    var maxDecimalPoints = options.maxDecimalPoints;
+
+    /** @type {string} */
     var decimal;
     if (has(options, "decimal")) {
       decimal = options.decimal;
-    } else if (has(dictionary, "decimal")) {
-      decimal = dictionary.decimal;
+    } else if (has(language, "decimal")) {
+      decimal = language.decimal;
     } else {
       decimal = ".";
     }
 
-    var countStr;
-    if (typeof dictionary._formatCount === "function") {
-      countStr = dictionary._formatCount(count, decimal);
+    /** @type {string} */
+    var formattedCount;
+    var normalizedUnitCount =
+      maxDecimalPoints === void 0
+        ? unitCount
+        : Math.floor(unitCount * Math.pow(10, maxDecimalPoints)) /
+          Math.pow(10, maxDecimalPoints);
+    var countStr = normalizedUnitCount.toString();
+    if ("_digitReplacements" in language) {
+      var digitReplacements = language._digitReplacements;
+      formattedCount = "";
+      for (var i = 0; i < countStr.length; i++) {
+        var char = countStr[i];
+        if (char === ".") {
+          formattedCount += decimal;
+        } else {
+          formattedCount += digitReplacements[char];
+        }
+      }
     } else {
-      countStr = count.toString().replace(".", decimal);
+      formattedCount = countStr.replace(".", decimal);
     }
 
-    var dictionaryValue = dictionary[type];
+    var languageWord = language[unitName];
     var word;
-    if (typeof dictionaryValue === "function") {
-      word = dictionaryValue(count);
+    if (typeof languageWord === "function") {
+      word = languageWord(unitCount);
     } else {
-      word = dictionaryValue;
+      word = languageWord;
     }
 
-    if (dictionary._numberFirst) {
-      return word + options.spacer + countStr;
+    if (language._numberFirst) {
+      return word + spacer + formattedCount;
     }
-    return countStr + options.spacer + word;
+    return formattedCount + spacer + word;
   }
 
-  // doHumanization does the bulk of the work.
-  function doHumanization(ms, options) {
-    var i, len, piece;
+  /**
+   * @typedef {Object} Piece
+   * @prop {UnitName} unitName
+   * @prop {number} unitCount
+   */
 
-    // Make sure we have a positive number.
-    // Has the nice sideffect of turning Number objects into primitives.
-    ms = Math.abs(ms);
+  /**
+   * @param {number} ms
+   * @param {Pick<Required<Options>, "units" | "unitMeasures" | "largest" | "round">} options
+   * @returns {Piece[]}
+   */
+  function getPieces(ms, options) {
+    /** @type {UnitName} */
+    var unitName;
 
-    var dictionary = getDictionary(options);
-    var pieces = [];
+    /** @type {number} */
+    var i;
 
-    // Start at the top and keep removing units, bit by bit.
-    var unitName, unitMS, unitCount;
-    for (i = 0, len = options.units.length; i < len; i++) {
-      unitName = options.units[i];
-      unitMS = options.unitMeasures[unitName];
+    /** @type {number} */
+    var unitCount;
 
-      // What's the number of full units we can fit?
-      if (i + 1 === len) {
-        if (has(options, "maxDecimalPoints")) {
-          // We need to use this expValue to avoid rounding functionality of toFixed call
-          var expValue = Math.pow(10, options.maxDecimalPoints);
-          var unitCountFloat = ms / unitMS;
-          unitCount = parseFloat(
-            (Math.floor(expValue * unitCountFloat) / expValue).toFixed(
-              options.maxDecimalPoints
-            )
-          );
-        } else {
-          unitCount = ms / unitMS;
-        }
-      } else {
-        unitCount = Math.floor(ms / unitMS);
-      }
+    /** @type {number} */
+    var msRemaining;
 
-      // Add the string.
-      pieces.push({
-        unitCount: unitCount,
-        unitName: unitName
-      });
+    var units = options.units;
+    var unitMeasures = options.unitMeasures;
+    var largest = "largest" in options ? options.largest : Infinity;
 
-      // Remove what we just figured out.
-      ms -= unitCount * unitMS;
-    }
+    if (!units.length) return [];
 
-    var firstOccupiedUnitIndex = 0;
-    for (i = 0; i < pieces.length; i++) {
-      if (pieces[i].unitCount) {
-        firstOccupiedUnitIndex = i;
-        break;
-      }
+    // Get the counts for each unit. Doesn't round or truncate anything.
+    // For example, might create an object like `{ y: 7, m: 6, w: 0, d: 5, h: 23.99 }`.
+    /** @type {Partial<Record<UnitName, number>>} */
+    var unitCounts = {};
+    msRemaining = ms;
+    for (i = 0; i < units.length; i++) {
+      unitName = units[i];
+      var unitMs = unitMeasures[unitName];
+
+      var isLast = i === units.length - 1;
+      unitCount = isLast
+        ? msRemaining / unitMs
+        : Math.floor(msRemaining / unitMs);
+      unitCounts[unitName] = unitCount;
+
+      msRemaining -= unitCount * unitMs;
     }
 
     if (options.round) {
-      var ratioToLargerUnit, previousPiece;
-      for (i = pieces.length - 1; i >= 0; i--) {
-        piece = pieces[i];
-        piece.unitCount = Math.round(piece.unitCount);
+      // Update counts based on the `largest` option.
+      // For example, if `largest === 2` and `unitCount` is `{ y: 7, m: 6, w: 0, d: 5, h: 23.99 }`,
+      // updates to something like `{ y: 7, m: 6.2 }`.
+      var unitsRemainingBeforeRound = largest;
+      for (i = 0; i < units.length; i++) {
+        unitName = units[i];
+        unitCount = unitCounts[unitName];
 
-        if (i === 0) {
+        if (unitCount === 0) continue;
+
+        unitsRemainingBeforeRound--;
+
+        // "Take" the rest of the units into this one.
+        if (unitsRemainingBeforeRound === 0) {
+          for (var j = i + 1; j < units.length; j++) {
+            var smallerUnitName = units[j];
+            var smallerUnitCount = unitCounts[smallerUnitName];
+            unitCounts[unitName] +=
+              (smallerUnitCount * unitMeasures[smallerUnitName]) /
+              unitMeasures[unitName];
+            unitCounts[smallerUnitName] = 0;
+          }
           break;
         }
+      }
 
-        previousPiece = pieces[i - 1];
+      // Round the last piece (which should be the only non-integer).
+      //
+      // This can be a little tricky if the last piece "bubbles up" to a larger
+      // unit. For example, "3 days, 23.99 hours" should be rounded to "4 days".
+      // It can also require multiple passes. For example, "6 days, 23.99 hours"
+      // should become "1 week".
+      for (i = units.length - 1; i >= 0; i--) {
+        unitName = units[i];
+        unitCount = unitCounts[unitName];
 
-        ratioToLargerUnit =
-          options.unitMeasures[previousPiece.unitName] /
-          options.unitMeasures[piece.unitName];
-        if (
-          piece.unitCount % ratioToLargerUnit === 0 ||
-          (options.largest && options.largest - 1 < i - firstOccupiedUnitIndex)
-        ) {
-          previousPiece.unitCount += piece.unitCount / ratioToLargerUnit;
-          piece.unitCount = 0;
+        if (unitCount === 0) continue;
+
+        var rounded = Math.round(unitCount);
+        unitCounts[unitName] = rounded;
+
+        if (i === 0) break;
+
+        var previousUnitName = units[i - 1];
+        var previousUnitMs = unitMeasures[previousUnitName];
+        var amountOfPreviousUnit = Math.floor(
+          (rounded * unitMeasures[unitName]) / previousUnitMs
+        );
+        if (amountOfPreviousUnit) {
+          unitCounts[previousUnitName] += amountOfPreviousUnit;
+          unitCounts[unitName] = 0;
+        } else {
+          break;
         }
       }
     }
 
+    /** @type {Piece[]} */
     var result = [];
-    for (i = 0, pieces.length; i < len; i++) {
-      piece = pieces[i];
-      if (piece.unitCount) {
-        result.push(
-          render(piece.unitCount, piece.unitName, dictionary, options)
-        );
-      }
-
-      if (result.length === options.largest) {
-        break;
+    for (i = 0; i < units.length && result.length < largest; i++) {
+      unitName = units[i];
+      unitCount = unitCounts[unitName];
+      if (unitCount) {
+        result.push({ unitName: unitName, unitCount: unitCount });
       }
     }
+    return result;
+  }
 
-    if (result.length) {
-      var delimiter;
-      if (has(options, "delimiter")) {
-        delimiter = options.delimiter;
-      } else if (has(dictionary, "delimiter")) {
-        delimiter = dictionary.delimiter;
-      } else {
-        delimiter = ", ";
-      }
+  /**
+   * @param {Piece[]} pieces
+   * @param {Pick<Required<Options>, "units" | "language" | "languages" | "fallbacks" | "delimiter" | "spacer" | "decimal" | "conjunction" | "maxDecimalPoints" | "serialComma">} options
+   * @returns {string}
+   */
+  function formatPieces(pieces, options) {
+    var language = getLanguage(options);
 
-      if (!options.conjunction || result.length === 1) {
-        return result.join(delimiter);
-      } else if (result.length === 2) {
-        return result.join(options.conjunction);
-      } else if (result.length > 2) {
-        return (
-          result.slice(0, -1).join(delimiter) +
-          (options.serialComma ? "," : "") +
-          options.conjunction +
-          result.slice(-1)
-        );
-      }
-    } else {
-      return render(
-        0,
-        options.units[options.units.length - 1],
-        dictionary,
+    if (!pieces.length) {
+      var units = options.units;
+      var smallestUnitName = units[units.length - 1];
+      return renderPiece(
+        { unitName: smallestUnitName, unitCount: 0 },
+        language,
         options
       );
     }
+
+    var conjunction = options.conjunction;
+    var serialComma = options.serialComma;
+
+    var delimiter;
+    if (has(options, "delimiter")) {
+      delimiter = options.delimiter;
+    } else if (has(language, "delimiter")) {
+      delimiter = language.delimiter;
+    } else {
+      delimiter = ", ";
+    }
+
+    /** @type {string[]} */
+    var renderedPieces = [];
+    for (var i = 0; i < pieces.length; i++) {
+      renderedPieces.push(renderPiece(pieces[i], language, options));
+    }
+
+    if (!conjunction || pieces.length === 1) {
+      return renderedPieces.join(delimiter);
+    }
+
+    if (pieces.length === 2) {
+      return renderedPieces.join(conjunction);
+    }
+
+    return (
+      renderedPieces.slice(0, -1).join(delimiter) +
+      (serialComma ? "," : "") +
+      conjunction +
+      renderedPieces.slice(-1)
+    );
   }
 
   /**
@@ -1670,8 +1803,17 @@
    */
   function humanizer(passedOptions) {
     var result = function humanizer(ms, humanizerOptions) {
+      // Make sure we have a positive number.
+      //
+      // Has the nice side-effect of converting things to numbers. For example,
+      // converts `"123"` and `Number(123)` to `123`.
+      ms = Math.abs(ms);
+
       var options = assign({}, result, humanizerOptions || {});
-      return doHumanization(ms, options);
+
+      var pieces = getPieces(ms, options);
+
+      return formatPieces(pieces, options);
     };
 
     return assign(
