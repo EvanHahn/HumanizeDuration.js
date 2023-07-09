@@ -1387,41 +1387,104 @@
     return result;
   }
 
-  // You can create a humanizer, which returns a function with default
-  // parameters.
-  function humanizer(passedOptions) {
-    var result = function humanizer(ms, humanizerOptions) {
-      var options = assign({}, result, humanizerOptions || {});
-      return doHumanization(ms, options);
-    };
-
-    return assign(
-      result,
-      {
-        language: "en",
-        spacer: " ",
-        conjunction: "",
-        serialComma: true,
-        units: ["y", "mo", "w", "d", "h", "m", "s"],
-        languages: {},
-        round: false,
-        unitMeasures: {
-          y: 31557600000,
-          mo: 2629800000,
-          w: 604800000,
-          d: 86400000,
-          h: 3600000,
-          m: 60000,
-          s: 1000,
-          ms: 1
-        }
-      },
-      passedOptions
-    );
+  function getArabicForm(c) {
+    if (c === 2) {
+      return 1;
+    }
+    if (c > 2 && c < 11) {
+      return 2;
+    }
+    return 0;
   }
 
-  // The main function is just a wrapper around a default humanizer.
-  var humanizeDuration = humanizer({});
+  function getPolishForm(c) {
+    if (c === 1) {
+      return 0;
+    }
+    if (Math.floor(c) !== c) {
+      return 1;
+    }
+    if (c % 10 >= 2 && c % 10 <= 4 && !(c % 100 > 10 && c % 100 < 20)) {
+      return 2;
+    }
+    return 3;
+  }
+
+  function getSlavicForm(c) {
+    if (Math.floor(c) !== c) {
+      return 2;
+    }
+    if (
+      (c % 100 >= 5 && c % 100 <= 20) ||
+      (c % 10 >= 5 && c % 10 <= 9) ||
+      c % 10 === 0
+    ) {
+      return 0;
+    }
+    if (c % 10 === 1) {
+      return 1;
+    }
+    if (c > 1) {
+      return 2;
+    }
+    return 0;
+  }
+
+  function getCzechOrSlovakForm(c) {
+    if (c === 1) {
+      return 0;
+    }
+    if (Math.floor(c) !== c) {
+      return 1;
+    }
+    if (c % 10 >= 2 && c % 10 <= 4 && c % 100 < 10) {
+      return 2;
+    }
+    return 3;
+  }
+
+  function getLithuanianForm(c) {
+    if (c === 1 || (c % 10 === 1 && c % 100 > 20)) {
+      return 0;
+    }
+    if (
+      Math.floor(c) !== c ||
+      (c % 10 >= 2 && c % 100 > 20) ||
+      (c % 10 >= 2 && c % 100 < 10)
+    ) {
+      return 1;
+    }
+    return 2;
+  }
+
+  function getLatvianForm(c) {
+    return c % 10 === 1 && c % 100 !== 11;
+  }
+
+  function assign(destination) {
+    var source;
+    for (var i = 1; i < arguments.length; i++) {
+      source = arguments[i];
+      for (var prop in source) {
+        if (has(source, prop)) {
+          destination[prop] = source[prop];
+        }
+      }
+    }
+    return destination;
+  }
+
+  // We need to make sure we support browsers that don't have
+  // `Array.isArray`, so we define a fallback here.
+  var isArray =
+    Array.isArray ||
+    function (arg) {
+      return Object.prototype.toString.call(arg) === "[object Array]";
+    };
+
+  function has(obj, key) {
+    return Object.prototype.hasOwnProperty.call(obj, key);
+  }
 
   // Build dictionary from options
   function getDictionary(options) {
@@ -1445,6 +1508,37 @@
     }
 
     throw new Error("No language found.");
+  }
+
+  function render(count, type, dictionary, options) {
+    var decimal;
+    if (has(options, "decimal")) {
+      decimal = options.decimal;
+    } else if (has(dictionary, "decimal")) {
+      decimal = dictionary.decimal;
+    } else {
+      decimal = ".";
+    }
+
+    var countStr;
+    if (typeof dictionary._formatCount === "function") {
+      countStr = dictionary._formatCount(count, decimal);
+    } else {
+      countStr = count.toString().replace(".", decimal);
+    }
+
+    var dictionaryValue = dictionary[type];
+    var word;
+    if (typeof dictionaryValue === "function") {
+      word = dictionaryValue(count);
+    } else {
+      word = dictionaryValue;
+    }
+
+    if (dictionary._numberFirst) {
+      return word + options.spacer + countStr;
+    }
+    return countStr + options.spacer + word;
   }
 
   // doHumanization does the bulk of the work.
@@ -1571,135 +1665,46 @@
     }
   }
 
-  function render(count, type, dictionary, options) {
-    var decimal;
-    if (has(options, "decimal")) {
-      decimal = options.decimal;
-    } else if (has(dictionary, "decimal")) {
-      decimal = dictionary.decimal;
-    } else {
-      decimal = ".";
-    }
-
-    var countStr;
-    if (typeof dictionary._formatCount === "function") {
-      countStr = dictionary._formatCount(count, decimal);
-    } else {
-      countStr = count.toString().replace(".", decimal);
-    }
-
-    var dictionaryValue = dictionary[type];
-    var word;
-    if (typeof dictionaryValue === "function") {
-      word = dictionaryValue(count);
-    } else {
-      word = dictionaryValue;
-    }
-
-    if (dictionary._numberFirst) {
-      return word + options.spacer + countStr;
-    }
-    return countStr + options.spacer + word;
-  }
-
-  function assign(destination) {
-    var source;
-    for (var i = 1; i < arguments.length; i++) {
-      source = arguments[i];
-      for (var prop in source) {
-        if (has(source, prop)) {
-          destination[prop] = source[prop];
-        }
-      }
-    }
-    return destination;
-  }
-
-  function getArabicForm(c) {
-    if (c === 2) {
-      return 1;
-    }
-    if (c > 2 && c < 11) {
-      return 2;
-    }
-    return 0;
-  }
-
-  function getPolishForm(c) {
-    if (c === 1) {
-      return 0;
-    }
-    if (Math.floor(c) !== c) {
-      return 1;
-    }
-    if (c % 10 >= 2 && c % 10 <= 4 && !(c % 100 > 10 && c % 100 < 20)) {
-      return 2;
-    }
-    return 3;
-  }
-
-  function getSlavicForm(c) {
-    if (Math.floor(c) !== c) {
-      return 2;
-    }
-    if (
-      (c % 100 >= 5 && c % 100 <= 20) ||
-      (c % 10 >= 5 && c % 10 <= 9) ||
-      c % 10 === 0
-    ) {
-      return 0;
-    }
-    if (c % 10 === 1) {
-      return 1;
-    }
-    if (c > 1) {
-      return 2;
-    }
-    return 0;
-  }
-
-  function getCzechOrSlovakForm(c) {
-    if (c === 1) {
-      return 0;
-    }
-    if (Math.floor(c) !== c) {
-      return 1;
-    }
-    if (c % 10 >= 2 && c % 10 <= 4 && c % 100 < 10) {
-      return 2;
-    }
-    return 3;
-  }
-
-  function getLithuanianForm(c) {
-    if (c === 1 || (c % 10 === 1 && c % 100 > 20)) {
-      return 0;
-    }
-    if (
-      Math.floor(c) !== c ||
-      (c % 10 >= 2 && c % 100 > 20) ||
-      (c % 10 >= 2 && c % 100 < 10)
-    ) {
-      return 1;
-    }
-    return 2;
-  }
-
-  function getLatvianForm(c) {
-    return c % 10 === 1 && c % 100 !== 11;
-  }
-
-  // We need to make sure we support browsers that don't have
-  // `Array.isArray`, so we define a fallback here.
-  var isArray =
-    Array.isArray ||
-    function (arg) {
-      return Object.prototype.toString.call(arg) === "[object Array]";
+  /**
+   * Create a humanizer, which lets you change the default options.
+   */
+  function humanizer(passedOptions) {
+    var result = function humanizer(ms, humanizerOptions) {
+      var options = assign({}, result, humanizerOptions || {});
+      return doHumanization(ms, options);
     };
 
-  function has(obj, key) {
-    return Object.prototype.hasOwnProperty.call(obj, key);
+    return assign(
+      result,
+      {
+        language: "en",
+        spacer: " ",
+        conjunction: "",
+        serialComma: true,
+        units: ["y", "mo", "w", "d", "h", "m", "s"],
+        languages: {},
+        round: false,
+        unitMeasures: {
+          y: 31557600000,
+          mo: 2629800000,
+          w: 604800000,
+          d: 86400000,
+          h: 3600000,
+          m: 60000,
+          s: 1000,
+          ms: 1
+        }
+      },
+      passedOptions
+    );
   }
+
+  /**
+   * Humanize a duration.
+   *
+   * This is a wrapper around the default humanizer.
+   */
+  var humanizeDuration = humanizer({});
 
   humanizeDuration.getSupportedLanguages = function getSupportedLanguages() {
     var result = [];
