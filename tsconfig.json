@@ -4,6 +4,10 @@
     "checkJs": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "target": "ES2022"
+    "target": "ES2022",
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true
   }
 }
