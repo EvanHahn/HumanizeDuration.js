@@ -1,3 +1,19 @@
+:root {
+  --text-color: #000;
+  --background-color: #fff;
+  --link-color: #009;
+  --pre-color: #eee;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #fff;
+    --background-color: #000;
+    --link-color: #99f;
+    --pre-color: #333;
+  }
+}
+
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
 
 * {
@@ -14,7 +30,7 @@ html {
 body {
   width: 90%;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 1em auto;
   line-height: 2em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -45,7 +61,7 @@ code, pre {
 }
 
 a {
-  color: #009;
+  color: var(--link-color);
   text-decoration: dotted underline;
 }
 
@@ -59,8 +75,8 @@ a:active {
 }
 
 ::selection {
-  color: #fff;
-  background: #000;
+  color: var(--background-color);
+  background: var(--text-color);
 }
 
 h1 {
@@ -130,9 +146,8 @@ ol > li {
 pre {
   padding: 0.5rem;
   line-height: 1.2em;
-  background: #eee;
+  background: var(--pre-color);
   white-space: pre-wrap;
   word-wrap: break-word;
   word-break: break-word;
 }
-

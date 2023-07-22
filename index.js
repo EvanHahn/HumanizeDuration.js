@@ -1,11 +1,3 @@
-/* global demoContainer, msInput, languageInput, resultInput */
-
-const humanizeDuration = require("humanize-duration");
-const sample = require("./lib/sample");
-
-// Let them play in the console
-window.humanizeDuration = humanizeDuration;
-
 const LANGUAGES = {
   ar: "Arabic",
   bg: "Bulgarian",
@@ -52,6 +44,10 @@ const LANGUAGES = {
   ur: "Urdu",
   vi: "Vietnamese",
 };
+
+const sample = (arr) => (
+  arr[Math.floor(Math.random() * arr.length)]
+);
 
 const state = {
   ms: 1209600000 + 345600000 + 288000 + 150000,
