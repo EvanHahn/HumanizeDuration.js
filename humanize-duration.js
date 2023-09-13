@@ -1372,6 +1372,26 @@
       "วินาที",
       "มิลลิวินาที"
     ),
+    uz: language(
+      "yil",
+      "oy",
+      "hafta",
+      "kun",
+      "soat",
+      "minut",
+      "sekund",
+      "millisekund"
+    ),
+    uz_CYR: language(
+      "йил",
+      "ой",
+      "ҳафта",
+      "кун",
+      "соат",
+      "минут",
+      "секунд",
+      "миллисекунд"
+    ),
     vi: language(
       "năm",
       "tháng",
