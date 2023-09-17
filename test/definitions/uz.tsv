@@ -1,0 +1,72 @@
+0	0 millisekund
+1	1 millisekund
+2	2 millisekund
+5	5 millisekund
+12	12 millisekund
+420	420 millisekund
+500	500 millisekund
+1000	1 sekund
+1500	1 sekund+500 millisekund
+2000	2 sekund
+2500	2 sekund+500 millisekund
+3000	3 sekund
+1001	1 sekund+1 millisekund
+1002	1 sekund+2 millisekund
+2001	2 sekund+1 millisekund
+2003	2 sekund+3 millisekund
+1200	1 sekund+200 millisekund
+6900	6 sekund+900 millisekund
+30000	30 sekund
+60000	1 minut
+90000	1 minut+30 sekund
+120000	2 minut
+150000	2 minut+30 sekund
+180000	3 minut
+61000	1 minut+1 sekund
+78000	1 minut+18 sekund
+61001	1 minut+1 sekund+1 millisekund
+61005	1 minut+1 sekund+5 millisekund
+62001	1 minut+2 sekund+1 millisekund
+62005	1 minut+2 sekund+5 millisekund
+121001	2 minut+1 sekund+1 millisekund
+121007	2 minut+1 sekund+7 millisekund
+138001	2 minut+18 sekund+1 millisekund
+138006	2 minut+18 sekund+6 millisekund
+1800000	30 minut
+3600000	1 soat
+5400000	1 soat+30 minut
+7200000	2 soat
+9000000	2 soat+30 minut
+10800000	3 soat
+3660000	1 soat+1 minut
+3720000	1 soat+2 minut
+10860000	3 soat+1 minut
+11040000	3 soat+4 minut
+43200000	12 soat
+86400000	1 kun
+129600000	1 kun+12 soat
+172800000	2 kun
+216000000	2 kun+12 soat
+259200000	3 kun
+302400000	3 kun+12 soat
+604800000	1 hafta
+907200000	1 hafta+3 kun+12 soat
+1209600000	2 hafta
+1512000000	2 hafta+3 kun+12 soat
+1814400000	3 hafta
+1314900000	2 hafta+1 kun+5 soat+15 minut
+2629800000	1 oy
+3944700000	1 oy+2 hafta+1 kun+5 soat+15 minut
+5259600000	2 oy
+6574500000	2 oy+2 hafta+1 kun+5 soat+15 minut
+7889400000	3 oy
+15778800000	6 oy
+31557600000	1 yil
+47336400000	1 yil+6 oy
+63115200000	2 yil
+78894000000	2 yil+6 oy
+94672800000	3 yil
+-420	420 millisekund
+0.12	0.12 millisekund
+1.5	1.5 millisekund
+420.69	420.69 millisekund
