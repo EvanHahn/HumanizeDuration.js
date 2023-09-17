@@ -1,3 +1,7 @@
+# Unreleased
+
+- new: Uzbek support (`uz` and `uz_CYR`)
+
 # 3.29.0 / 2023-07-09
 
 - new: `digitReplacements` option
