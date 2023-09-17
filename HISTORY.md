@@ -1,4 +1,4 @@
-# Unreleased
+# 3.30.0 / 2023-09-17
 
 - new: Uzbek support (`uz` and `uz_CYR`)
 
