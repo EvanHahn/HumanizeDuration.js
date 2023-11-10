@@ -223,6 +223,17 @@
       },
       ","
     ),
+    ckb: language(
+      "ساڵ",
+      "مانگ",
+      "هەفتە",
+      "ڕۆژ",
+      "کاژێر",
+      "خولەک",
+      "چرکە",
+      "میلی چرکە",
+      "."
+    ),
     cs: language(
       function (c) {
         return ["rok", "roku", "roky", "let"][getCzechOrSlovakForm(c)];
