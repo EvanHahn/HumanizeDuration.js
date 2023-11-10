@@ -1,4 +1,4 @@
-# unreleased
+# 3.31.0 / 2023-11-10
 
 - new: Central Kurdish support (`ckb`)
 
