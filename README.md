@@ -347,6 +347,7 @@ Humanize Duration supports the following languages:
 | Bengali              | `bn`     |
 | Bulgarian            | `bg`     |
 | Catalan              | `ca`     |
+| Central Kurdish      | `ckb`    |
 | Chinese, simplified  | `zh_CN`  |
 | Chinese, traditional | `zh_TW`  |
 | Croatian             | `hr`     |
