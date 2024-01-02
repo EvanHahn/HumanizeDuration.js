@@ -10,18 +10,14 @@ test("package.json has `bugs`", () => {
 });
 
 test("package.json and bower.json largely match", () => {
-  [
-    "name",
-    "version",
-    "keywords",
-    "license",
-    "main",
-    "description",
-    "repository",
-    "homepage",
-  ].forEach((key) => {
-    assert.deepStrictEqual(pkg[key], bower[key]);
-  });
+  assert.strictEqual(pkg.name, bower.name);
+  assert.strictEqual(pkg.version, bower.version);
+  assert.deepStrictEqual(pkg.keywords, bower.keywords);
+  assert.strictEqual(pkg.license, bower.license);
+  assert.strictEqual(pkg.main, bower.main);
+  assert.strictEqual(pkg.description, bower.description);
+  assert.deepStrictEqual(pkg.repository, bower.repository);
+  assert.strictEqual(pkg.homepage, bower.homepage);
 
   const pkgAuthors = [pkg.author].concat(pkg.contributors);
   assert.deepStrictEqual(pkgAuthors, bower.authors);

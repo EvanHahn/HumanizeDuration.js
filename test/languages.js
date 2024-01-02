@@ -10,6 +10,10 @@ const { promisify } = require("node:util");
 
 const readdir = promisify(fs.readdir);
 
+/**
+ * @param {string} language
+ * @returns {import("../humanize-duration.js").Options}
+ */
 const options = (language) => ({
   language,
   delimiter: "+",

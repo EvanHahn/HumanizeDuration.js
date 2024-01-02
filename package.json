@@ -46,6 +46,7 @@
     "test": "node --test"
   },
   "devDependencies": {
+    "@types/ms": "^0.7.34",
     "@types/node": "^20.10.6",
     "csv-parse": "^5.5.3",
     "eslint": "^8.56.0",
