@@ -23,6 +23,7 @@
  */
 
 /**
+ * @internal
  * @typedef {[string, string, string, string, string, string, string, string, string, string]} DigitReplacements
  */
 
@@ -61,6 +62,7 @@
  */
 
 /**
+ * @internal
  * @typedef {Required<Options>} NormalizedOptions
  */
 
@@ -97,7 +99,10 @@
     ","
   );
 
-  /** @type {Record<string, Language>} */
+  /**
+   * @internal
+   * @type {Record<string, Language>}
+   */
   var LANGUAGES = {
     af: language(
       "jaar",
@@ -1422,6 +1427,7 @@
   /**
    * Helper function for creating language definitions.
    *
+   * @internal
    * @param {Unit} y
    * @param {Unit} mo
    * @param {Unit} w
@@ -1445,6 +1451,7 @@
   /**
    * Helper function for Arabic.
    *
+   * @internal
    * @param {number} c
    * @returns {0 | 1 | 2}
    */
@@ -1461,6 +1468,7 @@
   /**
    * Helper function for Polish.
    *
+   * @internal
    * @param {number} c
    * @returns {0 | 1 | 2 | 3}
    */
@@ -1480,6 +1488,7 @@
   /**
    * Helper function for Slavic languages.
    *
+   * @internal
    * @param {number} c
    * @returns {0 | 1 | 2 | 3}
    */
@@ -1506,6 +1515,7 @@
   /**
    * Helper function for Czech or Slovak.
    *
+   * @internal
    * @param {number} c
    * @returns {0 | 1 | 2 | 3}
    */
@@ -1525,6 +1535,7 @@
   /**
    * Helper function for Lithuanian.
    *
+   * @internal
    * @param {number} c
    * @returns {0 | 1 | 2}
    */
@@ -1545,6 +1556,7 @@
   /**
    * Helper function for Latvian.
    *
+   * @internal
    * @param {number} c
    * @returns {boolean}
    */
@@ -1555,6 +1567,7 @@
   /**
    * `Object.assign` for legacy environments. Difficult to make type-check.
    *
+   * @internal
    * @param {...any} destination
    */
   function assign(destination) {
@@ -1580,6 +1593,7 @@
     };
 
   /**
+   * @internal
    * @template T
    * @param {T} obj
    * @param {keyof T} key
@@ -1590,6 +1604,7 @@
   }
 
   /**
+   * @internal
    * @param {Pick<Required<Options>, "language" | "fallbacks" | "languages">} options
    * @throws {Error} Throws an error if language is not found.
    * @returns {Language}
@@ -1619,6 +1634,7 @@
   }
 
   /**
+   * @internal
    * @param {Piece} piece
    * @param {Language} language
    * @param {Pick<Required<Options>, "decimal" | "spacer" | "maxDecimalPoints" | "digitReplacements">} options
@@ -1686,12 +1702,14 @@
   }
 
   /**
+   * @internal
    * @typedef {Object} Piece
    * @prop {UnitName} unitName
    * @prop {number} unitCount
    */
 
   /**
+   * @internal
    * @param {number} ms
    * @param {Pick<Required<Options>, "units" | "unitMeasures" | "largest" | "round">} options
    * @returns {Piece[]}
@@ -1804,6 +1822,7 @@
   }
 
   /**
+   * @internal
    * @param {Piece[]} pieces
    * @param {Pick<Required<Options>, "units" | "language" | "languages" | "fallbacks" | "delimiter" | "spacer" | "decimal" | "conjunction" | "maxDecimalPoints" | "serialComma" | "digitReplacements">} options
    * @returns {string}
