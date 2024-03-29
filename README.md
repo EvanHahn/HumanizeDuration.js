@@ -342,6 +342,7 @@ Humanize Duration supports the following languages:
 | -------------------- | -------- |
 | Afrikaans            | `af`     |
 | Albanian             | `sq`     |
+| Amharic              | `am`     |
 | Arabic               | `ar`     |
 | Basque               | `eu`     |
 | Bengali              | `bn`     |
@@ -447,6 +448,7 @@ Lovingly made by [Evan Hahn](https://evanhahn.com/) with help from:
 - [Aryan Rawlani](https://github.com/aryanrawlani28) for Hindi support
 - [Kristijan Jesenski](https://github.com/kjesenski) for Slovenian support
 - [Michal Karzel](https://github.com/Misioka) for improving Arabic support
+- [Mikias Menjeta](https://github.com/OMikiasO) for Amharic support
 
 Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 
