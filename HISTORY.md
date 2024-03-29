@@ -1,6 +1,7 @@
 # Unreleased
 
 - new: Amharic support (`am`)
+- change: use `Object.assign` internally on newer runtimes, which should be slightly faster
 
 # 3.31.0 / 2023-11-10
 

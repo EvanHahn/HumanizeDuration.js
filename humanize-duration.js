@@ -67,6 +67,30 @@
  */
 
 (function () {
+  // Fallback for `Object.assign` if relevant.
+  var assign =
+    Object.assign ||
+    /** @param {...any} destination */
+    function (destination) {
+      var source;
+      for (var i = 1; i < arguments.length; i++) {
+        source = arguments[i];
+        for (var prop in source) {
+          if (has(source, prop)) {
+            destination[prop] = source[prop];
+          }
+        }
+      }
+      return destination;
+    };
+
+  // Fallback for `Array.isArray` if relevant.
+  var isArray =
+    Array.isArray ||
+    function (arg) {
+      return Object.prototype.toString.call(arg) === "[object Array]";
+    };
+
   // This has to be defined separately because of a bug: we want to alias
   // `gr` and `el` for backwards-compatiblity. In a breaking change, we can
   // remove `gr` entirely.
@@ -1563,34 +1587,6 @@
   function getLatvianForm(c) {
     return c % 10 === 1 && c % 100 !== 11;
   }
-
-  /**
-   * `Object.assign` for legacy environments. Difficult to make type-check.
-   *
-   * @internal
-   * @param {...any} destination
-   */
-  function assign(destination) {
-    var source;
-    for (var i = 1; i < arguments.length; i++) {
-      source = arguments[i];
-      for (var prop in source) {
-        if (has(source, prop)) {
-          // @ts-ignore
-          destination[prop] = source[prop];
-        }
-      }
-    }
-    return destination;
-  }
-
-  // We need to make sure we support browsers that don't have
-  // `Array.isArray`, so we define a fallback here.
-  var isArray =
-    Array.isArray ||
-    function (arg) {
-      return Object.prototype.toString.call(arg) === "[object Array]";
-    };
 
   /**
    * @internal
