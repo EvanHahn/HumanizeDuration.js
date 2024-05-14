@@ -186,7 +186,8 @@
       ),
       {
         delimiter: " ﻭ ",
-        _digitReplacements: ["۰", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"]
+		hideUnitInDualForm: true,
+        _digitReplacements: ["۰", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"],
       }
     ),
     bg: language(
@@ -1655,10 +1656,21 @@
     /** @type {undefined | DigitReplacements} */
     var digitReplacements;
     if ("digitReplacements" in options) {
-      digitReplacements = options.digitReplacements;
+		digitReplacements = options.digitReplacements;
     } else if ("_digitReplacements" in language) {
-      digitReplacements = language._digitReplacements;
+		digitReplacements = language._digitReplacements;
     }
+	
+	/** @type {boolean} */
+	var hideUnitInDualForm = false;
+	if (options.language === "ar") {
+		if ("arabic_hideUnitInDualForm" in options) {
+			hideUnitInDualForm = options.arabic_hideUnitInDualForm;
+		} else if ("hideUnitInDualForm" in language) {
+			hideUnitInDualForm = language.hideUnitInDualForm;
+		}
+	}
+
 
     /** @type {string} */
     var formattedCount;
@@ -1668,20 +1680,24 @@
         : Math.floor(unitCount * Math.pow(10, maxDecimalPoints)) /
           Math.pow(10, maxDecimalPoints);
     var countStr = normalizedUnitCount.toString();
-    if (digitReplacements) {
-      formattedCount = "";
-      for (var i = 0; i < countStr.length; i++) {
-        var char = countStr[i];
-        if (char === ".") {
-          formattedCount += decimal;
-        } else {
-          // @ts-ignore because `char` should always be 0-9 at this point.
-          formattedCount += digitReplacements[char];
-        }
-      }
-    } else {
-      formattedCount = countStr.replace(".", decimal);
-    }
+	if (!hideUnitInDualForm || unitCount !== 2) {
+		if (digitReplacements) {
+			formattedCount = "";
+			for (var i = 0; i < countStr.length; i++) {
+				var char = countStr[i];
+				if (char === ".") {
+					formattedCount += decimal;
+				} else {
+					// @ts-ignore because `char` should always be 0-9 at this point.
+					formattedCount += digitReplacements[char];
+				}
+			}
+		} else {
+			formattedCount = countStr.replace(".", decimal);
+		}
+	} else {
+		formattedCount = "";
+	}
 
     var languageWord = language[unitName];
     var word;
