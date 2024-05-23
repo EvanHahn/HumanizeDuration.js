@@ -460,3 +460,4 @@ Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 - [HumanizeDuration.ts](https://github.com/Nightapes/HumanizeDuration.ts), a TypeScript version of this module
 - [aurelia-time](https://github.com/shahabganji/aurelia-time)
 - [Fork that adds a `timeAdverb` option](https://github.com/cmldk/HumanizeDuration.js)
+- [Fork that provides the duration in an abbreviated format](https://github.com/rasa/HumanizeDuration.js), ex: `1d 2h 3m 4s`
