@@ -1698,6 +1698,10 @@
       word = languageWord;
     }
 
+    // Never add a spacer if the count is hidden
+    if (language._hideCountIf2 && unitCount == 2) {
+      spacer = "";
+    }
     if (language._numberFirst) {
       return word + spacer + formattedCount;
     }
