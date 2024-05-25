@@ -1,3 +1,7 @@
+# 3.32.1 / 2024-05-25
+
+- fix: hide unit count if 2 in Arabic (see [#222](https://github.com/EvanHahn/HumanizeDuration.js/issues/222))
+
 # 3.32.0 / 2024-03-29
 
 - new: Amharic support (`am`)
