@@ -41,6 +41,7 @@
  * @prop {string} [delimiter]
  * @prop {DigitReplacements} [_digitReplacements]
  * @prop {boolean} [_numberFirst]
+ * @prop {boolean} [_hideCountIf2]
  */
 
 /**
@@ -186,6 +187,7 @@
       ),
       {
         delimiter: " ﻭ ",
+        _hideCountIf2: true,
         _digitReplacements: ["۰", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"]
       }
     ),
@@ -1668,19 +1670,25 @@
         : Math.floor(unitCount * Math.pow(10, maxDecimalPoints)) /
           Math.pow(10, maxDecimalPoints);
     var countStr = normalizedUnitCount.toString();
-    if (digitReplacements) {
+
+    if (language._hideCountIf2 && unitCount === 2) {
       formattedCount = "";
-      for (var i = 0; i < countStr.length; i++) {
-        var char = countStr[i];
-        if (char === ".") {
-          formattedCount += decimal;
-        } else {
-          // @ts-ignore because `char` should always be 0-9 at this point.
-          formattedCount += digitReplacements[char];
-        }
-      }
+      spacer = "";
     } else {
-      formattedCount = countStr.replace(".", decimal);
+      if (digitReplacements) {
+        formattedCount = "";
+        for (var i = 0; i < countStr.length; i++) {
+          var char = countStr[i];
+          if (char === ".") {
+            formattedCount += decimal;
+          } else {
+            // @ts-ignore because `char` should always be 0-9 at this point.
+            formattedCount += digitReplacements[char];
+          }
+        }
+      } else {
+        formattedCount = countStr.replace(".", decimal);
+      }
     }
 
     var languageWord = language[unitName];
