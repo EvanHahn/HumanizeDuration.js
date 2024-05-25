@@ -35,7 +35,7 @@
     "Batmend Ganbaatar (https://github.com/theironbatka)",
     "Mikias Menjeta (https://github.com/OMikiasO)"
   ],
-  "version": "3.32.0",
+  "version": "3.32.1",
   "description": "Convert millisecond durations to English and many other languages.",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
   "main": "humanize-duration.js",
