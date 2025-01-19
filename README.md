@@ -459,5 +459,6 @@ Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 - [millisec](https://github.com/sungwoncho/millisec)
 - [HumanizeDuration.ts](https://github.com/Nightapes/HumanizeDuration.ts), a TypeScript version of this module
 - [aurelia-time](https://github.com/shahabganji/aurelia-time)
+- [@visulima/humanizer](https://github.com/visulima/visulima/tree/main/packages/humanizer) is a fork that adds `timeAdverb`, an abbreviated format, and more
 - [Fork that adds a `timeAdverb` option](https://github.com/cmldk/HumanizeDuration.js)
 - [Fork that provides the duration in an abbreviated format](https://github.com/rasa/HumanizeDuration.js), ex: `1d 2h 3m 4s`
