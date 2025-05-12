@@ -19,7 +19,7 @@ export default defineConfig([
     extends: ["js/recommended"],
     languageOptions: {
       sourceType: "commonjs",
-      ecmaVersion: 5,
+      ecmaVersion: 3,
       globals: { define: "readonly" }
     },
     rules: {

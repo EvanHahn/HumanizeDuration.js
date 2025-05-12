@@ -1678,12 +1678,12 @@
       if (digitReplacements) {
         formattedCount = "";
         for (var i = 0; i < countStr.length; i++) {
-          var char = countStr[i];
-          if (char === ".") {
+          var character = countStr[i];
+          if (character === ".") {
             formattedCount += decimal;
           } else {
-            // @ts-ignore because `char` should always be 0-9 at this point.
-            formattedCount += digitReplacements[char];
+            // @ts-ignore because `character` should always be 0-9 at this point.
+            formattedCount += digitReplacements[character];
           }
         }
       } else {
