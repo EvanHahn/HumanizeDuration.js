@@ -1,4 +1,4 @@
-# Unreleased
+# 3.32.2 / 2025-05-12
 
 - fix: use "週間" instead of "週" in Japanese (see [#230](https://github.com/EvanHahn/HumanizeDuration.js/pull/230))
 
