@@ -7,7 +7,7 @@
  */
 
 /**
- * @typedef {("y" | "mo" | "w" | "d" | "h" | "m" | "s" | "ms")} UnitName
+ * @typedef {"y" | "mo" | "w" | "d" | "h" | "m" | "s" | "ms"} UnitName
  */
 
 /**
