@@ -1,3 +1,7 @@
+# Unreleased
+
+- fix: use "週間" instead of "週" in Japanese (see [#230](https://github.com/EvanHahn/HumanizeDuration.js/pull/230))
+
 # 3.32.1 / 2024-05-25
 
 - fix: hide unit count if 2 in Arabic (see [#222](https://github.com/EvanHahn/HumanizeDuration.js/issues/222))
