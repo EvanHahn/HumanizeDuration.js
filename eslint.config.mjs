@@ -21,6 +21,13 @@ export default defineConfig([
       sourceType: "commonjs",
       ecmaVersion: 5,
       globals: { define: "readonly" }
+    },
+    rules: {
+      "no-inner-declarations": ["error", "functions"],
+      "no-self-compare": ["error"],
+      "no-unmodified-loop-condition": ["error"],
+      "no-unreachable-loop": ["error"],
+      "no-useless-assignment": ["error"]
     }
   }
 ]);
