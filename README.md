@@ -388,6 +388,7 @@ Humanize Duration supports the following languages:
 | Romanian             | `ro`     |
 | Russian              | `ru`     |
 | Serbian              | `sr`     |
+| Serbian (Latin)      | `sr_Latn`|
 | Slovak               | `sk`     |
 | Slovenian            | `sl`     |
 | Spanish              | `es`     |
