@@ -1127,6 +1127,33 @@
       },
       ","
     ),
+    sr_Latn: language(
+      function (c) {
+        return ["godini", "godina", "godine"][getSlavicForm(c)];
+      },
+      function (c) {
+        return ["meseci", "mesec", "meseca"][getSlavicForm(c)];
+      },
+      function (c) {
+        return ["nedelji", "nedelja", "nedelje"][getSlavicForm(c)];
+      },
+      function (c) {
+        return ["dani", "dan", "dana"][getSlavicForm(c)];
+      },
+      function (c) {
+        return ["sati", "sat", "sata"][getSlavicForm(c)];
+      },
+      function (c) {
+        return ["minuta", "minut", "minuta"][getSlavicForm(c)];
+      },
+      function (c) {
+        return ["sekundi", "sekunda", "sekunde"][getSlavicForm(c)];
+      },
+      function (c) {
+        return ["milisekundi", "milisekunda", "milisekunde"][getSlavicForm(c)];
+      },
+      ","
+    ),
     ta: language(
       function (c) {
         return c === 1 ? "வருடம்" : "ஆண்டுகள்";
