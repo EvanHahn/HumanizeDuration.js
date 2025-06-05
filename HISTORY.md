@@ -1,4 +1,4 @@
-# 3.33.0 / 2025-06-02
+# Unreleased
 
 - new: Serbian latin support (`sr_Latn`)
 
