@@ -74,6 +74,7 @@
     "url": "git://github.com/EvanHahn/HumanizeDuration.js.git"
   },
   "bugs": "https://github.com/EvanHahn/HumanizeDuration.js/issues",
+  "funding": "https://github.com/sponsors/EvanHahn",
   "license": "Unlicense",
   "files": [
     "README.md",
