@@ -189,32 +189,15 @@
         _digitReplacements: ["۰", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"]
       }
     ),
-    bg: language(
-      function (c) {
-        return ["години", "година", "години"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["месеца", "месец", "месеца"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["седмици", "седмица", "седмици"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["дни", "ден", "дни"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["часа", "час", "часа"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["минути", "минута", "минути"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["секунди", "секунда", "секунди"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["милисекунди", "милисекунда", "милисекунди"][getSlavicForm(c)];
-      },
-      ","
+    bg: slavicLanguage(
+      ["години", "година", "години"],
+      ["месеца", "месец", "месеца"],
+      ["седмици", "седмица", "седмици"],
+      ["дни", "ден", "дни"],
+      ["часа", "час", "часа"],
+      ["минути", "минута", "минути"],
+      ["секунди", "секунда", "секунди"],
+      ["милисекунди", "милисекунда", "милисекунди"]
     ),
     bn: language(
       "বছর",
@@ -1050,34 +1033,15 @@
       },
       ","
     ),
-    ru: language(
-      function (c) {
-        return ["лет", "год", "года"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["месяцев", "месяц", "месяца"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["недель", "неделя", "недели"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["дней", "день", "дня"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["часов", "час", "часа"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["минут", "минута", "минуты"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["секунд", "секунда", "секунды"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["миллисекунд", "миллисекунда", "миллисекунды"][
-          getSlavicForm(c)
-        ];
-      },
-      ","
+    ru: slavicLanguage(
+      ["лет", "год", "года"],
+      ["месяцев", "месяц", "месяца"],
+      ["недель", "неделя", "недели"],
+      ["дней", "день", "дня"],
+      ["часов", "час", "часа"],
+      ["минут", "минута", "минуты"],
+      ["секунд", "секунда", "секунды"],
+      ["миллисекунд", "миллисекунда", "миллисекунды"]
     ),
     sq: language(
       function (c) {
@@ -1098,59 +1062,25 @@
       },
       ","
     ),
-    sr: language(
-      function (c) {
-        return ["години", "година", "године"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["месеци", "месец", "месеца"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["недељи", "недеља", "недеље"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["дани", "дан", "дана"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["сати", "сат", "сата"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["минута", "минут", "минута"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["секунди", "секунда", "секунде"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["милисекунди", "милисекунда", "милисекунде"][getSlavicForm(c)];
-      },
-      ","
+    sr: slavicLanguage(
+      ["години", "година", "године"],
+      ["месеци", "месец", "месеца"],
+      ["недељи", "недеља", "недеље"],
+      ["дани", "дан", "дана"],
+      ["сати", "сат", "сата"],
+      ["минута", "минут", "минута"],
+      ["секунди", "секунда", "секунде"],
+      ["милисекунди", "милисекунда", "милисекунде"]
     ),
-    sr_Latn: language(
-      function (c) {
-        return ["godini", "godina", "godine"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["meseci", "mesec", "meseca"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["nedelji", "nedelja", "nedelje"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["dani", "dan", "dana"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["sati", "sat", "sata"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["minuta", "minut", "minuta"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["sekundi", "sekunda", "sekunde"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["milisekundi", "milisekunda", "milisekunde"][getSlavicForm(c)];
-      },
-      ","
+    sr_Latn: slavicLanguage(
+      ["godini", "godina", "godine"],
+      ["meseci", "mesec", "meseca"],
+      ["nedelji", "nedelja", "nedelje"],
+      ["dani", "dan", "dana"],
+      ["sati", "sat", "sata"],
+      ["minuta", "minut", "minuta"],
+      ["sekundi", "sekunda", "sekunde"],
+      ["milisekundi", "milisekunda", "milisekunde"]
     ),
     ta: language(
       function (c) {
@@ -1204,32 +1134,15 @@
         return c === 1 ? "మిల్లీసెకన్" : "మిల్లీసెకన్లు";
       }
     ),
-    uk: language(
-      function (c) {
-        return ["років", "рік", "роки"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["місяців", "місяць", "місяці"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["тижнів", "тиждень", "тижні"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["днів", "день", "дні"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["годин", "година", "години"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["хвилин", "хвилина", "хвилини"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["секунд", "секунда", "секунди"][getSlavicForm(c)];
-      },
-      function (c) {
-        return ["мілісекунд", "мілісекунда", "мілісекунди"][getSlavicForm(c)];
-      },
-      ","
+    uk: slavicLanguage(
+      ["років", "рік", "роки"],
+      ["місяців", "місяць", "місяці"],
+      ["тижнів", "тиждень", "тижні"],
+      ["днів", "день", "дні"],
+      ["годин", "година", "години"],
+      ["хвилин", "хвилина", "хвилини"],
+      ["секунд", "секунда", "секунди"],
+      ["мілісекунд", "мілісекунда", "мілісекунди"]
     ),
     ur: language(
       "سال",
@@ -1500,6 +1413,61 @@
   }
 
   /**
+   * @internal
+   * @param {[string, string, string]} unit
+   * @returns {(c: number) => string}
+   */
+  function slavicUnit(unit) {
+    return function (c) {
+      if (Math.floor(c) !== c) {
+        return unit[2];
+      }
+      if (
+        (c % 100 >= 5 && c % 100 <= 20) ||
+        (c % 10 >= 5 && c % 10 <= 9) ||
+        c % 10 === 0
+      ) {
+        return unit[0];
+      }
+      if (c % 10 === 1) {
+        return unit[1];
+      }
+      if (c > 1) {
+        return unit[2];
+      }
+      return unit[1];
+    };
+  }
+
+  /**
+   * Helper for generating Slavic languages.
+   *
+   * @internal
+   * @param {[string, string, string]} y
+   * @param {[string, string, string]} mo
+   * @param {[string, string, string]} w
+   * @param {[string, string, string]} d
+   * @param {[string, string, string]} h
+   * @param {[string, string, string]} m
+   * @param {[string, string, string]} s
+   * @param {[string, string, string]} ms
+   * @returns {Language}
+   */
+  function slavicLanguage(y, mo, w, d, h, m, s, ms) {
+    return {
+      y: slavicUnit(y),
+      mo: slavicUnit(mo),
+      w: slavicUnit(w),
+      d: slavicUnit(d),
+      h: slavicUnit(h),
+      m: slavicUnit(m),
+      s: slavicUnit(s),
+      ms: slavicUnit(ms),
+      decimal: ","
+    };
+  }
+
+  /**
    * Helper function for Arabic.
    *
    * @internal
@@ -1534,33 +1502,6 @@
       return 2;
     }
     return 3;
-  }
-
-  /**
-   * Helper function for Slavic languages.
-   *
-   * @internal
-   * @param {number} c
-   * @returns {0 | 1 | 2 | 3}
-   */
-  function getSlavicForm(c) {
-    if (Math.floor(c) !== c) {
-      return 2;
-    }
-    if (
-      (c % 100 >= 5 && c % 100 <= 20) ||
-      (c % 10 >= 5 && c % 10 <= 9) ||
-      c % 10 === 0
-    ) {
-      return 0;
-    }
-    if (c % 10 === 1) {
-      return 1;
-    }
-    if (c > 1) {
-      return 2;
-    }
-    return 0;
   }
 
   /**
