@@ -1493,7 +1493,7 @@
   function language(y, mo, w, d, h, m, s, ms, decimal) {
     /** @type {Language} */
     var result = { y: y, mo: mo, w: w, d: d, h: h, m: m, s: s, ms: ms };
-    if (typeof decimal !== "undefined") {
+    if (decimal) {
       result.decimal = decimal;
     }
     return result;
