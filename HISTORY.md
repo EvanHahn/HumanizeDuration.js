@@ -1,3 +1,7 @@
+# 3.33.1 / 2025-09-15
+
+- change: shrink size slightly
+
 # 3.33.0 / 2025-06-05
 
 - new: Serbian Latin support (`sr_Latn`)
