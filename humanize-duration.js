@@ -1,7 +1,5 @@
 // HumanizeDuration.js - https://git.io/j0HgmQ
 
-// @ts-check
-
 /**
  * @typedef {string | ((unitCount: number) => string)} Unit
  */

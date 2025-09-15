@@ -1,5 +1,3 @@
-// @ts-check
-
 const pkg = require("../package.json");
 const bower = require("../bower.json");
 const { test } = require("node:test");

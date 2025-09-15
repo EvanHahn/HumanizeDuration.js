@@ -1,5 +1,3 @@
-// @ts-check
-
 const humanizeDuration = require("..");
 const { before, describe, it } = require("node:test");
 const assert = require("node:assert");
