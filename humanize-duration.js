@@ -1511,7 +1511,8 @@
   /**
    * Create a humanizer, which lets you change the default options.
    *
-   * @param {Options} [passedOptions]
+   * @param {Options} [passedOptions] Options to customize the humanizer
+   * @returns {(ms: number, humanizerOptions: Options) => string} A function that humanizes durations
    */
   function humanizer(passedOptions) {
     /**
@@ -1564,6 +1565,11 @@
    * This is a wrapper around the default humanizer.
    */
   var humanizeDuration = assign(humanizer({}), {
+    /**
+     * Get a list of supported languages.
+     *
+     * @returns {string[]} An array of language codes
+     */
     getSupportedLanguages: function getSupportedLanguages() {
       var result = [];
       for (var language in LANGUAGES) {
