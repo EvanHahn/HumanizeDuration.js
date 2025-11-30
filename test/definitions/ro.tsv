@@ -3,24 +3,24 @@
 2	2 milisecunde
 5	5 milisecunde
 12	12 milisecunde
-420	420 milisecunde
-500	500 milisecunde
+420	420 de milisecunde
+500	500 de milisecunde
 1000	1 secundă
-1500	1 secundă+500 milisecunde
+1500	1 secundă+500 de milisecunde
 2000	2 secunde
-2500	2 secunde+500 milisecunde
+2500	2 secunde+500 de milisecunde
 3000	3 secunde
 1001	1 secundă+1 milisecundă
 1002	1 secundă+2 milisecunde
 2001	2 secunde+1 milisecundă
 2003	2 secunde+3 milisecunde
-1200	1 secundă+200 milisecunde
-6900	6 secunde+900 milisecunde
-30000	30 secunde
+1200	1 secundă+200 de milisecunde
+6900	6 secunde+900 de milisecunde
+30000	30 de secunde
 60000	1 minut
-90000	1 minut+30 secunde
+90000	1 minut+30 de secunde
 120000	2 minute
-150000	2 minute+30 secunde
+150000	2 minute+30 de secunde
 180000	3 minute
 61000	1 minut+1 secundă
 78000	1 minut+18 secunde
@@ -32,11 +32,11 @@
 121007	2 minute+1 secundă+7 milisecunde
 138001	2 minute+18 secunde+1 milisecundă
 138006	2 minute+18 secunde+6 milisecunde
-1800000	30 minute
+1800000	30 de minute
 3600000	1 oră
-5400000	1 oră+30 minute
+5400000	1 oră+30 de minute
 7200000	2 ore
-9000000	2 ore+30 minute
+9000000	2 ore+30 de minute
 10800000	3 ore
 3660000	1 oră+1 minut
 3720000	1 oră+2 minute
@@ -66,7 +66,18 @@
 63115200000	2 ani
 78894000000	2 ani+6 luni
 94672800000	3 ani
--420	420 milisecunde
+631152000000	20 de ani
+3155760000000	100 de ani
+3187317600000	101 ani
+3534451200000	112 ani
+3881584800000	123 de ani
+1140000	19 minute
+1200000	20 de minute
+68400000	19 ore
+72000000	20 de ore
+19000	19 secunde
+20000	20 de secunde
+-420	420 de milisecunde
 0.12	0,12 milisecunde
 1.5	1,5 milisecunde
 420.69	420,69 milisecunde

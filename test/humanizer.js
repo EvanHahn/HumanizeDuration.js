@@ -333,4 +333,79 @@ describe("humanizer", function () {
     });
     assert.strictEqual(h(123), "Zero.OneTwoThree seconds");
   });
+
+  it("handles Romanian plural forms with 'de' correctly", function () {
+    const h = humanizer({ language: "ro" });
+
+    // Test "de" plural for days (using units: ["d"] to prevent conversion to weeks)
+    assert.strictEqual(
+      h(19 * 86400000, { units: ["d"] }),
+      "19 zile",
+      "19 days without 'de'"
+    );
+    assert.strictEqual(
+      h(20 * 86400000, { units: ["d"] }),
+      "20 de zile",
+      "20 days with 'de'"
+    );
+    assert.strictEqual(
+      h(100 * 86400000, { units: ["d"] }),
+      "100 de zile",
+      "100 days with 'de'"
+    );
+    assert.strictEqual(
+      h(101 * 86400000, { units: ["d"] }),
+      "101 zile",
+      "101 days without 'de' (ends in 01)"
+    );
+    assert.strictEqual(
+      h(119 * 86400000, { units: ["d"] }),
+      "119 zile",
+      "119 days without 'de' (ends in 19)"
+    );
+    assert.strictEqual(
+      h(120 * 86400000, { units: ["d"] }),
+      "120 de zile",
+      "120 days with 'de' (ends in 20)"
+    );
+
+    // Test "de" plural for weeks (using units: ["w"] to prevent conversion to months)
+    assert.strictEqual(
+      h(19 * 604800000, { units: ["w"] }),
+      "19 săptămâni",
+      "19 weeks without 'de'"
+    );
+    assert.strictEqual(
+      h(20 * 604800000, { units: ["w"] }),
+      "20 de săptămâni",
+      "20 weeks with 'de'"
+    );
+    assert.strictEqual(
+      h(100 * 604800000, { units: ["w"] }),
+      "100 de săptămâni",
+      "100 weeks with 'de'"
+    );
+
+    // Test "de" plural for months (using units: ["mo"] to prevent conversion to years)
+    assert.strictEqual(
+      h(19 * 2629800000, { units: ["mo"] }),
+      "19 luni",
+      "19 months without 'de'"
+    );
+    assert.strictEqual(
+      h(20 * 2629800000, { units: ["mo"] }),
+      "20 de luni",
+      "20 months with 'de'"
+    );
+    assert.strictEqual(
+      h(100 * 2629800000, { units: ["mo"] }),
+      "100 de luni",
+      "100 months with 'de'"
+    );
+    assert.strictEqual(
+      h(112 * 2629800000, { units: ["mo"] }),
+      "112 luni",
+      "112 months without 'de' (ends in 12)"
+    );
+  });
 });

@@ -704,15 +704,15 @@
       ["milissegundo", "milissegundos"],
       ","
     ),
-    ro: onesLanguage(
-      ["an", "ani"],
-      ["lună", "luni"],
-      ["săptămână", "săptămâni"],
-      ["zi", "zile"],
-      ["oră", "ore"],
-      ["minut", "minute"],
-      ["secundă", "secunde"],
-      ["milisecundă", "milisecunde"],
+    ro: romanianLanguage(
+      ["an", "ani", "de ani"],
+      ["lună", "luni", "de luni"],
+      ["săptămână", "săptămâni", "de săptămâni"],
+      ["zi", "zile", "de zile"],
+      ["oră", "ore", "de ore"],
+      ["minut", "minute", "de minute"],
+      ["secundă", "secunde", "de secunde"],
+      ["milisecundă", "milisecunde", "de milisecunde"],
       ","
     ),
     ru: slavicLanguage(
@@ -1068,6 +1068,60 @@
       onesUnit(m),
       onesUnit(s),
       onesUnit(ms),
+      decimal
+    );
+  }
+
+  /**
+   * Romanian uses "de" before the noun for numbers >= 20 (when not ending in 01-19).
+   * See: https://en.wikipedia.org/wiki/Romanian_numbers#Preposition_de
+   *
+   * @internal
+   * @param {[string, string, string]} unit - [singular, plural, plural with "de"]
+   * @returns {(c: number) => string}
+   */
+  function romanianUnit(unit) {
+    return function (c) {
+      if (c === 1) {
+        return unit[0];
+      }
+      // Non-integers and 0 use plural without "de"
+      if (Math.floor(c) !== c || c === 0) {
+        return unit[1];
+      }
+      var remainder = c % 100;
+      if (remainder >= 1 && remainder <= 19) {
+        return unit[1];
+      }
+      return unit[2];
+    };
+  }
+
+  /**
+   * Helper for generating Romanian language.
+   *
+   * @internal
+   * @param {[string, string, string]} y
+   * @param {[string, string, string]} mo
+   * @param {[string, string, string]} w
+   * @param {[string, string, string]} d
+   * @param {[string, string, string]} h
+   * @param {[string, string, string]} m
+   * @param {[string, string, string]} s
+   * @param {[string, string, string]} ms
+   * @param {string} [decimal]
+   * @returns {Language}
+   */
+  function romanianLanguage(y, mo, w, d, h, m, s, ms, decimal) {
+    return language(
+      romanianUnit(y),
+      romanianUnit(mo),
+      romanianUnit(w),
+      romanianUnit(d),
+      romanianUnit(h),
+      romanianUnit(m),
+      romanianUnit(s),
+      romanianUnit(ms),
       decimal
     );
   }

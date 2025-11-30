@@ -1,3 +1,7 @@
+# Unreleased
+
+- fix: Romanian now correctly uses "de" before nouns for numbers >= 20 (e.g., "20 de minute" instead of "20 minute")
+
 # 3.33.1 / 2025-09-15
 
 - change: shrink size slightly
