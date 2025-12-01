@@ -1085,7 +1085,6 @@
       if (c === 1) {
         return unit[0];
       }
-      // Non-integers and 0 use plural without "de"
       if (Math.floor(c) !== c || c === 0) {
         return unit[1];
       }
