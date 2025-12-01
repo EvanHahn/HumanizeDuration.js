@@ -704,15 +704,15 @@
       ["milissegundo", "milissegundos"],
       ","
     ),
-    ro: romanianLanguage(
-      ["an", "ani", "de ani"],
-      ["lună", "luni", "de luni"],
-      ["săptămână", "săptămâni", "de săptămâni"],
-      ["zi", "zile", "de zile"],
-      ["oră", "ore", "de ore"],
-      ["minut", "minute", "de minute"],
-      ["secundă", "secunde", "de secunde"],
-      ["milisecundă", "milisecunde", "de milisecunde"],
+    ro: language(
+      romanianUnit(["an", "ani", "de ani"]),
+      romanianUnit(["lună", "luni", "de luni"]),
+      romanianUnit(["săptămână", "săptămâni", "de săptămâni"]),
+      romanianUnit(["zi", "zile", "de zile"]),
+      romanianUnit(["oră", "ore", "de ore"]),
+      romanianUnit(["minut", "minute", "de minute"]),
+      romanianUnit(["secundă", "secunde", "de secunde"]),
+      romanianUnit(["milisecundă", "milisecunde", "de milisecunde"]),
       ","
     ),
     ru: slavicLanguage(
@@ -1095,35 +1095,6 @@
       }
       return unit[2];
     };
-  }
-
-  /**
-   * Helper for generating Romanian language.
-   *
-   * @internal
-   * @param {[string, string, string]} y
-   * @param {[string, string, string]} mo
-   * @param {[string, string, string]} w
-   * @param {[string, string, string]} d
-   * @param {[string, string, string]} h
-   * @param {[string, string, string]} m
-   * @param {[string, string, string]} s
-   * @param {[string, string, string]} ms
-   * @param {string} [decimal]
-   * @returns {Language}
-   */
-  function romanianLanguage(y, mo, w, d, h, m, s, ms, decimal) {
-    return language(
-      romanianUnit(y),
-      romanianUnit(mo),
-      romanianUnit(w),
-      romanianUnit(d),
-      romanianUnit(h),
-      romanianUnit(m),
-      romanianUnit(s),
-      romanianUnit(ms),
-      decimal
-    );
   }
 
   /**
