@@ -704,15 +704,15 @@
       ["milissegundo", "milissegundos"],
       ","
     ),
-    ro: onesLanguage(
-      ["an", "ani"],
-      ["lună", "luni"],
-      ["săptămână", "săptămâni"],
-      ["zi", "zile"],
-      ["oră", "ore"],
-      ["minut", "minute"],
-      ["secundă", "secunde"],
-      ["milisecundă", "milisecunde"],
+    ro: language(
+      romanianUnit(["an", "ani", "de ani"]),
+      romanianUnit(["lună", "luni", "de luni"]),
+      romanianUnit(["săptămână", "săptămâni", "de săptămâni"]),
+      romanianUnit(["zi", "zile", "de zile"]),
+      romanianUnit(["oră", "ore", "de ore"]),
+      romanianUnit(["minut", "minute", "de minute"]),
+      romanianUnit(["secundă", "secunde", "de secunde"]),
+      romanianUnit(["milisecundă", "milisecunde", "de milisecunde"]),
       ","
     ),
     ru: slavicLanguage(
@@ -1070,6 +1070,30 @@
       onesUnit(ms),
       decimal
     );
+  }
+
+  /**
+   * Romanian uses "de" before the noun for numbers >= 20 (when not ending in 01-19).
+   * See: https://en.wikipedia.org/wiki/Romanian_numbers#Preposition_de
+   *
+   * @internal
+   * @param {[string, string, string]} unit - [singular, plural, plural with "de"]
+   * @returns {(c: number) => string}
+   */
+  function romanianUnit(unit) {
+    return function (c) {
+      if (c === 1) {
+        return unit[0];
+      }
+      if (Math.floor(c) !== c || c === 0) {
+        return unit[1];
+      }
+      var remainder = c % 100;
+      if (remainder >= 1 && remainder <= 19) {
+        return unit[1];
+      }
+      return unit[2];
+    };
   }
 
   /**
