@@ -705,14 +705,14 @@
       ","
     ),
     ro: language(
-      romanianUnit(["an", "ani", "de ani"]),
-      romanianUnit(["lună", "luni", "de luni"]),
-      romanianUnit(["săptămână", "săptămâni", "de săptămâni"]),
-      romanianUnit(["zi", "zile", "de zile"]),
-      romanianUnit(["oră", "ore", "de ore"]),
-      romanianUnit(["minut", "minute", "de minute"]),
-      romanianUnit(["secundă", "secunde", "de secunde"]),
-      romanianUnit(["milisecundă", "milisecunde", "de milisecunde"]),
+      romanianUnit("an", "ani", "de ani"),
+      romanianUnit("lună", "luni", "de luni"),
+      romanianUnit("săptămână", "săptămâni", "de săptămâni"),
+      romanianUnit("zi", "zile", "de zile"),
+      romanianUnit("oră", "ore", "de ore"),
+      romanianUnit("minut", "minute", "de minute"),
+      romanianUnit("secundă", "secunde", "de secunde"),
+      romanianUnit("milisecundă", "milisecunde", "de milisecunde"),
       ","
     ),
     ru: slavicLanguage(
@@ -1077,22 +1077,24 @@
    * See: https://en.wikipedia.org/wiki/Romanian_numbers#Preposition_de
    *
    * @internal
-   * @param {[string, string, string]} unit - [singular, plural, plural with "de"]
+   * @param {string} single
+   * @param {string} plural
+   * @param {string} pluralWithDe
    * @returns {(c: number) => string}
    */
-  function romanianUnit(unit) {
+  function romanianUnit(single, plural, pluralWithDe) {
     return function (c) {
       if (c === 1) {
-        return unit[0];
+        return single;
       }
       if (Math.floor(c) !== c || c === 0) {
-        return unit[1];
+        return plural;
       }
       var remainder = c % 100;
       if (remainder >= 1 && remainder <= 19) {
-        return unit[1];
+        return plural;
       }
-      return unit[2];
+      return pluralWithDe;
     };
   }
 
