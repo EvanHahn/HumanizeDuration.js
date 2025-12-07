@@ -1,4 +1,4 @@
-# Unreleased
+# 3.33.2 / 2025-12-07
 
 - fix: Romanian now correctly uses "de" before nouns for numbers >= 20 such as "20 de minute" instead of "20 minute" (see [#235](https://github.com/EvanHahn/HumanizeDuration.js/pull/235))
 
