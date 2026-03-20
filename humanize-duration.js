@@ -1608,9 +1608,9 @@
     humanizer: humanizer
   });
 
-  // @ts-ignore
+  // @ts-expect-error
   if (typeof define === "function" && define.amd) {
-    // @ts-ignore
+    // @ts-expect-error
     define(function () {
       return humanizeDuration;
     });
