@@ -4,6 +4,8 @@
 
 I have the time in milliseconds and I want it to become "30 minutes" or "3 days, 1 hour". Enter Humanize Duration!
 
+_Consider using [`Intl.DurationFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat) instead._
+
 **This library is actively maintained but no new features will be added.**
 
 ## Installation
