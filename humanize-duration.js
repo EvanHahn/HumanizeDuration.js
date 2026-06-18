@@ -651,6 +651,17 @@
       ["milliseconde", "milliseconden"],
       ","
     ),
+    nn: onesLanguage(
+      ["år", "år"],
+      ["månad", "månader"],
+      ["veke", "veker"],
+      ["dag", "dagar"],
+      ["time", "timar"],
+      ["minutt", "minutt"],
+      ["sekund", "sekund"],
+      ["millisekund", "millisekund"],
+      ","
+    ),
     no: onesLanguage(
       ["år", "år"],
       ["måned", "måneder"],

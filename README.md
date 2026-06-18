@@ -384,7 +384,8 @@ Humanize Duration supports the following languages:
 | Mongolian            | `mn`      |
 | Malay                | `ms`      |
 | Marathi              | `mr`      |
-| Norwegian            | `no`      |
+| Norwegian Bokmål     | `no`      |
+| Norwegian Nynorsk    | `nn`      |
 | Polish               | `pl`      |
 | Portuguese           | `pt`      |
 | Romanian             | `ro`      |
@@ -423,6 +424,7 @@ Lovingly made by [Evan Hahn](https://evanhahn.com/) with help from:
 - [Martin Prins](https://github.com/magarcia) for language support
 - [Filipi Siqueira](https://github.com/filipi777) for Portuguese support
 - [Peter Rekdal Sunde](https://github.com/peters) for Norwegian support
+- [Arvind Frøiland](https://github.com/arvindfroi) for Norwegian Nynorsk support
 - [Michał Janiec](https://github.com/mjjaniec) for Polish support
 - [Eileen Li](https://github.com/eileen3) for Chinese support
 - [Tommy Brunn](https://github.com/Nevon) for Swedish support
