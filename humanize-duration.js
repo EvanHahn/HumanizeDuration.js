@@ -1218,7 +1218,7 @@
    * @returns {0 | 1 | 2}
    */
   function getLithuanianForm(c) {
-    if (c === 1 || (c % 10 === 1 && c % 100 > 20)) {
+    if (c % 10 === 1 && c % 100 !== 11) {
       return 0;
     }
     if (

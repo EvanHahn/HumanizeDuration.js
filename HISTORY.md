@@ -1,3 +1,7 @@
+# Unreleased
+
+- fix: Lithuanian now uses the singular form for counts such as 101 and 201 (for example "101 diena" instead of "101 dienų")
+
 # 3.33.2 / 2025-12-07
 
 - fix: Romanian now correctly uses "de" before nouns for numbers >= 20 such as "20 de minute" instead of "20 minute" (see [#235](https://github.com/EvanHahn/HumanizeDuration.js/pull/235))
