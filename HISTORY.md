@@ -1,5 +1,6 @@
 # Unreleased
 
+- new: Norwegian Nynorsk support (`nn`)
 - fix: Lithuanian now uses the singular form for counts such as 101 and 201 (for example "101 diena" instead of "101 dienų")
 
 # 3.33.2 / 2025-12-07
