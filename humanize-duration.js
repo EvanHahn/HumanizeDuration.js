@@ -62,7 +62,11 @@
 
 /**
  * @internal
- * @typedef {Required<Options>} NormalizedOptions
+ * @typedef {Options & Required<Pick<Options, "language" | "languages" | "spacer" | "conjunction" | "serialComma" | "units" | "round" | "unitMeasures">>} NormalizedOptions
+ */
+
+/**
+ * @typedef {((ms: number, humanizerOptions?: Options) => string) & NormalizedOptions} Humanizer
  */
 
 (function () {
@@ -76,7 +80,7 @@
         source = arguments[i];
         for (var prop in source) {
           if (has(source, prop)) {
-            destination[prop] = source[prop];
+            /** @type {any} */ (destination)[prop] = source[prop];
           }
         }
       }
@@ -1266,7 +1270,7 @@
 
   /**
    * @internal
-   * @param {Pick<Required<Options>, "language" | "fallbacks" | "languages">} options
+   * @param {Pick<NormalizedOptions, "language" | "fallbacks" | "languages">} options
    * @throws {Error} Throws an error if language is not found.
    * @returns {Language}
    */
@@ -1298,7 +1302,7 @@
    * @internal
    * @param {Piece} piece
    * @param {Language} language
-   * @param {Pick<Required<Options>, "decimal" | "spacer" | "maxDecimalPoints" | "digitReplacements">} options
+   * @param {Pick<NormalizedOptions, "decimal" | "spacer" | "maxDecimalPoints" | "digitReplacements">} options
    */
   function renderPiece(piece, language, options) {
     var unitName = piece.unitName;
@@ -1309,9 +1313,9 @@
 
     /** @type {string} */
     var decimal;
-    if (has(options, "decimal")) {
+    if (typeof options.decimal === "string") {
       decimal = options.decimal;
-    } else if (has(language, "decimal")) {
+    } else if (typeof language.decimal === "string") {
       decimal = language.decimal;
     } else {
       decimal = ".";
@@ -1382,7 +1386,7 @@
   /**
    * @internal
    * @param {number} ms
-   * @param {Pick<Required<Options>, "units" | "unitMeasures" | "largest" | "round">} options
+   * @param {Pick<NormalizedOptions, "units" | "unitMeasures" | "largest" | "round">} options
    * @returns {Piece[]}
    */
   function getPieces(ms, options) {
@@ -1400,7 +1404,8 @@
 
     var units = options.units;
     var unitMeasures = options.unitMeasures;
-    var largest = "largest" in options ? options.largest : Infinity;
+    var largest =
+      typeof options.largest === "number" ? options.largest : Infinity;
 
     if (!units.length) return [];
 
@@ -1429,7 +1434,7 @@
       var unitsRemainingBeforeRound = largest;
       for (i = 0; i < units.length; i++) {
         unitName = units[i];
-        unitCount = unitCounts[unitName];
+        unitCount = /** @type {number} */ (unitCounts[unitName]);
 
         if (unitCount === 0) continue;
 
@@ -1439,10 +1444,13 @@
         if (unitsRemainingBeforeRound === 0) {
           for (var j = i + 1; j < units.length; j++) {
             var smallerUnitName = units[j];
-            var smallerUnitCount = unitCounts[smallerUnitName];
-            unitCounts[unitName] +=
+            var smallerUnitCount = /** @type {number} */ (
+              unitCounts[smallerUnitName]
+            );
+            unitCounts[unitName] =
+              /** @type {number} */ (unitCounts[unitName]) +
               (smallerUnitCount * unitMeasures[smallerUnitName]) /
-              unitMeasures[unitName];
+                unitMeasures[unitName];
             unitCounts[smallerUnitName] = 0;
           }
           break;
@@ -1457,7 +1465,7 @@
       // should become "1 week".
       for (i = units.length - 1; i >= 0; i--) {
         unitName = units[i];
-        unitCount = unitCounts[unitName];
+        unitCount = /** @type {number} */ (unitCounts[unitName]);
 
         if (unitCount === 0) continue;
 
@@ -1472,7 +1480,9 @@
           (rounded * unitMeasures[unitName]) / previousUnitMs
         );
         if (amountOfPreviousUnit) {
-          unitCounts[previousUnitName] += amountOfPreviousUnit;
+          unitCounts[previousUnitName] =
+            /** @type {number} */ (unitCounts[previousUnitName]) +
+            amountOfPreviousUnit;
           unitCounts[unitName] = 0;
         } else {
           break;
@@ -1484,7 +1494,7 @@
     var result = [];
     for (i = 0; i < units.length && result.length < largest; i++) {
       unitName = units[i];
-      unitCount = unitCounts[unitName];
+      unitCount = /** @type {number} */ (unitCounts[unitName]);
       if (unitCount) {
         result.push({ unitName: unitName, unitCount: unitCount });
       }
@@ -1495,7 +1505,7 @@
   /**
    * @internal
    * @param {Piece[]} pieces
-   * @param {Pick<Required<Options>, "units" | "language" | "languages" | "fallbacks" | "delimiter" | "spacer" | "decimal" | "conjunction" | "maxDecimalPoints" | "serialComma" | "digitReplacements">} options
+   * @param {Pick<NormalizedOptions, "units" | "language" | "languages" | "fallbacks" | "delimiter" | "spacer" | "decimal" | "conjunction" | "maxDecimalPoints" | "serialComma" | "digitReplacements">} options
    * @returns {string}
    */
   function formatPieces(pieces, options) {
@@ -1549,7 +1559,7 @@
    * Create a humanizer, which lets you change the default options.
    *
    * @param {Options} [passedOptions] Options to customize the humanizer
-   * @returns {(ms: number, humanizerOptions: Options) => string} A function that humanizes durations
+   * @returns {Humanizer} A function that humanizes durations
    */
   function humanizer(passedOptions) {
     /**
@@ -1557,19 +1567,23 @@
      * @param {Options} [humanizerOptions]
      * @returns {string}
      */
-    var result = function humanizer(ms, humanizerOptions) {
-      // Make sure we have a positive number.
-      //
-      // Has the nice side-effect of converting things to numbers. For example,
-      // converts `"123"` and `Number(123)` to `123`.
-      ms = Math.abs(ms);
+    var result = /** @type {Humanizer} */ (
+      function humanizer(ms, humanizerOptions) {
+        // Make sure we have a positive number.
+        //
+        // Has the nice side-effect of converting things to numbers. For example,
+        // converts `"123"` and `Number(123)` to `123`.
+        ms = Math.abs(ms);
 
-      var options = assign({}, result, humanizerOptions || {});
+        var options = /** @type {NormalizedOptions} */ (
+          assign({}, result, humanizerOptions || {})
+        );
 
-      var pieces = getPieces(ms, options);
+        var pieces = getPieces(ms, options);
 
-      return formatPieces(pieces, options);
-    };
+        return formatPieces(pieces, options);
+      }
+    );
 
     return assign(
       result,

@@ -7,7 +7,7 @@ const assert = require("node:assert/strict");
  */
 
 test("throws an error when passed a bad language in the function", () => {
-  /** @param {Options} options */
+  /** @param {any} options */
   const humanizingWith = (options) => () => humanizeDuration(10000, options);
 
   assert.throws(humanizingWith({ language: "EN" }), Error);
