@@ -50,13 +50,13 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/ms": "^2.1.0",
-    "@types/node": "^25.5.0",
-    "csv-parse": "^6.2.0",
+    "@types/node": "^26.0.1",
+    "csv-parse": "^7.0.0",
     "eslint": "^10.6.0",
     "globals": "^17.7.0",
     "ms": "^2.1.3",
-    "prettier": "^3.8.1",
-    "typescript": "^7.0.1-rc"
+    "prettier": "^3.9.4",
+    "typescript": "^6.0.3"
   },
   "keywords": [
     "humanize",
