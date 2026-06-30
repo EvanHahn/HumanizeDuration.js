@@ -55,6 +55,6 @@
   "ignore": ["**/.*", "node_modules", "bower_components", "test", "tests"],
   "repository": {
     "type": "git",
-    "url": "git://github.com/EvanHahn/HumanizeDuration.js.git"
+    "url": "https://github.com/EvanHahn/HumanizeDuration.js.git"
   }
 }

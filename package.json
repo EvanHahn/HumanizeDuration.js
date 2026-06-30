@@ -71,7 +71,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/EvanHahn/HumanizeDuration.js.git"
+    "url": "https://github.com/EvanHahn/HumanizeDuration.js.git"
   },
   "bugs": "https://github.com/EvanHahn/HumanizeDuration.js/issues",
   "funding": "https://github.com/sponsors/EvanHahn",
