@@ -1341,25 +1341,23 @@
     if (language._hideCountIf2 && unitCount === 2) {
       formattedCount = "";
       spacer = "";
-    } else {
-      if (digitReplacements) {
-        formattedCount = "";
-        for (var i = 0; i < countStr.length; i++) {
-          var character = countStr[i];
-          if (character === ".") {
-            formattedCount += decimal;
-          } else {
-            formattedCount +=
-              digitReplacements[
-                /** @type {"0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"} */ (
-                  character
-                )
-              ];
-          }
+    } else if (digitReplacements) {
+      formattedCount = "";
+      for (var i = 0; i < countStr.length; i++) {
+        var character = countStr[i];
+        if (character === ".") {
+          formattedCount += decimal;
+        } else {
+          formattedCount +=
+            digitReplacements[
+              /** @type {"0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"} */ (
+                character
+              )
+            ];
         }
-      } else {
-        formattedCount = countStr.replace(".", decimal);
       }
+    } else {
+      formattedCount = countStr.replace(".", decimal);
     }
 
     var languageWord = language[unitName];
