@@ -1348,12 +1348,10 @@
         if (character === ".") {
           formattedCount += decimal;
         } else {
+          var asNumber = Number(character);
+          var digitReplacement = digitReplacements[asNumber];
           formattedCount +=
-            digitReplacements[
-              /** @type {"0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"} */ (
-                character
-              )
-            ];
+            digitReplacement === void 0 ? character : digitReplacement;
         }
       }
     } else {

@@ -1,3 +1,7 @@
+# Unreleased
+
+- fix: Arabic (and other languages with `digitReplacements`) better handle large numbers
+
 # 3.34.0 / 2026-06-29
 
 - new: Norwegian Nynorsk support (`nn`)
