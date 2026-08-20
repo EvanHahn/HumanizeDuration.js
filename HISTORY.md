@@ -1,4 +1,4 @@
-# Unreleased
+# 3.34.1 / 2026-08-19
 
 - fix: Arabic (and other languages with `digitReplacements`) better handle large numbers
 
