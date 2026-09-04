@@ -1382,7 +1382,9 @@
       var languageWord = language[unitName];
       var word;
       if (typeof languageWord === "function") {
-        word = languageWord(unitCount);
+        // Pluralize on the rendered count: `maxDecimalPoints` may truncate 1.5 to
+        // "1", and the word must agree with what is shown.
+        word = languageWord(normalizedUnitCount);
       } else {
         word = languageWord;
       }

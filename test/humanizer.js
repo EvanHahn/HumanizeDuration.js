@@ -162,6 +162,19 @@ describe("humanizer", function () {
     assert.strictEqual(h(7999), "7.999 seconds");
   });
 
+  it('pluralizes based on the count rendered by "maxDecimalPoints"', function () {
+    // A count truncated to exactly 1 must take the singular word.
+    assert.strictEqual(humanizer({ maxDecimalPoints: 0 })(1500), "1 second");
+    assert.strictEqual(humanizer({ maxDecimalPoints: 2 })(1005), "1 second");
+    // A truncated count that is not 1 stays plural.
+    assert.strictEqual(humanizer({ maxDecimalPoints: 0 })(2500), "2 seconds");
+    // German shares the same singular/plural mechanism.
+    assert.strictEqual(
+      humanizer({ language: "de", maxDecimalPoints: 0 })(1500),
+      "1 Sekunde"
+    );
+  });
+
   it("can ask for the largest units", function () {
     const h = humanizer({ largest: 2 });
 
