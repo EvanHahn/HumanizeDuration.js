@@ -346,6 +346,7 @@ Humanize Duration supports the following languages:
 | Albanian             | `sq`      |
 | Amharic              | `am`      |
 | Arabic               | `ar`      |
+| Azerbaijani          | `az`      |
 | Basque               | `eu`      |
 | Bengali              | `bn`      |
 | Bulgarian            | `bg`      |
