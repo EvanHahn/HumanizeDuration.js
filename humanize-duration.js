@@ -167,6 +167,17 @@
           _digitReplacements: ["۰", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"]
         }
       ),
+      az: language(
+        "il",
+        "ay",
+        "həftə",
+        "gün",
+        "saat",
+        "dəqiqə",
+        "saniyə",
+        "millisaniyə",
+        ","
+      ),
       bg: slavicLanguage(
         ["години", "година", "години"],
         ["месеца", "месец", "месеца"],
