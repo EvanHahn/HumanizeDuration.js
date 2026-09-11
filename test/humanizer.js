@@ -162,6 +162,16 @@ describe("humanizer", function () {
     assert.strictEqual(h(7999), "7.999 seconds");
   });
 
+  it('pluralizes based on the count rendered by "maxDecimalPoints"', function () {
+    const h = humanizer({ maxDecimalPoints: 0 });
+
+    assert.strictEqual(h(1500), "1 second");
+    assert.strictEqual(h(1005), "1 second");
+    assert.strictEqual(h(2500), "2 seconds");
+    assert.strictEqual(h(2500, { maxDecimalPoints: 2 }), "2.5 seconds");
+    assert.strictEqual(h(1500, { language: "de" }), "1 Sekunde");
+  });
+
   it("can ask for the largest units", function () {
     const h = humanizer({ largest: 2 });
 

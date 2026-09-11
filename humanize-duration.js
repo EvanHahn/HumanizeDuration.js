@@ -1370,7 +1370,7 @@
             Math.pow(10, maxDecimalPoints);
       var countStr = normalizedUnitCount.toString();
 
-      if (language._hideCountIf2 && unitCount === 2) {
+      if (language._hideCountIf2 && normalizedUnitCount === 2) {
         formattedCount = "";
         spacer = "";
       } else if (digitReplacements) {
@@ -1393,7 +1393,7 @@
       var languageWord = language[unitName];
       var word;
       if (typeof languageWord === "function") {
-        word = languageWord(unitCount);
+        word = languageWord(normalizedUnitCount);
       } else {
         word = languageWord;
       }
