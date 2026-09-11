@@ -1,4 +1,4 @@
-# Unreleased
+# 3.35.0 / 2026-09-10
 
 - new: Azerbaijani support (`az`)
 - fix: pluralization with `maxDecimalPoints` (see [#239](https://github.com/EvanHahn/HumanizeDuration.js/pull/239))
