@@ -1,3 +1,7 @@
+# Unreleased
+
+- fix: preserve literal dollar signs in custom decimal separators
+
 # 3.35.0 / 2026-09-10
 
 - new: Azerbaijani support (`az`)

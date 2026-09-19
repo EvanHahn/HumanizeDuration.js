@@ -1387,7 +1387,9 @@
           }
         }
       } else {
-        formattedCount = countStr.replace(".", decimal);
+        formattedCount = countStr.replace(".", function () {
+          return decimal;
+        });
       }
 
       var languageWord = language[unitName];
