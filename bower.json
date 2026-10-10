@@ -34,7 +34,8 @@
     "Michal Karzel (https://github.com/Misioka)",
     "Batmend Ganbaatar (https://github.com/theironbatka)",
     "Mikias Menjeta (https://github.com/OMikiasO)",
-    "Marko Plaznik (https://github.com/ohicee)"
+    "Marko Plaznik (https://github.com/ohicee)",
+    "Huanyi Xie (https://github.com/xiehuanyi)"
   ],
   "version": "3.35.0",
   "description": "Convert millisecond durations to English and many other languages.",
