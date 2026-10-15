@@ -96,6 +96,15 @@ describe("humanizer", function () {
     );
   });
 
+  it("treats custom decimal strings literally", function () {
+    const h = humanizer({ units: ["s"] });
+
+    for (const decimal of ["$$", "$&", "$`", "$'"]) {
+      assert.strictEqual(h(1250, { decimal }), `1${decimal}25 seconds`);
+      assert.strictEqual(h(1000, { decimal }), "1 second");
+    }
+  });
+
   it("can do simple rounding", function () {
     const h = humanizer({ round: true });
 
@@ -287,6 +296,9 @@ describe("humanizer", function () {
     assert.strictEqual(h(15600000), "4 h, 20 m");
     assert.strictEqual(h(1000, { language: "es" }), "1 segundo");
     assert.strictEqual(h(71750), "1 m, 11!75 s");
+
+    h.languages.en.decimal = "$$";
+    assert.strictEqual(h(1250), "1$$25 s");
   });
 
   it('uses "." as a fallback for a missing decimal', function () {
