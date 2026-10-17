@@ -1,3 +1,7 @@
+# Unreleased
+
+- fix: preserve decimal digits when truncating with `maxDecimalPoints`
+
 # 3.35.0 / 2026-09-10
 
 - new: Azerbaijani support (`az`)

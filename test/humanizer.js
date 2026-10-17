@@ -162,6 +162,20 @@ describe("humanizer", function () {
     assert.strictEqual(h(7999), "7.999 seconds");
   });
 
+  it('preserves decimal digits when truncating with "maxDecimalPoints"', function () {
+    const h = humanizer({ units: ["s"], maxDecimalPoints: 2 });
+
+    assert.strictEqual(h(1150), "1.15 seconds");
+    assert.strictEqual(h(2300), "2.3 seconds");
+    assert.strictEqual(h(1159), "1.15 seconds");
+    assert.strictEqual(
+      h(0.00115, { maxDecimalPoints: 8 }),
+      "0.00000115 seconds"
+    );
+    assert.strictEqual(h(1150, { maxDecimalPoints: 309 }), "1.15 seconds");
+    assert.strictEqual(h(1.15e24), "1.15e+21 seconds");
+  });
+
   it('pluralizes based on the count rendered by "maxDecimalPoints"', function () {
     const h = humanizer({ maxDecimalPoints: 0 });
 

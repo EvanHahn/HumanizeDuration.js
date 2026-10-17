@@ -455,6 +455,7 @@ Lovingly made by [Evan Hahn](https://evanhahn.com/) with help from:
 - [Kristijan Jesenski](https://github.com/kjesenski) for Slovenian support
 - [Michal Karzel](https://github.com/Misioka) for improving Arabic support
 - [Mikias Menjeta](https://github.com/OMikiasO) for Amharic support
+- [Huanyi Xie](https://github.com/xiehuanyi) for fixing decimal truncation
 
 Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 
