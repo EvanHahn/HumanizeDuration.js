@@ -88,12 +88,10 @@ describe("humanizer", function () {
     });
 
     assert.strictEqual(h(1234), "1what234 seconds");
-    assert.strictEqual(
-      h(1234, {
-        decimal: "!!",
-      }),
-      "1!!234 seconds"
-    );
+    for (const decimal of ["!!", "$$", "$&", "$`", "$'"]) {
+      assert.strictEqual(h(1250, { decimal }), `1${decimal}25 seconds`);
+      assert.strictEqual(h(1000, { decimal }), "1 second");
+    }
   });
 
   it("can do simple rounding", function () {
