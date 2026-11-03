@@ -37,7 +37,7 @@
     "Marko Plaznik (https://github.com/ohicee)",
     "Jake Wang (https://github.com/jakezwang)"
   ],
-  "version": "3.35.0",
+  "version": "3.35.1",
   "description": "Convert millisecond durations to English and many other languages.",
   "main": "humanize-duration.js",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
