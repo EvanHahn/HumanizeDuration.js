@@ -1,6 +1,12 @@
 0	0 milisekundi
 1	1 milisekunda
 2	2 milisekunde
+1.5	1,5 milisekunde
+12	12 milisekundi
+21	21 milisekunda
+22	22 milisekunde
+111	111 milisekundi
+112	112 milisekundi
 30000	30 sekundi
 60000	1 minuta
 90000	1 minuta+30 sekundi
@@ -20,6 +26,9 @@
 10860000	3 sata+1 minuta
 11040000	3 sata+4 minute
 43200000	12 sati
+75600000	21 sat
+79200000	22 sata
+82800000	23 sata
 86400000	1 dan
 129600000	1 dan+12 sati
 172800000	2 dana
@@ -43,6 +52,8 @@
 63115200000	2 godine
 78894000000	2 godine+6 mjeseci
 94672800000	3 godine
+378691200000	12 godina
+694267200000	22 godine
 60000	1 minuta
 120000	2 minute
 180000	3 minute

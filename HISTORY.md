@@ -1,3 +1,7 @@
+# Unreleased
+
+- fix: Croatian uses the right plural form for counts such as 12, 21, and 22 (for example "21 sat" instead of "21 sati", "12 godina" instead of "12 godine", and "5 tjedana" instead of "5 tjedna")
+
 # 3.35.1 / 2026-11-03
 
 - fix: preserve literal dollar signs in custom decimal separators
