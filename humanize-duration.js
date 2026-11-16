@@ -1209,7 +1209,8 @@
       if (c === 2) {
         return 1;
       }
-      if (c > 2 && c < 11) {
+      var lastTwoDigits = c % 100;
+      if (lastTwoDigits > 2 && lastTwoDigits < 11) {
         return 2;
       }
       return 0;

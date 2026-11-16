@@ -1,3 +1,7 @@
+# Unreleased
+
+- fix: Arabic uses the plural form for counts whose last two digits are 3 to 10, such as 103 and 205 (for example "١۰٣ أجزاء من الثانية" instead of "١۰٣ جزء من الثانية")
+
 # 3.35.1 / 2026-11-03
 
 - fix: preserve literal dollar signs in custom decimal separators
