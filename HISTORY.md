@@ -1,6 +1,7 @@
 # Unreleased
 
 - fix: preserve decimal digits when truncating with `maxDecimalPoints` (see [#242](https://github.com/EvanHahn/HumanizeDuration.js/pull/242))
+- fix: round exact half units correctly when combining smaller units with `largest` (see [#247](https://github.com/EvanHahn/HumanizeDuration.js/pull/247))
 
 # 3.35.1 / 2026-11-03
 

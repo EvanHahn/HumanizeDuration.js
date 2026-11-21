@@ -138,6 +138,18 @@ describe("humanizer", function () {
     assert.strictEqual(h(2838550, { largest: 3 }), "47 minutes, 19 seconds");
   });
 
+  it("rounds half a month up when folding smaller units into months", function () {
+    const h = humanizer({
+      largest: 1,
+      round: true,
+      units: ["mo", "w", "d", "h"],
+    });
+
+    assert.strictEqual(h(11834100000 - 1), "4 months");
+    assert.strictEqual(h(11834100000), "5 months");
+    assert.strictEqual(h(11834100000 + 1), "5 months");
+  });
+
   it('can do rounding with the "maxDecimalPoints" option', function () {
     var h = humanizer({ maxDecimalPoints: 2 });
 

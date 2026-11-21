@@ -457,6 +457,7 @@ Lovingly made by [Evan Hahn](https://evanhahn.com/) with help from:
 - [Mikias Menjeta](https://github.com/OMikiasO) for Amharic support
 - [Jake Wang](https://github.com/jakezwang) for fixing custom decimal separators
 - [Huanyi Xie](https://github.com/xiehuanyi) for fixing decimal truncation
+- [MelnixDev](https://github.com/MelnixDev) for fixing rounding at half-unit boundaries
 
 Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 
