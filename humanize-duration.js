@@ -1472,17 +1472,18 @@
 
           // "Take" the rest of the units into this one.
           if (unitsRemainingBeforeRound === 0) {
+            var smallerUnitsMs = 0;
             for (var j = i + 1; j < units.length; j++) {
               var smallerUnitName = units[j];
               var smallerUnitCount = /** @type {number} */ (
                 unitCounts[smallerUnitName]
               );
-              unitCounts[unitName] =
-                /** @type {number} */ (unitCounts[unitName]) +
-                (smallerUnitCount * unitMeasures[smallerUnitName]) /
-                  unitMeasures[unitName];
+              smallerUnitsMs +=
+                smallerUnitCount * unitMeasures[smallerUnitName];
               unitCounts[smallerUnitName] = 0;
             }
+            unitCounts[unitName] =
+              unitCount + smallerUnitsMs / unitMeasures[unitName];
             break;
           }
         }

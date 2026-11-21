@@ -456,6 +456,7 @@ Lovingly made by [Evan Hahn](https://evanhahn.com/) with help from:
 - [Michal Karzel](https://github.com/Misioka) for improving Arabic support
 - [Mikias Menjeta](https://github.com/OMikiasO) for Amharic support
 - [Jake Wang](https://github.com/jakezwang) for fixing custom decimal separators
+- [MelnixDev](https://github.com/MelnixDev) for fixing rounding at half-unit boundaries
 
 Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 
