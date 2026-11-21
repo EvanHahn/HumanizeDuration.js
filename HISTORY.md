@@ -1,3 +1,7 @@
+# Unreleased
+
+- fix: round exact half units correctly when combining smaller units with `largest`
+
 # 3.35.1 / 2026-11-03
 
 - fix: preserve literal dollar signs in custom decimal separators
