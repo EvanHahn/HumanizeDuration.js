@@ -1,3 +1,7 @@
+# Unreleased
+
+- fix: Slovenian uses the right plural form for counts such as 11, 12, 13, 21, and 22 (for example "21 let" instead of "21 leto" and "12 minut" instead of "12 minuti")
+
 # 3.36.0 / 2026-11-25
 
 - new: Tajik support (`tg`) (see [#249](https://github.com/EvanHahn/HumanizeDuration.js/pull/249))
