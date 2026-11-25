@@ -1,5 +1,6 @@
 # Unreleased
 
+- new: Tajik support (`tg`) (see [#249](https://github.com/EvanHahn/HumanizeDuration.js/pull/249))
 - fix: preserve decimal digits when truncating with `maxDecimalPoints` (see [#242](https://github.com/EvanHahn/HumanizeDuration.js/pull/242))
 - fix: round exact half units correctly when combining smaller units with `largest` (see [#247](https://github.com/EvanHahn/HumanizeDuration.js/pull/247))
 - fix: Arabic uses the plural form for counts whose last two digits are 3 to 10, such as 103 and 205 (see [#245](https://github.com/EvanHahn/HumanizeDuration.js/pull/245))
