@@ -1,3 +1,7 @@
+# Unreleased
+
+- fix: preserve decimal digits when truncating with `maxDecimalPoints` (see [#242](https://github.com/EvanHahn/HumanizeDuration.js/pull/242))
+
 # 3.35.1 / 2026-11-03
 
 - fix: preserve literal dollar signs in custom decimal separators

@@ -1332,6 +1332,23 @@
 
     /**
      * @internal
+     * @param {number} count
+     * @param {number} decimalPoints
+     * @returns {number}
+     */
+    function truncateCount(count, decimalPoints) {
+      var parts = count.toString().split("e");
+      var shifted = Number(
+        parts[0] + "e" + ((Number(parts[1]) || 0) + decimalPoints)
+      );
+      if (!isFinite(shifted)) return count;
+
+      parts = Math.floor(shifted).toString().split("e");
+      return Number(parts[0] + "e" + ((Number(parts[1]) || 0) - decimalPoints));
+    }
+
+    /**
+     * @internal
      * @param {Piece} piece
      * @param {Language} language
      * @param {Pick<NormalizedOptions, "decimal" | "spacer" | "maxDecimalPoints" | "digitReplacements">} options
@@ -1366,8 +1383,7 @@
       var normalizedUnitCount =
         maxDecimalPoints === void 0
           ? unitCount
-          : Math.floor(unitCount * Math.pow(10, maxDecimalPoints)) /
-            Math.pow(10, maxDecimalPoints);
+          : truncateCount(unitCount, maxDecimalPoints);
       var countStr = normalizedUnitCount.toString();
 
       if (language._hideCountIf2 && normalizedUnitCount === 2) {
