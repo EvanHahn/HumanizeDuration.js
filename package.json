@@ -35,9 +35,10 @@
     "Batmend Ganbaatar (https://github.com/theironbatka)",
     "Mikias Menjeta (https://github.com/OMikiasO)",
     "Marko Plaznik (https://github.com/ohicee)",
+    "Jake Wang (https://github.com/jakezwang)",
     "Huanyi Xie (https://github.com/xiehuanyi)"
   ],
-  "version": "3.35.0",
+  "version": "3.35.1",
   "description": "Convert millisecond durations to English and many other languages.",
   "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
   "main": "humanize-duration.js",
@@ -51,12 +52,12 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/ms": "^2.1.0",
-    "@types/node": "^26.5.1",
-    "csv-parse": "^7.0.2",
-    "eslint": "^10.10.0",
-    "globals": "^17.12.0",
+    "@types/node": "^26.6.6",
+    "csv-parse": "^7.0.3",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
     "ms": "^2.1.3",
-    "prettier": "^3.9.6",
+    "prettier": "^3.9.10",
     "typescript": "^7.0.2"
   },
   "keywords": [

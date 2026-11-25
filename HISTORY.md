@@ -2,6 +2,10 @@
 
 - fix: preserve decimal digits when truncating with `maxDecimalPoints`
 
+# 3.35.1 / 2026-11-03
+
+- fix: preserve literal dollar signs in custom decimal separators
+
 # 3.35.0 / 2026-09-10
 
 - new: Azerbaijani support (`az`)
