@@ -398,6 +398,7 @@ Humanize Duration supports the following languages:
 | Spanish              | `es`      |
 | Swahili              | `sw`      |
 | Swedish              | `sv`      |
+| Tajik                | `tg`      |
 | Tamil                | `ta`      |
 | Telugu               | `te`      |
 | Thai                 | `th`      |
