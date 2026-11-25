@@ -1,3 +1,7 @@
+# Unreleased
+
+- fix: Croatian uses the right plural form for counts such as 12, 21, and 22 (for example "21 sat" instead of "21 sati", "12 godina" instead of "12 godine", and "5 tjedana" instead of "5 tjedna") (see [#244](https://github.com/EvanHahn/HumanizeDuration.js/pull/244))
+
 # 3.36.0 / 2026-11-25
 
 - new: Tajik support (`tg`) (see [#249](https://github.com/EvanHahn/HumanizeDuration.js/pull/249))

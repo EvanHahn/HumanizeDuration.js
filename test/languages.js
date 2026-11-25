@@ -83,3 +83,33 @@ describe("localized humanization", function () {
     }
   });
 });
+
+describe("Croatian", function () {
+  // Weeks turn into months after 4 weeks with the default units, so these
+  // counts aren't covered by the definitions file.
+  it("uses the right plural form for 5 or more weeks", function () {
+    const week = 7 * 24 * 60 * 60 * 1000;
+    /** @type {Array<[number, string]>} */
+    const pairs = [
+      [5, "5 tjedana"],
+      [6, "6 tjedana"],
+      [10, "10 tjedana"],
+      [11, "11 tjedana"],
+      [12, "12 tjedana"],
+      [14, "14 tjedana"],
+      [20, "20 tjedana"],
+      [21, "21 tjedan"],
+      [22, "22 tjedna"],
+      [25, "25 tjedana"],
+      [111, "111 tjedana"],
+      [112, "112 tjedana"],
+    ];
+
+    for (const [count, expectedResult] of pairs) {
+      assert.strictEqual(
+        humanizeDuration(count * week, { language: "hr", units: ["w"] }),
+        expectedResult
+      );
+    }
+  });
+});
