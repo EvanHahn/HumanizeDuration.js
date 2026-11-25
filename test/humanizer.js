@@ -138,6 +138,18 @@ describe("humanizer", function () {
     assert.strictEqual(h(2838550, { largest: 3 }), "47 minutes, 19 seconds");
   });
 
+  it("rounds half a month up when folding smaller units into months", function () {
+    const h = humanizer({
+      largest: 1,
+      round: true,
+      units: ["mo", "w", "d", "h"],
+    });
+
+    assert.strictEqual(h(11834100000 - 1), "4 months");
+    assert.strictEqual(h(11834100000), "5 months");
+    assert.strictEqual(h(11834100000 + 1), "5 months");
+  });
+
   it('can do rounding with the "maxDecimalPoints" option', function () {
     var h = humanizer({ maxDecimalPoints: 2 });
 
@@ -158,6 +170,20 @@ describe("humanizer", function () {
     assert.strictEqual(h(7999), "7.99 seconds");
     h.maxDecimalPoints = 3;
     assert.strictEqual(h(7999), "7.999 seconds");
+  });
+
+  it('preserves decimal digits when truncating with "maxDecimalPoints"', function () {
+    const h = humanizer({ units: ["s"], maxDecimalPoints: 2 });
+
+    assert.strictEqual(h(1150), "1.15 seconds");
+    assert.strictEqual(h(2300), "2.3 seconds");
+    assert.strictEqual(h(1159), "1.15 seconds");
+    assert.strictEqual(
+      h(0.00115, { maxDecimalPoints: 8 }),
+      "0.00000115 seconds"
+    );
+    assert.strictEqual(h(1150, { maxDecimalPoints: 309 }), "1.15 seconds");
+    assert.strictEqual(h(1.15e24), "1.15e+21 seconds");
   });
 
   it('pluralizes based on the count rendered by "maxDecimalPoints"', function () {

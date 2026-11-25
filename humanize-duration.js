@@ -1333,6 +1333,23 @@
 
     /**
      * @internal
+     * @param {number} count
+     * @param {number} decimalPoints
+     * @returns {number}
+     */
+    function truncateCount(count, decimalPoints) {
+      var parts = count.toString().split("e");
+      var shifted = Number(
+        parts[0] + "e" + ((Number(parts[1]) || 0) + decimalPoints)
+      );
+      if (!isFinite(shifted)) return count;
+
+      parts = Math.floor(shifted).toString().split("e");
+      return Number(parts[0] + "e" + ((Number(parts[1]) || 0) - decimalPoints));
+    }
+
+    /**
+     * @internal
      * @param {Piece} piece
      * @param {Language} language
      * @param {Pick<NormalizedOptions, "decimal" | "spacer" | "maxDecimalPoints" | "digitReplacements">} options
@@ -1367,8 +1384,7 @@
       var normalizedUnitCount =
         maxDecimalPoints === void 0
           ? unitCount
-          : Math.floor(unitCount * Math.pow(10, maxDecimalPoints)) /
-            Math.pow(10, maxDecimalPoints);
+          : truncateCount(unitCount, maxDecimalPoints);
       var countStr = normalizedUnitCount.toString();
 
       if (language._hideCountIf2 && normalizedUnitCount === 2) {
@@ -1473,17 +1489,18 @@
 
           // "Take" the rest of the units into this one.
           if (unitsRemainingBeforeRound === 0) {
+            var smallerUnitsMs = 0;
             for (var j = i + 1; j < units.length; j++) {
               var smallerUnitName = units[j];
               var smallerUnitCount = /** @type {number} */ (
                 unitCounts[smallerUnitName]
               );
-              unitCounts[unitName] =
-                /** @type {number} */ (unitCounts[unitName]) +
-                (smallerUnitCount * unitMeasures[smallerUnitName]) /
-                  unitMeasures[unitName];
+              smallerUnitsMs +=
+                smallerUnitCount * unitMeasures[smallerUnitName];
               unitCounts[smallerUnitName] = 0;
             }
+            unitCounts[unitName] =
+              unitCount + smallerUnitsMs / unitMeasures[unitName];
             break;
           }
         }
