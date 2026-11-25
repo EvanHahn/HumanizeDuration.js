@@ -459,6 +459,7 @@ Lovingly made by [Evan Hahn](https://evanhahn.com/) with help from:
 - [Jake Wang](https://github.com/jakezwang) for fixing custom decimal separators
 - [Huanyi Xie](https://github.com/xiehuanyi) for fixing decimal truncation
 - [MelnixDev](https://github.com/MelnixDev) for fixing rounding at half-unit boundaries
+- [zzoraemon043](https://github.com/zzoraemon043) for fixing Slovenian plural forms
 
 Licensed under the permissive [Unlicense](https://unlicense.org/). Enjoy!
 
