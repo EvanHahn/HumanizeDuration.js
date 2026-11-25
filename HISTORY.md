@@ -1,6 +1,6 @@
 # Unreleased
 
-- fix: preserve decimal digits when truncating with `maxDecimalPoints`
+- fix: preserve decimal digits when truncating with `maxDecimalPoints` (see [#242](https://github.com/EvanHahn/HumanizeDuration.js/pull/242))
 
 # 3.35.1 / 2026-11-03
 
