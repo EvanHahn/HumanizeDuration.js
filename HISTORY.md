@@ -1,4 +1,4 @@
-# Unreleased
+# 3.36.0 / 2026-11-25
 
 - new: Tajik support (`tg`) (see [#249](https://github.com/EvanHahn/HumanizeDuration.js/pull/249))
 - fix: preserve decimal digits when truncating with `maxDecimalPoints` (see [#242](https://github.com/EvanHahn/HumanizeDuration.js/pull/242))
